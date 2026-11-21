@@ -1,0 +1,16 @@
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+
+# Local SDKs, map assets and game diagnostics.
+/Dependencies/
+/stream/
+*.dll
+*.pdb
+*.oiv
+*.rpf
+*.dmp
+*.rcr
+*.log
