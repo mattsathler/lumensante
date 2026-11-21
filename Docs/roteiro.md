@@ -35,7 +35,18 @@
 
 ## Teste da primeira admissão
 
-1. Inicie o plantão na recepção ou execute `LumenSantePlantao` no console do RAGE Plugin Hook. Aguarde 10 segundos pelo alerta com o nome sorteado e o Room 1.
-2. Vá até (357, -1416, 36) e pressione **E**. Abra **Sinais vitais** e confira os valores. Em **Conversa com Paciente**, faça uma pergunta e confira a resposta na legenda. Verifique também se as duas categorias de exames aparecem.
+1. Inicie o plantão na recepção ou execute `LumenSantePlantao` no console do RAGE Plugin Hook. Aguarde 10 segundos pelo aviso sonoro e pela notificação **Nova internação** acima do minimapa, com o nome sorteado e o Room 1.
+2. Vá até (357, -1416, 36) e pressione **E**. Confira o nome no aviso e no título da ficha. Abra **Sinais vitais** e observe as medições ao longo de quatro segundos. Em **Conversa com Paciente**, faça uma pergunta e confira a resposta na legenda. Verifique também se as opções estão reunidas em **Exames**.
 3. Confira o alinhamento do NPC com o colchão. Use F6 voltado da cabeceira para os pés para registrar a direção junto das coordenadas.
 4. Encerre o plantão pela recepção ou com `LumenSantePlantao` e confirme que o leito é liberado. Inicie outro turno e confira se há apenas um paciente com nome e aparência sorteados.
+
+## Salário e carteira
+
+Etapa planejada para depois do resumo de encerramento do plantão. A primeira entrega inclui o crédito por plantão elegível, a persistência por perfil e a validação da troca de aparência ou personagem pelo EUP. [Proposta e critérios de aceitação](salario-e-carteira.md)
+
+## Próximas interações do paciente
+
+- Após um óbito, valide o registro único de **Chamar os Coroners** no menu do paciente. A chegada da equipe de NPCs, a retirada do corpo e a liberação do leito pelo serviço ficam para implementação futura.
+- À beira do leito, abra **Exames**, solicite um item e confirme a mudança de **A solicitar** para **Aguardando realização**. Aguarde a confirmação de **Realizado** e confira o estado ao voltar ao menu.
+- Solicite exames diferentes no mesmo plantão e verifique que cada um termina no prazo próprio. Tente repetir um pedido e confirme que só existe um registro por exame e admissão.
+- A próxima etapa é planejar a central do hospital no computador, por onde o médico consultará os resultados.

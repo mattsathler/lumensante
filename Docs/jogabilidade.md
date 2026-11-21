@@ -23,8 +23,8 @@ Quando houver vários quartos, a equipe escolhe um leito livre. O primeiro prot�
 
 ## Caso 1 — Câncer de pulmão
 
-O paciente começa no nível 1 de gravidade na admissão. A cada dois minutos, o quadro avança um nível e atualiza o relato e os sinais vitais. O nível 10 registra o óbito. Esses níveis, o tempo e os valores vitais são regras da simulação.
+O paciente começa no nível 1 de gravidade na admissão. A cada dois minutos, o quadro avança um nível e atualiza o relato e as faixas de sinais vitais. As medições são sorteadas a cada quatro segundos dentro das faixas do nível atual. O nível 10 registra o óbito. Esses níveis, o tempo e os valores vitais são regras da simulação.
 
-À beira do leito, pressione E. A ficha abre as opções **Sinais vitais**, **Conversa com Paciente**, **Encaminhar para exame** e **Solicitar exames**. As perguntas cobrem os sintomas atuais, início, falta de ar, sangue ao tossir e perda de peso. A doença fica oculta na interface para futura investigação. As opções de exames já aparecem nos menus e permanecem indisponíveis nesta etapa.
+À beira do leito, pressione E. A ficha abre as opções **Sinais vitais**, **Conversa com Paciente** e **Exames**. As perguntas cobrem os sintomas atuais, início, falta de ar, sangue ao tossir e perda de peso. A doença fica oculta na interface para futura investigação. Em **Exames**, o médico seleciona um item **A solicitar** para enviar o pedido à equipe. O estado passa a **Aguardando realização** e, após 30 a 60 segundos simulados conforme o exame, a **Realizado**. O pedido é registrado uma vez por exame e admissão durante o plantão. O acesso aos resultados será implementado na central do hospital.
 
 Os sintomas do caso foram inspirados na descrição do [National Cancer Institute](https://www.cancer.gov/types/lung/patient/non-small-cell-lung-treatment-pdq).

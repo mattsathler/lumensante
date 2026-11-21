@@ -41,6 +41,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,8 +54,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginEntryPoint.cs" />
-    <Compile Include="LungCancerCase.cs" />
+    <Compile Include="Clinical\DiseaseStage.cs" />
+    <Compile Include="Clinical\DiseaseDefinition.cs" />
+    <Compile Include="Clinical\DiseaseCatalog.cs" />
+    <Compile Include="Clinical\PatientDialogue.cs" />
+    <Compile Include="Gameplay\PatientNames.cs" />
+    <Compile Include="Gameplay\PatientAppearance.cs" />
+    <EmbeddedResource Include="Data\*.json" />
+    <EmbeddedResource Include="Assets\*.png" />
+    <Compile Include="Clinical\LungCancerCase.cs" />
+    <Compile Include="Gameplay\HospitalShift.cs" />
+    <Compile Include="Gameplay\HospitalPath.cs" />
+    <Compile Include="Gameplay\NpcWalking.cs" />
+    <Compile Include="Gameplay\NpcRoute.cs" />
+    <Compile Include="Gameplay\AmbientPatrol.cs" />
+    <Compile Include="Gameplay\AmbientPopulation.cs" />
+    <Compile Include="Gameplay\PopulationSettings.cs" />
+    <Compile Include="Gameplay\HospitalStaffRoutes.cs" />
+    <Compile Include="Gameplay\HospitalUpperFloor.cs" />
+    <Compile Include="Gameplay\HospitalReceptionist.cs" />
+    <Compile Include="Gameplay\SeatCalibration.cs" />
+    <Compile Include="Gameplay\WaitingRoom.cs" />
+    <Compile Include="Gameplay\BedAnimations.cs" />
+    <Compile Include="Clinical\ExamOrders.cs" />
+    <Compile Include="Clinical\PatientProfile.cs" />
+    <Compile Include="Clinical\ExamFindings.cs" />
+    <Compile Include="Clinical\ExamReport.cs" />
+    <Compile Include="Interface\PatientMenu.cs" />
+    <Compile Include="Interface\HospitalComputer.cs" />
+    <Compile Include="Interface\BedManagementPanel.cs" />
+    <Compile Include="Interface\TerminalKeyboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="lumen-sante.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

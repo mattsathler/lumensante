@@ -25,3 +25,12 @@ A lógica dos casos deve operar sem chamadas ao jogo para permitir validação f
 - Se um NPC falhar ao ser criado, manter o registro na fila para nova tentativa e informar a falha. Se um NPC ativo ficar indisponível, interromper o caso e liberar a estação.
 - Encerrar a sessão e iniciar a limpeza em caso de morte do jogador, descarregamento ou falha que impeça continuar. Se o ambiente permitir, apresentar o motivo e o resumo.
 - Registrar no log carregamento, início e fim do plantão, transições inválidas e falhas de integração. Manter fichas e resumo em memória na primeira versão.
+
+## Organização do código
+
+- `PluginEntryPoint.cs` registra o plugin e o comando do console.
+- `Gameplay/HospitalShift.cs` coordena o plantão, a admissão, a evolução do paciente e a limpeza dos recursos do jogo.
+- `Interface/PatientMenu.cs` apresenta a conversa, os sinais vitais e os exames no RAGENativeUI.
+- `Clinical/DiseaseStage.cs` define as faixas e gera as medições simuladas.
+- `Clinical/LungCancerCase.cs` concentra a duração dos estágios, as faixas e os relatos do câncer de pulmão. Para adicionar uma doença, crie uma definição própria com dez estágios, peso relativo de seleção e pelo menos 20 respostas distintas por pergunta em cada estágio em que o paciente está vivo. Registre a definição em `Clinical/DiseaseCatalog.cs`. As respostas podem ser reutilizadas entre doenças.
+- `Data/nomes-masculinos.json`, `Data/nomes-femininos.json` e `Data/sobrenomes.json` são as fontes de nomes. Os arquivos entram na DLL como recursos. `Gameplay/PatientNames.cs` valida as listas e sorteia a identidade na admissão.

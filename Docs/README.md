@@ -11,6 +11,7 @@ Esta pasta reúne a proposta inicial. As regras de jogo e escolhas técnicas mar
 | [Arquitetura e integração](arquitetura.md) | Componentes, ciclo de vida e validação do ambiente |
 | [Roteiro e aceitação](roteiro.md) | Ordem de implementação, testes e decisões pendentes |
 | [Instalação do mapa](instalacao-mapa.md) | Preparação do interior customizado para os testes |
+| [Salário e carteira](salario-e-carteira.md) | Proposta de pagamento, persistência e compatibilidade com EUP |
 
 ## Compilação local
 
