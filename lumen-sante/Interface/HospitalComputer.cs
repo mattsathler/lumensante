@@ -74,6 +74,11 @@ namespace lumen_sante.Interface
         }
 
         internal bool IsOpen => seatedDoctor != null;
+        internal event Action<ExamOrders, string> TreatmentSelected
+        {
+            add { panel.TreatmentSelected += value; }
+            remove { panel.TreatmentSelected -= value; }
+        }
 
         internal bool IsSeated(Ped doctor) => IsOpen && doctor == seatedDoctor &&
             (doctor.Position - seatPosition).LengthSquared() <= 4f;

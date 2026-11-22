@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Linq;
 using Rage;
 using Rage.Native;
@@ -14,7 +13,6 @@ namespace lumen_sante.Gameplay
         private readonly HospitalPath path;
         private readonly Point[] anchors;
         private readonly Random random;
-        private readonly Stopwatch clock = Stopwatch.StartNew();
         private readonly NpcRoute walker = new NpcRoute();
         private Point currentStop;
         private Point reservedAnchor;
@@ -22,6 +20,7 @@ namespace lumen_sante.Gameplay
         private long nextAction;
         private long departureEligibleAt;
         private bool seated;
+        private bool assignedToExam;
         private Travel travel;
         private (string Dictionary, string Clip) lastAnimation;
 
@@ -43,13 +42,35 @@ namespace lumen_sante.Gameplay
         internal bool IsEntering => travel == Travel.EnteringToDoor || travel == Travel.EnteringToReception;
         internal bool IsLeaving => travel == Travel.LeavingToDoor || travel == Travel.LeavingToOutside;
         internal bool CanLeave => CountsInside && !walker.IsWalking &&
-            clock.ElapsedMilliseconds >= Math.Max(nextAction, departureEligibleAt);
+            !assignedToExam && GameClock.NowMilliseconds >= Math.Max(nextAction, departureEligibleAt);
+        internal bool CanTakeExam => Role == AmbientRole.Nurse && CountsInside && !assignedToExam && !walker.IsWalking;
+
+        internal Point AssignToExam()
+        {
+            LeaveStop(Actor.Actor);
+            assignedToExam = true;
+            return currentStop;
+        }
+
+        internal void ResumeAfterExam(Point point)
+        {
+            currentStop = point;
+            assignedToExam = false;
+            nextAction = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(2000);
+        }
 
         internal void Start(bool entering = false)
         {
             try
             {
-                Actor.CreateStanding(currentStop.Position, currentStop.Heading);
+                if (Role == AmbientRole.Patient)
+                {
+                    Actor.CreateStanding(PatientAppearance.Create(random, currentStop.Position, currentStop.Heading));
+                }
+                else
+                {
+                    Actor.CreateStanding(currentStop.Position, currentStop.Heading);
+                }
                 if (Role != AmbientRole.Patient)
                 {
                     NativeFunction.Natives.SET_PED_RANDOM_COMPONENT_VARIATION(Actor.Actor, false);
@@ -69,7 +90,7 @@ namespace lumen_sante.Gameplay
                 }
                 else
                 {
-                    nextAction = clock.ElapsedMilliseconds + random.Next(12000, 36001);
+                    nextAction = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(random.Next(12000, 36001));
                 }
             }
             catch (Exception error)
@@ -100,8 +121,13 @@ namespace lumen_sante.Gameplay
                 return;
             }
 
+            if (assignedToExam)
+            {
+                return;
+            }
+
             Ped ped = Actor.Actor;
-            long now = clock.ElapsedMilliseconds;
+            long now = GameClock.NowMilliseconds;
             if (!walker.IsWalking)
             {
                 if (now >= nextAction)
@@ -131,7 +157,7 @@ namespace lumen_sante.Gameplay
             if (travel == Travel.EnteringToDoor || travel == Travel.LeavingToDoor)
             {
                 ped.Tasks.StandStill(1000);
-                nextAction = now + 1000;
+                nextAction = now + GameClock.FromRealMilliseconds(1000);
                 return;
             }
             if (travel == Travel.LeavingToOutside)
@@ -154,7 +180,7 @@ namespace lumen_sante.Gameplay
             else
             {
                 ped.Tasks.StandStill(8000);
-                nextAction = now + random.Next(8000, 16001);
+                nextAction = now + GameClock.FromRealMilliseconds(random.Next(8000, 16001));
             }
         }
 
@@ -166,7 +192,7 @@ namespace lumen_sante.Gameplay
         }
 
         private void SetDepartureTime() =>
-            departureEligibleAt = clock.ElapsedMilliseconds + random.Next(60000, 120001);
+            departureEligibleAt = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(random.Next(60000, 120001));
 
         private void FollowPortal(Point target, Travel nextTravel)
         {
@@ -207,7 +233,7 @@ namespace lumen_sante.Gameplay
             }
             else
             {
-                nextAction = clock.ElapsedMilliseconds + random.Next(6000, 12001);
+                nextAction = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(random.Next(6000, 12001));
             }
         }
 
@@ -232,6 +258,9 @@ namespace lumen_sante.Gameplay
             var animation = animations[animationIndex];
             int duration = currentStop.SeatedAnchor.HasValue
                 ? random.Next(45000, 105001) : random.Next(25000, 65001);
+            long stay = Role == AmbientRole.Patient
+                ? GameClock.Minutes(currentStop.SeatedAnchor.HasValue ? random.Next(90, 181) : random.Next(60, 121))
+                : GameClock.FromRealMilliseconds(duration);
             try
             {
                 HospitalReceptionist.LoadAnimation(animation.Dictionary);
@@ -248,19 +277,19 @@ namespace lumen_sante.Gameplay
 
                 NativeFunction.Natives.TASK_PLAY_ANIM_ADVANCED(ped, animation.Dictionary, animation.Clip,
                     position.X, position.Y, position.Z, 0f, 0f, currentStop.Heading, 8f, 4f,
-                    animation.Loop ? duration : animation.Duration, animation.Loop ? (int)AnimationFlags.Loop : 0,
+                    animation.Loop ? -1 : animation.Duration, animation.Loop ? (int)AnimationFlags.Loop : 0,
                     0f, 0, 0);
                 if (animations.Length > 1)
                 {
                     lastAnimation = (animation.Dictionary, animation.Clip);
                 }
-                nextAction = clock.ElapsedMilliseconds + duration;
+                nextAction = GameClock.NowMilliseconds + stay;
             }
             catch (InvalidOperationException error)
             {
                 Game.LogTrivial("[Lumen Santé] Falha na animação de ambiente em " + currentStop.Name + ": " + error.Message);
                 LeaveStop(ped);
-                nextAction = clock.ElapsedMilliseconds + 6000;
+                nextAction = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(6000);
             }
         }
 

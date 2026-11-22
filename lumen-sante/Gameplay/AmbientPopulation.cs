@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Rage;
 using Point = lumen_sante.Gameplay.HospitalPath.Point;
@@ -10,11 +9,6 @@ namespace lumen_sante.Gameplay
     internal sealed class AmbientPopulation
     {
         private const int PreferredInitialPatients = 12;
-        private static readonly string[] PatientModels =
-        {
-            "a_m_y_business_02", "a_f_y_hipster_02", "a_m_m_bevhills_02",
-            "a_f_m_bevhills_01", "a_m_y_hipster_01", "a_f_y_business_02"
-        };
 
         private readonly HospitalPath path;
         private readonly PopulationSettings settings;
@@ -24,11 +18,10 @@ namespace lumen_sante.Gameplay
         private readonly Point[] patientStarts;
         private readonly int maxDoctors;
         private readonly Random random = new Random();
-        private readonly Stopwatch clock = Stopwatch.StartNew();
         private readonly List<AmbientPatrol> patrols = new List<AmbientPatrol>();
         private long nextArrival;
         private long nextDeparture;
-        private int lastPatientModel = -1;
+
 
         internal AmbientPopulation(HospitalPath path, PopulationSettings settings, Point[] staffAnchors,
             Point[] patientAnchors, Point[] staffStarts, Point[] patientStarts)
@@ -43,6 +36,11 @@ namespace lumen_sante.Gameplay
         }
 
         internal IEnumerable<HospitalReceptionist> Actors => patrols.Select(patrol => patrol.Actor);
+
+        internal AmbientPatrol FindNurse(Point destination) => patrols
+            .Where(patrol => patrol.CanTakeExam)
+            .OrderBy(patrol => (patrol.Actor.Actor.Position - destination.Position).LengthSquared())
+            .FirstOrDefault();
 
         internal void Populate()
         {
@@ -76,8 +74,8 @@ namespace lumen_sante.Gameplay
                 }
             }
 
-            nextArrival = clock.ElapsedMilliseconds + random.Next(6000, 10001);
-            nextDeparture = clock.ElapsedMilliseconds + random.Next(18000, 32001);
+            ScheduleArrival();
+            nextDeparture = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(45, 91));
         }
 
         internal void Update(bool allowTurnover)
@@ -113,7 +111,7 @@ namespace lumen_sante.Gameplay
 
         private void StartArrival()
         {
-            long now = clock.ElapsedMilliseconds;
+            long now = GameClock.NowMilliseconds;
             if (now < nextArrival || patrols.Count(patrol => patrol.IsEntering) >= 2)
             {
                 return;
@@ -131,8 +129,11 @@ namespace lumen_sante.Gameplay
             AmbientRole role = patientSlot && (!workerSlot || random.Next(2) == 0)
                 ? AmbientRole.Patient : PickWorkerRole(workers);
             Spawn(role, HospitalStaffRoutes.PatientSpawn, entering: true);
-            nextArrival = clock.ElapsedMilliseconds + random.Next(6000, 10001);
+            ScheduleArrival();
         }
+
+        internal void ScheduleArrival() =>
+            nextArrival = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(15, 31));
 
         private AmbientRole PickWorkerRole(int workers)
         {
@@ -144,7 +145,7 @@ namespace lumen_sante.Gameplay
 
         private void StartDeparture()
         {
-            if (clock.ElapsedMilliseconds < nextDeparture || patrols.Count(patrol => patrol.IsLeaving) >= 2 ||
+            if (GameClock.NowMilliseconds < nextDeparture || patrols.Count(patrol => patrol.IsLeaving) >= 2 ||
                 patrols.Count(patrol => patrol.CountsInside) <= PopulationSettings.MinimumInsideForDeparture)
             {
                 return;
@@ -153,27 +154,13 @@ namespace lumen_sante.Gameplay
             AmbientPatrol[] available = patrols.Where(patrol => patrol.CanLeave).ToArray();
             if (available.Length > 0 && available[random.Next(available.Length)].TryLeave())
             {
-                nextDeparture = clock.ElapsedMilliseconds + random.Next(18000, 32001);
+                nextDeparture = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(45, 91));
             }
         }
 
         private bool Spawn(AmbientRole role, Point start, bool entering = false)
         {
-            string model;
-            if (role == AmbientRole.Patient)
-            {
-                int index = random.Next(PatientModels.Length);
-                if (index == lastPatientModel)
-                {
-                    index = (index + random.Next(1, PatientModels.Length)) % PatientModels.Length;
-                }
-                lastPatientModel = index;
-                model = PatientModels[index];
-            }
-            else
-            {
-                model = role == AmbientRole.Doctor ? "s_m_m_doctor_01" : "s_f_y_scrubs_01";
-            }
+            string model = role == AmbientRole.Doctor ? "s_m_m_doctor_01" : "s_f_y_scrubs_01";
 
             var patrol = new AmbientPatrol(role, model, path, start,
                 role == AmbientRole.Patient ? patientAnchors : staffAnchors, random);

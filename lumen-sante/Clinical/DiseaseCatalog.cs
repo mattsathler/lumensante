@@ -6,6 +6,7 @@ namespace lumen_sante.Clinical
     internal static class DiseaseCatalog
     {
         private static readonly DiseaseDefinition[] Cases = { LungCancerCase.Definition };
+        internal static System.Collections.Generic.IReadOnlyList<DiseaseDefinition> Treatments { get; } = Array.AsReadOnly(Cases);
         private static readonly int TotalWeight = Cases.Sum(disease => disease.SelectionWeight);
 
         internal static DiseaseDefinition Pick(Random random)

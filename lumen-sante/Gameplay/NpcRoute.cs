@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Rage;
 using Point = lumen_sante.Gameplay.HospitalPath.Point;
 
@@ -8,7 +7,6 @@ namespace lumen_sante.Gameplay
 {
     internal sealed class NpcRoute
     {
-        private readonly Stopwatch clock = Stopwatch.StartNew();
         private Point origin;
         private Point[] route;
         private int nextPoint;
@@ -17,10 +15,12 @@ namespace lumen_sante.Gameplay
         private bool teleportOnTimeout;
 
         internal bool IsWalking => route != null;
+        internal Point LastGraphPoint { get; private set; }
 
         internal void Start(Ped ped, Point from, IReadOnlyList<Point> waypoints, bool teleportOnTimeout = true)
         {
             origin = from;
+            LastGraphPoint = from;
             this.teleportOnTimeout = teleportOnTimeout;
             route = HospitalPath.RoundCorners(origin, waypoints);
             nextPoint = 0;
@@ -32,7 +32,7 @@ namespace lumen_sante.Gameplay
             Point target = route[nextPoint];
             if ((ped.Position - target.Position).LengthSquared() > reachDistanceSquared)
             {
-                if (clock.ElapsedMilliseconds < deadline)
+                if (GameClock.NowMilliseconds < deadline)
                 {
                     return false;
                 }
@@ -49,6 +49,11 @@ namespace lumen_sante.Gameplay
                     Game.LogTrivial("[Lumen Santé] Nova tentativa de caminhar até " + target.Name + ".");
                     return false;
                 }
+            }
+
+            if (!target.IsCurve)
+            {
+                LastGraphPoint = target;
             }
 
             if (++nextPoint == route.Length)
@@ -70,7 +75,7 @@ namespace lumen_sante.Gameplay
             reachDistanceSquared = reachDistance * reachDistance;
             int timeout = NpcWalking.TimeoutFor(ped.Position, target.Position);
             NpcWalking.GoStraight(ped, target.Position, target.Heading, timeout);
-            deadline = clock.ElapsedMilliseconds + timeout;
+            deadline = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(timeout);
         }
 
         private float ReachDistanceFor(Point target)

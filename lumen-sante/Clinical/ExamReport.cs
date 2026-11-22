@@ -8,21 +8,21 @@ namespace lumen_sante.Clinical
             Protocol = admission.AdmissionId.ToString("N").Substring(0, 8).ToUpperInvariant() + " / " +
                 exam.Id.ToUpperInvariant();
 
-            switch (exam.Id)
+            switch (exam.Kind)
             {
-                case "mri":
-                    Method = "Ressonância magnética torácica";
+                case ExamKind.Mri:
+                    Method = exam.Name;
                     Unit = "Diagnóstico por Imagem";
                     Physician = "Dra. Maya Chen";
                     Sample = "Imagens digitais";
                     break;
-                case "x-ray":
-                    Method = "Radiografia digital de tórax";
+                case ExamKind.XRay:
+                    Method = exam.Name;
                     Unit = "Diagnóstico por Imagem";
                     Physician = "Dra. Maya Chen";
                     Sample = "Imagens digitais";
                     break;
-                case "cardiac":
+                case ExamKind.Bedside:
                     Method = "Eletrocardiograma de 12 derivações";
                     Unit = "Unidade de Cardiologia";
                     Physician = "Dr. Adrian Brooks";
@@ -34,8 +34,17 @@ namespace lumen_sante.Clinical
                     Unit = "Laboratório Central";
                     Physician = "Dra. Elena Navarro";
                     Sample = exam.Id == "hematology" ? "Sangue total" : "Soro";
+                    switch (exam.Id)
+                    {
+                        case "blood-gas": Method = "Análise de gases sanguíneos"; Sample = "Sangue arterial"; break;
+                        case "coagulation": Method = "Coagulometria"; Sample = "Plasma citratado"; break;
+                        case "crp": Method = "Imunoturbidimetria"; break;
+                        case "urinalysis": Method = "Análise físico-química e microscópica"; Sample = "Urina"; break;
+                    }
                     break;
             }
+            Method = exam.Method ?? Method;
+            Sample = exam.Sample ?? Sample;
         }
 
         internal string Findings { get; }

@@ -35,8 +35,10 @@ namespace lumen_sante.Gameplay
             new Vector3(339.947f, -1413.553f, 32.505f), 223.3f, passingDistance: 0.45f);
         private static readonly Point Junction = new Point("Bifurcação", new Vector3(355.882f, -1407.206f, 32.505f), 49.7f);
         private static readonly Point TriageDoor = new Point("Porta da Triagem", new Vector3(360.367f, -1411.297f, 32.505f), 188.0f, isDoor: true);
-        private static readonly Point DiagnosticOneHallTurn = new Point("Curva de saída do Diagnóstico I",
+        private static readonly Point DiagnosticOneHallTurn = new Point("Curva de saída do Diagnóstico II",
             new Vector3(362.082f, -1412.659f, 32.505f), 137.4f, passingDistance: 0.55f);
+        private static readonly Point DiagnosticLowerHallTurn = new Point("Curva inferior do corredor de Diagnóstico",
+            new Vector3(358.548f, -1412.670f, 32.505f), 315.2f, passingDistance: 0.55f);
         private static readonly Point TriageCenter = new Point("Centro da Triagem",
             new Vector3(356.631f, -1416.374f, 32.505f), 235.6f);
         private static readonly Point TriageDesk = new Point("Posto da Triagem",
@@ -72,9 +74,9 @@ namespace lumen_sante.Gameplay
             new Vector3(364.742f, -1408.753f, 32.505f), 50.8f, animationOptions: LeanAndStandingIdles);
         private static readonly Point WardDCorridorDoor = new Point("Porta Corredor Ward D",
             new Vector3(370.618f, -1417.772f, 32.505f), 118.9f, isDoor: true);
-        private static readonly Point DiagnosticOne = new Point("Corredor Diagnóstico I",
+        private static readonly Point DiagnosticOne = new Point("Corredor Diagnóstico II",
             HospitalShift.DiagnosticOneCorridor.Position, HospitalShift.DiagnosticOneCorridor.Heading, passingDistance: 0.55f);
-        private static readonly Point DiagnosticTwo = new Point("Corredor Diagnóstico II",
+        private static readonly Point DiagnosticTwo = new Point("Corredor Diagnóstico III",
             HospitalShift.DiagnosticTwoCorridor.Position, HospitalShift.DiagnosticTwoCorridor.Heading);
         private static readonly Point[] DiagnosticCorridors = { DiagnosticOne, DiagnosticTwo };
         private static readonly Point General = new Point("Acesso aos diagnósticos",
@@ -149,6 +151,7 @@ namespace lumen_sante.Gameplay
         private readonly HospitalPath path = new HospitalPath();
         private readonly (Point[] Patient, Point[] General) upstairsAnchors;
         internal HospitalPath Path => path;
+        internal HospitalExamRoutes ExamRoutes { get; }
 
         internal HospitalStaffRoutes()
         {
@@ -161,7 +164,8 @@ namespace lumen_sante.Gameplay
             ConnectBothWays(TriageCenter, TriageLean);
             ConnectBothWays(TriageDoor, Junction);
             ConnectBothWays(DiagnosticOne, DiagnosticOneHallTurn);
-            ConnectBothWays(DiagnosticOneHallTurn, Junction);
+            ConnectBothWays(DiagnosticOneHallTurn, DiagnosticLowerHallTurn);
+            ConnectBothWays(DiagnosticLowerHallTurn, TriageCenter);
             ConnectBothWays(Junction, Reception);
             ConnectBothWays(Reception, GroundFloorElevator);
             ConnectBothWays(GroundFloorElevator, StairwayOne);
@@ -215,6 +219,20 @@ namespace lumen_sante.Gameplay
             ConnectBothWays(DoctorACenter, PatientSeatEight);
             ConnectBothWays(DoctorAReception, PatientSeatNine);
             ConnectBothWays(DoctorAReception, PatientSeatTen);
+            ExamRoutes = new HospitalExamRoutes(path, WardCCorridorDoor, WardBCorridorDoor);
+        }
+
+        internal Point AddConsultationChairAccess(int index, Vector3 position, float heading,
+            (Vector3 Position, float Heading) inside)
+        {
+            var door = new Point("Acesso da cadeira " + index, inside.Position, inside.Heading);
+            double radians = heading * Math.PI / 180;
+            var approach = new Vector3(position.X - (float)Math.Sin(radians) * 0.65f,
+                position.Y + (float)Math.Cos(radians) * 0.65f, inside.Position.Z);
+            var chair = new Point("Cadeira da consulta " + index, approach, heading);
+            ConnectBothWays(DiagnosticCorridors[index], door);
+            ConnectBothWays(door, chair);
+            return chair;
         }
 
         internal Point AddWaitingBench(int index, Vector3 position, float heading)

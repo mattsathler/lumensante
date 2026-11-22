@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 using Rage;
 using RAGENativeUI;
 using RAGENativeUI.Elements;
@@ -14,14 +15,19 @@ namespace lumen_sante.Interface
         private readonly UIMenu inspectionMenu;
         private readonly UIMenu vitalsMenu;
         private readonly UIMenu conversation;
+        private readonly UIMenu inpatientConversation;
+        private readonly UIMenu inpatientInspection;
+        private readonly UIMenu inpatientVitals;
         private readonly Func<bool> canTalk;
         private readonly UIMenu examsMenu;
+        private readonly UIMenu[] examGroups;
         private UIMenuItem[] examItems = Array.Empty<UIMenuItem>();
         private readonly UIMenu[] views;
         private readonly UIMenuItem[][] inspectionRows;
         private readonly UIMenuItem[][] vitalsRows;
         private string patientName;
         private int severityIndex;
+
 
         internal PatientMenu(MenuPool pool, string roomName, string[] inpatientRooms, Func<bool> canTalk)
         {
@@ -34,10 +40,20 @@ namespace lumen_sante.Interface
             pool.Add(inpatient);
             inspectionMenu = pool.AddSubMenu(examination, "Avaliação geral");
             vitalsMenu = pool.AddSubMenu(examination, "Sinais vitais");
-            var inpatientInspection = pool.AddSubMenu(inpatient, "Avaliação geral");
-            var inpatientVitals = pool.AddSubMenu(inpatient, "Sinais vitais");
+            inpatientInspection = pool.AddSubMenu(inpatient, "Avaliação geral");
+            inpatientVitals = pool.AddSubMenu(inpatient, "Sinais vitais");
             conversation = pool.AddSubMenu(root, "Conversa com Paciente");
+            inpatientConversation = pool.AddSubMenu(inpatient, "Conversa com Paciente");
             examsMenu = pool.AddSubMenu(inpatient, "Exames");
+            examGroups = new[]
+            {
+                pool.AddSubMenu(examsMenu, "Ressonância magnética (MRI)"),
+                pool.AddSubMenu(examsMenu, "Radiografia (RX)"),
+                pool.AddSubMenu(examsMenu, "Laboratório"),
+                pool.AddSubMenu(examsMenu, "À beira do leito")
+            };
+
+
             var admissionMenu = pool.AddSubMenu(examination, "Internação");
             var lieDown = new UIMenuItem("Pedir para se deitar");
             var returnToChair = new UIMenuItem("Retornar paciente à cadeira");
@@ -55,7 +71,8 @@ namespace lumen_sante.Interface
                 room.Activated += (sender, item) => AdmissionRequested?.Invoke(roomIndex);
             }
             views = new[] { root, examination, inpatient, inspectionMenu, vitalsMenu, inpatientInspection,
-                inpatientVitals, conversation, examsMenu, admissionMenu, commonBedMenu };
+                inpatientVitals, conversation, inpatientConversation, examsMenu, admissionMenu, commonBedMenu }
+                .Concat(examGroups).ToArray();
 
             var inspectionLabels = new[] { "Estado geral", "Respiração", "Pele e lábios" };
             var vitalsLabels = new[] { "Frequência cardíaca", "Pressão arterial", "Frequência respiratória",
@@ -76,13 +93,15 @@ namespace lumen_sante.Interface
         }
 
         internal event Action<ExamOrder> ExamRequested;
+
         internal event Action LieDownRequested;
         internal event Action ChairRequested;
         internal event Action<int> AdmissionRequested;
 
         internal bool IsOpen => Array.Exists(views, view => view.Visible);
-        internal bool IsInspecting => inspectionMenu.Visible;
-        internal bool IsCheckingVitals => vitalsMenu.Visible;
+        internal bool IsInspecting => inspectionMenu.Visible || inpatientInspection.Visible;
+        internal bool IsCheckingVitals => vitalsMenu.Visible || inpatientVitals.Visible;
+        internal bool IsChoosingExams => examsMenu.Visible || Array.Exists(examGroups, group => group.Visible);
 
         internal void Open()
         {
@@ -115,6 +134,12 @@ namespace lumen_sante.Interface
                 case ExamStatus.Pending:
                     item.RightLabel = "Aguardando realização";
                     break;
+                case ExamStatus.InProgress:
+                    item.RightLabel = "Em andamento";
+                    break;
+                case ExamStatus.Processing:
+                    item.RightLabel = "Processando";
+                    break;
                 case ExamStatus.Completed:
                     item.RightLabel = "Realizado";
                     break;
@@ -127,35 +152,37 @@ namespace lumen_sante.Interface
         internal void SetPatient(string name, DiseaseDefinition disease, Random random, ExamOrders orders)
         {
             patientName = name;
-            examsMenu.Clear();
+            foreach (UIMenu group in examGroups) group.Clear();
             examItems = new UIMenuItem[orders.Items.Length];
-            for (int i = 0; i < orders.Items.Length; i++)
+            foreach (int i in Enumerable.Range(0, orders.Items.Length).OrderBy(index => orders.Items[index].Name))
             {
                 ExamOrder order = orders.Items[i];
                 var item = new UIMenuItem(order.Name);
                 examItems[i] = item;
-                examsMenu.AddItem(item);
+                examGroups[(int)order.Kind].AddItem(item);
                 UpdateExamStatus(i, order);
                 item.Activated += (sender, selectedItem) => ExamRequested?.Invoke(order);
             }
-            conversation.Clear();
-            for (int i = 0; i < disease.Prompts.Count; i++)
+            foreach (UIMenu conversationMenu in new[] { conversation, inpatientConversation })
             {
-                int questionIndex = i;
-                string prompt = disease.Prompts[i];
-                var item = new UIMenuItem(prompt);
-                conversation.AddItem(item);
-                item.Activated += (sender, selectedItem) =>
+                conversationMenu.Clear();
+                for (int i = 0; i < disease.Prompts.Count; i++)
                 {
-                    if (canTalk())
+                    int questionIndex = i;
+                    string prompt = disease.Prompts[i];
+                    var item = new UIMenuItem(prompt);
+                    conversationMenu.AddItem(item);
+                    item.Activated += (sender, selectedItem) =>
                     {
-                        string answer = disease.PickAnswer(questionIndex, severityIndex, random);
-                        Game.DisplaySubtitle(patientName + ": " + answer, 7000);
-                        Game.LogTrivial("[Lumen Santé] " + patientName + " respondeu: " + prompt);
-                    }
-                };
+                        if (canTalk())
+                        {
+                            string answer = disease.PickAnswer(questionIndex, severityIndex, random);
+                            Game.DisplaySubtitle(patientName + ": " + answer, 7000);
+                            Game.LogTrivial("[Lumen Santé] " + patientName + " respondeu: " + prompt);
+                        }
+                    };
+                }
             }
-
             foreach (UIMenu view in views)
             {
                 view.TitleText = name;

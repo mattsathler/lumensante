@@ -49,6 +49,8 @@ namespace lumen_sante.Gameplay
         internal void CreateStanding(Vector3 position, float heading) =>
             Track(new Ped(new Model(modelName), position, heading));
 
+        internal void CreateStanding(Ped ped) => Track(ped);
+
         private void Track(Ped ped)
         {
             receptionist = ped;

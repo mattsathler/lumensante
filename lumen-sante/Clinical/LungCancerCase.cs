@@ -52,7 +52,9 @@
         };
 
         internal static readonly DiseaseDefinition Definition = new DiseaseDefinition(
-            "lung-cancer", 5, 120000, Stages,
+            "lung-cancer", 5, 2 * 60 * 60 * 1000, 4 * 60 * 60 * 1000, Stages,
+            worseningRisk: 0.55, treatmentSuccessRate: 0.40,
+            name: "Câncer de Pulmão", treatmentName: "Terapia oncológica",
             ("Como está se sentindo?", stage => PatientDialogue.Vary(SymptomsByStage[stage])),
             ("Os sintomas começaram há quanto tempo?", stage => PatientDialogue.Vary(Onset)),
             ("Sente falta de ar?", stage => PatientDialogue.Vary(stage < 2

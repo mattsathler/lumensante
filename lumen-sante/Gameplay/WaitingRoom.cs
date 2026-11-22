@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Rage;
 using Point = lumen_sante.Gameplay.HospitalPath.Point;
@@ -12,7 +11,6 @@ namespace lumen_sante.Gameplay
         private const int MinimumOccupants = 8;
         private const int MaximumOccupants = 12;
         private readonly Random random = new Random();
-        private readonly Stopwatch clock = Stopwatch.StartNew();
         private readonly HospitalPath path;
         private readonly NpcRoute walker = new NpcRoute();
         private readonly Point[] seatApproaches;
@@ -55,11 +53,6 @@ namespace lumen_sante.Gameplay
             (new Vector3(350.440f, -1391.847f, 31.947f), 232.7f)
         };
 
-        private static readonly string[] Models =
-        {
-            "a_m_y_business_02", "a_f_y_hipster_02", "a_m_m_bevhills_02",
-            "a_f_m_bevhills_01", "a_m_y_hipster_01"
-        };
 
         private readonly Dictionary<int, HospitalReceptionist> occupants = new Dictionary<int, HospitalReceptionist>();
         private readonly List<int> queue = new List<int>();
@@ -80,19 +73,19 @@ namespace lumen_sante.Gameplay
             return freeSeats.Length == 0 ? -1 : freeSeats[selection.Next(freeSeats.Length)];
         }
 
-        internal bool TryCallPatient(out Ped patient, out (Vector3 Position, float Heading) seat)
+        internal bool TryCallPatient(out Ped patient, out Point approach)
         {
             int queueIndex = queue.FindIndex(index => occupants[index].IsAlive);
             if (queueIndex < 0)
             {
                 patient = null;
-                seat = default((Vector3, float));
+                approach = null;
                 return false;
             }
 
             int seatIndex = queue[queueIndex];
             patient = occupants[seatIndex].Release();
-            seat = Seats[seatIndex];
+            approach = seatApproaches[seatIndex];
             queue.RemoveAt(queueIndex);
             occupants.Remove(seatIndex);
             return true;
@@ -104,7 +97,7 @@ namespace lumen_sante.Gameplay
             int count = random.Next(3, 5);
             for (int index = 0; index < count; index++)
             {
-                OccupySeat(PickFreeSeat(random), Models[index % Models.Length]);
+                OccupySeat(PickFreeSeat(random));
             }
 
             ScheduleArrival();
@@ -116,11 +109,11 @@ namespace lumen_sante.Gameplay
             {
                 if (arrivingPatient == null)
                 {
-                    if (canStartArrival && clock.ElapsedMilliseconds >= nextArrival &&
+                    if (canStartArrival && GameClock.NowMilliseconds >= nextArrival &&
                         occupants.Values.Count(actor => actor.IsAlive) < populationTarget)
                     {
                         Point spawn = HospitalStaffRoutes.PatientSpawn;
-                        arrivingPatient = new Ped(new Model(Models[random.Next(Models.Length)]), spawn.Position, spawn.Heading);
+                        arrivingPatient = PatientAppearance.Create(random, spawn.Position, spawn.Heading);
                         if (!arrivingPatient.Exists())
                         {
                             throw new InvalidOperationException("NPC indisponível.");
@@ -148,7 +141,7 @@ namespace lumen_sante.Gameplay
                     return;
                 }
 
-                if (clock.ElapsedMilliseconds < resumeArrival)
+                if (GameClock.NowMilliseconds < resumeArrival)
                 {
                     return;
                 }
@@ -167,7 +160,7 @@ namespace lumen_sante.Gameplay
                     }
                     else
                     {
-                        resumeArrival = clock.ElapsedMilliseconds + 1000;
+                        resumeArrival = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(1000);
                     }
                 }
             }
@@ -186,7 +179,7 @@ namespace lumen_sante.Gameplay
                     arrivingPatient.Tasks.Clear();
                     arrivingPatient.Heading = HospitalStaffRoutes.HospitalDoor.Heading;
                     phase = ArrivalPhase.AtDoor;
-                    resumeArrival = clock.ElapsedMilliseconds + 1000;
+                    resumeArrival = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(1000);
                     break;
                 case ArrivalPhase.ToIdle:
                     WaitAtReception();
@@ -215,17 +208,17 @@ namespace lumen_sante.Gameplay
             }
 
             phase = ArrivalPhase.AtIdle;
-            resumeArrival = clock.ElapsedMilliseconds + random.Next(4000, 7501);
+            resumeArrival = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(random.Next(4000, 7501));
         }
 
         private void SeatArrivingPatient()
         {
-            OccupySeat(arrivalSeatIndex, null, arrivingPatient);
+            OccupySeat(arrivalSeatIndex, arrivingPatient);
             arrivingPatient = null;
             ScheduleArrival();
         }
 
-        private void OccupySeat(int seatIndex, string model, Ped pedestrian = null)
+        private void OccupySeat(int seatIndex, Ped pedestrian = null)
         {
             if (occupants.TryGetValue(seatIndex, out HospitalReceptionist previousOccupant))
             {
@@ -235,19 +228,13 @@ namespace lumen_sante.Gameplay
             }
 
             var pose = SeatedPoses[random.Next(SeatedPoses.Length)];
-            var occupant = new HospitalReceptionist(pose.Dictionary, pose.Clip, model);
+            var occupant = new HospitalReceptionist(pose.Dictionary, pose.Clip);
             var seat = Seats[seatIndex];
             try
             {
-                if (pedestrian == null)
-                {
-                    occupant.CreateAt(seat.Position, seat.Heading);
-                }
-                else
-                {
-                    HospitalReceptionist.LoadAnimation(pose.Dictionary);
-                    occupant.Seat(pedestrian, seat.Position, seat.Heading);
-                }
+                HospitalReceptionist.LoadAnimation(pose.Dictionary);
+                pedestrian = pedestrian ?? PatientAppearance.Create(random, seat.Position, seat.Heading);
+                occupant.Seat(pedestrian, seat.Position, seat.Heading);
                 occupants[seatIndex] = occupant;
                 queue.Add(seatIndex);
             }
@@ -275,9 +262,9 @@ namespace lumen_sante.Gameplay
             walker.Start(arrivingPatient, from, route);
         }
 
-        private void ScheduleArrival()
+        internal void ScheduleArrival()
         {
-            nextArrival = clock.ElapsedMilliseconds + random.Next(35000, 60001);
+            nextArrival = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(20, 41));
         }
 
         private void DiscardArrival()
