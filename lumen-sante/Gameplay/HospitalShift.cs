@@ -13,7 +13,7 @@ using Point = lumen_sante.Gameplay.HospitalPath.Point;
 
 namespace lumen_sante.Gameplay
 {
-    internal static class HospitalShift
+    internal static partial class HospitalShift
     {
         private static readonly Vector3 ShiftPoint = new Vector3(354.0f, -1397.0f, 32.0f);
         internal static readonly (Vector3 Position, float Heading) ConsultationRouteEntrance =
@@ -120,8 +120,15 @@ namespace lumen_sante.Gameplay
             internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature) Vitals;
             internal bool Deceased;
             internal bool CoronersCalled;
+            internal long CoronerPickupAt;
             internal bool SeverityClockRunning;
             internal bool HasConsulted;
+            internal bool WorkerConsultation;
+            internal bool ConsultationRequestedByPlayer;
+            internal bool TransferRequestedByPlayer;
+            internal bool AwaitingBed;
+            internal long WorkerDueAt;
+            internal long LastWorkerVisit;
             internal long NextSeverityAt;
         }
 
@@ -137,6 +144,8 @@ namespace lumen_sante.Gameplay
             var consultationAccess = DiagnosticRooms.Select((room, index) =>
                 routes.AddConsultationAccess(index, room.PatientSeat, room.PatientHeading,
                     room.Route[room.Route.Length - 1])).ToArray();
+            Point[] doctorAccess = DiagnosticRooms.Select((room, index) => routes.AddDoctorWorkAccess(
+                index, room.DoctorInteraction, room.DoctorHeading, consultationAccess[index].Access)).ToArray();
             var menuPool = new MenuPool();
             var examClipboard = new ExamClipboard();
             var menu = new UIMenu("Lumen Santé", "Central Los Santos Medical Center");
@@ -169,8 +178,8 @@ namespace lumen_sante.Gameplay
             PatientCase current = emptyCase;
             PatientCase shownCase = null;
             Ped shiftPlayer = null;
-            long shiftStartedAt = 0;
-            long? clinicalPausedAt = null;
+            WorkerCoordinator workers = null;
+            long hospitalStartedAt = GameClock.NowMilliseconds;
             int doctorRoomIndex = 0;
             Ped examiningDoctor = null;
             string activeExamAnimation = null;
@@ -283,8 +292,10 @@ namespace lumen_sante.Gameplay
                 }
             }
 
-            void RefreshPatientList() => hospitalComputer.SetPatients(cases
+            void RefreshPatientList() => hospitalComputer.SetPatients(cases.Concat(dischargedCases)
                 .Where(admission => admission?.Orders != null)
+                .GroupBy(admission => admission.Orders.AdmissionId)
+                .Select(group => group.First())
                 .Select(admission => new BedManagementPanel.PatientEntry(admission.Orders, admission.Ped, admission.Deceased))
                 .ToArray());
 
@@ -303,7 +314,9 @@ namespace lumen_sante.Gameplay
                     };
                     admission.Vitals = admission.Disease.Stages[0].SampleVitals(random);
                     admission.Orders = new ExamOrders(admission.Name, "Recepção", admission.Disease.Id, new PatientProfile(random));
+                    admission.LastWorkerVisit = GameClock.NowMilliseconds;
                 }
+                admission.WorkerDueAt = GameClock.NowMilliseconds;
                 admission.Location = PatientLocation.WaitingReception;
                 admission.Orders.Readmit("Recepção");
                 receptionCases[patient] = admission;
@@ -316,6 +329,7 @@ namespace lumen_sante.Gameplay
                 bool changed = false;
                 foreach (Ped patient in receptionCases.Keys.Where(patient => !waiting.Contains(patient)).ToArray())
                 {
+                    if (receptionCases[patient].AwaitingBed) continue;
                     receptionCases.Remove(patient);
                     changed = true;
                 }
@@ -331,11 +345,13 @@ namespace lumen_sante.Gameplay
             void BeginConsultation()
             {
                 ReturnPatientToChair();
+                bool notifyPlayer = current.ConsultationRequestedByPlayer;
+                current.ConsultationRequestedByPlayer = false;
                 if (current.HasConsulted)
                 {
                     if (hospitalComputer.IsOpen && doctorRoomIndex == current.DiagnosticRoomIndex) BindPatient(current);
                     RefreshPatientList();
-                    Game.DisplayNotification(current.Name + " retornou para reavaliação.");
+                    if (notifyPlayer) Game.DisplayNotification(current.Name + " retornou para reavaliação.");
                     return;
                 }
                 current.HasConsulted = true;
@@ -349,7 +365,7 @@ namespace lumen_sante.Gameplay
                 {
                     BindPatient(current);
                 }
-                Game.DisplayNotification(current.Name + " está na " + DiagnosticRooms[current.DiagnosticRoomIndex].Name + ".");
+                if (notifyPlayer) Game.DisplayNotification(current.Name + " está na " + DiagnosticRooms[current.DiagnosticRoomIndex].Name + ".");
                 Game.LogTrivial("[Lumen Santé] Paciente recebido: " + current.Name + ", " + DiagnosticRooms[current.DiagnosticRoomIndex].Name + ".");
             }
 
@@ -375,48 +391,52 @@ namespace lumen_sante.Gameplay
                 }
             };
 
-            bool CallPatientToRoom(int roomIndex, Ped requestedPatient = null)
+            bool CallPatientToRoom(int roomIndex, Ped requestedPatient = null, bool autonomous = false)
             {
                 AmbientPatrol nurse = population.FindNurse(HospitalStaffRoutes.Reception);
                 if (nurse == null)
                 {
-                    Game.DisplayNotification("Aguarde um enfermeiro disponível para buscar o paciente.");
+                    if (!autonomous) Game.DisplayNotification("Aguarde um enfermeiro disponível para buscar o paciente.");
                     return false;
                 }
-                if (!CanCallPatient() || consultations[roomIndex] != null ||
+                if ((!autonomous && !CanCallPatient()) || consultations[roomIndex] != null ||
                     !waitingRoom.TryCallPatient(out Ped called, out Point approach, requestedPatient))
                 {
                     return false;
                 }
 
-                current = receptionCases.TryGetValue(called, out PatientCase waitingCase)
+                PatientCase admission = receptionCases.TryGetValue(called, out PatientCase waitingCase)
                     ? waitingCase : RegisterReceptionPatient(called);
                 receptionCases.Remove(called);
-                dischargedCases.Remove(current);
-                current.AwaitingReturn = false;
-                current.DiagnosticRoomIndex = roomIndex;
-                current.Orders.Readmit(DiagnosticRooms[roomIndex].Name);
-                consultations[roomIndex] = current;
-                current.Pickup = approach;
-                current.Location = PatientLocation.WalkingToConsultation;
+                dischargedCases.Remove(admission);
+                admission.AwaitingReturn = false;
+                if (!autonomous) workers?.PlayerTakesPatient(admission);
+                admission.WorkerConsultation = autonomous;
+                admission.ConsultationRequestedByPlayer = !autonomous;
+                admission.AwaitingBed = false;
+                admission.DiagnosticRoomIndex = roomIndex;
+                admission.Orders.Readmit(DiagnosticRooms[roomIndex].Name);
+                consultations[roomIndex] = admission;
+                admission.Pickup = approach;
+                admission.Location = PatientLocation.WalkingToConsultation;
                 RefreshPatientList();
                 try
                 {
-                    StartPatientEscort(nurse);
+                    StartPatientEscort(admission, nurse);
                 }
                 catch (InvalidOperationException error)
                 {
                     Game.LogTrivial("[Lumen Santé] Busca do paciente aguardando nova tentativa: " + error.Message);
                 }
-                Game.DisplayNotification("Um enfermeiro buscará " + current.Name + " na recepção.");
+                if (!autonomous) Game.DisplayNotification("Um enfermeiro buscará " + admission.Name + " na recepção.");
                 return true;
             }
 
-            void StartPatientEscort(AmbientPatrol nurse)
+            void StartPatientEscort(PatientCase admission, AmbientPatrol nurse)
             {
-                current.NextEscortAttemptAt = GameClock.NowMilliseconds + GameClock.Minutes(5);
-                current.Escort = new PatientEscort(routes.Path, nurse, current.Ped, current.Pickup,
-                    consultationAccess[current.DiagnosticRoomIndex].Access);
+                admission.NextEscortAttemptAt = GameClock.NowMilliseconds + GameClock.Minutes(5);
+                admission.Escort = new PatientEscort(routes.Path, nurse, admission.Ped, admission.Pickup,
+                    consultationAccess[admission.DiagnosticRoomIndex].Access);
             }
 
             void UpdateConsultationArrival()
@@ -438,7 +458,7 @@ namespace lumen_sante.Gameplay
                     if (GameClock.NowMilliseconds < current.NextEscortAttemptAt) return;
                     AmbientPatrol nurse = population.FindNurse(current.Pickup);
                     if (nurse == null) return;
-                    StartPatientEscort(nurse);
+                    StartPatientEscort(current, nurse);
                 }
                 if (current.Escort.Update())
                 {
@@ -489,19 +509,25 @@ namespace lumen_sante.Gameplay
             patientMenu.AdmissionRequested += unit =>
             {
                 if (!CanInteractWithPatient() || current.Location != PatientLocation.Chair ||
-                    current.DiagnosticRoomIndex != doctorRoomIndex || !hospitalComputer.IsSeated(Game.LocalPlayer.Character))
-                {
-                    return;
-                }
+                    current.DiagnosticRoomIndex != doctorRoomIndex || !hospitalComputer.IsSeated(Game.LocalPlayer.Character)) return;
+                workers?.PlayerTakesPatient(current);
+                AdmitPatient(current, unit, false);
+            };
 
+            bool AdmitPatient(PatientCase admission, InpatientUnit unit, bool autonomous)
+            {
+                if (admission.Deceased || admission.Ped == null || !admission.Ped.Exists() || !admission.Ped.IsAlive ||
+                    admission.Location != PatientLocation.Chair || admission.Orders.IsDischarged) return false;
+                if (autonomous && (admission.Orders.IsCareProtected || (unit == InpatientUnit.Room &&
+                    Enumerable.Range(0, inpatients.Length).Count(index => InpatientRooms[index].Unit == unit && inpatients[index] == null) <= 1))) return false;
                 if (!Enumerable.Range(0, inpatients.Length).Any(index =>
                     InpatientRooms[index].Unit == unit && inpatients[index] == null))
                 {
-                    Game.DisplayNotification(unit == InpatientUnit.Room
+                    if (!autonomous) Game.DisplayNotification(unit == InpatientUnit.Room
                         ? "Todos os quartos estão ocupados." : "Todos os leitos da enfermaria estão ocupados.");
-                    return;
+                    return false;
                 }
-                Point origin = consultationAccess[current.DiagnosticRoomIndex].Access;
+                Point origin = consultationAccess[admission.DiagnosticRoomIndex].Access;
                 int roomIndex = -1;
                 Point[] waypoints = null;
                 double shortestDistance = double.MaxValue;
@@ -511,7 +537,7 @@ namespace lumen_sante.Gameplay
                     Point[] candidate = routes.Path.FindRoute(origin, inpatientRoomDestinations[index]);
                     if (candidate == null || candidate.Length == 0) continue;
                     double distance = 0;
-                    Vector3 previous = current.Ped.Position;
+                    Vector3 previous = admission.Ped.Position;
                     foreach (Point point in candidate)
                     {
                         distance += Math.Sqrt((point.Position - previous).LengthSquared());
@@ -527,24 +553,27 @@ namespace lumen_sante.Gameplay
                 }
                 if (roomIndex < 0)
                 {
-                    Game.DisplayNotification("Não há rota disponível para os leitos livres.");
-                    return;
+                    if (!autonomous) Game.DisplayNotification("Não há rota disponível para os leitos livres.");
+                    return false;
                 }
                 var room = InpatientRooms[roomIndex];
 
-                current.Ped.Tasks.Clear();
-                current.Ped.IsPositionFrozen = false;
-                NativeFunction.Natives.SET_ENTITY_COLLISION(current.Ped, true, true);
-                NpcWalking.TeleportToWaypoint(current.Ped, origin.Position);
-                current.InpatientTransfer = new NpcRoute();
-                current.InpatientTransfer.Start(current.Ped, origin, waypoints, teleportOnTimeout: false);
-                current.InpatientRoomIndex = roomIndex;
-                current.Location = PatientLocation.WalkingToInpatientBed;
-                inpatients[roomIndex] = current;
-                consultations[current.DiagnosticRoomIndex] = null;
-                patientMenu.Close();
-                Game.DisplayNotification(current.Name + " está a caminho do " + room.Name + ".");
-            };
+                admission.Ped.Tasks.Clear();
+                admission.Ped.IsPositionFrozen = false;
+                NativeFunction.Natives.SET_ENTITY_COLLISION(admission.Ped, true, true);
+                NpcWalking.TeleportToWaypoint(admission.Ped, origin.Position);
+                admission.InpatientTransfer = new NpcRoute();
+                admission.InpatientTransfer.Start(admission.Ped, origin, waypoints, teleportOnTimeout: false);
+                admission.InpatientRoomIndex = roomIndex;
+                admission.TransferRequestedByPlayer = !autonomous;
+                admission.Location = PatientLocation.WalkingToInpatientBed;
+                inpatients[roomIndex] = admission;
+                consultations[admission.DiagnosticRoomIndex] = null;
+                if (shownCase == admission) patientMenu.Close();
+                if (!autonomous) Game.DisplayNotification(admission.Name + " está a caminho do " + room.Name + ".");
+                Game.LogTrivial("[Lumen Santé] Encaminhamento para " + room.Name + ": " + admission.Name + ".");
+                return true;
+            }
 
             void UpdateInpatientTransfer()
             {
@@ -565,7 +594,8 @@ namespace lumen_sante.Gameplay
                     current.InpatientTransfer = null;
                     current.Orders.AdmitTo(room.Name);
                     RefreshPatientList();
-                    Game.DisplayNotification(current.Name + " foi internado no " + room.Name + ".");
+                    if (current.TransferRequestedByPlayer) Game.DisplayNotification(current.Name + " foi internado no " + room.Name + ".");
+                    current.TransferRequestedByPlayer = false;
                     Game.LogTrivial("[Lumen Santé] Internado no " + room.Name + ": " + current.Name + ".");
                 }
                 catch (InvalidOperationException error)
@@ -575,27 +605,46 @@ namespace lumen_sante.Gameplay
                 }
             }
 
+            bool ReturnToWaiting(PatientCase admission)
+            {
+                if (admission.Location != PatientLocation.Chair || admission.Deceased || admission.Orders.IsCareProtected ||
+                    !waitingRoom.ReceiveFromConsultation(admission.Ped, consultationAccess[admission.DiagnosticRoomIndex].Access)) return false;
+                consultations[admission.DiagnosticRoomIndex] = null;
+                admission.WorkerConsultation = false;
+                admission.Location = PatientLocation.WaitingReception;
+                admission.Orders.Readmit("Recepção — Aguardando leito");
+                receptionCases[admission.Ped] = admission;
+                RefreshPatientList();
+                return true;
+            }
+
             patientMenu.DischargeRequested += orders =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
-                if (admission == null || shownCase != admission || shiftPlayer == null || admission.Deceased ||
-                    admission.Ped == null || !admission.Ped.Exists() || !admission.Ped.IsAlive) return;
-                if (admission.Location != PatientLocation.Chair && admission.Location != PatientLocation.InpatientBed) return;
-                current = admission;
-                Point origin = routes.Path.FindNearestWaypoint(current.Ped.Position, tableOrigins);
+                if (admission == null || shownCase != admission || shiftPlayer == null) return;
+                workers?.PlayerTakesPatient(admission);
+                DischargePatient(admission, CareAuthor.Player, orders.CareRevision);
+            };
+
+            bool DischargePatient(PatientCase admission, CareAuthor author, long expectedRevision)
+            {
+                if (admission.Deceased || admission.Ped == null || !admission.Ped.Exists() || !admission.Ped.IsAlive ||
+                    (admission.Location != PatientLocation.Chair && admission.Location != PatientLocation.InpatientBed) ||
+                    !admission.Orders.CanApplyCare(author, expectedRevision)) return false;
+                Point origin = routes.Path.FindNearestWaypoint(admission.Ped.Position, tableOrigins);
                 if (origin == null)
                 {
-                    Game.DisplayNotification("Não há ponto de pathing disponível para a alta.");
-                    return;
+                    if (author.IsPlayer) Game.DisplayNotification("Não há ponto de pathing disponível para a alta.");
+                    return false;
                 }
                 Point[] exit = routes.Path.FindRoute(origin, HospitalStaffRoutes.PatientSpawn);
                 if (exit == null || exit.Length == 0)
                 {
-                    Game.DisplayNotification("Não há rota disponível para a saída do hospital.");
-                    return;
+                    if (author.IsPlayer) Game.DisplayNotification("Não há rota disponível para a saída do hospital.");
+                    return false;
                 }
 
-                if (activeExam.Patient == current)
+                if (activeExam.Patient == admission)
                 {
                     procedure?.ReleaseNurse();
                     procedure = null;
@@ -603,7 +652,7 @@ namespace lumen_sante.Gameplay
                     activeOrders.Clear();
                     activeExam = default((PatientCase, ExamOrder));
                 }
-                if (visitedPatient == current)
+                if (visitedPatient == admission)
                 {
                     nursingVisit?.ReleaseNurse();
                     nursingVisit = null;
@@ -613,38 +662,40 @@ namespace lumen_sante.Gameplay
                 for (int index = 0; index < pendingCount; index++)
                 {
                     var request = pendingExams.Dequeue();
-                    if (request.Patient == current) request.Order.Cancel();
+                    if (request.Patient == admission) request.Order.Cancel();
                     else pendingExams.Enqueue(request);
                 }
 
-                current.Escort?.Release();
-                current.Escort = null;
-                current.ConsultationChairWalk?.Clear();
-                current.ConsultationChairWalk = null;
-                current.InpatientTransfer?.Clear();
-                current.InpatientTransfer = null;
-                current.Ped.IsPositionFrozen = false;
-                NativeFunction.Natives.SET_ENTITY_COLLISION(current.Ped, true, true);
-                NpcWalking.TeleportToWaypoint(current.Ped, origin.Position);
-                current.DischargeWalk = new NpcRoute();
-                current.DischargeWalk.Start(current.Ped, origin, new[] { origin }.Concat(exit).ToArray());
-                if (current.InpatientRoomIndex >= 0) inpatients[current.InpatientRoomIndex] = null;
-                else consultations[current.DiagnosticRoomIndex] = null;
-                current.InpatientRoomIndex = -1;
-                if (current.Blip != null && current.Blip.Exists()) current.Blip.Delete();
-                current.Blip = null;
-                current.ReturnAt = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(8 * 60, 24 * 60 + 1));
-                current.Orders.Discharge(GameClock.NowMilliseconds);
-                dischargedCases.Add(current);
-                Game.DisplayNotification("Alta registrada para " + current.Name + ".");
-                BindPatient(null);
+                admission.Escort?.Release();
+                admission.Escort = null;
+                admission.ConsultationChairWalk?.Clear();
+                admission.ConsultationChairWalk = null;
+                admission.InpatientTransfer?.Clear();
+                admission.InpatientTransfer = null;
+                admission.Ped.IsPositionFrozen = false;
+                NativeFunction.Natives.SET_ENTITY_COLLISION(admission.Ped, true, true);
+                NpcWalking.TeleportToWaypoint(admission.Ped, origin.Position);
+                admission.DischargeWalk = new NpcRoute();
+                admission.DischargeWalk.Start(admission.Ped, origin, new[] { origin }.Concat(exit).ToArray());
+                if (admission.InpatientRoomIndex >= 0) inpatients[admission.InpatientRoomIndex] = null;
+                else consultations[admission.DiagnosticRoomIndex] = null;
+                admission.InpatientRoomIndex = -1;
+                if (admission.Blip != null && admission.Blip.Exists()) admission.Blip.Delete();
+                admission.Blip = null;
+                admission.ReturnAt = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(8 * 60, 24 * 60 + 1));
+                if (!admission.Orders.Discharge(GameClock.NowMilliseconds, author, expectedRevision)) return false;
+                dischargedCases.Add(admission);
+                if (author.IsPlayer) Game.DisplayNotification("Alta registrada para " + admission.Name + ".");
+                Game.LogTrivial("[Lumen Santé] " + author.Name + " registrou alta de " + admission.Name + ".");
+                if (shownCase == admission) BindPatient(null);
                 RefreshPatientList();
-                current = emptyCase;
-            };
+                return true;
+            }
 
             void UpdateDischargedPatients(Ped player, bool playerAvailable)
             {
                 long now = GameClock.NowMilliseconds;
+                bool patientListChanged = false;
                 foreach (PatientCase admission in dischargedCases)
                 {
                     if (admission.DischargeWalk != null)
@@ -652,6 +703,7 @@ namespace lumen_sante.Gameplay
                         if (admission.Ped != null && admission.Ped.Exists() && !admission.Ped.IsAlive)
                         {
                             admission.Deceased = true;
+                            patientListChanged = true;
                             admission.SeverityClockRunning = false;
                         }
                         if (admission.Ped != null && admission.Ped.Exists() && admission.Ped.IsAlive &&
@@ -661,6 +713,7 @@ namespace lumen_sante.Gameplay
                         admission.DischargeWalk.Clear();
                         admission.DischargeWalk = null;
                         admission.OutsideHospital = true;
+                        patientListChanged = true;
                     }
                     if (admission.AwaitingReturn)
                     {
@@ -668,6 +721,7 @@ namespace lumen_sante.Gameplay
                         {
                             if (admission.Ped.IsAlive) continue;
                             admission.Deceased = true;
+                            patientListChanged = true;
                             admission.SeverityClockRunning = false;
                         }
                         admission.AwaitingReturn = false;
@@ -687,18 +741,18 @@ namespace lumen_sante.Gameplay
                     if (admission.RiskLevel == 0)
                     {
                         admission.Orders.MarkRecovered();
+                        patientListChanged = true;
                         admission.SeverityClockRunning = false;
                         continue;
                     }
                     if (admission.RiskLevel == admission.Disease.Stages.Count)
                     {
                         admission.Deceased = true;
+                        patientListChanged = true;
                         admission.SeverityClockRunning = false;
                         continue;
                     }
-                    if (now < admission.ReturnAt || !playerAvailable ||
-                        (player.Position - ShiftPoint).LengthSquared() > 100f * 100f ||
-                        !waitingRoom.CanReceiveReturningPatient) continue;
+                    if (now < admission.ReturnAt || !waitingRoom.CanReceiveReturningPatient) continue;
 
                     Ped returning = null;
                     try
@@ -708,10 +762,11 @@ namespace lumen_sante.Gameplay
                         admission.Appearance.Apply(returning);
                         waitingRoom.ReceiveReturningPatient(returning);
                         admission.Ped = returning;
+                        patientListChanged = true;
                         admission.OutsideHospital = false;
                         admission.AwaitingReturn = true;
                         admission.Vitals = admission.Disease.Stages[admission.SeverityIndex].SampleVitals(random);
-                        Game.DisplayNotification(admission.Name + " voltou ao hospital para reavaliação.");
+                        Game.LogTrivial("[Lumen Santé] " + admission.Name + " voltou ao hospital para reavaliação.");
                     }
                     catch (InvalidOperationException error)
                     {
@@ -720,6 +775,7 @@ namespace lumen_sante.Gameplay
                         Game.LogTrivial("[Lumen Santé] Retorno adiado: " + error.Message);
                     }
                 }
+                if (patientListChanged) RefreshPatientList();
             }
 
             hospitalComputer.MedicationToggled += (orders, medication) =>
@@ -734,28 +790,40 @@ namespace lumen_sante.Gameplay
                 bool active = orders.ActiveMedications(GameClock.NowMilliseconds).Contains(medication);
                 if (active)
                 {
-                    orders.StopMedication(medication);
+                    if (!orders.StopMedication(medication, CareAuthor.Player, GameClock.NowMilliseconds, orders.CareRevision)) return;
                 }
                 else
                 {
                     if (orders.IsRecovered) return;
-                    orders.PrescribeMedication(medication, GameClock.NowMilliseconds + GameClock.Minutes(8 * 60));
+                    if (!orders.PrescribeMedication(medication, GameClock.NowMilliseconds + GameClock.Minutes(8 * 60),
+                        CareAuthor.Player, GameClock.NowMilliseconds, orders.CareRevision)) return;
                 }
                 Game.DisplayNotification((active ? "Medicação removida: " : "Medicação receitada: ") + option.Name + " para " + admission.Name + ".");
+                workers?.PlayerTakesPatient(admission);
             };
             hospitalComputer.TreatmentSelected += (orders, diseaseId) =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
                 if (shiftPlayer == null || admission == null || admission.Deceased || admission.Orders.IsRecovered ||
                     admission.Location == PatientLocation.WaitingReception ||
-                    !DiseaseCatalog.Treatments.Any(disease => disease.Id == diseaseId) || !orders.SelectTreatment(diseaseId))
+                    !DiseaseCatalog.Treatments.Any(disease => disease.Id == diseaseId) ||
+                    !orders.SelectTreatment(diseaseId, CareAuthor.Player, GameClock.NowMilliseconds, orders.CareRevision))
                 {
                     return;
                 }
                 admission.NextNurseVisitAt = GameClock.NowMilliseconds;
+                workers?.PlayerTakesPatient(admission);
                 string label = DiseaseCatalog.Treatments.First(disease => disease.Id == diseaseId).TreatmentLabel;
                 Game.DisplayNotification(admission.Name + " — tratamento selecionado: " + label + ".");
                 Game.LogTrivial("[Lumen Santé] Tratamento de " + admission.Name + ": " + label);
+            };
+            patientMenu.PatientInteraction += orders =>
+            {
+                if (orders != null && CanInteractWithPatient() && shownCase?.Orders == orders)
+                {
+                    workers?.PlayerTakesPatient(shownCase);
+                    orders.RegisterPlayerInteraction(GameClock.NowMilliseconds);
+                }
             };
             patientMenu.ExamRequested += order =>
             {
@@ -767,15 +835,25 @@ namespace lumen_sante.Gameplay
                     return;
                 }
 
-                int index = Array.IndexOf(current.Orders.Items, order);
-                if (index >= 0 && order.TryRequest(current.SeverityIndex + 1))
-                {
-                    pendingExams.Enqueue((current, order));
-                    patientMenu.UpdateExamStatus(index, order);
-                    hospitalComputer.RefreshExams(current.Orders);
-                    Game.LogTrivial("[Lumen Santé] Exame solicitado para " + current.Name + ": " + order.Id + ".");
-                }
+                workers?.PlayerTakesPatient(current);
+                RequestPatientExam(current, order, true);
             };
+
+            bool RequestPatientExam(PatientCase admission, ExamOrder order, bool requestedByPlayer)
+            {
+                if (admission.Deceased || admission.Orders.IsRecovered || admission.Location != PatientLocation.InpatientBed ||
+                    admission.Ped == null || !admission.Ped.Exists() || !admission.Ped.IsAlive) return false;
+                int index = Array.IndexOf(admission.Orders.Items, order);
+                if (index >= 0 && (requestedByPlayer ? order.TryRequest(admission.SeverityIndex + 1) :
+                    order.TryRequestByWorker(admission.SeverityIndex + 1)))
+                {
+                    pendingExams.Enqueue((admission, order));
+                    RefreshExamStatus(admission, order);
+                    Game.LogTrivial("[Lumen Santé] Exame solicitado para " + admission.Name + ": " + order.Id + ".");
+                    return true;
+                }
+                return false;
+            }
 
             void RefreshExamStatus(PatientCase admission, ExamOrder order)
             {
@@ -788,11 +866,16 @@ namespace lumen_sante.Gameplay
 
             void StartNextExam()
             {
-                while (pendingExams.Count > 0)
+                int pendingAttempts = pendingExams.Count;
+                while (pendingAttempts-- > 0)
                 {
                     var request = pendingExams.Peek();
                     PatientCase admission = request.Patient;
-                    if (admission == visitedPatient) return;
+                    if (admission == visitedPatient || workers?.IsPatientReserved(admission) == true)
+                    {
+                        pendingExams.Enqueue(pendingExams.Dequeue());
+                        continue;
+                    }
                     if (admission.Deceased || admission.Ped == null || !admission.Ped.Exists() ||
                         !admission.Ped.IsAlive || admission.Location != PatientLocation.InpatientBed)
                     {
@@ -823,7 +906,7 @@ namespace lumen_sante.Gameplay
                     {
                         request.Order.Cancel();
                         RefreshExamStatus(admission, request.Order);
-                        Game.DisplayNotification("O exame não pôde ser iniciado.");
+                        if (request.Order.RequestedByPlayer) Game.DisplayNotification("O exame não pôde ser iniciado.");
                         Game.LogTrivial("[Lumen Santé] Falha ao iniciar exame: " + error.Message);
                     }
                     return;
@@ -890,7 +973,7 @@ namespace lumen_sante.Gameplay
                     return;
                 }
 
-                long completedAt = GameClock.NowMilliseconds - shiftStartedAt;
+                long completedAt = GameClock.NowMilliseconds - hospitalStartedAt;
                 foreach (ExamOrder order in activeOrders)
                 {
                     if (result == ExamProcedure.Result.Completed && order.TryComplete(completedAt))
@@ -922,11 +1005,13 @@ namespace lumen_sante.Gameplay
 
                 coronersAction.Enabled = false;
                 coronersAction.Text = "Coroners chamados";
+                workers?.PlayerTakesPatient(current);
                 current.CoronersCalled = true;
+                current.CoronerPickupAt = GameClock.NowMilliseconds + GameClock.Minutes(30);
+                current.Orders.RecordCoronerRequest(CareAuthor.Player, GameClock.NowMilliseconds);
                 string location = current.Orders?.Room ?? "Recepção";
                 Game.DisplayNotification("Coroners avisados para " + location + ".");
                 Game.LogTrivial("[Lumen Santé] Coroners chamados: " + current.Name + ", " + location + ".");
-                // TODO: Enviar a equipe de NPCs para recolher o corpo e liberar o leito.
             };
 
             void RegisterDeath()
@@ -948,7 +1033,6 @@ namespace lumen_sante.Gameplay
                     RefreshPatientList();
                 }
                 string location = current.Orders?.Room ?? "Recepção";
-                Game.DisplayNotification(current.Name + " veio a óbito em " + location + ".");
                 Game.LogTrivial("[Lumen Santé] Óbito: " + current.Name + ", " + location + ".");
             }
 
@@ -967,38 +1051,38 @@ namespace lumen_sante.Gameplay
                 NativeFunction.Natives.SET_BLIP_COORDS(current.Blip, position.X, position.Y, position.Z);
             }
 
-            void ClearAdmission()
+            void ClearAdmission(PatientCase admission)
             {
-                if (current.Ped != null) receptionCases.Remove(current.Ped);
-                if (current.Blip != null && current.Blip.Exists()) current.Blip.Delete();
-                current.Blip = null;
-                current.Escort?.Release();
-                current.Escort = null;
-                current.ConsultationChairWalk?.Clear();
-                current.ConsultationChairWalk = null;
-                if (shownCase == current)
+                if (admission.Ped != null) receptionCases.Remove(admission.Ped);
+                if (admission.Blip != null && admission.Blip.Exists()) admission.Blip.Delete();
+                admission.Blip = null;
+                admission.Escort?.Release();
+                admission.Escort = null;
+                admission.ConsultationChairWalk?.Clear();
+                admission.ConsultationChairWalk = null;
+                if (shownCase == admission)
                 {
                     BindPatient(null);
                     patientMenu.Close();
                     deceasedMenu.Visible = false;
                 }
 
-                if (current.InpatientRoomIndex >= 0)
+                if (admission.InpatientRoomIndex >= 0)
                 {
-                    inpatients[current.InpatientRoomIndex] = null;
+                    inpatients[admission.InpatientRoomIndex] = null;
                     RefreshPatientList();
                 }
-                else if (consultations[current.DiagnosticRoomIndex] == current)
+                else if (consultations[admission.DiagnosticRoomIndex] == admission)
                 {
-                    consultations[current.DiagnosticRoomIndex] = null;
+                    consultations[admission.DiagnosticRoomIndex] = null;
                 }
 
-                if (current.Ped != null && current.Ped.Exists())
+                if (admission.Ped != null && admission.Ped.Exists())
                 {
-                    current.Ped.Delete();
+                    admission.Ped.Delete();
                 }
 
-                current.Ped = null;
+                admission.Ped = null;
             }
 
             void UpdateTreatmentVisits()
@@ -1016,6 +1100,7 @@ namespace lumen_sante.Gameplay
                     return;
                 }
                 PatientCase patient = inpatients.FirstOrDefault(admission => admission != null && !admission.Deceased &&
+                    workers?.IsPatientReserved(admission) != true &&
                     !admission.Orders.IsRecovered && admission.Orders.TreatmentDiseaseId != null && admission.Ped != null && admission.Ped.Exists() &&
                     admission.Ped.IsAlive && admission.Location == PatientLocation.InpatientBed &&
                     admission != activeExam.Patient && GameClock.NowMilliseconds >= admission.NextNurseVisitAt);
@@ -1058,16 +1143,15 @@ namespace lumen_sante.Gameplay
                     if (admission != null)
                     {
                         current = admission;
-                        ClearAdmission();
+                        ClearAdmission(current);
                     }
                 }
 
                 current = emptyCase;
             }
 
-            void PauseClinicalClock()
+            void ClosePlayerInteraction()
             {
-                clinicalPausedAt = GameClock.NowMilliseconds;
                 hospitalComputer.Close();
                 patientMenu.Close();
                 deceasedMenu.Visible = false;
@@ -1083,6 +1167,28 @@ namespace lumen_sante.Gameplay
                 Ped replacement = null;
                 try
                 {
+                    workers?.CancelPatient(current);
+                    if (current.AwaitingBed && current.Location == PatientLocation.WaitingReception)
+                    {
+                        if (!current.Deceased && !waitingRoom.CanReceiveReturningPatient) return;
+                        Point reception = HospitalStaffRoutes.PatientArrivalIdle;
+                        replacement = new Ped(current.Model, reception.Position, reception.Heading);
+                        current.Appearance?.Apply(replacement);
+                        replacement.IsPersistent = true;
+                        replacement.BlockPermanentEvents = true;
+                        if (current.Deceased) replacement.Health = 0;
+                        else if (!waitingRoom.ReceiveAtReception(replacement))
+                        {
+                            replacement.Delete();
+                            return;
+                        }
+                        foreach (Ped previous in receptionCases.Where(pair => pair.Value == current).Select(pair => pair.Key).ToArray())
+                            receptionCases.Remove(previous);
+                        current.Ped = replacement;
+                        receptionCases[replacement] = current;
+                        RefreshPatientList();
+                        return;
+                    }
                     bool inpatient = current.InpatientRoomIndex >= 0;
                     Vector3 position = inpatient ? InpatientRooms[current.InpatientRoomIndex].Bed
                         : DiagnosticRooms[current.DiagnosticRoomIndex].PatientSeat;
@@ -1110,6 +1216,8 @@ namespace lumen_sante.Gameplay
                         var room = InpatientRooms[current.InpatientRoomIndex];
                         current.InpatientInteractionPoint = room.InteractionPoint;
                         current.Orders.AdmitTo(room.Name);
+                        if (current.TransferRequestedByPlayer) Game.DisplayNotification(current.Name + " foi internado no " + room.Name + ".");
+                        current.TransferRequestedByPlayer = false;
                         RefreshPatientList();
                     }
                     if (current.Deceased)
@@ -1131,7 +1239,7 @@ namespace lumen_sante.Gameplay
                 }
             }
 
-            void ToggleShift(Ped player)
+            void ToggleShift(Ped player, bool notifyPlayer = true)
             {
                 bool starting = shiftPlayer == null;
                 if (starting && (!player.Exists() || !player.IsAlive))
@@ -1140,33 +1248,28 @@ namespace lumen_sante.Gameplay
                 }
 
                 shiftPlayer = starting ? player : null;
-                if (starting)
+                if (!starting)
                 {
-                    shiftStartedAt = GameClock.NowMilliseconds;
-                    if (clinicalPausedAt.HasValue)
-                    {
-                        long paused = GameClock.NowMilliseconds - clinicalPausedAt.Value;
-                        foreach (PatientCase admission in cases.Where(admission => admission != null))
-                        {
-                            admission.NextSeverityAt += paused;
-                            admission.NextPulseRefresh += paused;
-                        }
-                        clinicalPausedAt = null;
-                    }
-                }
-                else
-                {
-                    PauseClinicalClock();
+                    ClosePlayerInteraction();
                 }
 
                 shiftAction.Text = starting ? "Encerrar plantão" : "Iniciar plantão";
                 string message = starting ? "Plantão iniciado." : "Plantão encerrado.";
-                Game.DisplayNotification(message);
+                if (notifyPlayer) Game.DisplayNotification(message);
                 Game.LogTrivial("[Lumen Santé] " + message);
                 menu.Visible = false;
             }
 
             shiftAction.Activated += (sender, item) => ToggleShift(Game.LocalPlayer.Character);
+
+            workers = new WorkerCoordinator(routes.Path, population, waitingRoom, consultations, doctorAccess,
+                inpatientRoomDestinations,
+                () => cases.Where(patient => patient != null).ToArray(), CallPatientToRoom, AdmitPatient, DischargePatient,
+                (admission, order) => RequestPatientExam(admission, order, false), ReturnToWaiting,
+                admission => admission == activeExam.Patient || admission == visitedPatient ||
+                    (shownCase == admission && patientMenu.IsOpen) ||
+                    (hospitalComputer.IsOpen && consultations[doctorRoomIndex] == admission),
+                index => hospitalComputer.IsOpen && doctorRoomIndex == index, RefreshPatientList, random);
 
             var shiftBlip = new Blip(ShiftPoint);
             try
@@ -1185,6 +1288,9 @@ namespace lumen_sante.Gameplay
 
                     Ped player = Game.LocalPlayer.Character;
                     bool playerAvailable = player.Exists() && player.IsAlive;
+                    float simulationRadius = NpcRoute.BackgroundSimulation ? 120f : 160f;
+                    NpcRoute.BackgroundSimulation = !playerAvailable ||
+                        (player.Position - ShiftPoint).LengthSquared() > simulationRadius * simulationRadius;
                     updateAmbient(player, playerAvailable);
                     SyncReceptionPatients();
                     if (playerAvailable && Game.IsKeyDown(PositionKey))
@@ -1200,7 +1306,7 @@ namespace lumen_sante.Gameplay
                     {
                         hospitalComputer.Close();
                         shiftPlayer = null;
-                        PauseClinicalClock();
+                        ClosePlayerInteraction();
                         shiftAction.Text = "Iniciar plantão";
                         menu.Visible = false;
                         Game.LogTrivial("[Lumen Santé] Plantão interrompido.");
@@ -1210,7 +1316,7 @@ namespace lumen_sante.Gameplay
                     if (autoStartPending && playerAvailable)
                     {
                         autoStartPending = false;
-                        ToggleShift(player);
+                        ToggleShift(player, false);
                     }
                     else if (manualToggle)
                     {
@@ -1218,7 +1324,7 @@ namespace lumen_sante.Gameplay
                     }
 
                     PatientCase interactionCase = current;
-                    foreach (PatientCase admission in cases)
+                    foreach (PatientCase admission in cases.ToArray())
                     {
                         if (admission == null)
                         {
@@ -1232,7 +1338,7 @@ namespace lumen_sante.Gameplay
                         {
                             current.Escort?.Release();
                             current.Escort = null;
-                            if (playerAvailable && (player.Position - ShiftPoint).LengthSquared() < 100f * 100f)
+                            if (playerAvailable || NpcRoute.BackgroundSimulation)
                             {
                                 if (activeExam.Patient == current)
                                 {
@@ -1269,18 +1375,18 @@ namespace lumen_sante.Gameplay
                                 current.Escort?.Release();
                                 current.Escort = null;
                                 current.NextEscortAttemptAt = GameClock.NowMilliseconds + GameClock.Minutes(5);
-                                Game.DisplayNotification(error.Message);
+                                if (current.ConsultationRequestedByPlayer) Game.DisplayNotification(error.Message);
                                 Game.LogTrivial("[Lumen Santé] Falha na chegada ao consultório: " + error.Message);
                             }
                         }
 
 
-                        if (current.Location == PatientLocation.WalkingToInpatientBed && CanInteractWithPatient())
+                        if (current.Location == PatientLocation.WalkingToInpatientBed && !current.Deceased && current.Ped.IsAlive)
                         {
                             UpdateInpatientTransfer();
                         }
 
-                        if (shiftPlayer != null && current.SeverityClockRunning && current.Location != PatientLocation.WaitingReception)
+                        if (current.SeverityClockRunning && (current.Location != PatientLocation.WaitingReception || current.AwaitingBed))
                         {
                             long now = GameClock.NowMilliseconds;
                             bool stageChanged = now >= current.NextSeverityAt;
@@ -1296,13 +1402,12 @@ namespace lumen_sante.Gameplay
                                     {
                                         current.SeverityClockRunning = false;
                                         current.Orders.MarkRecovered();
-                                        Game.DisplayNotification(current.Name + " se recuperou.");
+                                        Game.LogTrivial("[Lumen Santé] " + current.Name + " se recuperou.");
                                         RefreshPatientList();
                                     }
                                     else if (previousRisk != current.RiskLevel && current.SeverityIndex < current.Disease.TerminalIndex)
                                     {
                                         string change = current.RiskLevel < previousRisk ? "melhorou" : "piorou";
-                                        Game.DisplayNotification(current.Name + " " + change + ".");
                                         Game.LogTrivial("[Lumen Santé] " + current.Name + " " + change + ".");
                                     }
                                     current.NextSeverityAt = now + random.Next(
@@ -1335,10 +1440,19 @@ namespace lumen_sante.Gameplay
                     }
                     current = hospitalComputer.IsOpen
                         ? consultations[doctorRoomIndex] ?? emptyCase : interactionCase;
-                    if (shiftPlayer != null)
+                    workers.Update();
+                    foreach (PatientCase deceased in cases.Where(patient => patient?.Deceased == true && patient.CoronersCalled &&
+                        GameClock.NowMilliseconds >= patient.CoronerPickupAt).ToArray())
                     {
-                        UpdateExamWork();
+                        if (activeExam.Patient == deceased || visitedPatient == deceased) continue;
+                        workers.CancelPatient(deceased);
+                        deceased.OutsideHospital = true;
+                        ClearAdmission(deceased);
+                        dischargedCases.Add(deceased);
+                        RefreshPatientList();
+                        Game.LogTrivial("[Lumen Santé] Coroners liberaram o espaço de " + deceased.Name + ".");
                     }
+                    UpdateExamWork();
                     UpdateDischargedPatients(player, playerAvailable);
                     waitingRoom.Update(playerAvailable);
                     try
@@ -1464,6 +1578,7 @@ namespace lumen_sante.Gameplay
                             }
                             else if (atComputer)
                             {
+                                workers.YieldComputer(nearbyComputer);
                                 var room = DiagnosticRooms[nearbyComputer];
                                 hospitalComputer.Sit(player, room.Name, room.DoctorInteraction, room.DoctorSeat, room.DoctorHeading);
                                 if (hospitalComputer.IsSeated(player))
@@ -1502,6 +1617,8 @@ namespace lumen_sante.Gameplay
             }
             finally
             {
+                workers.Clear();
+                NpcRoute.BackgroundSimulation = false;
                 examClipboard.Clear();
                 UpdateDoctorAnimation(null, null, null);
                 menu.Visible = false;

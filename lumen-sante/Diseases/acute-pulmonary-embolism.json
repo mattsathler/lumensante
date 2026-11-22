@@ -1,0 +1,762 @@
+{
+  "SchemaVersion": 1,
+  "Id": "acute-pulmonary-embolism",
+  "Name": "Tromboembolismo pulmonar agudo",
+  "SelectionWeight": 8,
+  "Tags": [
+    "respiratoria",
+    "vascular",
+    "trombotica",
+    "dor-toracica",
+    "dispneia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 3600000,
+  "MaximumStageDurationMilliseconds": 7200000,
+  "WorseningRisk": 0.45,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Anticoagulação e avaliação de reperfusão conforme instabilidade",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        78,
+        84
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        97,
+        105
+      ],
+      "Systolic": [
+        119,
+        129
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        103,
+        111
+      ],
+      "Systolic": [
+        115,
+        125
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        110,
+        118
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        90,
+        92
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        116,
+        124
+      ],
+      "Systolic": [
+        108,
+        118
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        88,
+        90
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        123,
+        131
+      ],
+      "Systolic": [
+        101,
+        111
+      ],
+      "Diastolic": [
+        62,
+        68
+      ],
+      "RespiratoryRate": [
+        33,
+        36
+      ],
+      "OxygenSaturation": [
+        85,
+        87
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        130,
+        138
+      ],
+      "Systolic": [
+        93,
+        103
+      ],
+      "Diastolic": [
+        56,
+        62
+      ],
+      "RespiratoryRate": [
+        35,
+        38
+      ],
+      "OxygenSaturation": [
+        82,
+        84
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        137,
+        145
+      ],
+      "Systolic": [
+        86,
+        96
+      ],
+      "Diastolic": [
+        51,
+        57
+      ],
+      "RespiratoryRate": [
+        38,
+        41
+      ],
+      "OxygenSaturation": [
+        79,
+        81
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        45,
+        51
+      ],
+      "RespiratoryRate": [
+        40,
+        43
+      ],
+      "OxygenSaturation": [
+        76,
+        78
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Já precisei diminuir o ritmo das minhas atividades.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Isso está tirando minha vontade de comer.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. O desconforto está me distraindo de tudo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Precisei pedir companhia para procurar atendimento.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Isso está tirando minha vontade de comer.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. O desconforto está me distraindo de tudo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Precisei pedir companhia para procurar atendimento.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Já precisei diminuir o ritmo das minhas atividades.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Isso está tirando minha vontade de comer.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. O desconforto está me distraindo de tudo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Precisei pedir companhia para procurar atendimento.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Isso está tirando minha vontade de comer.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. O desconforto está me distraindo de tudo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Precisei pedir companhia para procurar atendimento.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Isso está tirando minha vontade de comer.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. O desconforto está me distraindo de tudo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Preciso de pausas para fazer as coisas habituais.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Está difícil achar uma posição confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. O mal-estar não me deixa descansar direito.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Já não consigo seguir minha rotina como antes.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Preciso de pausas para fazer as coisas habituais.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Está difícil achar uma posição confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. O mal-estar não me deixa descansar direito.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Já não consigo seguir minha rotina como antes.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Preciso de pausas para fazer as coisas habituais.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Está difícil achar uma posição confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. O mal-estar não me deixa descansar direito.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Já não consigo seguir minha rotina como antes.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Preciso de pausas para fazer as coisas habituais.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Está difícil achar uma posição confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. O mal-estar não me deixa descansar direito.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Já não consigo seguir minha rotina como antes.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Preciso de pausas para fazer as coisas habituais.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Está difícil achar uma posição confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. O mal-estar não me deixa descansar direito.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Está difícil cuidar das coisas sozinho.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Estou evitando me movimentar por causa do mal-estar.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. O desconforto está ocupando minha atenção o tempo todo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A falta de ar começou de repente. Preciso de ajuda para ficar mais confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Está difícil cuidar das coisas sozinho.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Estou evitando me movimentar por causa do mal-estar.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. A pontada piora quando puxo o ar. Preciso de ajuda para ficar mais confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Está difícil cuidar das coisas sozinho.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Estou evitando me movimentar por causa do mal-estar.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. O desconforto está ocupando minha atenção o tempo todo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Meu coração ficou acelerado. Preciso de ajuda para ficar mais confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Está difícil cuidar das coisas sozinho.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Estou evitando me movimentar por causa do mal-estar.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. Sinto tontura junto da falta de ar. Preciso de ajuda para ficar mais confortável.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Está difícil cuidar das coisas sozinho.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Estou evitando me movimentar por causa do mal-estar.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Fiquei sem ar de repente e sinto uma pontada no peito. O peito dói ao respirar fundo. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Já não consigo fazer minhas atividades habituais.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Falar sobre isso está me cansando.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Estou tendo dificuldade para descansar.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Preciso de alguém por perto para me ajudar.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Já não consigo fazer minhas atividades habituais.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Falar sobre isso está me cansando.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Estou tendo dificuldade para descansar.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Preciso de alguém por perto para me ajudar.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Já não consigo fazer minhas atividades habituais.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Falar sobre isso está me cansando.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Estou tendo dificuldade para descansar.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Preciso de alguém por perto para me ajudar.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Já não consigo fazer minhas atividades habituais.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Falar sobre isso está me cansando.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Estou tendo dificuldade para descansar.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Preciso de alguém por perto para me ajudar.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Já não consigo fazer minhas atividades habituais.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Falar sobre isso está me cansando.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Estou tendo dificuldade para descansar.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Só quero ficar parado e receber ajuda.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Até conversar exige um esforço.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. O mal-estar está me deixando esgotado.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Não estou conseguindo cuidar de mim como antes.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Só quero ficar parado e receber ajuda.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Até conversar exige um esforço.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. O mal-estar está me deixando esgotado.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Não estou conseguindo cuidar de mim como antes.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Só quero ficar parado e receber ajuda.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Até conversar exige um esforço.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. O mal-estar está me deixando esgotado.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Não estou conseguindo cuidar de mim como antes.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Só quero ficar parado e receber ajuda.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Até conversar exige um esforço.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. O mal-estar está me deixando esgotado.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Não estou conseguindo cuidar de mim como antes.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Só quero ficar parado e receber ajuda.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Até conversar exige um esforço.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. O mal-estar está me deixando esgotado.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Estou com dificuldade até para me ajeitar no lugar.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Preciso que alguém me ajude com as coisas simples.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Não consigo descansar por causa do mal-estar.",
+          "A falta de ar está forte e dói quando inspiro. A falta de ar começou de repente. Qualquer atividade está me esgotando.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Estou com dificuldade até para me ajeitar no lugar.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Preciso que alguém me ajude com as coisas simples.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Não consigo descansar por causa do mal-estar.",
+          "A falta de ar está forte e dói quando inspiro. A pontada piora quando puxo o ar. Qualquer atividade está me esgotando.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Estou com dificuldade até para me ajeitar no lugar.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Preciso que alguém me ajude com as coisas simples.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Não consigo descansar por causa do mal-estar.",
+          "A falta de ar está forte e dói quando inspiro. Meu coração ficou acelerado. Qualquer atividade está me esgotando.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Estou com dificuldade até para me ajeitar no lugar.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Preciso que alguém me ajude com as coisas simples.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Não consigo descansar por causa do mal-estar.",
+          "A falta de ar está forte e dói quando inspiro. Sinto tontura junto da falta de ar. Qualquer atividade está me esgotando.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Estou com dificuldade até para me ajeitar no lugar.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Preciso que alguém me ajude com as coisas simples.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Não consigo descansar por causa do mal-estar.",
+          "A falta de ar está forte e dói quando inspiro. O peito dói ao respirar fundo. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Preciso de ajuda agora.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Estou sem forças para me ajeitar.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Só consigo falar um pouco de cada vez.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Não consigo fazer nada sozinho neste momento.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Preciso de ajuda agora.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Estou sem forças para me ajeitar.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Só consigo falar um pouco de cada vez.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Não consigo fazer nada sozinho neste momento.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Preciso de ajuda agora.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Estou sem forças para me ajeitar.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Só consigo falar um pouco de cada vez.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Não consigo fazer nada sozinho neste momento.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Preciso de ajuda agora.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Estou sem forças para me ajeitar.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Só consigo falar um pouco de cada vez.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Não consigo fazer nada sozinho neste momento.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Preciso de ajuda agora.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Estou sem forças para me ajeitar.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Só consigo falar um pouco de cada vez.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Não me deixe sozinho agora.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Estou no limite das minhas forças.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Preciso parar um pouco para continuar falando.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Está difícil até pedir ajuda.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Não me deixe sozinho agora.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Estou no limite das minhas forças.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Preciso parar um pouco para continuar falando.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Está difícil até pedir ajuda.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Não me deixe sozinho agora.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Estou no limite das minhas forças.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Preciso parar um pouco para continuar falando.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Está difícil até pedir ajuda.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Não me deixe sozinho agora.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Estou no limite das minhas forças.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Preciso parar um pouco para continuar falando.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Está difícil até pedir ajuda.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Não me deixe sozinho agora.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Estou no limite das minhas forças.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Preciso parar um pouco para continuar falando.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Está difícil até pedir ajuda."
+        ],
+        [
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Ajuda, por favor.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Não consigo continuar assim.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Fique perto de mim.",
+          "Mal consigo respirar e estou quase desmaiando. A falta de ar começou de repente. Preciso de socorro agora.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Ajuda, por favor.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Não consigo continuar assim.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Fique perto de mim.",
+          "Mal consigo respirar e estou quase desmaiando. A pontada piora quando puxo o ar. Preciso de socorro agora.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Ajuda, por favor.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Não consigo continuar assim.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Fique perto de mim.",
+          "Mal consigo respirar e estou quase desmaiando. Meu coração ficou acelerado. Preciso de socorro agora.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Ajuda, por favor.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Não consigo continuar assim.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Fique perto de mim.",
+          "Mal consigo respirar e estou quase desmaiando. Sinto tontura junto da falta de ar. Preciso de socorro agora.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Ajuda, por favor.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Não consigo continuar assim.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Fique perto de mim.",
+          "Mal consigo respirar e estou quase desmaiando. O peito dói ao respirar fundo. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. É o que consigo contar sobre o mal-estar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo. Essas coisas estão acontecendo juntas.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. É essa combinação que está me incomodando.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar. Essas coisas estão acontecendo juntas.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo. É essa combinação que está me incomodando.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. Foi isso que consegui perceber até agora.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo."
+        ],
+        [
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Meu coração ficou acelerado.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. A pontada piora quando puxo o ar. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A falta de ar começou de repente. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A falta de ar começou de repente. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. Sinto tontura junto da falta de ar.",
+          "A pontada piora quando puxo o ar. Meu coração ficou acelerado. O peito dói ao respirar fundo.",
+          "A pontada piora quando puxo o ar. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo.",
+          "Meu coração ficou acelerado. Sinto tontura junto da falta de ar. O peito dói ao respirar fundo."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "blood-gas": {
+      "Default": "Hipoxemia com hipocapnia e alcalose respiratória; achado inespecífico.",
+      "ByStage": {
+        "4": "Hipoxemia importante com alcalose respiratória, exigindo investigação vascular.",
+        "5": "Hipoxemia importante com alcalose respiratória, exigindo investigação vascular.",
+        "6": "Hipoxemia importante com alcalose respiratória, exigindo investigação vascular.",
+        "7": "Hipoxemia grave e acidose metabólica por hipoperfusão; exame não confirma a origem trombótica.",
+        "8": "Hipoxemia grave e acidose metabólica por hipoperfusão; exame não confirma a origem trombótica.",
+        "9": "Hipoxemia grave e acidose metabólica por hipoperfusão; exame não confirma a origem trombótica.",
+        "10": null
+      }
+    },
+    "x-ray": {
+      "Default": "Sem consolidação pulmonar focal; radiografia não exclui tromboembolismo pulmonar.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

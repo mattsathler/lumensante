@@ -17,7 +17,7 @@ A primeira entrega terá uma admissão automática em um quarto validado. O NPC 
 | Aguardando admissão | O plantão está ativo e o hospital aguarda uma chegada automática. |
 | Internado | O leito fica ocupado e o jogador recebe o nome e o quarto. |
 | Sintomas relatados | O jogador ouviu o relato. O leito segue ocupado entre plantões. |
-| Interrompido | O plantão encerrou. O caso fica preservado na sessão e a progressão clínica pausa até o próximo turno. Se o NPC desaparecer, ele é recriado ao retornar ao hospital. |
+| Interrompido | O plantão do jogador encerrou. O caso fica preservado na sessão, e a evolução clínica, os exames e as transferências já iniciadas continuam. Se o NPC desaparecer, ele é recriado ao retornar ao hospital. |
 
 Quando houver vários quartos, a equipe escolhe um leito livre. O primeiro protótipo valida um NPC e uma cama. Cada leito precisa do nome ou número do quarto, da posição de colocação do NPC, da orientação da cama e de um ponto no chão para a interação do médico.
 
@@ -32,6 +32,8 @@ O tratamento correto muda as chances conforme a gravidade. No câncer de pulmão
 Pacientes internados com tratamento selecionado recebem visitas de enfermeiros disponíveis. A primeira visita fica pendente após a seleção e as próximas ocorrem entre 30 e 60 minutos do jogo após cada visita, que dura cinco minutos do jogo. A equipe usa as rotas existentes e coordena a disponibilidade com os exames. As visitas continuam fora do plantão do jogador.
 
 Casos, pedidos de exames e tratamento permanecem em memória entre plantões. Ao descarregar o plugin ou fechar o jogo, os casos são encerrados. A recriação de um NPC preserva modelo, identidade e estado clínico do caso, colocando o internado no leito reservado e o paciente de consulta na cadeira da sala.
+
+A aba **Pacientes** do computador mantém os prontuários ativos e os de pacientes que receberam alta, identificados como **Alta hospitalar**. Exames, anotações, tratamentos e histórico de condutas permanecem disponíveis durante a instância do plugin, inclusive após a saída do NPC. Retornos reutilizam o prontuário e incrementam a contagem de atendimentos, com uma única entrada por paciente. Nos prontuários com alta, medicações e tratamentos ficam disponíveis para consulta, com as ações clínicas bloqueadas. O encerramento da instância limpa esse histórico em memória.
 
 Pedidos pendentes do mesmo paciente para MRI ou laboratório são agrupados em uma única visita à sala. Novos pedidos compatíveis podem entrar no grupo enquanto a equipe se desloca ou se prepara, até começar a realização. O grupo usa a duração do pedido mais demorado e conclui todos os resultados juntos. Cada exame mantém seu pedido, estágio de solicitação e laudo individuais. Uma interrupção cancela todos os pedidos do grupo, permitindo solicitá-los novamente. Pedidos de outros pacientes ou salas mantêm sua ordem na fila. O catálogo atual possui 51 exames, divididos em 27 laboratoriais, 12 de MRI, 11 de RX e um exame cardíaco à beira do leito. No menu de solicitação, abra **Exames** e escolha **Laboratório**, **Ressonância magnética (MRI)**, **Radiografia (RX)** ou **À beira do leito**. Os exames aparecem em ordem alfabética dentro de cada grupo, com rolagem e estado individual de cada pedido. A lista de exames da central tem rolagem pela roda do mouse, Page Up/Page Down e setas.
 

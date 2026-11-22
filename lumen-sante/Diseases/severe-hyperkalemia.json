@@ -1,0 +1,761 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-hyperkalemia",
+  "Name": "Hipercalemia grave",
+  "SelectionWeight": 8,
+  "Tags": [
+    "renal",
+    "metabolica",
+    "eletrolitica",
+    "arritmica",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 3600000,
+  "MaximumStageDurationMilliseconds": 7200000,
+  "WorseningRisk": 0.45,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Estabilização cardíaca e redução urgente do potássio",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        86,
+        94
+      ],
+      "Systolic": [
+        126,
+        136
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        82,
+        90
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        77,
+        85
+      ],
+      "Systolic": [
+        117,
+        127
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        73,
+        81
+      ],
+      "Systolic": [
+        113,
+        123
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        68,
+        76
+      ],
+      "Systolic": [
+        108,
+        118
+      ],
+      "Diastolic": [
+        62,
+        68
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        61,
+        69
+      ],
+      "Systolic": [
+        101,
+        111
+      ],
+      "Diastolic": [
+        58,
+        64
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        53,
+        61
+      ],
+      "Systolic": [
+        93,
+        103
+      ],
+      "Diastolic": [
+        53,
+        59
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        46,
+        54
+      ],
+      "Systolic": [
+        86,
+        96
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        29,
+        32
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        38,
+        46
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        90,
+        92
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Isso está tirando minha vontade de comer.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. O desconforto está me distraindo de tudo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Precisei pedir companhia para procurar atendimento.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Isso está tirando minha vontade de comer.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. O desconforto está me distraindo de tudo.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Precisei pedir companhia para procurar atendimento.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Isso está tirando minha vontade de comer.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. O desconforto está me distraindo de tudo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Precisei pedir companhia para procurar atendimento.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Isso está tirando minha vontade de comer.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. O desconforto está me distraindo de tudo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Precisei pedir companhia para procurar atendimento.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Isso está tirando minha vontade de comer.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. O desconforto está me distraindo de tudo.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Está difícil achar uma posição confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. O mal-estar não me deixa descansar direito.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Já não consigo seguir minha rotina como antes.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Está difícil achar uma posição confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. O mal-estar não me deixa descansar direito.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Já não consigo seguir minha rotina como antes.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Está difícil achar uma posição confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. O mal-estar não me deixa descansar direito.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Já não consigo seguir minha rotina como antes.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Está difícil achar uma posição confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. O mal-estar não me deixa descansar direito.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Já não consigo seguir minha rotina como antes.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Está difícil achar uma posição confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. O mal-estar não me deixa descansar direito.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Está difícil cuidar das coisas sozinho.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Meus braços estão pesados. Preciso de ajuda para ficar mais confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Está difícil cuidar das coisas sozinho.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com fraqueza nos músculos e umas palpitações. As pernas parecem sem força. Preciso de ajuda para ficar mais confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Está difícil cuidar das coisas sozinho.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Sinto batidas estranhas no peito. Preciso de ajuda para ficar mais confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Está difícil cuidar das coisas sozinho.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com fraqueza nos músculos e umas palpitações. Tenho formigamento nas mãos. Preciso de ajuda para ficar mais confortável.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Está difícil cuidar das coisas sozinho.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com fraqueza nos músculos e umas palpitações. A fraqueza está dos dois lados do corpo. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Já não consigo fazer minhas atividades habituais.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Falar sobre isso está me cansando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Estou tendo dificuldade para descansar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Preciso de alguém por perto para me ajudar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Já não consigo fazer minhas atividades habituais.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Falar sobre isso está me cansando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Estou tendo dificuldade para descansar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Preciso de alguém por perto para me ajudar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Já não consigo fazer minhas atividades habituais.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Falar sobre isso está me cansando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Estou tendo dificuldade para descansar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Preciso de alguém por perto para me ajudar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Já não consigo fazer minhas atividades habituais.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Falar sobre isso está me cansando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Estou tendo dificuldade para descansar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Preciso de alguém por perto para me ajudar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Já não consigo fazer minhas atividades habituais.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Falar sobre isso está me cansando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Estou tendo dificuldade para descansar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Só quero ficar parado e receber ajuda.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Até conversar exige um esforço.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. O mal-estar está me deixando esgotado.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Não estou conseguindo cuidar de mim como antes.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Só quero ficar parado e receber ajuda.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Até conversar exige um esforço.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. O mal-estar está me deixando esgotado.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Não estou conseguindo cuidar de mim como antes.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Só quero ficar parado e receber ajuda.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Até conversar exige um esforço.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. O mal-estar está me deixando esgotado.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Não estou conseguindo cuidar de mim como antes.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Só quero ficar parado e receber ajuda.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Até conversar exige um esforço.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. O mal-estar está me deixando esgotado.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Não estou conseguindo cuidar de mim como antes.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Só quero ficar parado e receber ajuda.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Até conversar exige um esforço.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. O mal-estar está me deixando esgotado.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Estou com dificuldade até para me ajeitar no lugar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Preciso que alguém me ajude com as coisas simples.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Não consigo descansar por causa do mal-estar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Meus braços estão pesados. Qualquer atividade está me esgotando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Estou com dificuldade até para me ajeitar no lugar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Preciso que alguém me ajude com as coisas simples.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Não consigo descansar por causa do mal-estar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. As pernas parecem sem força. Qualquer atividade está me esgotando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Estou com dificuldade até para me ajeitar no lugar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Preciso que alguém me ajude com as coisas simples.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Não consigo descansar por causa do mal-estar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Sinto batidas estranhas no peito. Qualquer atividade está me esgotando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Estou com dificuldade até para me ajeitar no lugar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Preciso que alguém me ajude com as coisas simples.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Não consigo descansar por causa do mal-estar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. Tenho formigamento nas mãos. Qualquer atividade está me esgotando.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Estou com dificuldade até para me ajeitar no lugar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Preciso que alguém me ajude com as coisas simples.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Não consigo descansar por causa do mal-estar.",
+          "Meus músculos estão muito fracos e o coração parece falhar. A fraqueza está dos dois lados do corpo. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Preciso de ajuda agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Estou sem forças para me ajeitar.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Só consigo falar um pouco de cada vez.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Não consigo fazer nada sozinho neste momento.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Preciso de ajuda agora.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Estou sem forças para me ajeitar.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Só consigo falar um pouco de cada vez.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Não consigo fazer nada sozinho neste momento.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Preciso de ajuda agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Estou sem forças para me ajeitar.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Só consigo falar um pouco de cada vez.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Não consigo fazer nada sozinho neste momento.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Preciso de ajuda agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Estou sem forças para me ajeitar.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Só consigo falar um pouco de cada vez.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Não consigo fazer nada sozinho neste momento.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Preciso de ajuda agora.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Estou sem forças para me ajeitar.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Só consigo falar um pouco de cada vez.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Não me deixe sozinho agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Estou no limite das minhas forças.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Preciso parar um pouco para continuar falando.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Está difícil até pedir ajuda.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Não me deixe sozinho agora.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Estou no limite das minhas forças.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Preciso parar um pouco para continuar falando.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Está difícil até pedir ajuda.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Não me deixe sozinho agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Estou no limite das minhas forças.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Preciso parar um pouco para continuar falando.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Está difícil até pedir ajuda.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Não me deixe sozinho agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Estou no limite das minhas forças.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Preciso parar um pouco para continuar falando.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Está difícil até pedir ajuda.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Não me deixe sozinho agora.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Estou no limite das minhas forças.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Preciso parar um pouco para continuar falando.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Ajuda, por favor.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Não consigo continuar assim.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Fique perto de mim.",
+          "Estou quase sem força e sinto que posso desmaiar. Meus braços estão pesados. Preciso de socorro agora.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Ajuda, por favor.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Não consigo continuar assim.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Fique perto de mim.",
+          "Estou quase sem força e sinto que posso desmaiar. As pernas parecem sem força. Preciso de socorro agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Ajuda, por favor.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Não consigo continuar assim.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Fique perto de mim.",
+          "Estou quase sem força e sinto que posso desmaiar. Sinto batidas estranhas no peito. Preciso de socorro agora.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Ajuda, por favor.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Não consigo continuar assim.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Fique perto de mim.",
+          "Estou quase sem força e sinto que posso desmaiar. Tenho formigamento nas mãos. Preciso de socorro agora.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Ajuda, por favor.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Não consigo continuar assim.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Fique perto de mim.",
+          "Estou quase sem força e sinto que posso desmaiar. A fraqueza está dos dois lados do corpo. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos. É o que consigo contar sobre o mal-estar.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo. Essas coisas estão acontecendo juntas.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. É essa combinação que está me incomodando.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos. Essas coisas estão acontecendo juntas.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo. É essa combinação que está me incomodando.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. Foi isso que consegui perceber até agora.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo."
+        ],
+        [
+          "Meus braços estão pesados. As pernas parecem sem força.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. As pernas parecem sem força. Sinto batidas estranhas no peito.",
+          "Meus braços estão pesados. As pernas parecem sem força. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. As pernas parecem sem força. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "Meus braços estão pesados. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "Meus braços estão pesados. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. Tenho formigamento nas mãos.",
+          "As pernas parecem sem força. Sinto batidas estranhas no peito. A fraqueza está dos dois lados do corpo.",
+          "As pernas parecem sem força. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo.",
+          "Sinto batidas estranhas no peito. Tenho formigamento nas mãos. A fraqueza está dos dois lados do corpo."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "electrolytes": {
+      "Default": "Potássio de 6,5 mmol/L em amostra sem hemólise; requer correlação eletrocardiográfica.",
+      "ByStage": {
+        "4": "Potássio de 7,0 mmol/L confirmado em nova amostra.",
+        "5": "Potássio de 7,0 mmol/L confirmado em nova amostra.",
+        "6": "Potássio de 7,0 mmol/L confirmado em nova amostra.",
+        "7": "Potássio de 7,8 mmol/L com risco iminente de arritmia.",
+        "8": "Potássio de 7,8 mmol/L com risco iminente de arritmia.",
+        "9": "Potássio de 7,8 mmol/L com risco iminente de arritmia.",
+        "10": null
+      }
+    },
+    "cardiac": {
+      "Default": "Ondas T apiculadas e alargamento de QRS em contexto de hipercalemia.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

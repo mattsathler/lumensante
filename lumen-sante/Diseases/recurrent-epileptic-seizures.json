@@ -1,0 +1,754 @@
+{
+  "SchemaVersion": 1,
+  "Id": "recurrent-epileptic-seizures",
+  "Name": "Epilepsia com crises agrupadas",
+  "SelectionWeight": 8,
+  "Tags": [
+    "neurologica",
+    "convulsiva",
+    "consciencia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Controle anticonvulsivante e monitorização neurológica",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        84,
+        92
+      ],
+      "Systolic": [
+        144,
+        154
+      ],
+      "Diastolic": [
+        86,
+        92
+      ],
+      "RespiratoryRate": [
+        17,
+        20
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        87,
+        95
+      ],
+      "Systolic": [
+        147,
+        157
+      ],
+      "Diastolic": [
+        88,
+        94
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        150,
+        160
+      ],
+      "Diastolic": [
+        89,
+        95
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        93,
+        101
+      ],
+      "Systolic": [
+        153,
+        163
+      ],
+      "Diastolic": [
+        91,
+        97
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        156,
+        166
+      ],
+      "Diastolic": [
+        92,
+        98
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        100,
+        108
+      ],
+      "Systolic": [
+        160,
+        170
+      ],
+      "Diastolic": [
+        94,
+        100
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        103,
+        111
+      ],
+      "Systolic": [
+        163,
+        173
+      ],
+      "Diastolic": [
+        96,
+        102
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        167,
+        177
+      ],
+      "Diastolic": [
+        98,
+        104
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        110,
+        118
+      ],
+      "Systolic": [
+        170,
+        180
+      ],
+      "Diastolic": [
+        100,
+        106
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Isso está tirando minha vontade de comer.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. O desconforto está me distraindo de tudo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Precisei pedir companhia para procurar atendimento.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Isso está tirando minha vontade de comer.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. O desconforto está me distraindo de tudo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Precisei pedir companhia para procurar atendimento.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Isso está tirando minha vontade de comer.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. O desconforto está me distraindo de tudo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Precisei pedir companhia para procurar atendimento.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Isso está tirando minha vontade de comer.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. O desconforto está me distraindo de tudo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Precisei pedir companhia para procurar atendimento.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Isso está tirando minha vontade de comer.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. O desconforto está me distraindo de tudo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Preciso de pausas para fazer as coisas habituais.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Está difícil achar uma posição confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. O mal-estar não me deixa descansar direito.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Já não consigo seguir minha rotina como antes.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Preciso de pausas para fazer as coisas habituais.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Está difícil achar uma posição confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. O mal-estar não me deixa descansar direito.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Já não consigo seguir minha rotina como antes.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Preciso de pausas para fazer as coisas habituais.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Está difícil achar uma posição confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. O mal-estar não me deixa descansar direito.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Já não consigo seguir minha rotina como antes.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Preciso de pausas para fazer as coisas habituais.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Está difícil achar uma posição confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. O mal-estar não me deixa descansar direito.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Já não consigo seguir minha rotina como antes.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Preciso de pausas para fazer as coisas habituais.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Está difícil achar uma posição confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. O mal-estar não me deixa descansar direito.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Está difícil cuidar das coisas sozinho.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Estou evitando me movimentar por causa do mal-estar.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Há um pedaço do dia de que não me lembro. Preciso de ajuda para ficar mais confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Está difícil cuidar das coisas sozinho.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Estou evitando me movimentar por causa do mal-estar.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Acordei com os músculos doloridos. Preciso de ajuda para ficar mais confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Está difícil cuidar das coisas sozinho.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Estou evitando me movimentar por causa do mal-estar.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Mordi a língua durante uma das crises. Preciso de ajuda para ficar mais confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Está difícil cuidar das coisas sozinho.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Estou evitando me movimentar por causa do mal-estar.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Fiquei confuso depois do episódio. Preciso de ajuda para ficar mais confortável.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Está difícil cuidar das coisas sozinho.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Estou evitando me movimentar por causa do mal-estar.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tive mais uma crise e fiquei todo dolorido depois. Tive mais de um episódio hoje. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Já não consigo fazer minhas atividades habituais.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Falar sobre isso está me cansando.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Estou tendo dificuldade para descansar.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Preciso de alguém por perto para me ajudar.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Já não consigo fazer minhas atividades habituais.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Falar sobre isso está me cansando.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Estou tendo dificuldade para descansar.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Preciso de alguém por perto para me ajudar.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Já não consigo fazer minhas atividades habituais.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Falar sobre isso está me cansando.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Estou tendo dificuldade para descansar.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Preciso de alguém por perto para me ajudar.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Já não consigo fazer minhas atividades habituais.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Falar sobre isso está me cansando.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Estou tendo dificuldade para descansar.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Preciso de alguém por perto para me ajudar.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Já não consigo fazer minhas atividades habituais.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Falar sobre isso está me cansando.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Estou tendo dificuldade para descansar.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Só quero ficar parado e receber ajuda.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Até conversar exige um esforço.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. O mal-estar está me deixando esgotado.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Não estou conseguindo cuidar de mim como antes.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Só quero ficar parado e receber ajuda.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Até conversar exige um esforço.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. O mal-estar está me deixando esgotado.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Não estou conseguindo cuidar de mim como antes.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Só quero ficar parado e receber ajuda.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Até conversar exige um esforço.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. O mal-estar está me deixando esgotado.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Não estou conseguindo cuidar de mim como antes.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Só quero ficar parado e receber ajuda.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Até conversar exige um esforço.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. O mal-estar está me deixando esgotado.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Não estou conseguindo cuidar de mim como antes.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Só quero ficar parado e receber ajuda.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Até conversar exige um esforço.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. O mal-estar está me deixando esgotado.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Estou com dificuldade até para me ajeitar no lugar.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Preciso que alguém me ajude com as coisas simples.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Não consigo descansar por causa do mal-estar.",
+          "As crises estão voltando e fico confuso entre elas. Há um pedaço do dia de que não me lembro. Qualquer atividade está me esgotando.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Estou com dificuldade até para me ajeitar no lugar.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Preciso que alguém me ajude com as coisas simples.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Não consigo descansar por causa do mal-estar.",
+          "As crises estão voltando e fico confuso entre elas. Acordei com os músculos doloridos. Qualquer atividade está me esgotando.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Estou com dificuldade até para me ajeitar no lugar.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Preciso que alguém me ajude com as coisas simples.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Não consigo descansar por causa do mal-estar.",
+          "As crises estão voltando e fico confuso entre elas. Mordi a língua durante uma das crises. Qualquer atividade está me esgotando.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Estou com dificuldade até para me ajeitar no lugar.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Preciso que alguém me ajude com as coisas simples.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Não consigo descansar por causa do mal-estar.",
+          "As crises estão voltando e fico confuso entre elas. Fiquei confuso depois do episódio. Qualquer atividade está me esgotando.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Estou com dificuldade até para me ajeitar no lugar.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Preciso que alguém me ajude com as coisas simples.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Não consigo descansar por causa do mal-estar.",
+          "As crises estão voltando e fico confuso entre elas. Tive mais de um episódio hoje. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Preciso de ajuda agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Estou sem forças para me ajeitar.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Só consigo falar um pouco de cada vez.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Não consigo fazer nada sozinho neste momento.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Preciso de ajuda agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Estou sem forças para me ajeitar.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Só consigo falar um pouco de cada vez.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Não consigo fazer nada sozinho neste momento.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Preciso de ajuda agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Estou sem forças para me ajeitar.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Só consigo falar um pouco de cada vez.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Não consigo fazer nada sozinho neste momento.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Preciso de ajuda agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Estou sem forças para me ajeitar.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Só consigo falar um pouco de cada vez.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Não consigo fazer nada sozinho neste momento.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Preciso de ajuda agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Estou sem forças para me ajeitar.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Só consigo falar um pouco de cada vez.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Não me deixe sozinho agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Estou no limite das minhas forças.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Preciso parar um pouco para continuar falando.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Está difícil até pedir ajuda.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Não me deixe sozinho agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Estou no limite das minhas forças.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Preciso parar um pouco para continuar falando.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Está difícil até pedir ajuda.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Não me deixe sozinho agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Estou no limite das minhas forças.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Preciso parar um pouco para continuar falando.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Está difícil até pedir ajuda.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Não me deixe sozinho agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Estou no limite das minhas forças.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Preciso parar um pouco para continuar falando.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Está difícil até pedir ajuda.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Não me deixe sozinho agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Estou no limite das minhas forças.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Preciso parar um pouco para continuar falando.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Ajuda, por favor.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Não consigo continuar assim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Fique perto de mim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Há um pedaço do dia de que não me lembro. Preciso de socorro agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Ajuda, por favor.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Não consigo continuar assim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Fique perto de mim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Acordei com os músculos doloridos. Preciso de socorro agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Ajuda, por favor.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Não consigo continuar assim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Fique perto de mim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Mordi a língua durante uma das crises. Preciso de socorro agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Ajuda, por favor.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Não consigo continuar assim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Fique perto de mim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Fiquei confuso depois do episódio. Preciso de socorro agora.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Ajuda, por favor.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Não consigo continuar assim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Fique perto de mim.",
+          "Estou exausto e com dificuldade para lembrar o que aconteceu. Tive mais de um episódio hoje. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio. É o que consigo contar sobre o mal-estar.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje. Essas coisas estão acontecendo juntas.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. É essa combinação que está me incomodando.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Essas coisas estão acontecendo juntas.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje. É essa combinação que está me incomodando.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. Foi isso que consegui perceber até agora.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje."
+        ],
+        [
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Mordi a língua durante uma das crises.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Acordei com os músculos doloridos. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Há um pedaço do dia de que não me lembro. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Há um pedaço do dia de que não me lembro. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Fiquei confuso depois do episódio.",
+          "Acordei com os músculos doloridos. Mordi a língua durante uma das crises. Tive mais de um episódio hoje.",
+          "Acordei com os músculos doloridos. Fiquei confuso depois do episódio. Tive mais de um episódio hoje.",
+          "Mordi a língua durante uma das crises. Fiquei confuso depois do episódio. Tive mais de um episódio hoje."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "electrolytes": {
+      "Default": "Sódio, cálcio e magnésio sem distúrbio que explique as crises; investigação neurológica necessária.",
+      "ByStage": {
+        "4": "Sem causa eletrolítica identificada para as crises recorrentes.",
+        "5": "Sem causa eletrolítica identificada para as crises recorrentes.",
+        "6": "Sem causa eletrolítica identificada para as crises recorrentes.",
+        "7": "Eletrólitos sem alteração explicativa; quadro exige controle de crises e investigação especializada.",
+        "8": "Eletrólitos sem alteração explicativa; quadro exige controle de crises e investigação especializada.",
+        "9": "Eletrólitos sem alteração explicativa; quadro exige controle de crises e investigação especializada.",
+        "10": null
+      }
+    }
+  }
+}

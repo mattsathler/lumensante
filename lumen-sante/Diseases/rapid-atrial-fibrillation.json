@@ -1,0 +1,761 @@
+{
+  "SchemaVersion": 1,
+  "Id": "rapid-atrial-fibrillation",
+  "Name": "Fibrilação atrial com resposta ventricular rápida",
+  "SelectionWeight": 8,
+  "Tags": [
+    "cardiaca",
+    "arritmica",
+    "palpitacao",
+    "dispneia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Controle de frequência ou ritmo e avaliação de anticoagulação",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        115,
+        125
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        132,
+        140
+      ],
+      "Systolic": [
+        111,
+        121
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        106,
+        116
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        145,
+        153
+      ],
+      "Systolic": [
+        101,
+        111
+      ],
+      "Diastolic": [
+        62,
+        68
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        153,
+        161
+      ],
+      "Systolic": [
+        95,
+        105
+      ],
+      "Diastolic": [
+        58,
+        64
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        162,
+        170
+      ],
+      "Systolic": [
+        89,
+        99
+      ],
+      "Diastolic": [
+        53,
+        59
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        170,
+        178
+      ],
+      "Systolic": [
+        82,
+        92
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        29,
+        32
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        178,
+        186
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        90,
+        92
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Isso está tirando minha vontade de comer.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. O desconforto está me distraindo de tudo.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Precisei pedir companhia para procurar atendimento.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Isso está tirando minha vontade de comer.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. O desconforto está me distraindo de tudo.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Precisei pedir companhia para procurar atendimento.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Já precisei diminuir o ritmo das minhas atividades.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Isso está tirando minha vontade de comer.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. O desconforto está me distraindo de tudo.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Precisei pedir companhia para procurar atendimento.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Já precisei diminuir o ritmo das minhas atividades.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Isso está tirando minha vontade de comer.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. O desconforto está me distraindo de tudo.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Precisei pedir companhia para procurar atendimento.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Já precisei diminuir o ritmo das minhas atividades.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Isso está tirando minha vontade de comer.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. O desconforto está me distraindo de tudo.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Preciso de pausas para fazer as coisas habituais.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Está difícil achar uma posição confortável.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. O mal-estar não me deixa descansar direito.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Já não consigo seguir minha rotina como antes.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Preciso de pausas para fazer as coisas habituais.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Está difícil achar uma posição confortável.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. O mal-estar não me deixa descansar direito.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Já não consigo seguir minha rotina como antes.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Preciso de pausas para fazer as coisas habituais.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Está difícil achar uma posição confortável.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. O mal-estar não me deixa descansar direito.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Já não consigo seguir minha rotina como antes.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Preciso de pausas para fazer as coisas habituais.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Está difícil achar uma posição confortável.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. O mal-estar não me deixa descansar direito.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Já não consigo seguir minha rotina como antes.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Preciso de pausas para fazer as coisas habituais.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Está difícil achar uma posição confortável.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. O mal-estar não me deixa descansar direito.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Está difícil cuidar das coisas sozinho.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Estou evitando me movimentar por causa do mal-estar.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Meu coração dispara e parece perder o compasso. Sinto batidas fortes e outras parecem falhar. Preciso de ajuda para ficar mais confortável.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Está difícil cuidar das coisas sozinho.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Estou evitando me movimentar por causa do mal-estar.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Meu coração dispara e parece perder o compasso. O pulso não mantém o mesmo ritmo. Preciso de ajuda para ficar mais confortável.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Está difícil cuidar das coisas sozinho.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Estou evitando me movimentar por causa do mal-estar.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. O desconforto está ocupando minha atenção o tempo todo.",
+          "Meu coração dispara e parece perder o compasso. Tenho palpitações mesmo em repouso. Preciso de ajuda para ficar mais confortável.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Está difícil cuidar das coisas sozinho.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Estou evitando me movimentar por causa do mal-estar.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. O desconforto está ocupando minha atenção o tempo todo.",
+          "Meu coração dispara e parece perder o compasso. O cansaço veio junto das palpitações. Preciso de ajuda para ficar mais confortável.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Está difícil cuidar das coisas sozinho.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Estou evitando me movimentar por causa do mal-estar.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. O desconforto está ocupando minha atenção o tempo todo.",
+          "Meu coração dispara e parece perder o compasso. Fico ofegante quando o coração acelera. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Já não consigo fazer minhas atividades habituais.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Falar sobre isso está me cansando.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Estou tendo dificuldade para descansar.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Preciso de alguém por perto para me ajudar.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Já não consigo fazer minhas atividades habituais.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Falar sobre isso está me cansando.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Estou tendo dificuldade para descansar.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Preciso de alguém por perto para me ajudar.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Já não consigo fazer minhas atividades habituais.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Falar sobre isso está me cansando.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Estou tendo dificuldade para descansar.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Preciso de alguém por perto para me ajudar.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Já não consigo fazer minhas atividades habituais.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Falar sobre isso está me cansando.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Estou tendo dificuldade para descansar.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Preciso de alguém por perto para me ajudar.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Já não consigo fazer minhas atividades habituais.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Falar sobre isso está me cansando.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Estou tendo dificuldade para descansar.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Só quero ficar parado e receber ajuda.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Até conversar exige um esforço.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. O mal-estar está me deixando esgotado.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Não estou conseguindo cuidar de mim como antes.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Só quero ficar parado e receber ajuda.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Até conversar exige um esforço.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. O mal-estar está me deixando esgotado.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Não estou conseguindo cuidar de mim como antes.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Só quero ficar parado e receber ajuda.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Até conversar exige um esforço.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. O mal-estar está me deixando esgotado.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Não estou conseguindo cuidar de mim como antes.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Só quero ficar parado e receber ajuda.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Até conversar exige um esforço.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. O mal-estar está me deixando esgotado.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Não estou conseguindo cuidar de mim como antes.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Só quero ficar parado e receber ajuda.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Até conversar exige um esforço.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. O mal-estar está me deixando esgotado.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Estou com dificuldade até para me ajeitar no lugar.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Preciso que alguém me ajude com as coisas simples.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Não consigo descansar por causa do mal-estar.",
+          "O coração corre sem parar e estou ficando tonto. Sinto batidas fortes e outras parecem falhar. Qualquer atividade está me esgotando.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Estou com dificuldade até para me ajeitar no lugar.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Preciso que alguém me ajude com as coisas simples.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Não consigo descansar por causa do mal-estar.",
+          "O coração corre sem parar e estou ficando tonto. O pulso não mantém o mesmo ritmo. Qualquer atividade está me esgotando.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Estou com dificuldade até para me ajeitar no lugar.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Preciso que alguém me ajude com as coisas simples.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Não consigo descansar por causa do mal-estar.",
+          "O coração corre sem parar e estou ficando tonto. Tenho palpitações mesmo em repouso. Qualquer atividade está me esgotando.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Estou com dificuldade até para me ajeitar no lugar.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Preciso que alguém me ajude com as coisas simples.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Não consigo descansar por causa do mal-estar.",
+          "O coração corre sem parar e estou ficando tonto. O cansaço veio junto das palpitações. Qualquer atividade está me esgotando.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Estou com dificuldade até para me ajeitar no lugar.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Preciso que alguém me ajude com as coisas simples.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Não consigo descansar por causa do mal-estar.",
+          "O coração corre sem parar e estou ficando tonto. Fico ofegante quando o coração acelera. Qualquer atividade está me esgotando."
+        ],
+        [
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Preciso de ajuda agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Estou sem forças para me ajeitar.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Só consigo falar um pouco de cada vez.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Não consigo fazer nada sozinho neste momento.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Preciso de ajuda agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Estou sem forças para me ajeitar.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Só consigo falar um pouco de cada vez.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Não consigo fazer nada sozinho neste momento.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Preciso de ajuda agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Estou sem forças para me ajeitar.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Só consigo falar um pouco de cada vez.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Não consigo fazer nada sozinho neste momento.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Preciso de ajuda agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Estou sem forças para me ajeitar.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Só consigo falar um pouco de cada vez.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Não consigo fazer nada sozinho neste momento.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Preciso de ajuda agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Estou sem forças para me ajeitar.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Só consigo falar um pouco de cada vez.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Não me deixe sozinho agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Estou no limite das minhas forças.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Preciso parar um pouco para continuar falando.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Está difícil até pedir ajuda.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Não me deixe sozinho agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Estou no limite das minhas forças.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Preciso parar um pouco para continuar falando.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Está difícil até pedir ajuda.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Não me deixe sozinho agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Estou no limite das minhas forças.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Preciso parar um pouco para continuar falando.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Está difícil até pedir ajuda.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Não me deixe sozinho agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Estou no limite das minhas forças.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Preciso parar um pouco para continuar falando.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Está difícil até pedir ajuda.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Não me deixe sozinho agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Estou no limite das minhas forças.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Preciso parar um pouco para continuar falando.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Está difícil até pedir ajuda."
+        ],
+        [
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Ajuda, por favor.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Não consigo continuar assim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Fique perto de mim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Sinto batidas fortes e outras parecem falhar. Preciso de socorro agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Ajuda, por favor.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Não consigo continuar assim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Fique perto de mim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O pulso não mantém o mesmo ritmo. Preciso de socorro agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Ajuda, por favor.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Não consigo continuar assim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Fique perto de mim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Tenho palpitações mesmo em repouso. Preciso de socorro agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Ajuda, por favor.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Não consigo continuar assim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Fique perto de mim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. O cansaço veio junto das palpitações. Preciso de socorro agora.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Ajuda, por favor.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Não consigo continuar assim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Fique perto de mim.",
+          "As batidas estão muito rápidas e sinto que vou apagar. Fico ofegante quando o coração acelera. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. É o que consigo contar sobre o mal-estar.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera. Essas coisas estão acontecendo juntas.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. É essa combinação que está me incomodando.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Essas coisas estão acontecendo juntas.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera. É essa combinação que está me incomodando.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. Foi isso que consegui perceber até agora.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera."
+        ],
+        [
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. O pulso não mantém o mesmo ritmo. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "Sinto batidas fortes e outras parecem falhar. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "Sinto batidas fortes e outras parecem falhar. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações.",
+          "O pulso não mantém o mesmo ritmo. Tenho palpitações mesmo em repouso. Fico ofegante quando o coração acelera.",
+          "O pulso não mantém o mesmo ritmo. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera.",
+          "Tenho palpitações mesmo em repouso. O cansaço veio junto das palpitações. Fico ofegante quando o coração acelera."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "cardiac": {
+      "Default": "Ritmo irregularmente irregular, ausência de ondas P e resposta ventricular rápida.",
+      "ByStage": {
+        "4": "Fibrilação atrial com frequência ventricular elevada e repercussão hemodinâmica.",
+        "5": "Fibrilação atrial com frequência ventricular elevada e repercussão hemodinâmica.",
+        "6": "Fibrilação atrial com frequência ventricular elevada e repercussão hemodinâmica.",
+        "7": "Fibrilação atrial rápida com sinais de instabilidade circulatória.",
+        "8": "Fibrilação atrial rápida com sinais de instabilidade circulatória.",
+        "9": "Fibrilação atrial rápida com sinais de instabilidade circulatória.",
+        "10": null
+      }
+    },
+    "tsh": {
+      "Default": "TSH dentro do intervalo de referência, sem evidência laboratorial de tireotoxicose.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

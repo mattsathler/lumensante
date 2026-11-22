@@ -54,16 +54,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginEntryPoint.cs" />
+    <Compile Include="PluginPaths.cs" />
     <Compile Include="Clinical\DiseaseStage.cs" />
     <Compile Include="Clinical\DiseaseDefinition.cs" />
     <Compile Include="Clinical\Medication.cs" />
+    <Compile Include="Clinical\CareAuthor.cs" />
+    <Compile Include="Clinical\WorkerDiagnosis.cs" />
+    <Compile Include="Gameplay\WorkerReservations.cs" />
+    <Compile Include="Gameplay\HospitalShift.Workers.cs" />
     <Compile Include="Clinical\DiseaseCatalog.cs" />
     <Compile Include="Clinical\DiseaseCatalogLoader.cs" />
     <Compile Include="Clinical\DiseaseJsonReader.cs" />
     <Compile Include="Gameplay\PatientNames.cs" />
     <Compile Include="Gameplay\PatientAppearance.cs" />
     <EmbeddedResource Include="Data\*.json" />
-    <EmbeddedResource Include="Data\Doencas\*.json" />
+    <Content Include="Diseases\*.json">
+      <TargetPath>LumenSante\Diseases\%(Filename)%(Extension)</TargetPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Assets\*.png" />
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />

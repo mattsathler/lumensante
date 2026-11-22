@@ -4,6 +4,42 @@ O hospital deve funcionar por conta própria e transmitir a sensação de que o 
 
 A implementação começa depois da migração descrita em [Doenças modulares](doencas-modulares.md). O Workers consumirá as doenças oficiais e externas carregadas pelo mesmo catálogo.
 
+## Estado da implementação
+
+O agendador, as reservas de pacientes e computadores e o ciclo de atendimento estão implementados. Doctors chamam pacientes pelo computador, consultam sentados, escolhem hipóteses por raridade e tags, prescrevem, internam, visitam os leitos para solicitar exames, revisam resultados e dão alta. As operações de chamada, internação, exame, alta e limpeza recebem o paciente explicitamente.
+
+O computador mantém os prontuários com alta na lista de pacientes durante toda a instância do plugin. Resultados, anotações e condutas são preservados, e um retorno reutiliza a mesma entrada. A consulta dos Doctors dura 20 minutos do jogo após a chegada do paciente. As visitas aos leitos mantêm sua duração de oito minutos do jogo.
+
+O prontuário registra autoria, horário e revisão das condutas, exibidos na aba Histórico médico junto aos exames anteriores. Prescrições, retiradas e tratamentos definidos pelo jogador protegem o plano durante o episódio, inclusive em retornos. A interação direta invalida ações pendentes por revisão, e confirmar um tratamento previamente escolhido pela equipe também transfere a autoridade ao jogador. A API compartilhada bloqueia alterações e alta de Doctors em planos protegidos. Pacientes ambulatoriais com plano protegido aguardam o jogador, permitindo que a equipe use sua sala autônoma para outros casos. Internados protegidos continuam elegíveis a acompanhamento e investigação.
+
+As notificações de atendimento são exibidas apenas para ações iniciadas pelo jogador. Chamadas e internações preservam essa origem até a conclusão do deslocamento. Altas e falhas de exames usam a autoria da ação ou do pedido. Atendimentos dos Doctors, retornos espontâneos, recuperação, melhora, piora e óbito ficam registrados no log. O início automático do plantão também é silencioso, enquanto os comandos manuais continuam confirmando a ação na interface.
+
+Evolução clínica, exames e transferências em andamento continuam quando o jogador encerra seu plantão. O tempo dos resultados usa a origem da sessão hospitalar. A população inicial prioriza três Doctors, impede saídas normais abaixo desse mínimo e repõe perdas com tentativas espaçadas de cinco segundos reais. Configurações com menos de quatro funcionários são ajustadas para comportar três Doctors e ao menos um enfermeiro na composição inicial.
+
+Fora da área do hospital, a navegação avança por tempo de viagem, sem tarefas nativas de caminhada. Ao retornar, o NPC retoma o percurso a partir de um ponto do grafo. Exames, condutas e hipóteses mantêm seus estados na transição. A espera por leito preserva o caso e sua evolução, com retorno dos estáveis à recepção. O recolhimento de corpos usa uma fila simulada de Coroners, solicitada pelo jogador ou após uma visita do Doctor, e libera o espaço após 30 minutos do jogo. Os prontuários desses casos permanecem em memória até o encerramento da sessão.
+
+As verificações de autoria, proteção, revisões, retorno, expiração e alta estão em `Skills/lumen-sante-gameplay/scripts/Validate-CareAuthority.ps1`. `Validate-Workers.ps1` cobre as probabilidades em 1000 sementes por doença, candidatas por tags, caso externo, evidências usadas uma única vez, encerramento da investigação e reservas atômicas. A conferência das rotas, animações, interface e atendimento simultâneo depende do GTA V.
+
+## Balanceamento inicial implementado
+
+| Parâmetro | Valor |
+| --- | --- |
+| Doença comum | Peso relativo de pelo menos 15%, com 95% de acerto inicial. |
+| Doença intermediária | Peso relativo entre 5% e 15%, com 85% de acerto inicial. |
+| Doença rara | Peso relativo inferior a 5%, com 65% de acerto inicial. |
+| Nova evidência diferenciadora | Bônus de 15 pontos percentuais sobre o acerto base, limitado a 99%. Cada resultado é consumido uma vez. |
+| Agendamento | Verificação a cada dois segundos reais. Prioriza espera, gravidade e pendências, com penalidades para cobertura recente do jogador e distância do Doctor. |
+| Cobertura do jogador | Diminui linearmente até desaparecer em 60 minutos do jogo. |
+| Consulta | Vinte minutos do jogo após o paciente e o Doctor estarem na sala. |
+| Visita ao leito | Oito minutos do jogo após alcançar o destino. |
+| Chamada pelo computador | Dois minutos do jogo antes da tentativa. Falta de enfermeiro gera nova tentativa espaçada. |
+| Reavaliação | Vinte minutos do jogo após o atendimento. Intervenção do jogador adia novas tarefas por dez minutos. |
+| Falha de atendimento | Libera reservas e permite nova tentativa após cinco minutos do jogo. A atribuição tem prazo de 120 segundos reais por etapa para limitar rotas ou esperas travadas. |
+| Pedidos de exame | Até dois pedidos pendentes por paciente. Após hipótese correta com exame informativo, encerra novos pedidos dessa investigação. |
+| Simulação distante | Ativada além de 160 metros, com retorno ao movimento físico dentro de 120 metros. |
+
+As faixas usam o catálogo carregado, incluindo alterações e doenças adicionadas em `LumenSante/Diseases`. Os valores são parâmetros iniciais do jogo para ajustar após a conferência dos fluxos no GTA V.
+
 ## Regras de funcionamento
 
 - Manter pelo menos três Doctors vivos e presentes no hospital. Profissionais entrando ou saindo não sustentam esse mínimo. Saídas normais respeitam a cobertura mínima, e desaparecimentos ou mortes acionam reposição prioritária com nova tentativa em caso de falha de criação.
@@ -30,7 +66,7 @@ O diagnóstico usa sorteios e consultas ao catálogo. Cada doença tem peso de s
 | Intermediária | 85% |
 | Rara | 65% |
 
-Esses percentuais são parâmetros iniciais de balanceamento. Os limites que convertem peso em faixa de raridade e o aumento de acerto após exames devem ser definidos na implementação e registrados para permitir ajuste. A classificação deve considerar a expansão do catálogo por arquivos externos.
+Esses percentuais são parâmetros iniciais de balanceamento. A tabela de balanceamento registra os limites que convertem peso em faixa de raridade e o aumento de acerto após exames. A classificação considera a expansão do catálogo por arquivos externos.
 
 Quando houver erro, sortear uma hipótese entre doenças com tags compartilhadas. Dar preferência às candidatas que compartilham tags específicas. Uma doença pode ter várias tags, como `respiratoria`, `nasal` ou `tosse`. Sem candidata plausível, manter o diagnóstico em aberto e agendar reavaliação.
 
@@ -117,3 +153,15 @@ As operações atualmente concentradas em `HospitalShift` precisam receber expli
 - Não bloquear permanentemente salas quando faltar leito. Preservar o caso e a prioridade durante a espera.
 - Recuperar falhas de rota, ausência de NPC e troca entre simulação próxima e distante sem perder prontuários ou duplicar ações.
 - Compilar, executar verificações de lógica de diagnóstico, reservas e autoria, e validar no GTA V as rotas, computadores, visitas e atendimento simultâneo com o jogador.
+
+## Conferência no GTA V
+
+1. Instalar a DLL com a pasta `LumenSante/Diseases` e observar um atendimento sem chamar pacientes pelo jogador. Conferir o trajeto do Doctor até o computador, a escolta pelo enfermeiro e a consulta com o paciente sentado.
+2. Encerrar o plantão do jogador e conferir a continuidade das consultas, evolução, exames, visitas e altas. Testar também o início e o fim de uma transferência durante esse intervalo.
+3. Atender repetidamente no diagnóstico e na enfermaria, depois passar aos quartos. Conferir a mudança de prioridades da equipe e o atendimento de pendências acumuladas nos outros setores.
+4. Ocupar a estação para a qual um Doctor está caminhando e assumir um paciente durante uma visita. Conferir a liberação da cadeira e das reservas, sem aplicação posterior do plano antigo.
+5. Prescrever ou retirar uma medicação e confirmar um tratamento previamente escolhido pela equipe. Conferir a proteção das condutas em avaliações posteriores e no retorno do paciente, incluindo o bloqueio da alta autônoma.
+6. Conferir o limite de uma consulta autônoma e a preservação do último quarto para o jogador. Com leitos indisponíveis, observar um paciente estável retornar à recepção como Aguardando leito, preservando prontuário, evolução e prioridade.
+7. Observar pedidos feitos após visitas aos internados e verificar hipóteses e condutas na aba Histórico médico. Pedidos pendentes e laudos inconclusivos devem preservar a hipótese, e o mesmo laudo concluído deve produzir no máximo uma revisão.
+8. Afastar o jogador além de 160 metros e retornar dentro de 120 metros durante deslocamentos e exames. Conferir a retomada dos NPCs e a ausência de chamadas, prescrições ou conclusões duplicadas.
+9. Conferir a reposição de Doctors desaparecidos e as interrupções de rota. Em um óbito, observar a solicitação de Coroners pelo Doctor ou jogador e a liberação do espaço após o intervalo de recolhimento simulado.

@@ -1,0 +1,767 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-iron-deficiency-anemia",
+  "Name": "Anemia ferropriva grave",
+  "SelectionWeight": 8,
+  "Tags": [
+    "hematologica",
+    "anemia",
+    "fraqueza",
+    "dispneia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Reposição de ferro, investigação da perda e suporte transfusional quando indicado",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        94,
+        102
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Palidez cutaneomucosa."
+      ]
+    },
+    {
+      "Pulse": [
+        99,
+        107
+      ],
+      "Systolic": [
+        117,
+        127
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Palidez cutaneomucosa."
+      ]
+    },
+    {
+      "Pulse": [
+        104,
+        112
+      ],
+      "Systolic": [
+        114,
+        124
+      ],
+      "Diastolic": [
+        71,
+        77
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Palidez cutaneomucosa."
+      ]
+    },
+    {
+      "Pulse": [
+        109,
+        117
+      ],
+      "Systolic": [
+        110,
+        120
+      ],
+      "Diastolic": [
+        68,
+        74
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Palidez cutaneomucosa acentuada."
+      ]
+    },
+    {
+      "Pulse": [
+        114,
+        122
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        65,
+        71
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Palidez cutaneomucosa acentuada."
+      ]
+    },
+    {
+      "Pulse": [
+        120,
+        128
+      ],
+      "Systolic": [
+        102,
+        112
+      ],
+      "Diastolic": [
+        61,
+        67
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Palidez cutaneomucosa acentuada."
+      ]
+    },
+    {
+      "Pulse": [
+        126,
+        134
+      ],
+      "Systolic": [
+        97,
+        107
+      ],
+      "Diastolic": [
+        58,
+        64
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Palidez intensa e extremidades frias."
+      ]
+    },
+    {
+      "Pulse": [
+        132,
+        140
+      ],
+      "Systolic": [
+        91,
+        101
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Palidez intensa e extremidades frias."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        86,
+        96
+      ],
+      "Diastolic": [
+        50,
+        56
+      ],
+      "RespiratoryRate": [
+        31,
+        34
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Palidez intensa e extremidades frias."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Isso está tirando minha vontade de comer.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. O desconforto está me distraindo de tudo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Precisei pedir companhia para procurar atendimento.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Isso está tirando minha vontade de comer.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. O desconforto está me distraindo de tudo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Precisei pedir companhia para procurar atendimento.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Isso está tirando minha vontade de comer.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. O desconforto está me distraindo de tudo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Precisei pedir companhia para procurar atendimento.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Isso está tirando minha vontade de comer.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. O desconforto está me distraindo de tudo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Precisei pedir companhia para procurar atendimento.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Isso está tirando minha vontade de comer.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. O desconforto está me distraindo de tudo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Preciso de pausas para fazer as coisas habituais.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Está difícil achar uma posição confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. O mal-estar não me deixa descansar direito.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Já não consigo seguir minha rotina como antes.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Preciso de pausas para fazer as coisas habituais.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Está difícil achar uma posição confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. O mal-estar não me deixa descansar direito.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Já não consigo seguir minha rotina como antes.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Preciso de pausas para fazer as coisas habituais.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Está difícil achar uma posição confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. O mal-estar não me deixa descansar direito.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Já não consigo seguir minha rotina como antes.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Preciso de pausas para fazer as coisas habituais.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Está difícil achar uma posição confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. O mal-estar não me deixa descansar direito.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Já não consigo seguir minha rotina como antes.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Preciso de pausas para fazer as coisas habituais.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Está difícil achar uma posição confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. O mal-estar não me deixa descansar direito.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Está difícil cuidar das coisas sozinho.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Tenho falta de ar ao fazer esforço. Preciso de ajuda para ficar mais confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Está difícil cuidar das coisas sozinho.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Meu coração bate forte quando tento andar. Preciso de ajuda para ficar mais confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Está difícil cuidar das coisas sozinho.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Ando mais pálido que de costume. Preciso de ajuda para ficar mais confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Está difícil cuidar das coisas sozinho.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. O cansaço foi aumentando aos poucos. Preciso de ajuda para ficar mais confortável.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Está difícil cuidar das coisas sozinho.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou cansando por qualquer coisa e pareço mais pálido. Sinto vontade de mastigar gelo. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Já não consigo fazer minhas atividades habituais.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Falar sobre isso está me cansando.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Estou tendo dificuldade para descansar.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Preciso de alguém por perto para me ajudar.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Já não consigo fazer minhas atividades habituais.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Falar sobre isso está me cansando.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Estou tendo dificuldade para descansar.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Preciso de alguém por perto para me ajudar.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Já não consigo fazer minhas atividades habituais.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Falar sobre isso está me cansando.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Estou tendo dificuldade para descansar.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Preciso de alguém por perto para me ajudar.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Já não consigo fazer minhas atividades habituais.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Falar sobre isso está me cansando.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Estou tendo dificuldade para descansar.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Preciso de alguém por perto para me ajudar.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Já não consigo fazer minhas atividades habituais.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Falar sobre isso está me cansando.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Estou tendo dificuldade para descansar.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Só quero ficar parado e receber ajuda.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Até conversar exige um esforço.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. O mal-estar está me deixando esgotado.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Não estou conseguindo cuidar de mim como antes.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Só quero ficar parado e receber ajuda.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Até conversar exige um esforço.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. O mal-estar está me deixando esgotado.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Não estou conseguindo cuidar de mim como antes.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Só quero ficar parado e receber ajuda.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Até conversar exige um esforço.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. O mal-estar está me deixando esgotado.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Não estou conseguindo cuidar de mim como antes.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Só quero ficar parado e receber ajuda.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Até conversar exige um esforço.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. O mal-estar está me deixando esgotado.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Não estou conseguindo cuidar de mim como antes.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Só quero ficar parado e receber ajuda.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Até conversar exige um esforço.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. O mal-estar está me deixando esgotado.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Estou com dificuldade até para me ajeitar no lugar.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Preciso que alguém me ajude com as coisas simples.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Não consigo descansar por causa do mal-estar.",
+          "Fico tonto e o coração dispara com pouco esforço. Tenho falta de ar ao fazer esforço. Qualquer atividade está me esgotando.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Estou com dificuldade até para me ajeitar no lugar.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Preciso que alguém me ajude com as coisas simples.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Não consigo descansar por causa do mal-estar.",
+          "Fico tonto e o coração dispara com pouco esforço. Meu coração bate forte quando tento andar. Qualquer atividade está me esgotando.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Estou com dificuldade até para me ajeitar no lugar.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Preciso que alguém me ajude com as coisas simples.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Não consigo descansar por causa do mal-estar.",
+          "Fico tonto e o coração dispara com pouco esforço. Ando mais pálido que de costume. Qualquer atividade está me esgotando.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Estou com dificuldade até para me ajeitar no lugar.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Preciso que alguém me ajude com as coisas simples.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Não consigo descansar por causa do mal-estar.",
+          "Fico tonto e o coração dispara com pouco esforço. O cansaço foi aumentando aos poucos. Qualquer atividade está me esgotando.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Estou com dificuldade até para me ajeitar no lugar.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Preciso que alguém me ajude com as coisas simples.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Não consigo descansar por causa do mal-estar.",
+          "Fico tonto e o coração dispara com pouco esforço. Sinto vontade de mastigar gelo. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Preciso de ajuda agora.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Estou sem forças para me ajeitar.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Só consigo falar um pouco de cada vez.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Não consigo fazer nada sozinho neste momento.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Preciso de ajuda agora.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Estou sem forças para me ajeitar.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Só consigo falar um pouco de cada vez.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Não consigo fazer nada sozinho neste momento.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Preciso de ajuda agora.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Estou sem forças para me ajeitar.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Só consigo falar um pouco de cada vez.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Não consigo fazer nada sozinho neste momento.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Preciso de ajuda agora.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Estou sem forças para me ajeitar.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Só consigo falar um pouco de cada vez.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Não consigo fazer nada sozinho neste momento.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Preciso de ajuda agora.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Estou sem forças para me ajeitar.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Só consigo falar um pouco de cada vez.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Não me deixe sozinho agora.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Estou no limite das minhas forças.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Preciso parar um pouco para continuar falando.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Está difícil até pedir ajuda.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Não me deixe sozinho agora.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Estou no limite das minhas forças.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Preciso parar um pouco para continuar falando.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Está difícil até pedir ajuda.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Não me deixe sozinho agora.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Estou no limite das minhas forças.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Preciso parar um pouco para continuar falando.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Está difícil até pedir ajuda.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Não me deixe sozinho agora.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Estou no limite das minhas forças.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Preciso parar um pouco para continuar falando.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Está difícil até pedir ajuda.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Não me deixe sozinho agora.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Estou no limite das minhas forças.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Preciso parar um pouco para continuar falando.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Ajuda, por favor.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Não consigo continuar assim.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Fique perto de mim.",
+          "Estou sem forças e sinto que posso desmaiar. Tenho falta de ar ao fazer esforço. Preciso de socorro agora.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Ajuda, por favor.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Não consigo continuar assim.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Fique perto de mim.",
+          "Estou sem forças e sinto que posso desmaiar. Meu coração bate forte quando tento andar. Preciso de socorro agora.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Ajuda, por favor.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Não consigo continuar assim.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Fique perto de mim.",
+          "Estou sem forças e sinto que posso desmaiar. Ando mais pálido que de costume. Preciso de socorro agora.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Ajuda, por favor.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Não consigo continuar assim.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Fique perto de mim.",
+          "Estou sem forças e sinto que posso desmaiar. O cansaço foi aumentando aos poucos. Preciso de socorro agora.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Ajuda, por favor.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Não consigo continuar assim.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Fique perto de mim.",
+          "Estou sem forças e sinto que posso desmaiar. Sinto vontade de mastigar gelo. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. É o que consigo contar sobre o mal-estar.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo. Essas coisas estão acontecendo juntas.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. É essa combinação que está me incomodando.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Essas coisas estão acontecendo juntas.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo. É essa combinação que está me incomodando.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. Foi isso que consegui perceber até agora.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo."
+        ],
+        [
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Ando mais pálido que de costume.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Meu coração bate forte quando tento andar. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Tenho falta de ar ao fazer esforço. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Tenho falta de ar ao fazer esforço. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. O cansaço foi aumentando aos poucos.",
+          "Meu coração bate forte quando tento andar. Ando mais pálido que de costume. Sinto vontade de mastigar gelo.",
+          "Meu coração bate forte quando tento andar. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo.",
+          "Ando mais pálido que de costume. O cansaço foi aumentando aos poucos. Sinto vontade de mastigar gelo."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "ferritin": {
+      "Default": "Ferritina muito baixa em conjunto com anemia microcítica, compatível com deficiência de ferro.",
+      "ByStage": {
+        "4": "Depleção importante de ferro com anemia microcítica acentuada.",
+        "5": "Depleção importante de ferro com anemia microcítica acentuada.",
+        "6": "Depleção importante de ferro com anemia microcítica acentuada.",
+        "7": "Deficiência de ferro persistente associada a anemia grave e repercussão clínica.",
+        "8": "Deficiência de ferro persistente associada a anemia grave e repercussão clínica.",
+        "9": "Deficiência de ferro persistente associada a anemia grave e repercussão clínica.",
+        "10": null
+      }
+    },
+    "hematology": {
+      "Default": "Anemia microcítica e hipocrômica, com anisocitose.",
+      "ByStage": {
+        "10": null
+      }
+    },
+    "iron": {
+      "Default": "Ferro sérico reduzido, com perfil compatível com deficiência de ferro.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

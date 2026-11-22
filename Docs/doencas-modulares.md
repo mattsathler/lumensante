@@ -6,7 +6,7 @@ A migração vem antes do Workers. Os 12 casos atuais usarão o mesmo formato di
 
 ## Estado da implementação
 
-A versão 1 do leitor, os 12 casos JSON incorporados, a descoberta externa e os laudos por estágio estão implementados. O contrato está em [Formato de doença JSON](formato-doenca.md), com um exemplo completo instalável. As verificações automatizadas incluem a descoberta de um 13º caso pela pasta relativa à DLL, laudos no consumidor real, validação de arquivos e colisões de IDs. A conferência do atendimento completo no GTA V continua pendente. O Workers seguirá o plano próprio depois dessa validação.
+A versão 1 do leitor, os 12 casos JSON editáveis em `Diseases`, a descoberta de arquivos e os laudos por estágio estão implementados. O contrato está em [Formato de doença JSON](formato-doenca.md), com um exemplo completo instalável. As verificações automatizadas incluem personalização e remoção de casos padrão, descoberta de um 13º caso pela pasta relativa à DLL, laudos no consumidor real, validação de arquivos e colisões de IDs. A conferência do atendimento completo no GTA V continua pendente. O Workers seguirá o plano próprio depois dessa validação.
 
 ## Contrato do arquivo
 
@@ -29,9 +29,9 @@ O carregador converte os dados na representação usada pela simulação. O plug
 
 ## Descoberta e validação
 
-1. Distribuir os 12 JSONs oficiais com o plugin. Na inicialização, carregar também arquivos `.json` em UTF-8 de `LumenSante/Doencas/`, com o caminho resolvido a partir da pasta da DLL. A instalação de um arquivo externo passa a valer na próxima carga do plugin.
+1. Distribuir os 12 JSONs padrão como arquivos editáveis em `LumenSante/Diseases/`, com o caminho resolvido a partir da pasta da DLL. Na inicialização, carregar exclusivamente os arquivos `.json` em UTF-8 dessa pasta. Inclusões, alterações e remoções passam a valer na próxima carga do plugin.
 2. Validar a versão do esquema, campos obrigatórios, IDs, referências a exames e medicações, faixas numéricas, probabilidades, estágios e bancos de respostas. Usar as regras atuais do catálogo, inclusive a exigência de 20 respostas distintas por pergunta e estágio vivo. O estágio de óbito mantém o comportamento atual, com temperatura indisponível.
-3. Ignorar arquivos inválidos e identificar no log o arquivo, o campo e o motivo. Reservar os IDs oficiais e rejeitar arquivos externos que colidam com eles. Quando dois arquivos externos válidos declararem o mesmo ID, rejeitar ambos e registrar os caminhos envolvidos. Continuar carregando as demais doenças.
+3. Ignorar arquivos inválidos e identificar no log o arquivo, o campo e o motivo. Quando arquivos válidos declararem o mesmo ID, rejeitar todos os envolvidos e registrar seus caminhos. Continuar carregando as demais doenças. Usuários podem editar ou remover qualquer doença, incluindo as padrão. Um catálogo sem casos válidos deve ser informado antes de iniciar o hospital.
 4. Publicar a referência do esquema e um arquivo de exemplo junto da implementação, com os IDs aceitos e as instruções para descobrir se uma doença foi carregada.
 
 ## Ordem de implementação

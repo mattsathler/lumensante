@@ -13,6 +13,7 @@ Localize o fluxo em `lumen-sante/Gameplay` por responsabilidade.
 | Espera e recepção | `WaitingRoom.cs`, `HospitalReceptionist.cs` |
 | Caminhada e escolta | `NpcRoute.cs`, `NpcWalking.cs`, `PatientEscort.cs`, `HospitalPath.cs` |
 | Equipe e exames | `HospitalStaffRoutes.cs`, `HospitalExamRoutes.cs`, `ExamProcedure.cs` |
+| Doctors autônomos | `HospitalShift.Workers.cs`, `WorkerReservations.cs`, `Clinical/WorkerDiagnosis.cs` |
 | Leitos e posições | `BedAnimations.cs`, `HospitalUpperFloor.cs`, `SeatCalibration.cs` |
 | População | `AmbientPopulation.cs`, `AmbientPatrol.cs`, `PopulationSettings.cs` |
 | Tempo da simulação | `GameClock.cs` |
@@ -22,3 +23,7 @@ Em `HospitalShift.cs`, pesquise o evento ou estado envolvido antes de ler o trec
 Ao alterar criação, transferência ou remoção de entidades, confira os caminhos de encerramento e limpeza dos recursos envolvidos. Reaproveite as rotas e animações existentes quando compatíveis. Preserve a distinção entre tempo do jogo e tempo real usando a representação já adotada no fluxo.
 
 Compile com `../lumen-sante-build/scripts/Build-Plugin.ps1`. Registre quais resultados exigem execução no GTA V, como trajetória, animação, colisão e interação com o jogador.
+
+Para mudanças na autoridade das condutas, execute `scripts/Validate-CareAuthority.ps1` em Windows PowerShell 5.1. O prontuário registra autor, horário e revisão. Decisões do jogador protegem o plano durante o episódio, e ações autônomas devem conferir a revisão esperada antes de alterar o estado.
+
+Para agendamento e decisões dos Doctors, leia `Docs/workers.md` e execute também `scripts/Validate-Workers.ps1`. A navegação usa `NpcRoute.BackgroundSimulation` quando o jogador está distante. Confira liberação de reservas em falhas, intervenção do jogador, morte e limpeza. Os Coroners usam uma fila simulada com intervalo de 30 minutos do jogo antes da liberação do espaço.

@@ -1,0 +1,755 @@
+{
+  "SchemaVersion": 1,
+  "Id": "hypertensive-emergency",
+  "Name": "Emergência hipertensiva",
+  "SelectionWeight": 8,
+  "Tags": [
+    "cardiaca",
+    "vascular",
+    "hipertensiva",
+    "neurologica",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Redução controlada da pressão e tratamento da lesão de órgão-alvo",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        82,
+        90
+      ],
+      "Systolic": [
+        184,
+        194
+      ],
+      "Diastolic": [
+        110,
+        116
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        86,
+        94
+      ],
+      "Systolic": [
+        191,
+        201
+      ],
+      "Diastolic": [
+        114,
+        120
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        89,
+        97
+      ],
+      "Systolic": [
+        197,
+        207
+      ],
+      "Diastolic": [
+        117,
+        123
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        93,
+        101
+      ],
+      "Systolic": [
+        204,
+        214
+      ],
+      "Diastolic": [
+        121,
+        127
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        210,
+        220
+      ],
+      "Diastolic": [
+        124,
+        130
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        100,
+        108
+      ],
+      "Systolic": [
+        218,
+        228
+      ],
+      "Diastolic": [
+        128,
+        134
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        104,
+        112
+      ],
+      "Systolic": [
+        225,
+        235
+      ],
+      "Diastolic": [
+        132,
+        138
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        108,
+        116
+      ],
+      "Systolic": [
+        233,
+        243
+      ],
+      "Diastolic": [
+        136,
+        142
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        112,
+        120
+      ],
+      "Systolic": [
+        240,
+        250
+      ],
+      "Diastolic": [
+        140,
+        146
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Isso está tirando minha vontade de comer.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. O desconforto está me distraindo de tudo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Precisei pedir companhia para procurar atendimento.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Isso está tirando minha vontade de comer.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. O desconforto está me distraindo de tudo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Precisei pedir companhia para procurar atendimento.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Isso está tirando minha vontade de comer.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. O desconforto está me distraindo de tudo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Precisei pedir companhia para procurar atendimento.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Isso está tirando minha vontade de comer.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. O desconforto está me distraindo de tudo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Precisei pedir companhia para procurar atendimento.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Isso está tirando minha vontade de comer.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. O desconforto está me distraindo de tudo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Está difícil achar uma posição confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. O mal-estar não me deixa descansar direito.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Já não consigo seguir minha rotina como antes.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Está difícil achar uma posição confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. O mal-estar não me deixa descansar direito.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Já não consigo seguir minha rotina como antes.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Está difícil achar uma posição confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. O mal-estar não me deixa descansar direito.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Já não consigo seguir minha rotina como antes.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Está difícil achar uma posição confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. O mal-estar não me deixa descansar direito.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Já não consigo seguir minha rotina como antes.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Está difícil achar uma posição confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. O mal-estar não me deixa descansar direito.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Está difícil cuidar das coisas sozinho.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha visão ficou turva. Preciso de ajuda para ficar mais confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Está difícil cuidar das coisas sozinho.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Sinto uma pressão forte na cabeça. Preciso de ajuda para ficar mais confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Está difícil cuidar das coisas sozinho.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Estou enjoado junto da dor. Preciso de ajuda para ficar mais confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Está difícil cuidar das coisas sozinho.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Tenho dificuldade de focar o que vejo. Preciso de ajuda para ficar mais confortável.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Está difícil cuidar das coisas sozinho.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com dor de cabeça e a visão ficou embaçada. Minha pressão costuma ser alta. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Já não consigo fazer minhas atividades habituais.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Falar sobre isso está me cansando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Estou tendo dificuldade para descansar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Preciso de alguém por perto para me ajudar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Já não consigo fazer minhas atividades habituais.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Falar sobre isso está me cansando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Estou tendo dificuldade para descansar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Preciso de alguém por perto para me ajudar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Já não consigo fazer minhas atividades habituais.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Falar sobre isso está me cansando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Estou tendo dificuldade para descansar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Preciso de alguém por perto para me ajudar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Já não consigo fazer minhas atividades habituais.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Falar sobre isso está me cansando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Estou tendo dificuldade para descansar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Preciso de alguém por perto para me ajudar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Já não consigo fazer minhas atividades habituais.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Falar sobre isso está me cansando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Estou tendo dificuldade para descansar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Só quero ficar parado e receber ajuda.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Até conversar exige um esforço.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. O mal-estar está me deixando esgotado.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Não estou conseguindo cuidar de mim como antes.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Só quero ficar parado e receber ajuda.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Até conversar exige um esforço.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. O mal-estar está me deixando esgotado.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Não estou conseguindo cuidar de mim como antes.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Só quero ficar parado e receber ajuda.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Até conversar exige um esforço.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. O mal-estar está me deixando esgotado.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Não estou conseguindo cuidar de mim como antes.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Só quero ficar parado e receber ajuda.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Até conversar exige um esforço.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. O mal-estar está me deixando esgotado.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Não estou conseguindo cuidar de mim como antes.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Só quero ficar parado e receber ajuda.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Até conversar exige um esforço.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. O mal-estar está me deixando esgotado.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Estou com dificuldade até para me ajeitar no lugar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Preciso que alguém me ajude com as coisas simples.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Não consigo descansar por causa do mal-estar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha visão ficou turva. Qualquer atividade está me esgotando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Estou com dificuldade até para me ajeitar no lugar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Preciso que alguém me ajude com as coisas simples.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Não consigo descansar por causa do mal-estar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Sinto uma pressão forte na cabeça. Qualquer atividade está me esgotando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Estou com dificuldade até para me ajeitar no lugar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Preciso que alguém me ajude com as coisas simples.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Não consigo descansar por causa do mal-estar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Estou enjoado junto da dor. Qualquer atividade está me esgotando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Estou com dificuldade até para me ajeitar no lugar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Preciso que alguém me ajude com as coisas simples.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Não consigo descansar por causa do mal-estar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Tenho dificuldade de focar o que vejo. Qualquer atividade está me esgotando.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Estou com dificuldade até para me ajeitar no lugar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Preciso que alguém me ajude com as coisas simples.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Não consigo descansar por causa do mal-estar.",
+          "A cabeça dói muito e estou enjoado e desorientado. Minha pressão costuma ser alta. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Preciso de ajuda agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Estou sem forças para me ajeitar.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Só consigo falar um pouco de cada vez.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Não consigo fazer nada sozinho neste momento.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Preciso de ajuda agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Estou sem forças para me ajeitar.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Só consigo falar um pouco de cada vez.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Não consigo fazer nada sozinho neste momento.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Preciso de ajuda agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Estou sem forças para me ajeitar.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Só consigo falar um pouco de cada vez.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Não consigo fazer nada sozinho neste momento.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Preciso de ajuda agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Estou sem forças para me ajeitar.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Só consigo falar um pouco de cada vez.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Não consigo fazer nada sozinho neste momento.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Preciso de ajuda agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Estou sem forças para me ajeitar.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Só consigo falar um pouco de cada vez.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Não me deixe sozinho agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Estou no limite das minhas forças.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Preciso parar um pouco para continuar falando.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Está difícil até pedir ajuda.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Não me deixe sozinho agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Estou no limite das minhas forças.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Preciso parar um pouco para continuar falando.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Está difícil até pedir ajuda.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Não me deixe sozinho agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Estou no limite das minhas forças.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Preciso parar um pouco para continuar falando.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Está difícil até pedir ajuda.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Não me deixe sozinho agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Estou no limite das minhas forças.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Preciso parar um pouco para continuar falando.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Está difícil até pedir ajuda.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Não me deixe sozinho agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Estou no limite das minhas forças.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Preciso parar um pouco para continuar falando.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Está difícil até pedir ajuda."
+        ],
+        [
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Ajuda, por favor.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Não consigo continuar assim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Fique perto de mim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha visão ficou turva. Preciso de socorro agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Ajuda, por favor.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Não consigo continuar assim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Fique perto de mim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Sinto uma pressão forte na cabeça. Preciso de socorro agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Ajuda, por favor.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Não consigo continuar assim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Fique perto de mim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Estou enjoado junto da dor. Preciso de socorro agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Ajuda, por favor.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Não consigo continuar assim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Fique perto de mim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Tenho dificuldade de focar o que vejo. Preciso de socorro agora.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Ajuda, por favor.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Não consigo continuar assim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Fique perto de mim.",
+          "A dor de cabeça está muito forte e mal consigo me concentrar. Minha pressão costuma ser alta. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. É o que consigo contar sobre o mal-estar.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta. Essas coisas estão acontecendo juntas.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. É essa combinação que está me incomodando.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Essas coisas estão acontecendo juntas.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta. É essa combinação que está me incomodando.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. Foi isso que consegui perceber até agora.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça.",
+          "Minha visão ficou turva. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça.",
+          "Minha visão ficou turva. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta."
+        ],
+        [
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça.",
+          "Minha visão ficou turva. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Estou enjoado junto da dor.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Sinto uma pressão forte na cabeça. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Minha visão ficou turva. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Minha visão ficou turva. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo.",
+          "Sinto uma pressão forte na cabeça. Estou enjoado junto da dor. Minha pressão costuma ser alta.",
+          "Sinto uma pressão forte na cabeça. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta.",
+          "Estou enjoado junto da dor. Tenho dificuldade de focar o que vejo. Minha pressão costuma ser alta."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "renal": {
+      "Default": "Elevação aguda de creatinina e proteinúria no contexto de hipertensão grave.",
+      "ByStage": {
+        "4": "Disfunção renal progressiva associada a pressão arterial muito elevada.",
+        "5": "Disfunção renal progressiva associada a pressão arterial muito elevada.",
+        "6": "Disfunção renal progressiva associada a pressão arterial muito elevada.",
+        "7": "Comprometimento renal acentuado em emergência hipertensiva.",
+        "8": "Comprometimento renal acentuado em emergência hipertensiva.",
+        "9": "Comprometimento renal acentuado em emergência hipertensiva.",
+        "10": null
+      }
+    }
+  }
+}

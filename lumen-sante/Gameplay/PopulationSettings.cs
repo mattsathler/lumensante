@@ -8,6 +8,8 @@ namespace lumen_sante.Gameplay
     {
         internal const int MinimumInsideForDeparture = 30;
         internal const int MinimumInitialPopulation = 20;
+        internal const int MinimumDoctors = 3;
+        internal const int MinimumWorkers = MinimumDoctors + 1;
         private const int DefaultMaxAmbientNpcPatients = 36;
         private const int DefaultMaxWorkers = 24;
 
@@ -22,7 +24,7 @@ namespace lumen_sante.Gameplay
 
         internal static PopulationSettings Load()
         {
-            string directory = Path.GetDirectoryName(typeof(PluginEntryPoint).Assembly.Location);
+            string directory = PluginPaths.InstallationDirectory;
             string file = Path.Combine(directory, "lumen-sante.ini");
             int maxPatients = DefaultMaxAmbientNpcPatients;
             int maxWorkers = DefaultMaxWorkers;
@@ -51,6 +53,11 @@ namespace lumen_sante.Gameplay
                     }
                 }
 
+                if (maxWorkers < MinimumWorkers)
+                {
+                    maxWorkers = MinimumWorkers;
+                    Game.LogTrivial("[Lumen Santé] MaxWorkers ajustado para manter três Doctors e cobertura de enfermagem.");
+                }
                 if ((long)maxPatients + maxWorkers >= MinimumInitialPopulation)
                 {
                     return new PopulationSettings(maxPatients, maxWorkers);

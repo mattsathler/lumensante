@@ -44,6 +44,7 @@ namespace lumen_sante.Gameplay
         internal bool CanLeave => CountsInside && !walker.IsWalking &&
             !assignedToExam && GameClock.NowMilliseconds >= Math.Max(nextAction, departureEligibleAt);
         internal bool CanTakeExam => Role == AmbientRole.Nurse && CountsInside && !assignedToExam && !walker.IsWalking;
+        internal bool CanTakeDoctorWork => Role == AmbientRole.Doctor && CountsInside && !assignedToExam && !walker.IsWalking;
 
         internal Point AssignToExam()
         {

@@ -1,0 +1,767 @@
+{
+  "SchemaVersion": 1,
+  "Id": "diabetic-ketoacidosis",
+  "Name": "Cetoacidose diabética",
+  "SelectionWeight": 12,
+  "Tags": [
+    "endocrina",
+    "metabolica",
+    "hiperglicemia",
+    "desidratacao",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Insulina intravenosa, reposição hídrica e correção eletrolítica",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        98,
+        106
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Respiração profunda e acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        104,
+        112
+      ],
+      "Systolic": [
+        116,
+        126
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Respiração profunda e acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        109,
+        117
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Respiração profunda e acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        115,
+        123
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração profunda, com esforço evidente.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        120,
+        128
+      ],
+      "Systolic": [
+        103,
+        113
+      ],
+      "Diastolic": [
+        62,
+        68
+      ],
+      "RespiratoryRate": [
+        29,
+        32
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração profunda, com esforço evidente.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        126,
+        134
+      ],
+      "Systolic": [
+        97,
+        107
+      ],
+      "Diastolic": [
+        58,
+        64
+      ],
+      "RespiratoryRate": [
+        31,
+        34
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração profunda, com esforço evidente.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        91,
+        101
+      ],
+      "Diastolic": [
+        53,
+        59
+      ],
+      "RespiratoryRate": [
+        33,
+        36
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração muito profunda e acelerada.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        137,
+        145
+      ],
+      "Systolic": [
+        84,
+        94
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração muito profunda e acelerada.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        142,
+        150
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        36,
+        39
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração muito profunda e acelerada.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Isso está tirando minha vontade de comer.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. O desconforto está me distraindo de tudo.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Precisei pedir companhia para procurar atendimento.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Isso está tirando minha vontade de comer.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. O desconforto está me distraindo de tudo.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Precisei pedir companhia para procurar atendimento.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Isso está tirando minha vontade de comer.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. O desconforto está me distraindo de tudo.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Precisei pedir companhia para procurar atendimento.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Isso está tirando minha vontade de comer.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. O desconforto está me distraindo de tudo.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Precisei pedir companhia para procurar atendimento.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Isso está tirando minha vontade de comer.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. O desconforto está me distraindo de tudo.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Está difícil achar uma posição confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. O mal-estar não me deixa descansar direito.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Já não consigo seguir minha rotina como antes.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Está difícil achar uma posição confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. O mal-estar não me deixa descansar direito.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Já não consigo seguir minha rotina como antes.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Está difícil achar uma posição confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. O mal-estar não me deixa descansar direito.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Já não consigo seguir minha rotina como antes.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Está difícil achar uma posição confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. O mal-estar não me deixa descansar direito.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Já não consigo seguir minha rotina como antes.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Está difícil achar uma posição confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. O mal-estar não me deixa descansar direito.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Está difícil cuidar das coisas sozinho.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha boca fica seca mesmo bebendo água. Preciso de ajuda para ficar mais confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Está difícil cuidar das coisas sozinho.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho muita sede, urino demais e estou enjoado. Estou urinando muito. Preciso de ajuda para ficar mais confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Está difícil cuidar das coisas sozinho.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho muita sede, urino demais e estou enjoado. A barriga dói junto do enjoo. Preciso de ajuda para ficar mais confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Está difícil cuidar das coisas sozinho.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho muita sede, urino demais e estou enjoado. Minha respiração ficou mais funda. Preciso de ajuda para ficar mais confortável.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Está difícil cuidar das coisas sozinho.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho muita sede, urino demais e estou enjoado. Tenho diabetes e esta sensação é diferente do habitual. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Já não consigo fazer minhas atividades habituais.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Falar sobre isso está me cansando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Estou tendo dificuldade para descansar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Preciso de alguém por perto para me ajudar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Já não consigo fazer minhas atividades habituais.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Falar sobre isso está me cansando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Estou tendo dificuldade para descansar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Preciso de alguém por perto para me ajudar.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Já não consigo fazer minhas atividades habituais.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Falar sobre isso está me cansando.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Estou tendo dificuldade para descansar.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Preciso de alguém por perto para me ajudar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Já não consigo fazer minhas atividades habituais.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Falar sobre isso está me cansando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Estou tendo dificuldade para descansar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Preciso de alguém por perto para me ajudar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Já não consigo fazer minhas atividades habituais.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Falar sobre isso está me cansando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Estou tendo dificuldade para descansar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Só quero ficar parado e receber ajuda.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Até conversar exige um esforço.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. O mal-estar está me deixando esgotado.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Não estou conseguindo cuidar de mim como antes.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Só quero ficar parado e receber ajuda.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Até conversar exige um esforço.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. O mal-estar está me deixando esgotado.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Não estou conseguindo cuidar de mim como antes.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Só quero ficar parado e receber ajuda.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Até conversar exige um esforço.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. O mal-estar está me deixando esgotado.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Não estou conseguindo cuidar de mim como antes.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Só quero ficar parado e receber ajuda.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Até conversar exige um esforço.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. O mal-estar está me deixando esgotado.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Não estou conseguindo cuidar de mim como antes.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Só quero ficar parado e receber ajuda.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Até conversar exige um esforço.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. O mal-estar está me deixando esgotado.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Preciso que alguém me ajude com as coisas simples.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Não consigo descansar por causa do mal-estar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha boca fica seca mesmo bebendo água. Qualquer atividade está me esgotando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Preciso que alguém me ajude com as coisas simples.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Não consigo descansar por causa do mal-estar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Estou urinando muito. Qualquer atividade está me esgotando.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Preciso que alguém me ajude com as coisas simples.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Não consigo descansar por causa do mal-estar.",
+          "Estou com muita sede, dor na barriga e respiração funda. A barriga dói junto do enjoo. Qualquer atividade está me esgotando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Preciso que alguém me ajude com as coisas simples.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Não consigo descansar por causa do mal-estar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Minha respiração ficou mais funda. Qualquer atividade está me esgotando.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Preciso que alguém me ajude com as coisas simples.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Não consigo descansar por causa do mal-estar.",
+          "Estou com muita sede, dor na barriga e respiração funda. Tenho diabetes e esta sensação é diferente do habitual. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Preciso de ajuda agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Preciso de ajuda agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Preciso de ajuda agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Preciso de ajuda agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Preciso de ajuda agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Não me deixe sozinho agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Estou no limite das minhas forças.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Está difícil até pedir ajuda.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Não me deixe sozinho agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Estou no limite das minhas forças.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Está difícil até pedir ajuda.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Não me deixe sozinho agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Estou no limite das minhas forças.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Está difícil até pedir ajuda.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Não me deixe sozinho agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Estou no limite das minhas forças.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Está difícil até pedir ajuda.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Não me deixe sozinho agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Estou no limite das minhas forças.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Ajuda, por favor.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Não consigo continuar assim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Fique perto de mim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha boca fica seca mesmo bebendo água. Preciso de socorro agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Ajuda, por favor.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Não consigo continuar assim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Fique perto de mim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Estou urinando muito. Preciso de socorro agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Ajuda, por favor.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Não consigo continuar assim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Fique perto de mim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. A barriga dói junto do enjoo. Preciso de socorro agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Ajuda, por favor.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Não consigo continuar assim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Fique perto de mim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Minha respiração ficou mais funda. Preciso de socorro agora.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Ajuda, por favor.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Não consigo continuar assim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Fique perto de mim.",
+          "Estou muito fraco e preciso fazer força para continuar respirando. Tenho diabetes e esta sensação é diferente do habitual. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda. É o que consigo contar sobre o mal-estar.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual. Essas coisas estão acontecendo juntas.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda. É essa combinação que está me incomodando.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda. Essas coisas estão acontecendo juntas.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual. É essa combinação que está me incomodando.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. Foi isso que consegui perceber até agora.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo.",
+          "Estou urinando muito. Minha respiração ficou mais funda.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo.",
+          "Estou urinando muito. Minha respiração ficou mais funda.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual."
+        ],
+        [
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo.",
+          "Estou urinando muito. Minha respiração ficou mais funda.",
+          "Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. A barriga dói junto do enjoo.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. Estou urinando muito. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Minha boca fica seca mesmo bebendo água. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Minha boca fica seca mesmo bebendo água. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Minha respiração ficou mais funda.",
+          "Estou urinando muito. A barriga dói junto do enjoo. Tenho diabetes e esta sensação é diferente do habitual.",
+          "Estou urinando muito. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual.",
+          "A barriga dói junto do enjoo. Minha respiração ficou mais funda. Tenho diabetes e esta sensação é diferente do habitual."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "blood-gas": {
+      "Default": "Acidose metabólica com bicarbonato reduzido e ânion gap aumentado, associada a hiperglicemia.",
+      "ByStage": {
+        "4": "Acidose metabólica importante com ânion gap elevado.",
+        "5": "Acidose metabólica importante com ânion gap elevado.",
+        "6": "Acidose metabólica importante com ânion gap elevado.",
+        "7": "Acidemia acentuada com bicarbonato muito reduzido e descompensação metabólica grave.",
+        "8": "Acidemia acentuada com bicarbonato muito reduzido e descompensação metabólica grave.",
+        "9": "Acidemia acentuada com bicarbonato muito reduzido e descompensação metabólica grave.",
+        "10": null
+      }
+    },
+    "glucose": {
+      "Default": "Hiperglicemia acentuada em descompensação diabética.",
+      "ByStage": {
+        "10": null
+      }
+    },
+    "hba1c": {
+      "Default": "Hemoglobina glicada elevada, indicando hiperglicemia crônica.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

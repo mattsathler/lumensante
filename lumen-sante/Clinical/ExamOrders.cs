@@ -17,6 +17,40 @@ namespace lumen_sante.Clinical
 
     internal sealed class ExamOrders
     {
+        private readonly System.Collections.Generic.List<CareDecision> careHistory = new System.Collections.Generic.List<CareDecision>();
+        internal System.Collections.Generic.IReadOnlyList<CareDecision> CareHistory => careHistory.AsReadOnly();
+        internal long CareRevision { get; private set; }
+        internal bool IsCareProtected { get; private set; }
+        internal WorkerDiagnosis WorkerDiagnosis { get; } = new WorkerDiagnosis();
+        internal void RecordWorkerAssessment(CareAuthor author, long now, string hypothesis)
+        {
+            if (author == null || author.IsPlayer) throw new ArgumentException("Avaliação exige um Doctor.");
+            if (!IsDischarged) RecordCare(author, now, "Hipótese diagnóstica", hypothesis ?? "Diagnóstico em aberto", false);
+        }
+        internal void RecordCoronerRequest(CareAuthor author, long now)
+        {
+            if (author == null) throw new ArgumentNullException(nameof(author));
+            if (!IsDischarged) RecordCare(author, now, "Coroners", "Recolhimento solicitado", false);
+        }
+
+        internal bool CanApplyCare(CareAuthor author, long expectedRevision)
+        {
+            if (author == null) throw new ArgumentNullException(nameof(author));
+            return !IsDischarged && expectedRevision == CareRevision && (author.IsPlayer || !IsCareProtected);
+        }
+
+        internal void RegisterPlayerInteraction(long now)
+        {
+            if (!IsDischarged) RecordCare(CareAuthor.Player, now, "Avaliação", "Atendimento assumido pelo jogador", false);
+        }
+
+        private void RecordCare(CareAuthor author, long now, string action, string detail, bool protectsPlan)
+        {
+            CareRevision++;
+            if (protectsPlan && author.IsPlayer) IsCareProtected = true;
+            careHistory.Add(new CareDecision(CareRevision, now, author, action, detail));
+        }
+
         internal ExamOrders(string patientName, string room, string diseaseId, PatientProfile profile)
         {
             AdmissionId = Guid.NewGuid();
@@ -62,12 +96,15 @@ namespace lumen_sante.Clinical
         internal bool IsDischarged { get; private set; }
         internal int VisitCount { get; private set; } = 1;
         internal long LastDischargedAt { get; private set; }
-        internal void Discharge(long now)
+        internal bool Discharge(long now, CareAuthor author, long expectedRevision)
         {
+            if (!CanApplyCare(author, expectedRevision)) return false;
             IsDischarged = true;
             IsInpatient = false;
             LastDischargedAt = now;
             Room = "Fora do hospital";
+            RecordCare(author, now, "Alta", "Alta hospitalar", false);
+            return true;
         }
         internal void Readmit(string room)
         {
@@ -79,21 +116,46 @@ namespace lumen_sante.Clinical
         private readonly System.Collections.Generic.Dictionary<MedicationClass, long> medications =
             new System.Collections.Generic.Dictionary<MedicationClass, long>();
 
-        internal void PrescribeMedication(MedicationClass medication, long expiresAt)
+        internal bool PrescribeMedication(MedicationClass medication, long expiresAt,
+            CareAuthor author, long now, long expectedRevision)
         {
+            if (!Enum.IsDefined(typeof(MedicationClass), medication) || expiresAt <= now)
+                throw new ArgumentException("Medicação ou prazo inválido.");
+            if (IsRecovered || !CanApplyCare(author, expectedRevision)) return false;
             medications[medication] = expiresAt;
+            RecordCare(author, now, "Prescrição", MedicationCatalog.Options.First(option => option.Class == medication).Name, true);
+            return true;
         }
-        internal void StopMedication(MedicationClass medication) => medications.Remove(medication);
+        internal bool StopMedication(MedicationClass medication, CareAuthor author, long now, long expectedRevision)
+        {
+            if (!Enum.IsDefined(typeof(MedicationClass), medication)) throw new ArgumentOutOfRangeException(nameof(medication));
+            if (!CanApplyCare(author, expectedRevision)) return false;
+            if (!medications.Remove(medication)) return false;
+            RecordCare(author, now, "Retirada de medicação", MedicationCatalog.Options.First(option => option.Class == medication).Name, true);
+            return true;
+        }
 
         internal MedicationClass[] ActiveMedications(long now) => medications
             .Where(entry => entry.Value > now).Select(entry => entry.Key).ToArray();
 
         internal void MarkRecovered() => IsRecovered = true;
         internal string TreatmentDiseaseId { get; private set; }
-        internal bool SelectTreatment(string diseaseId)
+        internal bool SelectTreatment(string diseaseId, CareAuthor author, long now, long expectedRevision)
         {
-            if (TreatmentDiseaseId == diseaseId) return false;
+            if (string.IsNullOrWhiteSpace(diseaseId)) throw new ArgumentException("Tratamento sem ID.", nameof(diseaseId));
+            if (IsRecovered || !CanApplyCare(author, expectedRevision)) return false;
+            // Confirming an NPC's choice also transfers authority to the player.
+            if (TreatmentDiseaseId == diseaseId && (!author.IsPlayer || IsCareProtected)) return false;
             TreatmentDiseaseId = diseaseId;
+            RecordCare(author, now, "Tratamento", DiseaseCatalog.Find(diseaseId)?.TreatmentLabel ?? diseaseId, true);
+            return true;
+        }
+
+        internal bool ClearTreatment(CareAuthor author, long now, long expectedRevision)
+        {
+            if (!CanApplyCare(author, expectedRevision) || TreatmentDiseaseId == null) return false;
+            TreatmentDiseaseId = null;
+            RecordCare(author, now, "Retirada de tratamento", "Tratamento específico suspenso", true);
             return true;
         }
 
@@ -211,6 +273,7 @@ namespace lumen_sante.Clinical
         internal ExamStatus Status { get; private set; }
         internal int StageAtRequest { get; private set; }
         internal long CompletedAtMilliseconds { get; private set; }
+        internal bool RequestedByPlayer { get; private set; }
 
         internal bool TryRequest(int stage)
         {
@@ -220,7 +283,15 @@ namespace lumen_sante.Clinical
             }
 
             StageAtRequest = stage;
+            RequestedByPlayer = true;
             Status = ExamStatus.Pending;
+            return true;
+        }
+
+        internal bool TryRequestByWorker(int stage)
+        {
+            if (!TryRequest(stage)) return false;
+            RequestedByPlayer = false;
             return true;
         }
 

@@ -11,4 +11,4 @@ Consulte a skill local correspondente ao trabalho, lendo apenas as referências 
 
 Use `rg -n` com símbolos e contexto limitado antes de abrir arquivos extensos. `HospitalShift.cs` coordena o plantão, `BedManagementPanel.cs` desenha o computador e `Clinical` contém a simulação clínica. Consulte `Docs` quando precisar das regras de produto, distinguindo propostas de comportamento implementado.
 
-O projeto usa inclusões explícitas de arquivos C# no `.csproj`. PNGs em `Assets` e JSONs em `Data` já entram por curinga como recursos incorporados. A compilação local usa `Skills/lumen-sante-build/scripts/Build-Plugin.ps1`. Testes visuais e integração com NPCs dependem do GTA V.
+O projeto usa inclusões explícitas de arquivos C# no `.csproj`. PNGs em `Assets` e JSONs em `Data` já entram por curinga como recursos incorporados. Os JSONs de doenças em `Diseases` são conteúdo editável copiado para `LumenSante/Diseases` junto à DLL. A compilação local usa `Skills/lumen-sante-build/scripts/Build-Plugin.ps1`. Testes visuais e integração com NPCs dependem do GTA V.

@@ -1,0 +1,761 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-cellulitis",
+  "Name": "Celulite bacteriana extensa",
+  "SelectionWeight": 8,
+  "Tags": [
+    "cutanea",
+    "infecciosa",
+    "febre",
+    "dor-membro",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Antibioticoterapia sistêmica e vigilância de complicações de partes moles",
+  "MedicationEffects": [
+    {
+      "Medication": "Antibiotic",
+      "ImprovementChance": 0.28,
+      "WorseningMultiplier": 0.7
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        377,
+        383
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        102,
+        110
+      ],
+      "Systolic": [
+        116,
+        126
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        379,
+        385
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        382,
+        388
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        113,
+        121
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        384,
+        390
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        103,
+        113
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        386,
+        392
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        96,
+        106
+      ],
+      "Diastolic": [
+        59,
+        65
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        388,
+        394
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        90,
+        100
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        391,
+        397
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        83,
+        93
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        393,
+        399
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        89,
+        91
+      ],
+      "TemperatureTenths": [
+        395,
+        401
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Pele da perna quente, edemaciada e dolorosa."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Já precisei diminuir o ritmo das minhas atividades.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Isso está tirando minha vontade de comer.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. O desconforto está me distraindo de tudo.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Precisei pedir companhia para procurar atendimento.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Já precisei diminuir o ritmo das minhas atividades.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Isso está tirando minha vontade de comer.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. O desconforto está me distraindo de tudo.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Precisei pedir companhia para procurar atendimento.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Já precisei diminuir o ritmo das minhas atividades.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Isso está tirando minha vontade de comer.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. O desconforto está me distraindo de tudo.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Precisei pedir companhia para procurar atendimento.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Já precisei diminuir o ritmo das minhas atividades.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Isso está tirando minha vontade de comer.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. O desconforto está me distraindo de tudo.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Precisei pedir companhia para procurar atendimento.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Já precisei diminuir o ritmo das minhas atividades.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Isso está tirando minha vontade de comer.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. O desconforto está me distraindo de tudo.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Preciso de pausas para fazer as coisas habituais.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Está difícil achar uma posição confortável.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. O mal-estar não me deixa descansar direito.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Já não consigo seguir minha rotina como antes.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Preciso de pausas para fazer as coisas habituais.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Está difícil achar uma posição confortável.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. O mal-estar não me deixa descansar direito.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Já não consigo seguir minha rotina como antes.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Preciso de pausas para fazer as coisas habituais.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Está difícil achar uma posição confortável.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. O mal-estar não me deixa descansar direito.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Já não consigo seguir minha rotina como antes.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Preciso de pausas para fazer as coisas habituais.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Está difícil achar uma posição confortável.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. O mal-estar não me deixa descansar direito.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Já não consigo seguir minha rotina como antes.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Preciso de pausas para fazer as coisas habituais.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Está difícil achar uma posição confortável.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. O mal-estar não me deixa descansar direito.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Está difícil cuidar das coisas sozinho.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Estou evitando me movimentar por causa do mal-estar.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. O desconforto está ocupando minha atenção o tempo todo.",
+          "A pele da perna está quente, inchada e dolorida. A pele ficou quente no local. Preciso de ajuda para ficar mais confortável.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Está difícil cuidar das coisas sozinho.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Estou evitando me movimentar por causa do mal-estar.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. O desconforto está ocupando minha atenção o tempo todo.",
+          "A pele da perna está quente, inchada e dolorida. O inchaço aumentou. Preciso de ajuda para ficar mais confortável.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Está difícil cuidar das coisas sozinho.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Estou evitando me movimentar por causa do mal-estar.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. O desconforto está ocupando minha atenção o tempo todo.",
+          "A pele da perna está quente, inchada e dolorida. A área dói quando encosta. Preciso de ajuda para ficar mais confortável.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Está difícil cuidar das coisas sozinho.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Estou evitando me movimentar por causa do mal-estar.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. O desconforto está ocupando minha atenção o tempo todo.",
+          "A pele da perna está quente, inchada e dolorida. A mudança na pele está se espalhando. Preciso de ajuda para ficar mais confortável.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Está difícil cuidar das coisas sozinho.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Estou evitando me movimentar por causa do mal-estar.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. O desconforto está ocupando minha atenção o tempo todo.",
+          "A pele da perna está quente, inchada e dolorida. O local está mais sensível que o resto da perna. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Já não consigo fazer minhas atividades habituais.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Falar sobre isso está me cansando.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Estou tendo dificuldade para descansar.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Preciso de alguém por perto para me ajudar.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Já não consigo fazer minhas atividades habituais.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Falar sobre isso está me cansando.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Estou tendo dificuldade para descansar.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Preciso de alguém por perto para me ajudar.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Já não consigo fazer minhas atividades habituais.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Falar sobre isso está me cansando.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Estou tendo dificuldade para descansar.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Preciso de alguém por perto para me ajudar.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Já não consigo fazer minhas atividades habituais.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Falar sobre isso está me cansando.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Estou tendo dificuldade para descansar.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Preciso de alguém por perto para me ajudar.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Já não consigo fazer minhas atividades habituais.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Falar sobre isso está me cansando.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Estou tendo dificuldade para descansar.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Só quero ficar parado e receber ajuda.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Até conversar exige um esforço.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. O mal-estar está me deixando esgotado.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Não estou conseguindo cuidar de mim como antes.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Só quero ficar parado e receber ajuda.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Até conversar exige um esforço.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. O mal-estar está me deixando esgotado.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Não estou conseguindo cuidar de mim como antes.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Só quero ficar parado e receber ajuda.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Até conversar exige um esforço.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. O mal-estar está me deixando esgotado.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Não estou conseguindo cuidar de mim como antes.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Só quero ficar parado e receber ajuda.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Até conversar exige um esforço.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. O mal-estar está me deixando esgotado.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Não estou conseguindo cuidar de mim como antes.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Só quero ficar parado e receber ajuda.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Até conversar exige um esforço.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. O mal-estar está me deixando esgotado.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Estou com dificuldade até para me ajeitar no lugar.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Preciso que alguém me ajude com as coisas simples.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Não consigo descansar por causa do mal-estar.",
+          "A área dolorida aumentou e estou com febre. A pele ficou quente no local. Qualquer atividade está me esgotando.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Estou com dificuldade até para me ajeitar no lugar.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Preciso que alguém me ajude com as coisas simples.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Não consigo descansar por causa do mal-estar.",
+          "A área dolorida aumentou e estou com febre. O inchaço aumentou. Qualquer atividade está me esgotando.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Estou com dificuldade até para me ajeitar no lugar.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Preciso que alguém me ajude com as coisas simples.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Não consigo descansar por causa do mal-estar.",
+          "A área dolorida aumentou e estou com febre. A área dói quando encosta. Qualquer atividade está me esgotando.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Estou com dificuldade até para me ajeitar no lugar.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Preciso que alguém me ajude com as coisas simples.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Não consigo descansar por causa do mal-estar.",
+          "A área dolorida aumentou e estou com febre. A mudança na pele está se espalhando. Qualquer atividade está me esgotando.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Estou com dificuldade até para me ajeitar no lugar.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Preciso que alguém me ajude com as coisas simples.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Não consigo descansar por causa do mal-estar.",
+          "A área dolorida aumentou e estou com febre. O local está mais sensível que o resto da perna. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Preciso de ajuda agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Estou sem forças para me ajeitar.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Preciso de ajuda agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Estou sem forças para me ajeitar.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Preciso de ajuda agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Estou sem forças para me ajeitar.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Preciso de ajuda agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Estou sem forças para me ajeitar.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Preciso de ajuda agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Estou sem forças para me ajeitar.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Não me deixe sozinho agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Estou no limite das minhas forças.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Está difícil até pedir ajuda.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Não me deixe sozinho agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Estou no limite das minhas forças.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Está difícil até pedir ajuda.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Não me deixe sozinho agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Estou no limite das minhas forças.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Está difícil até pedir ajuda.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Não me deixe sozinho agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Estou no limite das minhas forças.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Está difícil até pedir ajuda.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Não me deixe sozinho agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Estou no limite das minhas forças.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Está difícil até pedir ajuda."
+        ],
+        [
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Ajuda, por favor.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Não consigo continuar assim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Fique perto de mim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A pele ficou quente no local. Preciso de socorro agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Ajuda, por favor.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Não consigo continuar assim.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Fique perto de mim.",
+          "A perna dói muito e estou com calafrios e fraqueza. O inchaço aumentou. Preciso de socorro agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Ajuda, por favor.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Não consigo continuar assim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Fique perto de mim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A área dói quando encosta. Preciso de socorro agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Ajuda, por favor.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Não consigo continuar assim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Fique perto de mim.",
+          "A perna dói muito e estou com calafrios e fraqueza. A mudança na pele está se espalhando. Preciso de socorro agora.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Ajuda, por favor.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Não consigo continuar assim.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Fique perto de mim.",
+          "A perna dói muito e estou com calafrios e fraqueza. O local está mais sensível que o resto da perna. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando. É o que consigo contar sobre o mal-estar.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna. Essas coisas estão acontecendo juntas.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando. É essa combinação que está me incomodando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando. Essas coisas estão acontecendo juntas.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna. É essa combinação que está me incomodando.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. Foi isso que consegui perceber até agora.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou.",
+          "A pele ficou quente no local. A área dói quando encosta.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta.",
+          "O inchaço aumentou. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou.",
+          "A pele ficou quente no local. A área dói quando encosta.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta.",
+          "O inchaço aumentou. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna."
+        ],
+        [
+          "A pele ficou quente no local. O inchaço aumentou.",
+          "A pele ficou quente no local. A área dói quando encosta.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta.",
+          "O inchaço aumentou. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. O inchaço aumentou. A área dói quando encosta.",
+          "A pele ficou quente no local. O inchaço aumentou. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. O inchaço aumentou. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "A pele ficou quente no local. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "A pele ficou quente no local. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A área dói quando encosta. A mudança na pele está se espalhando.",
+          "O inchaço aumentou. A área dói quando encosta. O local está mais sensível que o resto da perna.",
+          "O inchaço aumentou. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna.",
+          "A área dói quando encosta. A mudança na pele está se espalhando. O local está mais sensível que o resto da perna."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "crp": {
+      "Default": "Proteína C reativa elevada em infecção de partes moles.",
+      "ByStage": {
+        "4": "Elevação importante de proteína C reativa e inflamação sistêmica.",
+        "5": "Elevação importante de proteína C reativa e inflamação sistêmica.",
+        "6": "Elevação importante de proteína C reativa e inflamação sistêmica.",
+        "7": "Proteína C reativa muito elevada em infecção extensa com repercussão sistêmica.",
+        "8": "Proteína C reativa muito elevada em infecção extensa com repercussão sistêmica.",
+        "9": "Proteína C reativa muito elevada em infecção extensa com repercussão sistêmica.",
+        "10": null
+      }
+    }
+  }
+}

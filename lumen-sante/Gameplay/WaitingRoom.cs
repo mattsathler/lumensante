@@ -20,6 +20,7 @@ namespace lumen_sante.Gameplay
         private Ped arrivingPatient;
         private ArrivalPhase phase;
         private int arrivalSeatIndex;
+        private bool priorityArrival;
 
         private enum ArrivalPhase { ToDoor, AtDoor, ToIdle, AtIdle, ToSeat }
 
@@ -68,9 +69,33 @@ namespace lumen_sante.Gameplay
         {
             if (!CanReceiveReturningPatient) throw new InvalidOperationException("Recepção sem vaga para retorno.");
             arrivingPatient = patient;
+            priorityArrival = false;
             arrivingPatient.IsPersistent = true;
             arrivingPatient.BlockPermanentEvents = true;
             StartWalk(ArrivalPhase.ToDoor, HospitalStaffRoutes.PatientSpawn, HospitalStaffRoutes.HospitalDoor);
+        }
+
+        internal bool ReceiveFromConsultation(Ped patient, Point origin)
+        {
+            if (!CanReceiveReturningPatient) return false;
+            Point[] route = path.FindRoute(origin, HospitalStaffRoutes.PatientArrivalIdle);
+            if (route == null || route.Length == 0) return false;
+            arrivingPatient = patient;
+            priorityArrival = true;
+            patient.IsPositionFrozen = false;
+            Rage.Native.NativeFunction.Natives.SET_ENTITY_COLLISION(patient, true, true);
+            phase = ArrivalPhase.ToIdle;
+            walker.Start(patient, origin, new[] { origin }.Concat(route).ToArray());
+            return true;
+        }
+
+        internal bool ReceiveAtReception(Ped patient)
+        {
+            if (!CanReceiveReturningPatient) return false;
+            arrivingPatient = patient;
+            priorityArrival = true;
+            WaitAtReception();
+            return true;
         }
 
         internal WaitingRoom(HospitalStaffRoutes routes)
@@ -253,7 +278,8 @@ namespace lumen_sante.Gameplay
                 pedestrian = pedestrian ?? PatientAppearance.Create(random, seat.Position, seat.Heading);
                 occupant.Seat(pedestrian, seat.Position, seat.Heading);
                 occupants[seatIndex] = occupant;
-                queue.Add(seatIndex);
+                if (pedestrian == arrivingPatient && priorityArrival) queue.Insert(0, seatIndex);
+                else queue.Add(seatIndex);
             }
             catch (Exception error)
             {

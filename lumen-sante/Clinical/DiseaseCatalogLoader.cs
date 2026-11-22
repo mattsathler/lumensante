@@ -11,26 +11,12 @@ namespace lumen_sante.Clinical
     {
         internal static DiseaseDefinition[] Load(string directory, Action<string> log)
         {
-            var assembly = typeof(DiseaseCatalogLoader).Assembly;
-            var official = new List<DiseaseDefinition>();
-            foreach (string resource in assembly.GetManifestResourceNames()
-                .Where(name => name.StartsWith("lumen_sante.Data.Doencas.", StringComparison.Ordinal) && name.EndsWith(".json", StringComparison.Ordinal))
-                .OrderBy(name => name, StringComparer.Ordinal))
-            {
-                TryRead(resource, () =>
-                {
-                    using (var reader = new StreamReader(assembly.GetManifestResourceStream(resource), Encoding.UTF8, true))
-                        return reader.ReadToEnd();
-                }, definition => official.Add(definition), log);
-            }
-
-            var officialIds = new HashSet<string>(official.Select(disease => disease.Id), StringComparer.OrdinalIgnoreCase);
-            if (officialIds.Count != official.Count) throw new InvalidDataException("IDs duplicados nas doenças oficiais.");
-            var external = new List<(string File, DiseaseDefinition Disease)>();
+            var entries = new List<(string File, DiseaseDefinition Disease)>();
             string[] files = new string[0];
             try
             {
                 if (Directory.Exists(directory)) files = Directory.GetFiles(directory, "*.json");
+                else log(directory + ": pasta de doenças ausente.");
             }
             catch (IOException error) { log(directory + ": " + error.Message); }
             catch (UnauthorizedAccessException error) { log(directory + ": " + error.Message); }
@@ -39,14 +25,13 @@ namespace lumen_sante.Clinical
             {
                 TryRead(file, () => File.ReadAllText(file, Encoding.UTF8), definition =>
                 {
-                    if (officialIds.Contains(definition.Id)) log(file + ": $.Id reservado pelo catálogo oficial: " + definition.Id);
-                    else external.Add((file, definition));
+                    entries.Add((file, definition));
                 }, log);
             }
 
-            var result = new List<DiseaseDefinition>(official);
-            long total = result.Sum(disease => (long)disease.SelectionWeight);
-            foreach (var group in external.GroupBy(entry => entry.Disease.Id, StringComparer.OrdinalIgnoreCase))
+            var result = new List<DiseaseDefinition>();
+            long total = 0;
+            foreach (var group in entries.GroupBy(entry => entry.Disease.Id, StringComparer.OrdinalIgnoreCase))
             {
                 if (group.Count() > 1)
                 {
@@ -61,10 +46,9 @@ namespace lumen_sante.Clinical
                 }
                 result.Add(entry.Disease);
                 total += entry.Disease.SelectionWeight;
-                log(entry.File + ": doença externa carregada: " + entry.Disease.Id);
+                log(entry.File + ": doença carregada: " + entry.Disease.Id);
             }
-            if (result.Count == 0 || total > int.MaxValue)
-                throw new InvalidDataException("Catálogo de doenças vazio ou soma de pesos inválida.");
+            if (result.Count == 0) log(directory + ": nenhum arquivo de doença válido encontrado.");
             return result.ToArray();
         }
 

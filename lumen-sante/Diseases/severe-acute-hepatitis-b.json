@@ -1,0 +1,762 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-acute-hepatitis-b",
+  "Name": "Hepatite B aguda grave",
+  "SelectionWeight": 8,
+  "Tags": [
+    "hepatica",
+    "viral",
+    "infecciosa",
+    "ictericia",
+    "internacao",
+    "frequente",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Monitorização de insuficiência hepática e terapia antiviral quando indicada",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        86,
+        94
+      ],
+      "Systolic": [
+        118,
+        128
+      ],
+      "Diastolic": [
+        74,
+        80
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        370,
+        375
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        115,
+        125
+      ],
+      "Diastolic": [
+        72,
+        78
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        372,
+        377
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        94,
+        102
+      ],
+      "Systolic": [
+        111,
+        121
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        373,
+        378
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        98,
+        106
+      ],
+      "Systolic": [
+        108,
+        118
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        375,
+        380
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        102,
+        110
+      ],
+      "Systolic": [
+        104,
+        114
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        376,
+        381
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        108,
+        116
+      ],
+      "Systolic": [
+        99,
+        109
+      ],
+      "Diastolic": [
+        60,
+        66
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        377,
+        382
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        114,
+        122
+      ],
+      "Systolic": [
+        94,
+        104
+      ],
+      "Diastolic": [
+        56,
+        62
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        379,
+        384
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        120,
+        128
+      ],
+      "Systolic": [
+        89,
+        99
+      ],
+      "Diastolic": [
+        52,
+        58
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        380,
+        385
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        126,
+        134
+      ],
+      "Systolic": [
+        84,
+        94
+      ],
+      "Diastolic": [
+        48,
+        54
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        381,
+        386
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Icterícia em pele e escleras."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Isso está tirando minha vontade de comer.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. O desconforto está me distraindo de tudo.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Precisei pedir companhia para procurar atendimento.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Isso está tirando minha vontade de comer.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. O desconforto está me distraindo de tudo.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Precisei pedir companhia para procurar atendimento.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Isso está tirando minha vontade de comer.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. O desconforto está me distraindo de tudo.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Precisei pedir companhia para procurar atendimento.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Isso está tirando minha vontade de comer.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. O desconforto está me distraindo de tudo.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Precisei pedir companhia para procurar atendimento.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Isso está tirando minha vontade de comer.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. O desconforto está me distraindo de tudo.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Preciso de pausas para fazer as coisas habituais.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Está difícil achar uma posição confortável.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. O mal-estar não me deixa descansar direito.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Já não consigo seguir minha rotina como antes.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Preciso de pausas para fazer as coisas habituais.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Está difícil achar uma posição confortável.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. O mal-estar não me deixa descansar direito.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Já não consigo seguir minha rotina como antes.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Preciso de pausas para fazer as coisas habituais.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Está difícil achar uma posição confortável.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. O mal-estar não me deixa descansar direito.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Já não consigo seguir minha rotina como antes.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Preciso de pausas para fazer as coisas habituais.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Está difícil achar uma posição confortável.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. O mal-estar não me deixa descansar direito.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Já não consigo seguir minha rotina como antes.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Preciso de pausas para fazer as coisas habituais.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Está difícil achar uma posição confortável.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. O mal-estar não me deixa descansar direito.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Está difícil cuidar das coisas sozinho.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou muito cansado e minha urina ficou escura. A urina está mais escura que o normal. Preciso de ajuda para ficar mais confortável.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Está difícil cuidar das coisas sozinho.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou muito cansado e minha urina ficou escura. As fezes ficaram claras. Preciso de ajuda para ficar mais confortável.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Está difícil cuidar das coisas sozinho.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou muito cansado e minha urina ficou escura. Meus olhos estão amarelos. Preciso de ajuda para ficar mais confortável.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Está difícil cuidar das coisas sozinho.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou muito cansado e minha urina ficou escura. Sinto desconforto do lado direito da barriga. Preciso de ajuda para ficar mais confortável.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Está difícil cuidar das coisas sozinho.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou muito cansado e minha urina ficou escura. Perdi o apetite. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Já não consigo fazer minhas atividades habituais.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Falar sobre isso está me cansando.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Estou tendo dificuldade para descansar.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Preciso de alguém por perto para me ajudar.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Já não consigo fazer minhas atividades habituais.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Falar sobre isso está me cansando.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Estou tendo dificuldade para descansar.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Preciso de alguém por perto para me ajudar.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Já não consigo fazer minhas atividades habituais.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Falar sobre isso está me cansando.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Estou tendo dificuldade para descansar.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Preciso de alguém por perto para me ajudar.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Já não consigo fazer minhas atividades habituais.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Falar sobre isso está me cansando.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Estou tendo dificuldade para descansar.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Preciso de alguém por perto para me ajudar.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Já não consigo fazer minhas atividades habituais.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Falar sobre isso está me cansando.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Estou tendo dificuldade para descansar.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Só quero ficar parado e receber ajuda.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Até conversar exige um esforço.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. O mal-estar está me deixando esgotado.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Não estou conseguindo cuidar de mim como antes.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Só quero ficar parado e receber ajuda.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Até conversar exige um esforço.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. O mal-estar está me deixando esgotado.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Não estou conseguindo cuidar de mim como antes.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Só quero ficar parado e receber ajuda.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Até conversar exige um esforço.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. O mal-estar está me deixando esgotado.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Não estou conseguindo cuidar de mim como antes.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Só quero ficar parado e receber ajuda.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Até conversar exige um esforço.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. O mal-estar está me deixando esgotado.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Não estou conseguindo cuidar de mim como antes.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Só quero ficar parado e receber ajuda.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Até conversar exige um esforço.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. O mal-estar está me deixando esgotado.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Estou com dificuldade até para me ajeitar no lugar.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Preciso que alguém me ajude com as coisas simples.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Não consigo descansar por causa do mal-estar.",
+          "O enjoo não passa e estou ficando amarelo. A urina está mais escura que o normal. Qualquer atividade está me esgotando.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Estou com dificuldade até para me ajeitar no lugar.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Preciso que alguém me ajude com as coisas simples.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Não consigo descansar por causa do mal-estar.",
+          "O enjoo não passa e estou ficando amarelo. As fezes ficaram claras. Qualquer atividade está me esgotando.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Estou com dificuldade até para me ajeitar no lugar.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Preciso que alguém me ajude com as coisas simples.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Não consigo descansar por causa do mal-estar.",
+          "O enjoo não passa e estou ficando amarelo. Meus olhos estão amarelos. Qualquer atividade está me esgotando.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Estou com dificuldade até para me ajeitar no lugar.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Preciso que alguém me ajude com as coisas simples.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Não consigo descansar por causa do mal-estar.",
+          "O enjoo não passa e estou ficando amarelo. Sinto desconforto do lado direito da barriga. Qualquer atividade está me esgotando.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Estou com dificuldade até para me ajeitar no lugar.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Preciso que alguém me ajude com as coisas simples.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Não consigo descansar por causa do mal-estar.",
+          "O enjoo não passa e estou ficando amarelo. Perdi o apetite. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Preciso de ajuda agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Preciso de ajuda agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Preciso de ajuda agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Preciso de ajuda agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Preciso de ajuda agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Não me deixe sozinho agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Estou no limite das minhas forças.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Está difícil até pedir ajuda.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Não me deixe sozinho agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Estou no limite das minhas forças.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Está difícil até pedir ajuda.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Não me deixe sozinho agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Estou no limite das minhas forças.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Está difícil até pedir ajuda.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Não me deixe sozinho agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Estou no limite das minhas forças.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Está difícil até pedir ajuda.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Não me deixe sozinho agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Estou no limite das minhas forças.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Ajuda, por favor.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Não consigo continuar assim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Fique perto de mim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. A urina está mais escura que o normal. Preciso de socorro agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Ajuda, por favor.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Não consigo continuar assim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Fique perto de mim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. As fezes ficaram claras. Preciso de socorro agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Ajuda, por favor.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Não consigo continuar assim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Fique perto de mim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Meus olhos estão amarelos. Preciso de socorro agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Ajuda, por favor.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Não consigo continuar assim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Fique perto de mim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Sinto desconforto do lado direito da barriga. Preciso de socorro agora.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Ajuda, por favor.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Não consigo continuar assim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Fique perto de mim.",
+          "Estou muito fraco e sonolento com a barriga desconfortável. Perdi o apetite. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "Meus olhos estão amarelos. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga. É o que consigo contar sobre o mal-estar.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite. Essas coisas estão acontecendo juntas.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. É essa combinação que está me incomodando.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Essas coisas estão acontecendo juntas.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite. É essa combinação que está me incomodando.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite. Foi isso que consegui perceber até agora.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "Meus olhos estão amarelos. Perdi o apetite.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "Meus olhos estão amarelos. Perdi o apetite.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite."
+        ],
+        [
+          "A urina está mais escura que o normal. As fezes ficaram claras.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "Meus olhos estão amarelos. Perdi o apetite.",
+          "Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Meus olhos estão amarelos.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. As fezes ficaram claras. Perdi o apetite.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "A urina está mais escura que o normal. Meus olhos estão amarelos. Perdi o apetite.",
+          "A urina está mais escura que o normal. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga.",
+          "As fezes ficaram claras. Meus olhos estão amarelos. Perdi o apetite.",
+          "As fezes ficaram claras. Sinto desconforto do lado direito da barriga. Perdi o apetite.",
+          "Meus olhos estão amarelos. Sinto desconforto do lado direito da barriga. Perdi o apetite."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "hepatic": {
+      "Default": "Elevação acentuada de aminotransferases e bilirrubina; confirmar etiologia com sorologia para hepatite B.",
+      "ByStage": {
+        "4": "Lesão hepatocelular importante e comprometimento de síntese; etiologia depende de sorologia específica.",
+        "5": "Lesão hepatocelular importante e comprometimento de síntese; etiologia depende de sorologia específica.",
+        "6": "Lesão hepatocelular importante e comprometimento de síntese; etiologia depende de sorologia específica.",
+        "7": "Insuficiência hepática aguda com lesão hepatocelular grave; avaliação em centro especializado.",
+        "8": "Insuficiência hepática aguda com lesão hepatocelular grave; avaliação em centro especializado.",
+        "9": "Insuficiência hepática aguda com lesão hepatocelular grave; avaliação em centro especializado.",
+        "10": null
+      }
+    },
+    "coagulation": {
+      "Default": "Tempo de protrombina prolongado e INR elevado por disfunção de síntese hepática.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

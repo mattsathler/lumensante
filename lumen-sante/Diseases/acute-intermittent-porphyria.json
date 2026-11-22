@@ -1,0 +1,755 @@
+{
+  "SchemaVersion": 1,
+  "Id": "acute-intermittent-porphyria",
+  "Name": "Porfiria aguda intermitente em crise",
+  "SelectionWeight": 1,
+  "Tags": [
+    "metabolica",
+    "neurologica",
+    "dor-abdominal",
+    "autonomica",
+    "internacao",
+    "rara"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Hemina intravenosa e controle de fatores precipitantes",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        98,
+        106
+      ],
+      "Systolic": [
+        142,
+        152
+      ],
+      "Diastolic": [
+        88,
+        94
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        103,
+        111
+      ],
+      "Systolic": [
+        146,
+        156
+      ],
+      "Diastolic": [
+        91,
+        97
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        150,
+        160
+      ],
+      "Diastolic": [
+        93,
+        99
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        112,
+        120
+      ],
+      "Systolic": [
+        154,
+        164
+      ],
+      "Diastolic": [
+        96,
+        102
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        116,
+        124
+      ],
+      "Systolic": [
+        158,
+        168
+      ],
+      "Diastolic": [
+        98,
+        104
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        121,
+        129
+      ],
+      "Systolic": [
+        163,
+        173
+      ],
+      "Diastolic": [
+        101,
+        107
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        126,
+        134
+      ],
+      "Systolic": [
+        168,
+        178
+      ],
+      "Diastolic": [
+        104,
+        110
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        173,
+        183
+      ],
+      "Diastolic": [
+        107,
+        113
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        136,
+        144
+      ],
+      "Systolic": [
+        178,
+        188
+      ],
+      "Diastolic": [
+        110,
+        116
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Está difícil achar uma posição confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Está difícil achar uma posição confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Está difícil achar uma posição confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Está difícil achar uma posição confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Está difícil achar uma posição confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor forte na barriga e estou constipado. A dor na barriga é difusa. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor forte na barriga e estou constipado. Estou constipado. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor forte na barriga e estou constipado. Meu coração acelera junto do mal-estar. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor forte na barriga e estou constipado. Sinto formigamento nos membros. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor forte na barriga e estou constipado. A urina parece escurecer depois de ficar no recipiente. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Já não consigo fazer minhas atividades habituais.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Falar sobre isso está me cansando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Estou tendo dificuldade para descansar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Preciso de alguém por perto para me ajudar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Já não consigo fazer minhas atividades habituais.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Falar sobre isso está me cansando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Estou tendo dificuldade para descansar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Preciso de alguém por perto para me ajudar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Já não consigo fazer minhas atividades habituais.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Falar sobre isso está me cansando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Estou tendo dificuldade para descansar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Preciso de alguém por perto para me ajudar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Já não consigo fazer minhas atividades habituais.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Falar sobre isso está me cansando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Estou tendo dificuldade para descansar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Preciso de alguém por perto para me ajudar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Já não consigo fazer minhas atividades habituais.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Falar sobre isso está me cansando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Estou tendo dificuldade para descansar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Só quero ficar parado e receber ajuda.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Até conversar exige um esforço.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. O mal-estar está me deixando esgotado.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Não estou conseguindo cuidar de mim como antes.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Só quero ficar parado e receber ajuda.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Até conversar exige um esforço.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. O mal-estar está me deixando esgotado.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Não estou conseguindo cuidar de mim como antes.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Só quero ficar parado e receber ajuda.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Até conversar exige um esforço.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. O mal-estar está me deixando esgotado.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Não estou conseguindo cuidar de mim como antes.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Só quero ficar parado e receber ajuda.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Até conversar exige um esforço.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. O mal-estar está me deixando esgotado.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Não estou conseguindo cuidar de mim como antes.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Só quero ficar parado e receber ajuda.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Até conversar exige um esforço.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. O mal-estar está me deixando esgotado.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Estou com dificuldade até para me ajeitar no lugar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Preciso que alguém me ajude com as coisas simples.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Não consigo descansar por causa do mal-estar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A dor na barriga é difusa. Qualquer atividade está me esgotando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Estou com dificuldade até para me ajeitar no lugar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Preciso que alguém me ajude com as coisas simples.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Não consigo descansar por causa do mal-estar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Estou constipado. Qualquer atividade está me esgotando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Estou com dificuldade até para me ajeitar no lugar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Preciso que alguém me ajude com as coisas simples.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Não consigo descansar por causa do mal-estar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Meu coração acelera junto do mal-estar. Qualquer atividade está me esgotando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Estou com dificuldade até para me ajeitar no lugar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Preciso que alguém me ajude com as coisas simples.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Não consigo descansar por causa do mal-estar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. Sinto formigamento nos membros. Qualquer atividade está me esgotando.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Estou com dificuldade até para me ajeitar no lugar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Preciso que alguém me ajude com as coisas simples.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Não consigo descansar por causa do mal-estar.",
+          "A barriga dói muito e as pernas começaram a ficar fracas. A urina parece escurecer depois de ficar no recipiente. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Preciso de ajuda agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Estou sem forças para me ajeitar.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Preciso de ajuda agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Estou sem forças para me ajeitar.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Preciso de ajuda agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Estou sem forças para me ajeitar.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Preciso de ajuda agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Estou sem forças para me ajeitar.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Preciso de ajuda agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Estou sem forças para me ajeitar.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Não me deixe sozinho agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Estou no limite das minhas forças.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Está difícil até pedir ajuda.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Não me deixe sozinho agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Estou no limite das minhas forças.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Está difícil até pedir ajuda.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Não me deixe sozinho agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Estou no limite das minhas forças.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Está difícil até pedir ajuda.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Não me deixe sozinho agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Estou no limite das minhas forças.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Está difícil até pedir ajuda.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Não me deixe sozinho agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Estou no limite das minhas forças.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Ajuda, por favor.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Não consigo continuar assim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Fique perto de mim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A dor na barriga é difusa. Preciso de socorro agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Ajuda, por favor.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Não consigo continuar assim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Fique perto de mim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Estou constipado. Preciso de socorro agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Ajuda, por favor.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Não consigo continuar assim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Fique perto de mim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Meu coração acelera junto do mal-estar. Preciso de socorro agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Ajuda, por favor.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Não consigo continuar assim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Fique perto de mim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. Sinto formigamento nos membros. Preciso de socorro agora.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Ajuda, por favor.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Não consigo continuar assim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Fique perto de mim.",
+          "Estou com muita dor na barriga, fraqueza e palpitações. A urina parece escurecer depois de ficar no recipiente. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros. É o que consigo contar sobre o mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente. Essas coisas estão acontecendo juntas.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. É essa combinação que está me incomodando.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. Essas coisas estão acontecendo juntas.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente. É essa combinação que está me incomodando.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. Foi isso que consegui perceber até agora.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar.",
+          "Estou constipado. Sinto formigamento nos membros.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar.",
+          "Estou constipado. Sinto formigamento nos membros.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente."
+        ],
+        [
+          "A dor na barriga é difusa. Estou constipado.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar.",
+          "Estou constipado. Sinto formigamento nos membros.",
+          "Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Estou constipado. Meu coração acelera junto do mal-estar.",
+          "A dor na barriga é difusa. Estou constipado. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Estou constipado. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "A dor na barriga é difusa. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "A dor na barriga é difusa. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. Sinto formigamento nos membros.",
+          "Estou constipado. Meu coração acelera junto do mal-estar. A urina parece escurecer depois de ficar no recipiente.",
+          "Estou constipado. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente.",
+          "Meu coração acelera junto do mal-estar. Sinto formigamento nos membros. A urina parece escurecer depois de ficar no recipiente."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "electrolytes": {
+      "Default": "Hiponatremia em crise neurovisceral; confirmar hipótese com porfobilinogênio urinário.",
+      "ByStage": {
+        "4": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
+        "5": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
+        "6": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
+        "7": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
+        "8": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
+        "9": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
+        "10": null
+      }
+    }
+  }
+}

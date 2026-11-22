@@ -38,7 +38,7 @@ namespace lumen_sante.Interface
         private static readonly int ProcessId = Process.GetCurrentProcess().Id;
         private static readonly string[] PageNames = { "Rooms", "Pacientes", "Exames" };
         private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico médico", "Tratamentos", "Medicamentos" };
-        private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams", "exams" };
+        private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams", "medicines" };
         private static readonly string[] SidebarIcons = { "bed", "person", "exams" };
         private static readonly RectangleF CloseButton = new RectangleF(1056, 22, 40, 38);
         private static readonly RectangleF ReturnButton = new RectangleF(218, 24, 40, 38);
@@ -82,6 +82,10 @@ namespace lumen_sante.Interface
         private int patientOffset;
         private int treatmentOffset;
         private int medicationOffset;
+        private int historyOffset;
+        private ExamOrders historyAdmission;
+        private long historyRevision = -1;
+        private (string Title, string Detail)[] historyLines = Array.Empty<(string, string)>();
         internal event Action<ExamOrders, string> TreatmentSelected;
         internal event Action<ExamOrders, MedicationClass> MedicationToggled;
         internal event Action<ExamOrders> PatientCallRequested;
@@ -109,7 +113,7 @@ namespace lumen_sante.Interface
         private static RectangleF TimelineRow(int index) => new RectangleF(235, 308 + index * 61, 844, 55);
 
         private bool IsTabAvailable(RecordTab tab) => admission != null &&
-            (admission.Room != "Recepção" || (tab != RecordTab.Treatments && tab != RecordTab.Medications));
+            (!admission.Room.StartsWith("Recepção", StringComparison.Ordinal) || (tab != RecordTab.Treatments && tab != RecordTab.Medications));
 
         private static bool ScrollPressed(int control) =>
             NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, control) ||
@@ -185,6 +189,12 @@ namespace lumen_sante.Interface
             if (selectedIndex >= 0)
             {
                 deceased = patients[selectedIndex].Deceased;
+                if (portraitPatient != patients[selectedIndex].Ped)
+                {
+                    ReleasePortrait();
+                    portraitPatient = patients[selectedIndex].Ped;
+                }
+                RefreshExams(admission);
                 return;
             }
 
@@ -311,6 +321,15 @@ namespace lumen_sante.Interface
                 if (showingPatients) patientOffset = offset;
                 else examOffset = offset;
             }
+            RefreshCareHistory();
+            if (page == Page.Records && recordTab == RecordTab.History)
+            {
+                int saved = timelineOffset;
+                timelineOffset = historyOffset;
+                UpdateTimelineScroll(cursor, click, historyLines.Length);
+                historyOffset = timelineOffset;
+                timelineOffset = saved;
+            }
             if (page == Page.Records && recordTab == RecordTab.Exams)
             {
                 UpdateTimelineScroll(cursor, click);
@@ -358,7 +377,7 @@ namespace lumen_sante.Interface
                 treatmentOffset, admission?.TreatmentDiseaseId, examOffset, patientOffset, admission?.IsRecovered == true,
                 admission?.VisitCount ?? 1, medicationOffset,
                 admission?.ActiveMedications(lumen_sante.Gameplay.GameClock.NowMilliseconds) ?? Array.Empty<MedicationClass>(),
-                canCallPatient(admission));
+                canCallPatient(admission), historyLines, historyOffset, admission?.IsDischarged == true);
             return true;
         }
 
@@ -399,6 +418,26 @@ namespace lumen_sante.Interface
             }
 
             portraitRequested = false;
+        }
+
+        private void RefreshCareHistory()
+        {
+            if (admission == historyAdmission && (admission?.CareRevision ?? -1) == historyRevision) return;
+            if (admission != historyAdmission) historyOffset = 0;
+            historyAdmission = admission;
+            historyRevision = admission?.CareRevision ?? -1;
+            if (admission == null)
+            {
+                historyLines = Array.Empty<(string, string)>();
+                return;
+            }
+            historyLines = admission.CareHistory.Reverse().Select(decision =>
+            {
+                long minutes = decision.At / 60000;
+                string time = ((minutes / 60) % 24).ToString("00") + ":" + (minutes % 60).ToString("00");
+                return (Title: decision.Author.Name + " · " + decision.Action + " · " + time, Detail: decision.Detail);
+            }).Concat(admission.Profile.MedicalHistory.Select(previous =>
+                (Title: previous.Name, Detail: "Há " + previous.MonthsAgo + " meses"))).ToArray();
         }
 
         private void UpdateTimelineScroll(PointF cursor, bool click, int? count = null)
@@ -464,7 +503,7 @@ namespace lumen_sante.Interface
                     }
                 }
 
-                if (recordTab == RecordTab.Medications && IsTabAvailable(recordTab) && !deceased)
+                if (recordTab == RecordTab.Medications && IsTabAvailable(recordTab) && !deceased && !admission.IsDischarged)
                 {
                     int visible = Math.Min(VisibleTimelineRows, MedicationCatalog.Options.Count - medicationOffset);
                     for (int index = 0; index < visible; index++)
@@ -476,7 +515,7 @@ namespace lumen_sante.Interface
                         }
                     }
                 }
-                else if (recordTab == RecordTab.Treatments && IsTabAvailable(recordTab) && !deceased)
+                else if (recordTab == RecordTab.Treatments && IsTabAvailable(recordTab) && !deceased && !admission.IsDischarged)
                 {
                     int visible = Math.Min(VisibleTimelineRows, DiseaseCatalog.Treatments.Count - treatmentOffset);
                     for (int index = 0; index < visible; index++)
@@ -662,7 +701,9 @@ namespace lumen_sante.Interface
 
             bool occupied = current.PatientName != null;
             string patientStatus = current.Deceased ? "Óbito registrado" :
-                current.IsRecovered ? "Recuperado" : current.IsInpatient ? "Internado" : "Em atendimento";
+                current.IsDischarged ? "Alta hospitalar" :
+                current.IsRecovered ? "Recuperado" : current.IsInpatient ? "Internado" :
+                current.Room.EndsWith("Aguardando leito", StringComparison.Ordinal) ? "Aguardando leito" : "Em atendimento";
             switch (current.Page)
             {
                 case Page.Rooms:
@@ -703,8 +744,9 @@ namespace lumen_sante.Interface
                         Box(row, row.Contains(current.Cursor) ? Highlight : Card);
                         Label(patient.Orders.PatientName, 233, row.Y + 18, 19, Ink);
                         Label(patient.Orders.Room + (patient.Deceased ? " · Óbito registrado" :
+                            patient.Orders.IsDischarged ? " · Alta hospitalar" :
                             patient.Orders.IsRecovered ? " · Recuperado" : patient.Orders.IsInpatient ? " · Internado" :
-                            patient.Orders.Room == "Recepção" ? " · Aguardando atendimento" : " · Em consulta"),
+                            patient.Orders.Room.StartsWith("Recepção", StringComparison.Ordinal) ? " · Aguardando atendimento" : " · Em consulta"),
                             585, row.Y + 19, 17, Muted);
                         Label("Prontuário ›", 974, row.Y + 19, 16, Green);
                     }
@@ -815,7 +857,7 @@ namespace lumen_sante.Interface
 
                     for (int index = 0; index < RecordTabs.Length; index++)
                     {
-                        if (current.Room == "Recepção" &&
+                        if (current.Room.StartsWith("Recepção", StringComparison.Ordinal) &&
                             ((RecordTab)index == RecordTab.Treatments || (RecordTab)index == RecordTab.Medications)) continue;
                         RectangleF tab = RecordTabBounds(index);
                         bool active = (int)current.RecordTab == index;
@@ -831,7 +873,7 @@ namespace lumen_sante.Interface
                     if (current.RecordTab == RecordTab.Medications)
                     {
                         Box(TimelineArea, Card);
-                        Label("Receitar ou remover medicação", 235, 272, 21, Ink, "Georgia");
+                        Label(current.IsDischarged ? "Medicações do prontuário" : "Receitar ou remover medicação", 235, 272, 21, Ink, "Georgia");
                         if (current.MedicationOffset > 0) IconButton(TimelineUp, leftTexture, "<");
                         if (current.MedicationOffset + VisibleTimelineRows < MedicationCatalog.Options.Count)
                             IconButton(TimelineDown, rightTexture, ">");
@@ -841,7 +883,7 @@ namespace lumen_sante.Interface
                             var option = MedicationCatalog.Options[current.MedicationOffset + index];
                             bool active = current.ActiveMedications.Contains(option.Class);
                             RectangleF row = TimelineRow(index);
-                            bool enabled = !current.Deceased && (!current.IsRecovered || active);
+                            bool enabled = !current.Deceased && !current.IsDischarged && (!current.IsRecovered || active);
                             Fill(row, active || (enabled && row.Contains(current.Cursor)) ? Highlight : Paper);
                             Label(option.Name, row.X + 12, row.Y + 8, 18, enabled ? Ink : Muted);
                             Label(active ? "Ativo" : "Inativo", row.X + 12, row.Y + 31, 14, active ? Green : Muted);
@@ -852,7 +894,7 @@ namespace lumen_sante.Interface
                     if (current.RecordTab == RecordTab.Treatments)
                     {
                         Box(TimelineArea, Card);
-                        Label("Selecione um tratamento", 235, 272, 21, Ink, "Georgia");
+                        Label(current.IsDischarged ? "Tratamento do prontuário" : "Selecione um tratamento", 235, 272, 21, Ink, "Georgia");
                         if (current.TreatmentOffset > 0) IconButton(TimelineUp, leftTexture, "<");
                         if (current.TreatmentOffset + VisibleTimelineRows < DiseaseCatalog.Treatments.Count)
                             IconButton(TimelineDown, rightTexture, ">");
@@ -862,7 +904,7 @@ namespace lumen_sante.Interface
                             var choice = DiseaseCatalog.Treatments[current.TreatmentOffset + index];
                             RectangleF row = TimelineRow(index);
                             bool selected = choice.Id == current.TreatmentDiseaseId;
-                            Fill(row, selected || row.Contains(current.Cursor) ? Highlight : Paper);
+                            Fill(row, selected || (!current.IsDischarged && row.Contains(current.Cursor)) ? Highlight : Paper);
                             Label(choice.TreatmentLabel, row.X + 12, row.Y + 8, 16, Ink);
                             if (selected) Label("Selecionado", row.X + 12, row.Y + 31, 14, Green);
                         }
@@ -887,14 +929,16 @@ namespace lumen_sante.Interface
                     if (current.RecordTab == RecordTab.History)
                     {
                         Box(TimelineArea, Card);
-                        Label("Exames anteriores à internação", 235, 272, 21, Ink, "Georgia");
-                        for (int index = 0; index < current.Profile.MedicalHistory.Count; index++)
+                        Label("Histórico e condutas", 235, 272, 21, Ink, "Georgia");
+                        if (current.HistoryOffset > 0) IconButton(TimelineUp, leftTexture, "<");
+                        if (current.HistoryOffset + VisibleTimelineRows < current.HistoryLines.Length) IconButton(TimelineDown, rightTexture, ">");
+                        for (int index = 0; index < Math.Min(VisibleTimelineRows, current.HistoryLines.Length - current.HistoryOffset); index++)
                         {
-                            PreviousExam previous = current.Profile.MedicalHistory[index];
-                            float y = 313 + index * 51;
-                            Fill(new RectangleF(235, y, 844, 43), Paper);
-                            Label(previous.Name, 248, y + 9, 18, Ink);
-                            Label("Há " + previous.MonthsAgo + " meses", 917, y + 9, 16, Muted);
+                            var line = current.HistoryLines[current.HistoryOffset + index];
+                            RectangleF row = TimelineRow(index);
+                            Fill(row, Paper);
+                            Label(line.Title.Length > 85 ? line.Title.Substring(0, 82) + "..." : line.Title, row.X + 12, row.Y + 8, 17, Ink);
+                            Label(line.Detail.Length > 95 ? line.Detail.Substring(0, 92) + "..." : line.Detail, row.X + 12, row.Y + 31, 15, Muted);
                         }
                         break;
                     }
@@ -1107,6 +1151,9 @@ namespace lumen_sante.Interface
             internal readonly MedicationClass[] ActiveMedications;
             internal readonly bool CanCallPatient;
             internal readonly string TreatmentDiseaseId;
+            internal readonly (string Title, string Detail)[] HistoryLines;
+            internal readonly int HistoryOffset;
+            internal readonly bool IsDischarged;
 
             internal Frame(Size resolution, float scale, float left, float top, PointF cursor,
                 Page page, int selectedExam, RecordTab recordTab, string patientName, PatientProfile profile,
@@ -1115,7 +1162,8 @@ namespace lumen_sante.Interface
                 bool isInpatient, bool deceased, string notes, int notesCaret,
                 ExamLine[] exams, ExamLine[] timeline, int timelineOffset, bool portraitVisible, bool returnToRecord,
                 int treatmentOffset, string treatmentDiseaseId, int examOffset, int patientOffset, bool isRecovered,
-                int visitCount, int medicationOffset, MedicationClass[] activeMedications, bool canCallPatient)
+                int visitCount, int medicationOffset, MedicationClass[] activeMedications, bool canCallPatient,
+                (string Title, string Detail)[] historyLines, int historyOffset, bool isDischarged)
             {
                 Resolution = resolution;
                 Scale = scale;
@@ -1150,6 +1198,9 @@ namespace lumen_sante.Interface
                 ActiveMedications = activeMedications;
                 CanCallPatient = canCallPatient;
                 TreatmentDiseaseId = treatmentDiseaseId;
+                HistoryLines = historyLines;
+                HistoryOffset = historyOffset;
+                IsDischarged = isDischarged;
             }
         }
 

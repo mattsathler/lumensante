@@ -1,0 +1,762 @@
+{
+  "SchemaVersion": 1,
+  "Id": "pericarditis-with-effusion",
+  "Name": "Pericardite com derrame pericárdico",
+  "SelectionWeight": 8,
+  "Tags": [
+    "cardiaca",
+    "inflamatoria",
+    "dor-toracica",
+    "dispneia",
+    "internacao",
+    "frequente",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Tratamento anti-inflamatório e avaliação de drenagem do derrame",
+  "MedicationEffects": [
+    {
+      "Medication": "AntiInflammatory",
+      "ImprovementChance": 0.25,
+      "WorseningMultiplier": 0.8
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        88,
+        96
+      ],
+      "Systolic": [
+        124,
+        134
+      ],
+      "Diastolic": [
+        78,
+        84
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        370,
+        375
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        94,
+        102
+      ],
+      "Systolic": [
+        119,
+        129
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        372,
+        377
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        100,
+        108
+      ],
+      "Systolic": [
+        114,
+        124
+      ],
+      "Diastolic": [
+        71,
+        77
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        373,
+        378
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        106,
+        114
+      ],
+      "Systolic": [
+        109,
+        119
+      ],
+      "Diastolic": [
+        68,
+        74
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        375,
+        380
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        112,
+        120
+      ],
+      "Systolic": [
+        104,
+        114
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        376,
+        381
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        119,
+        127
+      ],
+      "Systolic": [
+        97,
+        107
+      ],
+      "Diastolic": [
+        59,
+        65
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        377,
+        382
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        90,
+        100
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        89,
+        91
+      ],
+      "TemperatureTenths": [
+        379,
+        384
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        132,
+        140
+      ],
+      "Systolic": [
+        83,
+        93
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        86,
+        88
+      ],
+      "TemperatureTenths": [
+        380,
+        385
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        84,
+        86
+      ],
+      "TemperatureTenths": [
+        381,
+        386
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Isso está tirando minha vontade de comer.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. O desconforto está me distraindo de tudo.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Isso está tirando minha vontade de comer.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. O desconforto está me distraindo de tudo.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Isso está tirando minha vontade de comer.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. O desconforto está me distraindo de tudo.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Isso está tirando minha vontade de comer.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. O desconforto está me distraindo de tudo.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Isso está tirando minha vontade de comer.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. O desconforto está me distraindo de tudo.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Está difícil achar uma posição confortável.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. O mal-estar não me deixa descansar direito.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Está difícil achar uma posição confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. O mal-estar não me deixa descansar direito.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Está difícil achar uma posição confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. O mal-estar não me deixa descansar direito.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Está difícil achar uma posição confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. O mal-estar não me deixa descansar direito.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Está difícil achar uma posição confortável.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. O mal-estar não me deixa descansar direito.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma pontada no peito que piora quando deito. A dor piora quando respiro fundo. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma pontada no peito que piora quando deito. Deitar aumenta o incômodo. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma pontada no peito que piora quando deito. Inclinar o corpo para frente alivia um pouco. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma pontada no peito que piora quando deito. Tossir faz o peito doer. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma pontada no peito que piora quando deito. A dor parece uma pontada. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Já não consigo fazer minhas atividades habituais.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Falar sobre isso está me cansando.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Estou tendo dificuldade para descansar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Preciso de alguém por perto para me ajudar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Já não consigo fazer minhas atividades habituais.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Falar sobre isso está me cansando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Estou tendo dificuldade para descansar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Preciso de alguém por perto para me ajudar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Já não consigo fazer minhas atividades habituais.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Falar sobre isso está me cansando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Estou tendo dificuldade para descansar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Preciso de alguém por perto para me ajudar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Já não consigo fazer minhas atividades habituais.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Falar sobre isso está me cansando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Estou tendo dificuldade para descansar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Preciso de alguém por perto para me ajudar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Já não consigo fazer minhas atividades habituais.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Falar sobre isso está me cansando.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Estou tendo dificuldade para descansar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Só quero ficar parado e receber ajuda.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Até conversar exige um esforço.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. O mal-estar está me deixando esgotado.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Não estou conseguindo cuidar de mim como antes.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Só quero ficar parado e receber ajuda.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Até conversar exige um esforço.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. O mal-estar está me deixando esgotado.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Não estou conseguindo cuidar de mim como antes.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Só quero ficar parado e receber ajuda.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Até conversar exige um esforço.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. O mal-estar está me deixando esgotado.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Não estou conseguindo cuidar de mim como antes.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Só quero ficar parado e receber ajuda.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Até conversar exige um esforço.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. O mal-estar está me deixando esgotado.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Não estou conseguindo cuidar de mim como antes.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Só quero ficar parado e receber ajuda.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Até conversar exige um esforço.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. O mal-estar está me deixando esgotado.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Estou com dificuldade até para me ajeitar no lugar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Preciso que alguém me ajude com as coisas simples.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Não consigo descansar por causa do mal-estar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor piora quando respiro fundo. Qualquer atividade está me esgotando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Estou com dificuldade até para me ajeitar no lugar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Preciso que alguém me ajude com as coisas simples.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Não consigo descansar por causa do mal-estar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Deitar aumenta o incômodo. Qualquer atividade está me esgotando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Estou com dificuldade até para me ajeitar no lugar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Preciso que alguém me ajude com as coisas simples.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Não consigo descansar por causa do mal-estar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Inclinar o corpo para frente alivia um pouco. Qualquer atividade está me esgotando.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Estou com dificuldade até para me ajeitar no lugar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Preciso que alguém me ajude com as coisas simples.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Não consigo descansar por causa do mal-estar.",
+          "O peito dói e fico mais confortável sentado e inclinado. Tossir faz o peito doer. Qualquer atividade está me esgotando.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Estou com dificuldade até para me ajeitar no lugar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Preciso que alguém me ajude com as coisas simples.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Não consigo descansar por causa do mal-estar.",
+          "O peito dói e fico mais confortável sentado e inclinado. A dor parece uma pontada. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Preciso de ajuda agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Estou sem forças para me ajeitar.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Preciso de ajuda agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Estou sem forças para me ajeitar.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Preciso de ajuda agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Estou sem forças para me ajeitar.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Preciso de ajuda agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Estou sem forças para me ajeitar.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Não consigo fazer nada sozinho neste momento.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Preciso de ajuda agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Estou sem forças para me ajeitar.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Só consigo falar um pouco de cada vez.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Não me deixe sozinho agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Estou no limite das minhas forças.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Está difícil até pedir ajuda.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Não me deixe sozinho agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Estou no limite das minhas forças.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Está difícil até pedir ajuda.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Não me deixe sozinho agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Estou no limite das minhas forças.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Está difícil até pedir ajuda.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Não me deixe sozinho agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Estou no limite das minhas forças.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Está difícil até pedir ajuda.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Não me deixe sozinho agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Estou no limite das minhas forças.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Preciso parar um pouco para continuar falando.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Ajuda, por favor.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Não consigo continuar assim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Fique perto de mim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor piora quando respiro fundo. Preciso de socorro agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Ajuda, por favor.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Não consigo continuar assim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Fique perto de mim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Deitar aumenta o incômodo. Preciso de socorro agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Ajuda, por favor.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Não consigo continuar assim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Fique perto de mim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Inclinar o corpo para frente alivia um pouco. Preciso de socorro agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Ajuda, por favor.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Não consigo continuar assim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Fique perto de mim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. Tossir faz o peito doer. Preciso de socorro agora.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Ajuda, por favor.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Não consigo continuar assim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Fique perto de mim.",
+          "Estou com muita dor, falta de ar e sensação de desmaio. A dor parece uma pontada. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "Tossir faz o peito doer. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer. É o que consigo contar sobre o mal-estar.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada. Essas coisas estão acontecendo juntas.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. É essa combinação que está me incomodando.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. Essas coisas estão acontecendo juntas.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada. É essa combinação que está me incomodando.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada. Foi isso que consegui perceber até agora.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Tossir faz o peito doer. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Tossir faz o peito doer. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada."
+        ],
+        [
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Tossir faz o peito doer. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Deitar aumenta o incômodo. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "A dor piora quando respiro fundo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "A dor piora quando respiro fundo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer.",
+          "Deitar aumenta o incômodo. Inclinar o corpo para frente alivia um pouco. A dor parece uma pontada.",
+          "Deitar aumenta o incômodo. Tossir faz o peito doer. A dor parece uma pontada.",
+          "Inclinar o corpo para frente alivia um pouco. Tossir faz o peito doer. A dor parece uma pontada."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "cardiac": {
+      "Default": "Supradesnivelamento difuso de ST e depressão de PR, compatíveis com pericardite no contexto clínico.",
+      "ByStage": {
+        "4": "Alterações difusas de repolarização e baixa voltagem; ecocardiografia necessária para avaliar derrame.",
+        "5": "Alterações difusas de repolarização e baixa voltagem; ecocardiografia necessária para avaliar derrame.",
+        "6": "Alterações difusas de repolarização e baixa voltagem; ecocardiografia necessária para avaliar derrame.",
+        "7": "Baixa voltagem e alternância elétrica em suspeita de derrame volumoso; confirmar repercussão por ecocardiografia.",
+        "8": "Baixa voltagem e alternância elétrica em suspeita de derrame volumoso; confirmar repercussão por ecocardiografia.",
+        "9": "Baixa voltagem e alternância elétrica em suspeita de derrame volumoso; confirmar repercussão por ecocardiografia.",
+        "10": null
+      }
+    }
+  }
+}

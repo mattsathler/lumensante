@@ -1,8 +1,10 @@
 # Formato de doença JSON — versão 1
 
-Instale cada doença como um arquivo `.json` em UTF-8 na pasta `LumenSante/Doencas/`, relativa à pasta que contém `lumen-sante.dll`. Recarregue o plugin para aplicar inclusões, alterações ou remoções. O log do RAGE Plugin Hook informa a quantidade carregada e identifica arquivos externos aceitos ou rejeitados.
+Instale cada doença como um arquivo `.json` em UTF-8 na pasta `Plugins/LumenSante/Diseases/` da instalação do GTA V. O plugin resolve a pasta a partir do executável do jogo, pois o RAGE Plugin Hook executa uma cópia temporária da DLL. Fora do jogo, os validadores usam `LumenSante/Diseases/` junto à DLL. Recarregue o plugin para aplicar inclusões, alterações ou remoções. O log do RAGE Plugin Hook informa a pasta da instalação, a quantidade carregada e os arquivos aceitos ou rejeitados.
 
-Os 12 casos oficiais são JSONs incorporados à DLL durante a compilação, em `lumen-sante/Data/Doencas/`. Eles e os arquivos externos usam o mesmo leitor. Os IDs oficiais ficam reservados. Arquivos externos com IDs repetidos entre si são todos rejeitados para aquele ID. Os demais arquivos válidos continuam disponíveis.
+Os 12 casos padrão são arquivos editáveis, mantidos no projeto em `lumen-sante/Diseases/`. A compilação os copia para `bin/<Configuration>/LumenSante/Diseases/`. Distribua a DLL acompanhada dessa pasta. Todos os casos são lidos exclusivamente dessa pasta na instalação. Edite o próprio arquivo de uma doença padrão para personalizar seus dados, inclusive ID, nome, peso, falas, laudos e tratamentos. Remover o arquivo retira a doença na próxima carga. Arquivos válidos com IDs repetidos são todos rejeitados para aquele ID, e as demais doenças continuam disponíveis.
+
+Reúna os JSONs padrão e personalizados em `LumenSante/Diseases/`. A cópia da compilação usa `PreserveNewest`, e a carga do plugin apenas lê os arquivos. Se a pasta estiver ausente, vazia ou sem casos válidos, o plugin informa o problema e encerra a inicialização para que o catálogo possa ser corrigido.
 
 Use [o exemplo completo](exemplos/doenca.json) como ponto de partida. Ele reutiliza o caso de rinite com ID `example-rhinitis`, nome próprio e peso 1. Colocá-lo na pasta externa cria uma doença adicional. Altere os dados para o caso que deseja criar e preserve a coerência dos sintomas.
 
@@ -73,4 +75,4 @@ Na migração, foram preservados os laudos dos ramos específicos de cada doenç
 
 Compile com `Skills/lumen-sante-build/scripts/Build-Plugin.ps1`. Execute `Validate-DiseaseCatalog.ps1`, `Validate-MedicationCases.ps1`, `Validate-TemperatureCases.ps1` e `Validate-ModularDiseases.ps1`, em `Skills/lumen-sante-diseases/scripts`, em processos Windows PowerShell 5.1 após a compilação.
 
-O validador modular verifica os recursos oficiais, a carga e remoção de um 13º caso externo, laudos por estágio com `null`, falas, vitais, referências inválidas e colisões de IDs. No GTA V, confira adicionalmente a admissão, os menus, a evolução e a aplicação das condutas do caso externo.
+O validador modular verifica a ausência de doenças incorporadas à DLL, os 12 arquivos padrão, sua personalização e remoção, a carga de um 13º caso, pastas vazias ou ausentes, laudos por estágio com `null`, falas, vitais, referências inválidas e colisões de IDs. No GTA V, confira adicionalmente a admissão, os menus, a evolução e a aplicação das condutas do caso personalizado.

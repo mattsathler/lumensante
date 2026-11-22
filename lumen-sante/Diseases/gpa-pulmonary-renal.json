@@ -1,0 +1,769 @@
+{
+  "SchemaVersion": 1,
+  "Id": "gpa-pulmonary-renal",
+  "Name": "Granulomatose com poliangiite com síndrome pulmão-rim",
+  "SelectionWeight": 1,
+  "Tags": [
+    "autoimune",
+    "vascular",
+    "renal",
+    "respiratoria",
+    "hemoptise",
+    "internacao",
+    "rara",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Imunossupressão de indução e suporte pulmonar e renal",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        78,
+        84
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        370,
+        375
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        97,
+        105
+      ],
+      "Systolic": [
+        119,
+        129
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        372,
+        377
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        103,
+        111
+      ],
+      "Systolic": [
+        115,
+        125
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        373,
+        378
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Respiração acelerada, com esforço discreto.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        110,
+        118
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        90,
+        92
+      ],
+      "TemperatureTenths": [
+        375,
+        380
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        116,
+        124
+      ],
+      "Systolic": [
+        108,
+        118
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        88,
+        90
+      ],
+      "TemperatureTenths": [
+        376,
+        381
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        123,
+        131
+      ],
+      "Systolic": [
+        101,
+        111
+      ],
+      "Diastolic": [
+        62,
+        68
+      ],
+      "RespiratoryRate": [
+        33,
+        36
+      ],
+      "OxygenSaturation": [
+        85,
+        87
+      ],
+      "TemperatureTenths": [
+        377,
+        382
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Esforço respiratório visível.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        130,
+        138
+      ],
+      "Systolic": [
+        93,
+        103
+      ],
+      "Diastolic": [
+        56,
+        62
+      ],
+      "RespiratoryRate": [
+        35,
+        38
+      ],
+      "OxygenSaturation": [
+        82,
+        84
+      ],
+      "TemperatureTenths": [
+        379,
+        384
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        137,
+        145
+      ],
+      "Systolic": [
+        86,
+        96
+      ],
+      "Diastolic": [
+        51,
+        57
+      ],
+      "RespiratoryRate": [
+        38,
+        41
+      ],
+      "OxygenSaturation": [
+        79,
+        81
+      ],
+      "TemperatureTenths": [
+        380,
+        385
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        45,
+        51
+      ],
+      "RespiratoryRate": [
+        40,
+        43
+      ],
+      "OxygenSaturation": [
+        76,
+        78
+      ],
+      "TemperatureTenths": [
+        381,
+        386
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Esforço respiratório acentuado, com fala entrecortada.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Isso está tirando minha vontade de comer.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. O desconforto está me distraindo de tudo.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Precisei pedir companhia para procurar atendimento.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Isso está tirando minha vontade de comer.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. O desconforto está me distraindo de tudo.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Precisei pedir companhia para procurar atendimento.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Isso está tirando minha vontade de comer.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. O desconforto está me distraindo de tudo.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Precisei pedir companhia para procurar atendimento.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Isso está tirando minha vontade de comer.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. O desconforto está me distraindo de tudo.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Precisei pedir companhia para procurar atendimento.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Isso está tirando minha vontade de comer.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. O desconforto está me distraindo de tudo.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Está difícil achar uma posição confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. O mal-estar não me deixa descansar direito.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Já não consigo seguir minha rotina como antes.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Está difícil achar uma posição confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. O mal-estar não me deixa descansar direito.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Já não consigo seguir minha rotina como antes.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Está difícil achar uma posição confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. O mal-estar não me deixa descansar direito.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Já não consigo seguir minha rotina como antes.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Está difícil achar uma posição confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. O mal-estar não me deixa descansar direito.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Já não consigo seguir minha rotina como antes.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Está difícil achar uma posição confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. O mal-estar não me deixa descansar direito.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Está difícil cuidar das coisas sozinho.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tossindo e minha urina ficou avermelhada. Tenho tido crostas e sangramento no nariz. Preciso de ajuda para ficar mais confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Está difícil cuidar das coisas sozinho.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tossindo e minha urina ficou avermelhada. A urina ficou avermelhada. Preciso de ajuda para ficar mais confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Está difícil cuidar das coisas sozinho.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tossindo e minha urina ficou avermelhada. Notei sangue no catarro. Preciso de ajuda para ficar mais confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Está difícil cuidar das coisas sozinho.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tossindo e minha urina ficou avermelhada. Venho tendo desconforto nos seios da face. Preciso de ajuda para ficar mais confortável.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Está difícil cuidar das coisas sozinho.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tossindo e minha urina ficou avermelhada. Sinto cansaço junto da tosse. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Já não consigo fazer minhas atividades habituais.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Falar sobre isso está me cansando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Estou tendo dificuldade para descansar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Preciso de alguém por perto para me ajudar.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Já não consigo fazer minhas atividades habituais.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Falar sobre isso está me cansando.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Estou tendo dificuldade para descansar.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Preciso de alguém por perto para me ajudar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Já não consigo fazer minhas atividades habituais.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Falar sobre isso está me cansando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Estou tendo dificuldade para descansar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Preciso de alguém por perto para me ajudar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Já não consigo fazer minhas atividades habituais.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Falar sobre isso está me cansando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Estou tendo dificuldade para descansar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Preciso de alguém por perto para me ajudar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Já não consigo fazer minhas atividades habituais.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Falar sobre isso está me cansando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Estou tendo dificuldade para descansar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Só quero ficar parado e receber ajuda.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Até conversar exige um esforço.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. O mal-estar está me deixando esgotado.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Não estou conseguindo cuidar de mim como antes.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Só quero ficar parado e receber ajuda.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Até conversar exige um esforço.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. O mal-estar está me deixando esgotado.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Não estou conseguindo cuidar de mim como antes.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Só quero ficar parado e receber ajuda.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Até conversar exige um esforço.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. O mal-estar está me deixando esgotado.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Não estou conseguindo cuidar de mim como antes.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Só quero ficar parado e receber ajuda.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Até conversar exige um esforço.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. O mal-estar está me deixando esgotado.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Não estou conseguindo cuidar de mim como antes.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Só quero ficar parado e receber ajuda.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Até conversar exige um esforço.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. O mal-estar está me deixando esgotado.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Estou com dificuldade até para me ajeitar no lugar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Preciso que alguém me ajude com as coisas simples.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Não consigo descansar por causa do mal-estar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Tenho tido crostas e sangramento no nariz. Qualquer atividade está me esgotando.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Estou com dificuldade até para me ajeitar no lugar.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Preciso que alguém me ajude com as coisas simples.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Não consigo descansar por causa do mal-estar.",
+          "Tenho falta de ar e saiu sangue quando tossi. A urina ficou avermelhada. Qualquer atividade está me esgotando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Estou com dificuldade até para me ajeitar no lugar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Preciso que alguém me ajude com as coisas simples.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Não consigo descansar por causa do mal-estar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Notei sangue no catarro. Qualquer atividade está me esgotando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Estou com dificuldade até para me ajeitar no lugar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Preciso que alguém me ajude com as coisas simples.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Não consigo descansar por causa do mal-estar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Venho tendo desconforto nos seios da face. Qualquer atividade está me esgotando.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Estou com dificuldade até para me ajeitar no lugar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Preciso que alguém me ajude com as coisas simples.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Não consigo descansar por causa do mal-estar.",
+          "Tenho falta de ar e saiu sangue quando tossi. Sinto cansaço junto da tosse. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Tenho tido crostas e sangramento no nariz. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. A urina ficou avermelhada. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Notei sangue no catarro. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Venho tendo desconforto nos seios da face. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade para respirar, tossindo sangue. Sinto cansaço junto da tosse. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face. É o que consigo contar sobre o mal-estar.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse. Essas coisas estão acontecendo juntas.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face. É essa combinação que está me incomodando.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face. Essas coisas estão acontecendo juntas.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse. É essa combinação que está me incomodando.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. Foi isso que consegui perceber até agora.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse."
+        ],
+        [
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Notei sangue no catarro.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. A urina ficou avermelhada. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "Tenho tido crostas e sangramento no nariz. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "Tenho tido crostas e sangramento no nariz. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Venho tendo desconforto nos seios da face.",
+          "A urina ficou avermelhada. Notei sangue no catarro. Sinto cansaço junto da tosse.",
+          "A urina ficou avermelhada. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse.",
+          "Notei sangue no catarro. Venho tendo desconforto nos seios da face. Sinto cansaço junto da tosse."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "urinalysis": {
+      "Default": "Hematúria glomerular e proteinúria; investigar vasculite com ANCA e biópsia conforme indicação.",
+      "ByStage": {
+        "4": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
+        "5": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
+        "6": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
+        "7": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
+        "8": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
+        "9": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
+        "10": null
+      }
+    },
+    "creatinine": {
+      "Default": "Elevação progressiva de creatinina, compatível com comprometimento renal.",
+      "ByStage": {
+        "10": null
+      }
+    },
+    "x-ray": {
+      "Default": "Opacidades pulmonares bilaterais e nódulos, alguns com cavitação; investigar vasculite e diagnósticos alternativos.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

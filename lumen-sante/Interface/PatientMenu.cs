@@ -115,6 +115,7 @@ namespace lumen_sante.Interface
 
         internal event Action<ExamOrder> ExamRequested;
         internal event Action<ExamOrders> DischargeRequested;
+        internal event Action<ExamOrders> PatientInteraction;
 
 
         internal event Action LieDownRequested;
@@ -128,13 +129,19 @@ namespace lumen_sante.Interface
 
         internal void Open()
         {
+            PatientInteraction?.Invoke(currentOrders);
             root.Visible = true;
         }
 
-        internal void OpenExamination() => examination.Visible = true;
+        internal void OpenExamination()
+        {
+            PatientInteraction?.Invoke(currentOrders);
+            examination.Visible = true;
+        }
 
         internal void OpenInpatient(string room)
         {
+            PatientInteraction?.Invoke(currentOrders);
             inpatient.SubtitleText = room;
             inpatient.Visible = true;
         }
@@ -217,6 +224,7 @@ namespace lumen_sante.Interface
                     {
                         if (canTalk())
                         {
+                            PatientInteraction?.Invoke(currentOrders);
                             bool wasStarted = currentOrders.HasStartedConversation;
                             string answer = currentOrders.GetSymptomAnswer(disease, questionIndex, severityIndex, random);
                             Game.DisplaySubtitle(patientName + ": " + answer, 7000);

@@ -1,13 +1,19 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 [CmdletBinding()]
-param([string]$AssemblyPath = (Join-Path $PSScriptRoot '../../../lumen-sante/bin/Debug/lumen-sante.dll'))
+param([string]$AssemblyPath)
 
 $ErrorActionPreference = 'Stop'
+if (!$AssemblyPath) { $AssemblyPath = Join-Path $PSScriptRoot '../../../lumen-sante/bin/Debug/lumen-sante.dll' }
+$sdkPath = Join-Path $PSScriptRoot '../../../Dependencies/RagePluginHookSDK.dll'
+if (Test-Path -LiteralPath $sdkPath) {
+    [void][Reflection.Assembly]::LoadFrom((Resolve-Path -LiteralPath $sdkPath).Path)
+}
 $assembly = [Reflection.Assembly]::LoadFrom((Resolve-Path -LiteralPath $AssemblyPath).Path)
 $instance = [Reflection.BindingFlags]'Instance,NonPublic'
 $static = [Reflection.BindingFlags]'Static,NonPublic'
 $cases = $assembly.GetType('lumen_sante.Clinical.DiseaseCatalog').GetField('Cases', $static).GetValue($null)
 $febrileCases = @('flu-like', 'viral-pharyngitis', 'acute-sinusitis', 'bacterial-cystitis', 'acute-gastroenteritis')
+$legacyCases = $febrileCases + @('acid-reflux', 'acute-bronchospasm', 'allergic-rhinitis', 'contact-dermatitis', 'lung-cancer', 'muscle-strain', 'tension-headache')
 $random = [Random]::new(42)
 foreach ($disease in $cases) {
     $id = $disease.GetType().GetProperty('Id', $instance).GetValue($disease)
@@ -38,13 +44,15 @@ foreach ($disease in $cases) {
                 throw "Recuperacao sem normalizar a temperatura: $id"
             }
         }
-        if (!$terminal -and $id -notin $febrileCases -and ($range.Item1 -ne 360 -or $range.Item2 -ne 374)) {
+        if (!$terminal -and $id -in $legacyCases -and $id -notin $febrileCases -and ($range.Item1 -ne 360 -or $range.Item2 -ne 374)) {
             throw "Febre indevida em caso sem alteracao termica: $id"
         }
         if ($id -eq 'bacterial-cystitis' -and $index -lt 3 -and $range.Item2 -ge 380) {
             throw 'Cistite inicial com febre de complicacao.'
         }
     }
-    if (($id -in $febrileCases) -ne $canHaveFever) { throw "Perfil febril incorreto: $id" }
+    if ($id -in $legacyCases -and (($id -in $febrileCases) -ne $canHaveFever)) { throw "Perfil febril incorreto: $id" }
+    $tags = $disease.GetType().GetProperty('Tags', $instance).GetValue($disease)
+    if ($tags -contains 'febre' -and !$canHaveFever) { throw "Tag de febre incompatível com as temperaturas: $id" }
     [pscustomobject]@{ Doenca = $id; Estagios = $stages.Count; PodeTerFebre = $canHaveFever }
 }

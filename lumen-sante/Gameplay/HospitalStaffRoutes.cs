@@ -199,6 +199,13 @@ namespace lumen_sante.Gameplay
             return (door, chair);
         }
 
+        internal Point AddDoctorWorkAccess(int index, Vector3 position, float heading, Point door)
+        {
+            var computer = new Point("Acesso do computador " + index, position, heading, passingDistance: 1.2f);
+            ConnectBothWays(door, computer);
+            return computer;
+        }
+
         internal Point AddWardBedAccess(string name, Vector3 approach, float heading)
         {
             var bed = new Point("Aproximação da " + name, approach, heading);

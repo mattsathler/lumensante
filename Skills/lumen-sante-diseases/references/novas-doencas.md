@@ -1,8 +1,8 @@
 # Adicionar doenças ao Lumen Santé
 
-Leia `Docs/formato-doenca.md` e um JSON semelhante em `lumen-sante/Data/Doencas`. Use `Docs/exemplos/doenca.json` como arquivo inicial válido.
+Leia `Docs/formato-doenca.md` e um JSON semelhante em `lumen-sante/Diseases`. Use `Docs/exemplos/doenca.json` como arquivo inicial válido.
 
-1. Defina um ID único, nome, peso positivo e tags compartilhadas. Informe a versão 1 do esquema e todos os campos obrigatórios. Doenças externas são instaladas em `LumenSante/Doencas/`, relativo à DLL. Doenças oficiais ficam em `Data/Doencas` e entram como recursos por curinga.
+1. Defina um ID único, nome, peso positivo e tags compartilhadas. Informe a versão 1 do esquema e todos os campos obrigatórios. Todas as doenças são instaladas em `LumenSante/Diseases/`, relativo à DLL. Os casos padrão ficam em `lumen-sante/Diseases` no projeto e são copiados pelo build. Usuários podem editar ou remover qualquer arquivo, incluindo os padrão. IDs duplicados rejeitam todos os arquivos envolvidos.
 2. Defina dez estágios. Cada estágio vivo exige faixas de pulso, pressão sistólica e diastólica, frequência respiratória, saturação e temperatura em décimos de °C, além de três achados da avaliação geral. O estágio 10 usa sinais zerados e temperatura indisponível. Recuperação é risco 0 e normaliza a temperatura. Baseie sintomas em fontes oficiais ou primárias quando adicionar conteúdo clínico novo e registre as fontes consultadas.
 3. Cada pergunta tem nove bancos com pelo menos 20 frases distintas por estágio. A primeira pergunta é exatamente “Como você está se sentindo?”. Preserve coerência entre respostas e use a fixação por paciente, pergunta e estágio de `ExamOrders.GetSymptomAnswer`.
 4. Configure medicações compatíveis, probabilidades e tratamento específico no próprio JSON. Os efeitos usam as fórmulas existentes em `DiseaseDefinition.Evolve`. Declare laudos por ID de exame, padrão e substituições por estágio. Valores ausentes ou `null` retornam “Exame inconclusivo”. Resultados normais informativos recebem frases próprias.

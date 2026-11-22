@@ -1,0 +1,774 @@
+{
+  "SchemaVersion": 1,
+  "Id": "complicated-pyelonephritis",
+  "Name": "Pielonefrite aguda complicada",
+  "SelectionWeight": 12,
+  "Tags": [
+    "urinaria",
+    "renal",
+    "infecciosa",
+    "febre",
+    "dor-lombar",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Antibioticoterapia intravenosa e controle de foco urinário",
+  "MedicationEffects": [
+    {
+      "Medication": "Antibiotic",
+      "ImprovementChance": 0.28,
+      "WorseningMultiplier": 0.7
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        377,
+        383
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        102,
+        110
+      ],
+      "Systolic": [
+        116,
+        126
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        379,
+        385
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        382,
+        388
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        113,
+        121
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        384,
+        390
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        103,
+        113
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        386,
+        392
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        96,
+        106
+      ],
+      "Diastolic": [
+        59,
+        65
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        388,
+        394
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        90,
+        100
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        391,
+        397
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        83,
+        93
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        393,
+        399
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        89,
+        91
+      ],
+      "TemperatureTenths": [
+        395,
+        401
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Isso está tirando minha vontade de comer.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. O desconforto está me distraindo de tudo.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Precisei pedir companhia para procurar atendimento.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Isso está tirando minha vontade de comer.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. O desconforto está me distraindo de tudo.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Precisei pedir companhia para procurar atendimento.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Isso está tirando minha vontade de comer.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. O desconforto está me distraindo de tudo.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Precisei pedir companhia para procurar atendimento.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Isso está tirando minha vontade de comer.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. O desconforto está me distraindo de tudo.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Precisei pedir companhia para procurar atendimento.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Isso está tirando minha vontade de comer.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. O desconforto está me distraindo de tudo.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Está difícil achar uma posição confortável.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. O mal-estar não me deixa descansar direito.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Já não consigo seguir minha rotina como antes.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Está difícil achar uma posição confortável.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. O mal-estar não me deixa descansar direito.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Já não consigo seguir minha rotina como antes.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Está difícil achar uma posição confortável.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. O mal-estar não me deixa descansar direito.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Já não consigo seguir minha rotina como antes.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Está difícil achar uma posição confortável.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. O mal-estar não me deixa descansar direito.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Já não consigo seguir minha rotina como antes.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Está difícil achar uma posição confortável.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. O mal-estar não me deixa descansar direito.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Está difícil cuidar das coisas sozinho.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho febre e dor de um lado das costas. Arde quando urino. Preciso de ajuda para ficar mais confortável.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Está difícil cuidar das coisas sozinho.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho febre e dor de um lado das costas. Sinto dor no lado direito das costas. Preciso de ajuda para ficar mais confortável.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Está difícil cuidar das coisas sozinho.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho febre e dor de um lado das costas. A urina ficou turva. Preciso de ajuda para ficar mais confortável.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Está difícil cuidar das coisas sozinho.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho febre e dor de um lado das costas. Tenho vontade de urinar várias vezes. Preciso de ajuda para ficar mais confortável.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Está difícil cuidar das coisas sozinho.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho febre e dor de um lado das costas. Os calafrios vêm junto da dor lombar. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Já não consigo fazer minhas atividades habituais.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Falar sobre isso está me cansando.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Estou tendo dificuldade para descansar.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Preciso de alguém por perto para me ajudar.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Já não consigo fazer minhas atividades habituais.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Falar sobre isso está me cansando.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Estou tendo dificuldade para descansar.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Preciso de alguém por perto para me ajudar.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Já não consigo fazer minhas atividades habituais.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Falar sobre isso está me cansando.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Estou tendo dificuldade para descansar.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Preciso de alguém por perto para me ajudar.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Já não consigo fazer minhas atividades habituais.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Falar sobre isso está me cansando.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Estou tendo dificuldade para descansar.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Preciso de alguém por perto para me ajudar.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Já não consigo fazer minhas atividades habituais.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Falar sobre isso está me cansando.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Estou tendo dificuldade para descansar.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Só quero ficar parado e receber ajuda.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Até conversar exige um esforço.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. O mal-estar está me deixando esgotado.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Não estou conseguindo cuidar de mim como antes.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Só quero ficar parado e receber ajuda.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Até conversar exige um esforço.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. O mal-estar está me deixando esgotado.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Não estou conseguindo cuidar de mim como antes.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Só quero ficar parado e receber ajuda.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Até conversar exige um esforço.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. O mal-estar está me deixando esgotado.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Não estou conseguindo cuidar de mim como antes.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Só quero ficar parado e receber ajuda.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Até conversar exige um esforço.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. O mal-estar está me deixando esgotado.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Não estou conseguindo cuidar de mim como antes.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Só quero ficar parado e receber ajuda.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Até conversar exige um esforço.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. O mal-estar está me deixando esgotado.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Preciso que alguém me ajude com as coisas simples.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Não consigo descansar por causa do mal-estar.",
+          "A dor nas costas está forte e os calafrios não param. Arde quando urino. Qualquer atividade está me esgotando.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Preciso que alguém me ajude com as coisas simples.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Não consigo descansar por causa do mal-estar.",
+          "A dor nas costas está forte e os calafrios não param. Sinto dor no lado direito das costas. Qualquer atividade está me esgotando.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Preciso que alguém me ajude com as coisas simples.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Não consigo descansar por causa do mal-estar.",
+          "A dor nas costas está forte e os calafrios não param. A urina ficou turva. Qualquer atividade está me esgotando.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Preciso que alguém me ajude com as coisas simples.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Não consigo descansar por causa do mal-estar.",
+          "A dor nas costas está forte e os calafrios não param. Tenho vontade de urinar várias vezes. Qualquer atividade está me esgotando.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Preciso que alguém me ajude com as coisas simples.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Não consigo descansar por causa do mal-estar.",
+          "A dor nas costas está forte e os calafrios não param. Os calafrios vêm junto da dor lombar. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Preciso de ajuda agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Estou sem forças para me ajeitar.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Preciso de ajuda agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Estou sem forças para me ajeitar.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Preciso de ajuda agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Estou sem forças para me ajeitar.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Preciso de ajuda agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Estou sem forças para me ajeitar.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Preciso de ajuda agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Estou sem forças para me ajeitar.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Não me deixe sozinho agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Estou no limite das minhas forças.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Está difícil até pedir ajuda.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Não me deixe sozinho agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Estou no limite das minhas forças.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Está difícil até pedir ajuda.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Não me deixe sozinho agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Estou no limite das minhas forças.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Está difícil até pedir ajuda.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Não me deixe sozinho agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Estou no limite das minhas forças.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Está difícil até pedir ajuda.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Não me deixe sozinho agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Estou no limite das minhas forças.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Ajuda, por favor.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Não consigo continuar assim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Fique perto de mim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Arde quando urino. Preciso de socorro agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Ajuda, por favor.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Não consigo continuar assim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Fique perto de mim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Sinto dor no lado direito das costas. Preciso de socorro agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Ajuda, por favor.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Não consigo continuar assim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Fique perto de mim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. A urina ficou turva. Preciso de socorro agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Ajuda, por favor.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Não consigo continuar assim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Fique perto de mim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Tenho vontade de urinar várias vezes. Preciso de socorro agora.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Ajuda, por favor.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Não consigo continuar assim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Fique perto de mim.",
+          "Estou muito fraco com febre, dor nas costas e enjoo. Os calafrios vêm junto da dor lombar. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. É essa combinação que está me incomodando.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. É o que consigo contar sobre o mal-estar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar. Essas coisas estão acontecendo juntas.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes. É essa combinação que está me incomodando.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes. Essas coisas estão acontecendo juntas.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar. É essa combinação que está me incomodando.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. Foi isso que consegui perceber até agora.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas.",
+          "Arde quando urino. A urina ficou turva.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas.",
+          "Arde quando urino. A urina ficou turva.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar."
+        ],
+        [
+          "Arde quando urino. Sinto dor no lado direito das costas.",
+          "Arde quando urino. A urina ficou turva.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Sinto dor no lado direito das costas. A urina ficou turva.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. Sinto dor no lado direito das costas. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Arde quando urino. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Arde quando urino. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Tenho vontade de urinar várias vezes.",
+          "Sinto dor no lado direito das costas. A urina ficou turva. Os calafrios vêm junto da dor lombar.",
+          "Sinto dor no lado direito das costas. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar.",
+          "A urina ficou turva. Tenho vontade de urinar várias vezes. Os calafrios vêm junto da dor lombar."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "urine-culture": {
+      "Default": "Urocultura com crescimento de Escherichia coli em contagem significativa.",
+      "ByStage": {
+        "4": "Escherichia coli isolada em urocultura, com infecção urinária sistêmica.",
+        "5": "Escherichia coli isolada em urocultura, com infecção urinária sistêmica.",
+        "6": "Escherichia coli isolada em urocultura, com infecção urinária sistêmica.",
+        "7": "Urocultura positiva para Escherichia coli em quadro de infecção urinária grave.",
+        "8": "Urocultura positiva para Escherichia coli em quadro de infecção urinária grave.",
+        "9": "Urocultura positiva para Escherichia coli em quadro de infecção urinária grave.",
+        "10": null
+      }
+    },
+    "urinalysis": {
+      "Default": "Piúria, bacteriúria e nitrito positivo em urina.",
+      "ByStage": {
+        "10": null
+      }
+    },
+    "hematology": {
+      "Default": "Leucocitose neutrofílica; correlacionar com foco infeccioso.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ namespace lumen_sante.Gameplay
         private readonly List<AmbientPatrol> patrols = new List<AmbientPatrol>();
         private long nextArrival;
         private long nextDeparture;
+        private long nextDoctorReplacement;
 
 
         internal AmbientPopulation(HospitalPath path, PopulationSettings settings, Point[] staffAnchors,
@@ -32,10 +33,11 @@ namespace lumen_sante.Gameplay
             this.patientAnchors = patientAnchors;
             this.staffStarts = staffStarts;
             this.patientStarts = patientStarts;
-            maxDoctors = (int)Math.Ceiling(settings.MaxWorkers / 4d);
+            maxDoctors = Math.Max(PopulationSettings.MinimumDoctors, (int)Math.Ceiling(settings.MaxWorkers / 4d));
         }
 
         internal IEnumerable<HospitalReceptionist> Actors => patrols.Select(patrol => patrol.Actor);
+        internal IEnumerable<AmbientPatrol> AvailableDoctors => patrols.Where(patrol => patrol.CanTakeDoctorWork);
 
         internal AmbientPatrol FindNurse(Point destination) => patrols
             .Where(patrol => patrol.CanTakeExam)
@@ -47,8 +49,8 @@ namespace lumen_sante.Gameplay
             int initialPatients = Math.Min(settings.MaxAmbientNpcPatients,
                 Math.Max(PreferredInitialPatients, PopulationSettings.MinimumInitialPopulation - settings.MaxWorkers));
             int initialWorkers = PopulationSettings.MinimumInitialPopulation - initialPatients;
-            int initialDoctors = Math.Max(initialWorkers - (settings.MaxWorkers - maxDoctors),
-                Math.Min(maxDoctors, initialWorkers / 4));
+            int initialDoctors = Math.Max(PopulationSettings.MinimumDoctors,
+                Math.Max(initialWorkers - (settings.MaxWorkers - maxDoctors), Math.Min(maxDoctors, initialWorkers / 4)));
             int workersSpawned = 0;
             foreach (Point start in staffStarts)
             {
@@ -89,6 +91,7 @@ namespace lumen_sante.Gameplay
                 }
             }
 
+            EnsureMinimumDoctors();
             if (allowTurnover)
             {
                 StartDeparture();
@@ -127,7 +130,7 @@ namespace lumen_sante.Gameplay
             }
 
             AmbientRole role = patientSlot && (!workerSlot || random.Next(2) == 0)
-                ? AmbientRole.Patient : PickWorkerRole(workers);
+                ? AmbientRole.Patient : PickWorkerRole();
             Spawn(role, HospitalStaffRoutes.PatientSpawn, entering: true);
             ScheduleArrival();
         }
@@ -135,10 +138,25 @@ namespace lumen_sante.Gameplay
         internal void ScheduleArrival() =>
             nextArrival = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(15, 31));
 
-        private AmbientRole PickWorkerRole(int workers)
+        private void EnsureMinimumDoctors()
         {
-            int doctors = patrols.Count(patrol => patrol.Role == AmbientRole.Doctor);
-            int nurses = workers - doctors;
+            int doctors = patrols.Count(patrol => patrol.Role == AmbientRole.Doctor && patrol.CountsInside);
+            if (doctors >= PopulationSettings.MinimumDoctors || GameClock.NowMilliseconds < nextDoctorReplacement) return;
+            int entering = patrols.Count(patrol => patrol.Role == AmbientRole.Doctor && patrol.IsEntering);
+            if (doctors + entering >= PopulationSettings.MinimumDoctors ||
+                patrols.Count(patrol => patrol.Role != AmbientRole.Patient) >= settings.MaxWorkers) return;
+            nextDoctorReplacement = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(5000);
+            Point start = staffStarts.FirstOrDefault(point => !path.IsAnchorReserved(point) &&
+                patrols.All(patrol => !patrol.Actor.IsAlive ||
+                    (patrol.Actor.Actor.Position - point.Position).LengthSquared() > 2.25f));
+            if (start != null) Spawn(AmbientRole.Doctor, start);
+        }
+
+        private AmbientRole PickWorkerRole()
+        {
+            int doctors = patrols.Count(patrol => patrol.Role == AmbientRole.Doctor && !patrol.IsLeaving);
+            int nurses = patrols.Count(patrol => patrol.Role == AmbientRole.Nurse);
+            if (doctors < PopulationSettings.MinimumDoctors) return AmbientRole.Doctor;
             return doctors < maxDoctors && (nurses >= settings.MaxWorkers - maxDoctors || doctors * 3L <= nurses)
                 ? AmbientRole.Doctor : AmbientRole.Nurse;
         }
@@ -151,7 +169,9 @@ namespace lumen_sante.Gameplay
                 return;
             }
 
-            AmbientPatrol[] available = patrols.Where(patrol => patrol.CanLeave).ToArray();
+            int doctorsInside = patrols.Count(patrol => patrol.Role == AmbientRole.Doctor && patrol.CountsInside);
+            AmbientPatrol[] available = patrols.Where(patrol => patrol.CanLeave &&
+                (patrol.Role != AmbientRole.Doctor || doctorsInside > PopulationSettings.MinimumDoctors)).ToArray();
             if (available.Length > 0 && available[random.Next(available.Length)].TryLeave())
             {
                 nextDeparture = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(45, 91));

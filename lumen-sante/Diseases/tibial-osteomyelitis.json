@@ -1,0 +1,766 @@
+{
+  "SchemaVersion": 1,
+  "Id": "tibial-osteomyelitis",
+  "Name": "Osteomielite da tíbia",
+  "SelectionWeight": 8,
+  "Tags": [
+    "ossea",
+    "infecciosa",
+    "dor-membro",
+    "internacao",
+    "frequente",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Antibioticoterapia prolongada e avaliação de desbridamento ósseo",
+  "MedicationEffects": [
+    {
+      "Medication": "Antibiotic",
+      "ImprovementChance": 0.28,
+      "WorseningMultiplier": 0.7
+    },
+    {
+      "Medication": "Analgesic",
+      "ImprovementChance": 0.12,
+      "WorseningMultiplier": 1
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        377,
+        383
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        102,
+        110
+      ],
+      "Systolic": [
+        116,
+        126
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        379,
+        385
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        382,
+        388
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        113,
+        121
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        384,
+        390
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        103,
+        113
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        386,
+        392
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        96,
+        106
+      ],
+      "Diastolic": [
+        59,
+        65
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        388,
+        394
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        90,
+        100
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        391,
+        397
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        83,
+        93
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        393,
+        399
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        89,
+        91
+      ],
+      "TemperatureTenths": [
+        395,
+        401
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Precisei pedir companhia para procurar atendimento.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Isso está tirando minha vontade de comer.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. O desconforto está me distraindo de tudo.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Está difícil achar uma posição confortável.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Está difícil achar uma posição confortável.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Está difícil achar uma posição confortável.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Está difícil achar uma posição confortável.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Já não consigo seguir minha rotina como antes.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Está difícil achar uma posição confortável.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. O mal-estar não me deixa descansar direito.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor funda na perna que não vai embora. A dor parece vir de dentro do osso. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor funda na perna que não vai embora. O local está inchado. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor funda na perna que não vai embora. A região fica sensível ao toque. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor funda na perna que não vai embora. A dor atrapalha meu sono. Preciso de ajuda para ficar mais confortável.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Está difícil cuidar das coisas sozinho.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho uma dor funda na perna que não vai embora. Apoiar a perna piora o desconforto. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Já não consigo fazer minhas atividades habituais.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Falar sobre isso está me cansando.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Estou tendo dificuldade para descansar.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Preciso de alguém por perto para me ajudar.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Já não consigo fazer minhas atividades habituais.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Falar sobre isso está me cansando.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Estou tendo dificuldade para descansar.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Preciso de alguém por perto para me ajudar.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Já não consigo fazer minhas atividades habituais.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Falar sobre isso está me cansando.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Estou tendo dificuldade para descansar.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Preciso de alguém por perto para me ajudar.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Já não consigo fazer minhas atividades habituais.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Falar sobre isso está me cansando.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Estou tendo dificuldade para descansar.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Preciso de alguém por perto para me ajudar.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Já não consigo fazer minhas atividades habituais.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Falar sobre isso está me cansando.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Estou tendo dificuldade para descansar.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Só quero ficar parado e receber ajuda.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Até conversar exige um esforço.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. O mal-estar está me deixando esgotado.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Não estou conseguindo cuidar de mim como antes.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Só quero ficar parado e receber ajuda.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Até conversar exige um esforço.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. O mal-estar está me deixando esgotado.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Não estou conseguindo cuidar de mim como antes.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Só quero ficar parado e receber ajuda.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Até conversar exige um esforço.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. O mal-estar está me deixando esgotado.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Não estou conseguindo cuidar de mim como antes.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Só quero ficar parado e receber ajuda.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Até conversar exige um esforço.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. O mal-estar está me deixando esgotado.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Não estou conseguindo cuidar de mim como antes.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Só quero ficar parado e receber ajuda.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Até conversar exige um esforço.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. O mal-estar está me deixando esgotado.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Preciso que alguém me ajude com as coisas simples.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Não consigo descansar por causa do mal-estar.",
+          "A dor no osso está forte e a região está inchada. A dor parece vir de dentro do osso. Qualquer atividade está me esgotando.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Preciso que alguém me ajude com as coisas simples.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Não consigo descansar por causa do mal-estar.",
+          "A dor no osso está forte e a região está inchada. O local está inchado. Qualquer atividade está me esgotando.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Preciso que alguém me ajude com as coisas simples.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Não consigo descansar por causa do mal-estar.",
+          "A dor no osso está forte e a região está inchada. A região fica sensível ao toque. Qualquer atividade está me esgotando.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Preciso que alguém me ajude com as coisas simples.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Não consigo descansar por causa do mal-estar.",
+          "A dor no osso está forte e a região está inchada. A dor atrapalha meu sono. Qualquer atividade está me esgotando.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Preciso que alguém me ajude com as coisas simples.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Não consigo descansar por causa do mal-estar.",
+          "A dor no osso está forte e a região está inchada. Apoiar a perna piora o desconforto. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Preciso de ajuda agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Estou sem forças para me ajeitar.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Preciso de ajuda agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Estou sem forças para me ajeitar.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Preciso de ajuda agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Estou sem forças para me ajeitar.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Preciso de ajuda agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Estou sem forças para me ajeitar.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Não consigo fazer nada sozinho neste momento.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Preciso de ajuda agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Estou sem forças para me ajeitar.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Só consigo falar um pouco de cada vez.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Não me deixe sozinho agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Estou no limite das minhas forças.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Está difícil até pedir ajuda.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Não me deixe sozinho agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Estou no limite das minhas forças.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Está difícil até pedir ajuda.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Não me deixe sozinho agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Estou no limite das minhas forças.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Está difícil até pedir ajuda.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Não me deixe sozinho agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Estou no limite das minhas forças.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Está difícil até pedir ajuda.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Não me deixe sozinho agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Estou no limite das minhas forças.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Preciso parar um pouco para continuar falando.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Está difícil até pedir ajuda."
+        ],
+        [
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Ajuda, por favor.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Não consigo continuar assim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Fique perto de mim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor parece vir de dentro do osso. Preciso de socorro agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Ajuda, por favor.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Não consigo continuar assim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Fique perto de mim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. O local está inchado. Preciso de socorro agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Ajuda, por favor.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Não consigo continuar assim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Fique perto de mim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A região fica sensível ao toque. Preciso de socorro agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Ajuda, por favor.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Não consigo continuar assim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Fique perto de mim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. A dor atrapalha meu sono. Preciso de socorro agora.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Ajuda, por favor.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Não consigo continuar assim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Fique perto de mim.",
+          "A perna dói muito mesmo em repouso e estou com febre e fraqueza. Apoiar a perna piora o desconforto. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "O local está inchado. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono. É o que consigo contar sobre o mal-estar.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto. Essas coisas estão acontecendo juntas.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono. É essa combinação que está me incomodando.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono. Essas coisas estão acontecendo juntas.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto. É essa combinação que está me incomodando.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. Foi isso que consegui perceber até agora.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque.",
+          "O local está inchado. A dor atrapalha meu sono.",
+          "O local está inchado. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque.",
+          "O local está inchado. A dor atrapalha meu sono.",
+          "O local está inchado. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto."
+        ],
+        [
+          "A dor parece vir de dentro do osso. O local está inchado.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque.",
+          "O local está inchado. A dor atrapalha meu sono.",
+          "O local está inchado. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. O local está inchado. A região fica sensível ao toque.",
+          "A dor parece vir de dentro do osso. O local está inchado. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. O local está inchado. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "A dor parece vir de dentro do osso. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "A dor parece vir de dentro do osso. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A região fica sensível ao toque. A dor atrapalha meu sono.",
+          "O local está inchado. A região fica sensível ao toque. Apoiar a perna piora o desconforto.",
+          "O local está inchado. A dor atrapalha meu sono. Apoiar a perna piora o desconforto.",
+          "A região fica sensível ao toque. A dor atrapalha meu sono. Apoiar a perna piora o desconforto."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "mri-knee": {
+      "Default": "Edema medular na tíbia proximal com padrão sugestivo de infecção óssea.",
+      "ByStage": {
+        "4": "Comprometimento medular e cortical da tíbia proximal com coleção subperiosteal.",
+        "5": "Comprometimento medular e cortical da tíbia proximal com coleção subperiosteal.",
+        "6": "Comprometimento medular e cortical da tíbia proximal com coleção subperiosteal.",
+        "7": "Destruição cortical e coleção extensa na tíbia proximal, compatíveis com osteomielite complicada.",
+        "8": "Destruição cortical e coleção extensa na tíbia proximal, compatíveis com osteomielite complicada.",
+        "9": "Destruição cortical e coleção extensa na tíbia proximal, compatíveis com osteomielite complicada.",
+        "10": null
+      }
+    }
+  }
+}

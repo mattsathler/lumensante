@@ -1,0 +1,762 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-c-difficile-colitis",
+  "Name": "Colite grave por Clostridioides difficile",
+  "SelectionWeight": 8,
+  "Tags": [
+    "digestiva",
+    "intestinal",
+    "infecciosa",
+    "diarreia",
+    "internacao",
+    "frequente",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Antibioticoterapia específica para C. difficile e suporte volêmico",
+  "MedicationEffects": [
+    {
+      "Medication": "Antibiotic",
+      "ImprovementChance": 0.28,
+      "WorseningMultiplier": 0.7
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        377,
+        383
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        102,
+        110
+      ],
+      "Systolic": [
+        116,
+        126
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        379,
+        385
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        112,
+        122
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        382,
+        388
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        113,
+        121
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        67,
+        73
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        384,
+        390
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        103,
+        113
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        386,
+        392
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        96,
+        106
+      ],
+      "Diastolic": [
+        59,
+        65
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        388,
+        394
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        90,
+        100
+      ],
+      "Diastolic": [
+        54,
+        60
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        391,
+        397
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        83,
+        93
+      ],
+      "Diastolic": [
+        49,
+        55
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        393,
+        399
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        144,
+        152
+      ],
+      "Systolic": [
+        76,
+        86
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        34,
+        37
+      ],
+      "OxygenSaturation": [
+        89,
+        91
+      ],
+      "TemperatureTenths": [
+        395,
+        401
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias, com cianose periférica."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Isso está tirando minha vontade de comer.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. O desconforto está me distraindo de tudo.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Precisei pedir companhia para procurar atendimento.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Isso está tirando minha vontade de comer.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. O desconforto está me distraindo de tudo.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Precisei pedir companhia para procurar atendimento.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Isso está tirando minha vontade de comer.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. O desconforto está me distraindo de tudo.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Precisei pedir companhia para procurar atendimento.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Isso está tirando minha vontade de comer.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. O desconforto está me distraindo de tudo.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Precisei pedir companhia para procurar atendimento.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Isso está tirando minha vontade de comer.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. O desconforto está me distraindo de tudo.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Está difícil achar uma posição confortável.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. O mal-estar não me deixa descansar direito.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Já não consigo seguir minha rotina como antes.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Está difícil achar uma posição confortável.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. O mal-estar não me deixa descansar direito.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Já não consigo seguir minha rotina como antes.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Está difícil achar uma posição confortável.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. O mal-estar não me deixa descansar direito.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Já não consigo seguir minha rotina como antes.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Está difícil achar uma posição confortável.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. O mal-estar não me deixa descansar direito.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Já não consigo seguir minha rotina como antes.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Preciso de pausas para fazer as coisas habituais.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Está difícil achar uma posição confortável.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. O mal-estar não me deixa descansar direito.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Está difícil cuidar das coisas sozinho.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com diarreia depois de usar antibiótico. Usei antibiótico recentemente. Preciso de ajuda para ficar mais confortável.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Está difícil cuidar das coisas sozinho.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com diarreia depois de usar antibiótico. As fezes estão bem líquidas. Preciso de ajuda para ficar mais confortável.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Está difícil cuidar das coisas sozinho.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com diarreia depois de usar antibiótico. Tenho cólicas antes de ir ao banheiro. Preciso de ajuda para ficar mais confortável.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Está difícil cuidar das coisas sozinho.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com diarreia depois de usar antibiótico. Sinto pouca vontade de comer. Preciso de ajuda para ficar mais confortável.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Está difícil cuidar das coisas sozinho.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou com diarreia depois de usar antibiótico. A diarreia acontece várias vezes ao dia. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Já não consigo fazer minhas atividades habituais.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Falar sobre isso está me cansando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Estou tendo dificuldade para descansar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Preciso de alguém por perto para me ajudar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Já não consigo fazer minhas atividades habituais.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Falar sobre isso está me cansando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Estou tendo dificuldade para descansar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Preciso de alguém por perto para me ajudar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Já não consigo fazer minhas atividades habituais.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Falar sobre isso está me cansando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Estou tendo dificuldade para descansar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Preciso de alguém por perto para me ajudar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Já não consigo fazer minhas atividades habituais.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Falar sobre isso está me cansando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Estou tendo dificuldade para descansar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Preciso de alguém por perto para me ajudar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Já não consigo fazer minhas atividades habituais.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Falar sobre isso está me cansando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Estou tendo dificuldade para descansar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Só quero ficar parado e receber ajuda.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Até conversar exige um esforço.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. O mal-estar está me deixando esgotado.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Não estou conseguindo cuidar de mim como antes.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Só quero ficar parado e receber ajuda.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Até conversar exige um esforço.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. O mal-estar está me deixando esgotado.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Não estou conseguindo cuidar de mim como antes.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Só quero ficar parado e receber ajuda.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Até conversar exige um esforço.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. O mal-estar está me deixando esgotado.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Não estou conseguindo cuidar de mim como antes.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Só quero ficar parado e receber ajuda.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Até conversar exige um esforço.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. O mal-estar está me deixando esgotado.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Não estou conseguindo cuidar de mim como antes.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Só quero ficar parado e receber ajuda.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Até conversar exige um esforço.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. O mal-estar está me deixando esgotado.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Estou com dificuldade até para me ajeitar no lugar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Preciso que alguém me ajude com as coisas simples.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Não consigo descansar por causa do mal-estar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Usei antibiótico recentemente. Qualquer atividade está me esgotando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Estou com dificuldade até para me ajeitar no lugar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Preciso que alguém me ajude com as coisas simples.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Não consigo descansar por causa do mal-estar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. As fezes estão bem líquidas. Qualquer atividade está me esgotando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Estou com dificuldade até para me ajeitar no lugar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Preciso que alguém me ajude com as coisas simples.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Não consigo descansar por causa do mal-estar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Tenho cólicas antes de ir ao banheiro. Qualquer atividade está me esgotando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Estou com dificuldade até para me ajeitar no lugar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Preciso que alguém me ajude com as coisas simples.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Não consigo descansar por causa do mal-estar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. Sinto pouca vontade de comer. Qualquer atividade está me esgotando.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Estou com dificuldade até para me ajeitar no lugar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Preciso que alguém me ajude com as coisas simples.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Não consigo descansar por causa do mal-estar.",
+          "A diarreia está muito frequente e tenho cólicas e febre. A diarreia acontece várias vezes ao dia. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Preciso de ajuda agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Preciso de ajuda agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Preciso de ajuda agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Preciso de ajuda agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Preciso de ajuda agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Não me deixe sozinho agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Estou no limite das minhas forças.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Está difícil até pedir ajuda.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Não me deixe sozinho agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Estou no limite das minhas forças.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Está difícil até pedir ajuda.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Não me deixe sozinho agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Estou no limite das minhas forças.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Está difícil até pedir ajuda.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Não me deixe sozinho agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Estou no limite das minhas forças.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Está difícil até pedir ajuda.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Não me deixe sozinho agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Estou no limite das minhas forças.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Ajuda, por favor.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Não consigo continuar assim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Fique perto de mim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Usei antibiótico recentemente. Preciso de socorro agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Ajuda, por favor.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Não consigo continuar assim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Fique perto de mim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. As fezes estão bem líquidas. Preciso de socorro agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Ajuda, por favor.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Não consigo continuar assim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Fique perto de mim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Tenho cólicas antes de ir ao banheiro. Preciso de socorro agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Ajuda, por favor.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Não consigo continuar assim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Fique perto de mim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. Sinto pouca vontade de comer. Preciso de socorro agora.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Ajuda, por favor.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Não consigo continuar assim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Fique perto de mim.",
+          "Estou muito fraco e a barriga dói depois de tantas evacuações. A diarreia acontece várias vezes ao dia. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer. É o que consigo contar sobre o mal-estar.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia. Essas coisas estão acontecendo juntas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. É essa combinação que está me incomodando.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. Essas coisas estão acontecendo juntas.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia. É essa combinação que está me incomodando.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. Foi isso que consegui perceber até agora.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia."
+        ],
+        [
+          "Usei antibiótico recentemente. As fezes estão bem líquidas.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. As fezes estão bem líquidas. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "Usei antibiótico recentemente. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "Usei antibiótico recentemente. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer.",
+          "As fezes estão bem líquidas. Tenho cólicas antes de ir ao banheiro. A diarreia acontece várias vezes ao dia.",
+          "As fezes estão bem líquidas. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia.",
+          "Tenho cólicas antes de ir ao banheiro. Sinto pouca vontade de comer. A diarreia acontece várias vezes ao dia."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "hematology": {
+      "Default": "Leucocitose em colite após antibióticos; confirmação requer pesquisa de toxina ou teste molecular nas fezes.",
+      "ByStage": {
+        "4": "Leucocitose importante em colite grave; testes sanguíneos não identificam o agente intestinal.",
+        "5": "Leucocitose importante em colite grave; testes sanguíneos não identificam o agente intestinal.",
+        "6": "Leucocitose importante em colite grave; testes sanguíneos não identificam o agente intestinal.",
+        "7": "Leucocitose acentuada e sinais sistêmicos de colite fulminante; confirmar etiologia nas fezes.",
+        "8": "Leucocitose acentuada e sinais sistêmicos de colite fulminante; confirmar etiologia nas fezes.",
+        "9": "Leucocitose acentuada e sinais sistêmicos de colite fulminante; confirmar etiologia nas fezes.",
+        "10": null
+      }
+    }
+  }
+}

@@ -1,0 +1,773 @@
+{
+  "SchemaVersion": 1,
+  "Id": "obstructing-ureteral-stone",
+  "Name": "Cálculo ureteral obstrutivo complicado",
+  "SelectionWeight": 8,
+  "Tags": [
+    "urinaria",
+    "renal",
+    "obstrutiva",
+    "dor-lombar",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Desobstrução urinária e tratamento urológico do cálculo",
+  "MedicationEffects": [
+    {
+      "Medication": "Analgesic",
+      "ImprovementChance": 0.12,
+      "WorseningMultiplier": 1
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        84,
+        92
+      ],
+      "Systolic": [
+        138,
+        148
+      ],
+      "Diastolic": [
+        84,
+        90
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        88,
+        96
+      ],
+      "Systolic": [
+        141,
+        151
+      ],
+      "Diastolic": [
+        86,
+        92
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        93,
+        101
+      ],
+      "Systolic": [
+        145,
+        155
+      ],
+      "Diastolic": [
+        88,
+        94
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        97,
+        105
+      ],
+      "Systolic": [
+        148,
+        158
+      ],
+      "Diastolic": [
+        90,
+        96
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        101,
+        109
+      ],
+      "Systolic": [
+        151,
+        161
+      ],
+      "Diastolic": [
+        92,
+        98
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        106,
+        114
+      ],
+      "Systolic": [
+        156,
+        166
+      ],
+      "Diastolic": [
+        95,
+        101
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        112,
+        120
+      ],
+      "Systolic": [
+        162,
+        172
+      ],
+      "Diastolic": [
+        98,
+        104
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        93,
+        95
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        117,
+        125
+      ],
+      "Systolic": [
+        167,
+        177
+      ],
+      "Diastolic": [
+        101,
+        107
+      ],
+      "RespiratoryRate": [
+        29,
+        32
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        122,
+        130
+      ],
+      "Systolic": [
+        172,
+        182
+      ],
+      "Diastolic": [
+        104,
+        110
+      ],
+      "RespiratoryRate": [
+        31,
+        34
+      ],
+      "OxygenSaturation": [
+        90,
+        92
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Isso está tirando minha vontade de comer.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. O desconforto está me distraindo de tudo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Isso está tirando minha vontade de comer.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. O desconforto está me distraindo de tudo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Isso está tirando minha vontade de comer.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. O desconforto está me distraindo de tudo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Isso está tirando minha vontade de comer.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. O desconforto está me distraindo de tudo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Precisei pedir companhia para procurar atendimento.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Já precisei diminuir o ritmo das minhas atividades.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Isso está tirando minha vontade de comer.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. O desconforto está me distraindo de tudo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Está difícil achar uma posição confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. O mal-estar não me deixa descansar direito.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Está difícil achar uma posição confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. O mal-estar não me deixa descansar direito.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Está difícil achar uma posição confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. O mal-estar não me deixa descansar direito.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Está difícil achar uma posição confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. O mal-estar não me deixa descansar direito.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Já não consigo seguir minha rotina como antes.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Preciso de pausas para fazer as coisas habituais.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Está difícil achar uma posição confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. O mal-estar não me deixa descansar direito.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A dor sai do lado direito e desce para a virilha. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. Não encontro uma posição confortável. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A urina ficou avermelhada. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. As crises de dor vêm em ondas. Preciso de ajuda para ficar mais confortável.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Está difícil cuidar das coisas sozinho.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Estou evitando me movimentar por causa do mal-estar.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. O desconforto está ocupando minha atenção o tempo todo.",
+          "Sinto uma dor em ondas nas costas que vai para a virilha. A náusea aumenta quando a dor aperta. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Já não consigo fazer minhas atividades habituais.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Falar sobre isso está me cansando.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Estou tendo dificuldade para descansar.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Preciso de alguém por perto para me ajudar.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Já não consigo fazer minhas atividades habituais.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Falar sobre isso está me cansando.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Estou tendo dificuldade para descansar.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Preciso de alguém por perto para me ajudar.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Já não consigo fazer minhas atividades habituais.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Falar sobre isso está me cansando.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Estou tendo dificuldade para descansar.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Preciso de alguém por perto para me ajudar.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Já não consigo fazer minhas atividades habituais.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Falar sobre isso está me cansando.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Estou tendo dificuldade para descansar.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Preciso de alguém por perto para me ajudar.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Já não consigo fazer minhas atividades habituais.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Falar sobre isso está me cansando.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Estou tendo dificuldade para descansar.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Só quero ficar parado e receber ajuda.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Até conversar exige um esforço.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. O mal-estar está me deixando esgotado.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Não estou conseguindo cuidar de mim como antes.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Só quero ficar parado e receber ajuda.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Até conversar exige um esforço.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. O mal-estar está me deixando esgotado.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Não estou conseguindo cuidar de mim como antes.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Só quero ficar parado e receber ajuda.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Até conversar exige um esforço.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. O mal-estar está me deixando esgotado.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Não estou conseguindo cuidar de mim como antes.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Só quero ficar parado e receber ajuda.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Até conversar exige um esforço.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. O mal-estar está me deixando esgotado.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Não estou conseguindo cuidar de mim como antes.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Só quero ficar parado e receber ajuda.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Até conversar exige um esforço.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. O mal-estar está me deixando esgotado.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Preciso que alguém me ajude com as coisas simples.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Não consigo descansar por causa do mal-estar.",
+          "A dor vem tão forte que não acho posição. A dor sai do lado direito e desce para a virilha. Qualquer atividade está me esgotando.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Preciso que alguém me ajude com as coisas simples.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Não consigo descansar por causa do mal-estar.",
+          "A dor vem tão forte que não acho posição. Não encontro uma posição confortável. Qualquer atividade está me esgotando.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Preciso que alguém me ajude com as coisas simples.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Não consigo descansar por causa do mal-estar.",
+          "A dor vem tão forte que não acho posição. A urina ficou avermelhada. Qualquer atividade está me esgotando.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Preciso que alguém me ajude com as coisas simples.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Não consigo descansar por causa do mal-estar.",
+          "A dor vem tão forte que não acho posição. As crises de dor vêm em ondas. Qualquer atividade está me esgotando.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Preciso que alguém me ajude com as coisas simples.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Não consigo descansar por causa do mal-estar.",
+          "A dor vem tão forte que não acho posição. A náusea aumenta quando a dor aperta. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Preciso de ajuda agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Estou sem forças para me ajeitar.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Só consigo falar um pouco de cada vez.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Não consigo fazer nada sozinho neste momento.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Preciso de ajuda agora.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Estou sem forças para me ajeitar.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Só consigo falar um pouco de cada vez.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Não consigo fazer nada sozinho neste momento.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Preciso de ajuda agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Estou sem forças para me ajeitar.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Só consigo falar um pouco de cada vez.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Não consigo fazer nada sozinho neste momento.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Preciso de ajuda agora.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Estou sem forças para me ajeitar.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Só consigo falar um pouco de cada vez.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Não consigo fazer nada sozinho neste momento.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Preciso de ajuda agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Estou sem forças para me ajeitar.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Só consigo falar um pouco de cada vez.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Não me deixe sozinho agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Estou no limite das minhas forças.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Preciso parar um pouco para continuar falando.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Está difícil até pedir ajuda.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Não me deixe sozinho agora.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Estou no limite das minhas forças.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Preciso parar um pouco para continuar falando.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Está difícil até pedir ajuda.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Não me deixe sozinho agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Estou no limite das minhas forças.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Preciso parar um pouco para continuar falando.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Está difícil até pedir ajuda.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Não me deixe sozinho agora.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Estou no limite das minhas forças.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Preciso parar um pouco para continuar falando.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Está difícil até pedir ajuda.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Não me deixe sozinho agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Estou no limite das minhas forças.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Preciso parar um pouco para continuar falando.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Está difícil até pedir ajuda."
+        ],
+        [
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Ajuda, por favor.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Não consigo continuar assim.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Fique perto de mim.",
+          "A dor está muito intensa e estou fraco e enjoado. A dor sai do lado direito e desce para a virilha. Preciso de socorro agora.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Ajuda, por favor.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Não consigo continuar assim.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Fique perto de mim.",
+          "A dor está muito intensa e estou fraco e enjoado. Não encontro uma posição confortável. Preciso de socorro agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Ajuda, por favor.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Não consigo continuar assim.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Fique perto de mim.",
+          "A dor está muito intensa e estou fraco e enjoado. A urina ficou avermelhada. Preciso de socorro agora.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Ajuda, por favor.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Não consigo continuar assim.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Fique perto de mim.",
+          "A dor está muito intensa e estou fraco e enjoado. As crises de dor vêm em ondas. Preciso de socorro agora.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Ajuda, por favor.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Não consigo continuar assim.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Fique perto de mim.",
+          "A dor está muito intensa e estou fraco e enjoado. A náusea aumenta quando a dor aperta. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas. É o que consigo contar sobre o mal-estar.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta. Essas coisas estão acontecendo juntas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas. É essa combinação que está me incomodando.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas. Essas coisas estão acontecendo juntas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta. É essa combinação que está me incomodando.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. Foi isso que consegui perceber até agora.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta."
+        ],
+        [
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A urina ficou avermelhada.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. Não encontro uma posição confortável. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "A dor sai do lado direito e desce para a virilha. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "A dor sai do lado direito e desce para a virilha. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. As crises de dor vêm em ondas.",
+          "Não encontro uma posição confortável. A urina ficou avermelhada. A náusea aumenta quando a dor aperta.",
+          "Não encontro uma posição confortável. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta.",
+          "A urina ficou avermelhada. As crises de dor vêm em ondas. A náusea aumenta quando a dor aperta."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "mri-kidneys": {
+      "Default": "Dilatação do sistema coletor direito e do ureter proximal; padrão obstrutivo, sem caracterização confiável do cálculo por RM.",
+      "ByStage": {
+        "4": "Hidronefrose direita acentuada, sugestiva de obstrução ureteral.",
+        "5": "Hidronefrose direita acentuada, sugestiva de obstrução ureteral.",
+        "6": "Hidronefrose direita acentuada, sugestiva de obstrução ureteral.",
+        "7": "Hidronefrose importante com redução do parênquima funcional; avaliar descompressão urgente.",
+        "8": "Hidronefrose importante com redução do parênquima funcional; avaliar descompressão urgente.",
+        "9": "Hidronefrose importante com redução do parênquima funcional; avaliar descompressão urgente.",
+        "10": null
+      }
+    },
+    "urinalysis": {
+      "Default": "Hematúria sem piúria significativa na amostra.",
+      "ByStage": {
+        "10": null
+      }
+    },
+    "creatinine": {
+      "Default": "Creatinina acima do basal em quadro de obstrução urinária complicada.",
+      "ByStage": {
+        "10": null
+      }
+    }
+  }
+}

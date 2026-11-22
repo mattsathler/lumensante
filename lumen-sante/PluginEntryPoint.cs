@@ -38,9 +38,15 @@ namespace lumen_sante
         {
             Game.AddConsoleCommands();
             Game.LogTrivial("[Lumen Santé] Plugin carregado. Comando: LumenSantePlantao.");
+            Game.LogTrivial("[Lumen Santé] Pasta da instalação: " + PluginPaths.InstallationDirectory);
             Game.LogTrivial("[Lumen Santé] Catálogo carregado: " + Clinical.DiseaseCatalog.Count + " doenças.");
             foreach (string message in Clinical.DiseaseCatalog.LoadDiagnostics)
                 Game.LogTrivial("[Lumen Santé] Doenças: " + message);
+            if (Clinical.DiseaseCatalog.Count == 0)
+            {
+                Game.DisplayNotification("Lumen Santé: adicione doenças válidas à pasta LumenSante/Diseases e recarregue o plugin.");
+                return;
+            }
             var receptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip);
             var secondReceptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip);
             var routes = new HospitalStaffRoutes();

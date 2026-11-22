@@ -1,0 +1,755 @@
+{
+  "SchemaVersion": 1,
+  "Id": "symptomatic-hyponatremia",
+  "Name": "Hiponatremia sintomática grave",
+  "SelectionWeight": 8,
+  "Tags": [
+    "metabolica",
+    "eletrolitica",
+    "neurologica",
+    "consciencia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Correção controlada do sódio e investigação da causa",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        84,
+        92
+      ],
+      "Systolic": [
+        144,
+        154
+      ],
+      "Diastolic": [
+        86,
+        92
+      ],
+      "RespiratoryRate": [
+        17,
+        20
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        87,
+        95
+      ],
+      "Systolic": [
+        147,
+        157
+      ],
+      "Diastolic": [
+        88,
+        94
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        150,
+        160
+      ],
+      "Diastolic": [
+        89,
+        95
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        93,
+        101
+      ],
+      "Systolic": [
+        153,
+        163
+      ],
+      "Diastolic": [
+        91,
+        97
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        156,
+        166
+      ],
+      "Diastolic": [
+        92,
+        98
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        100,
+        108
+      ],
+      "Systolic": [
+        160,
+        170
+      ],
+      "Diastolic": [
+        94,
+        100
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        103,
+        111
+      ],
+      "Systolic": [
+        163,
+        173
+      ],
+      "Diastolic": [
+        96,
+        102
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        107,
+        115
+      ],
+      "Systolic": [
+        167,
+        177
+      ],
+      "Diastolic": [
+        98,
+        104
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        110,
+        118
+      ],
+      "Systolic": [
+        170,
+        180
+      ],
+      "Diastolic": [
+        100,
+        106
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Isso está tirando minha vontade de comer.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. O desconforto está me distraindo de tudo.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Precisei pedir companhia para procurar atendimento.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Isso está tirando minha vontade de comer.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. O desconforto está me distraindo de tudo.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Precisei pedir companhia para procurar atendimento.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Isso está tirando minha vontade de comer.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. O desconforto está me distraindo de tudo.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Precisei pedir companhia para procurar atendimento.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Isso está tirando minha vontade de comer.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. O desconforto está me distraindo de tudo.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Precisei pedir companhia para procurar atendimento.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Isso está tirando minha vontade de comer.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. O desconforto está me distraindo de tudo.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Preciso de pausas para fazer as coisas habituais.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Está difícil achar uma posição confortável.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. O mal-estar não me deixa descansar direito.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Já não consigo seguir minha rotina como antes.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Preciso de pausas para fazer as coisas habituais.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Está difícil achar uma posição confortável.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. O mal-estar não me deixa descansar direito.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Já não consigo seguir minha rotina como antes.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Preciso de pausas para fazer as coisas habituais.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Está difícil achar uma posição confortável.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. O mal-estar não me deixa descansar direito.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Já não consigo seguir minha rotina como antes.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Preciso de pausas para fazer as coisas habituais.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Está difícil achar uma posição confortável.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. O mal-estar não me deixa descansar direito.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Já não consigo seguir minha rotina como antes.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Preciso de pausas para fazer as coisas habituais.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Está difícil achar uma posição confortável.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. O mal-estar não me deixa descansar direito.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Está difícil cuidar das coisas sozinho.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou enjoado e com a cabeça pesada. Sinto náusea sem uma explicação clara. Preciso de ajuda para ficar mais confortável.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Está difícil cuidar das coisas sozinho.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou enjoado e com a cabeça pesada. A cabeça está doendo. Preciso de ajuda para ficar mais confortável.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Está difícil cuidar das coisas sozinho.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou enjoado e com a cabeça pesada. Tenho dificuldade para me concentrar. Preciso de ajuda para ficar mais confortável.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Está difícil cuidar das coisas sozinho.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou enjoado e com a cabeça pesada. Meus músculos estão fracos. Preciso de ajuda para ficar mais confortável.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Está difícil cuidar das coisas sozinho.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou enjoado e com a cabeça pesada. Parece que meu pensamento ficou lento. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Já não consigo fazer minhas atividades habituais.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Falar sobre isso está me cansando.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Estou tendo dificuldade para descansar.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Preciso de alguém por perto para me ajudar.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Já não consigo fazer minhas atividades habituais.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Falar sobre isso está me cansando.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Estou tendo dificuldade para descansar.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Preciso de alguém por perto para me ajudar.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Já não consigo fazer minhas atividades habituais.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Falar sobre isso está me cansando.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Estou tendo dificuldade para descansar.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Preciso de alguém por perto para me ajudar.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Já não consigo fazer minhas atividades habituais.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Falar sobre isso está me cansando.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Estou tendo dificuldade para descansar.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Preciso de alguém por perto para me ajudar.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Já não consigo fazer minhas atividades habituais.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Falar sobre isso está me cansando.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Estou tendo dificuldade para descansar.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Só quero ficar parado e receber ajuda.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Até conversar exige um esforço.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. O mal-estar está me deixando esgotado.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Não estou conseguindo cuidar de mim como antes.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Só quero ficar parado e receber ajuda.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Até conversar exige um esforço.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. O mal-estar está me deixando esgotado.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Não estou conseguindo cuidar de mim como antes.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Só quero ficar parado e receber ajuda.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Até conversar exige um esforço.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. O mal-estar está me deixando esgotado.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Não estou conseguindo cuidar de mim como antes.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Só quero ficar parado e receber ajuda.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Até conversar exige um esforço.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. O mal-estar está me deixando esgotado.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Não estou conseguindo cuidar de mim como antes.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Só quero ficar parado e receber ajuda.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Até conversar exige um esforço.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. O mal-estar está me deixando esgotado.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Preciso que alguém me ajude com as coisas simples.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Não consigo descansar por causa do mal-estar.",
+          "Estou confuso e com muita fraqueza. Sinto náusea sem uma explicação clara. Qualquer atividade está me esgotando.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Preciso que alguém me ajude com as coisas simples.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Não consigo descansar por causa do mal-estar.",
+          "Estou confuso e com muita fraqueza. A cabeça está doendo. Qualquer atividade está me esgotando.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Preciso que alguém me ajude com as coisas simples.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Não consigo descansar por causa do mal-estar.",
+          "Estou confuso e com muita fraqueza. Tenho dificuldade para me concentrar. Qualquer atividade está me esgotando.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Preciso que alguém me ajude com as coisas simples.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Não consigo descansar por causa do mal-estar.",
+          "Estou confuso e com muita fraqueza. Meus músculos estão fracos. Qualquer atividade está me esgotando.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Preciso que alguém me ajude com as coisas simples.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Não consigo descansar por causa do mal-estar.",
+          "Estou confuso e com muita fraqueza. Parece que meu pensamento ficou lento. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Preciso de ajuda agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Estou sem forças para me ajeitar.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Só consigo falar um pouco de cada vez.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Preciso de ajuda agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Estou sem forças para me ajeitar.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Só consigo falar um pouco de cada vez.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Preciso de ajuda agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Estou sem forças para me ajeitar.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Só consigo falar um pouco de cada vez.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Preciso de ajuda agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Estou sem forças para me ajeitar.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Só consigo falar um pouco de cada vez.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Preciso de ajuda agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Estou sem forças para me ajeitar.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Só consigo falar um pouco de cada vez.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Não me deixe sozinho agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Estou no limite das minhas forças.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Preciso parar um pouco para continuar falando.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Está difícil até pedir ajuda.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Não me deixe sozinho agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Estou no limite das minhas forças.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Preciso parar um pouco para continuar falando.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Está difícil até pedir ajuda.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Não me deixe sozinho agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Estou no limite das minhas forças.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Preciso parar um pouco para continuar falando.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Está difícil até pedir ajuda.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Não me deixe sozinho agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Estou no limite das minhas forças.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Preciso parar um pouco para continuar falando.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Está difícil até pedir ajuda.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Não me deixe sozinho agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Estou no limite das minhas forças.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Preciso parar um pouco para continuar falando.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Ajuda, por favor.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Não consigo continuar assim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Fique perto de mim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Sinto náusea sem uma explicação clara. Preciso de socorro agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Ajuda, por favor.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Não consigo continuar assim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Fique perto de mim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. A cabeça está doendo. Preciso de socorro agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Ajuda, por favor.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Não consigo continuar assim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Fique perto de mim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Tenho dificuldade para me concentrar. Preciso de socorro agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Ajuda, por favor.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Não consigo continuar assim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Fique perto de mim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Meus músculos estão fracos. Preciso de socorro agora.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Ajuda, por favor.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Não consigo continuar assim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Fique perto de mim.",
+          "Estou muito sonolento e mal consigo organizar as ideias. Parece que meu pensamento ficou lento. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos. É o que consigo contar sobre o mal-estar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento. Essas coisas estão acontecendo juntas.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos. É essa combinação que está me incomodando.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos. Essas coisas estão acontecendo juntas.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento. É essa combinação que está me incomodando.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento. Foi isso que consegui perceber até agora.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "A cabeça está doendo. Meus músculos estão fracos.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "A cabeça está doendo. Meus músculos estão fracos.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento."
+        ],
+        [
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "A cabeça está doendo. Meus músculos estão fracos.",
+          "A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Tenho dificuldade para me concentrar.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. A cabeça está doendo. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "Sinto náusea sem uma explicação clara. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "Sinto náusea sem uma explicação clara. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Meus músculos estão fracos.",
+          "A cabeça está doendo. Tenho dificuldade para me concentrar. Parece que meu pensamento ficou lento.",
+          "A cabeça está doendo. Meus músculos estão fracos. Parece que meu pensamento ficou lento.",
+          "Tenho dificuldade para me concentrar. Meus músculos estão fracos. Parece que meu pensamento ficou lento."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "electrolytes": {
+      "Default": "Sódio sérico de 124 mmol/L, com sintomas neurológicos; avaliar tonicidade e duração.",
+      "ByStage": {
+        "4": "Sódio sérico de 118 mmol/L com sintomas neurológicos relevantes.",
+        "5": "Sódio sérico de 118 mmol/L com sintomas neurológicos relevantes.",
+        "6": "Sódio sérico de 118 mmol/L com sintomas neurológicos relevantes.",
+        "7": "Sódio sérico de 110 mmol/L em distúrbio neurológico grave.",
+        "8": "Sódio sérico de 110 mmol/L em distúrbio neurológico grave.",
+        "9": "Sódio sérico de 110 mmol/L em distúrbio neurológico grave.",
+        "10": null
+      }
+    }
+  }
+}

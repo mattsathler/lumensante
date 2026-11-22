@@ -1,0 +1,762 @@
+{
+  "SchemaVersion": 1,
+  "Id": "complicated-diverticulitis",
+  "Name": "Diverticulite aguda complicada",
+  "SelectionWeight": 8,
+  "Tags": [
+    "digestiva",
+    "intestinal",
+    "infecciosa",
+    "dor-abdominal",
+    "internacao",
+    "frequente",
+    "febre"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Antibioticoterapia e controle de foco por drenagem ou cirurgia",
+  "MedicationEffects": [
+    {
+      "Medication": "Antibiotic",
+      "ImprovementChance": 0.28,
+      "WorseningMultiplier": 0.7
+    }
+  ],
+  "Stages": [
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        78,
+        84
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        377,
+        383
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        95,
+        103
+      ],
+      "Systolic": [
+        118,
+        128
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        379,
+        385
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        101,
+        109
+      ],
+      "Systolic": [
+        114,
+        124
+      ],
+      "Diastolic": [
+        72,
+        78
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        382,
+        388
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        106,
+        114
+      ],
+      "Systolic": [
+        110,
+        120
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        384,
+        390
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        111,
+        119
+      ],
+      "Systolic": [
+        106,
+        116
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        386,
+        392
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        99,
+        109
+      ],
+      "Diastolic": [
+        61,
+        67
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        388,
+        394
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        92,
+        102
+      ],
+      "Diastolic": [
+        55,
+        61
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        391,
+        397
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        85,
+        95
+      ],
+      "Diastolic": [
+        50,
+        56
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        393,
+        399
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        395,
+        401
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Isso está tirando minha vontade de comer.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. O desconforto está me distraindo de tudo.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Precisei pedir companhia para procurar atendimento.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Isso está tirando minha vontade de comer.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. O desconforto está me distraindo de tudo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Precisei pedir companhia para procurar atendimento.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Isso está tirando minha vontade de comer.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. O desconforto está me distraindo de tudo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Precisei pedir companhia para procurar atendimento.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Isso está tirando minha vontade de comer.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. O desconforto está me distraindo de tudo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Precisei pedir companhia para procurar atendimento.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Já precisei diminuir o ritmo das minhas atividades.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Isso está tirando minha vontade de comer.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. O desconforto está me distraindo de tudo.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Está difícil achar uma posição confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. O mal-estar não me deixa descansar direito.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Já não consigo seguir minha rotina como antes.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Está difícil achar uma posição confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. O mal-estar não me deixa descansar direito.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Já não consigo seguir minha rotina como antes.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Está difícil achar uma posição confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. O mal-estar não me deixa descansar direito.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Já não consigo seguir minha rotina como antes.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Está difícil achar uma posição confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. O mal-estar não me deixa descansar direito.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Já não consigo seguir minha rotina como antes.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Preciso de pausas para fazer as coisas habituais.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Está difícil achar uma posição confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. O mal-estar não me deixa descansar direito.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Está difícil cuidar das coisas sozinho.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho dor na parte esquerda de baixo da barriga. A dor é maior do lado esquerdo inferior. Preciso de ajuda para ficar mais confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Está difícil cuidar das coisas sozinho.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Meu intestino mudou de ritmo. Preciso de ajuda para ficar mais confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Está difícil cuidar das coisas sozinho.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Sinto a barriga sensível ao toque. Preciso de ajuda para ficar mais confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Está difícil cuidar das coisas sozinho.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho dor na parte esquerda de baixo da barriga. Tenho desconforto antes de evacuar. Preciso de ajuda para ficar mais confortável.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Está difícil cuidar das coisas sozinho.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Estou evitando me movimentar por causa do mal-estar.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. O desconforto está ocupando minha atenção o tempo todo.",
+          "Tenho dor na parte esquerda de baixo da barriga. O apetite diminuiu desde que a dor começou. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Já não consigo fazer minhas atividades habituais.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Falar sobre isso está me cansando.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Estou tendo dificuldade para descansar.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Preciso de alguém por perto para me ajudar.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Já não consigo fazer minhas atividades habituais.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Falar sobre isso está me cansando.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Estou tendo dificuldade para descansar.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Preciso de alguém por perto para me ajudar.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Já não consigo fazer minhas atividades habituais.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Falar sobre isso está me cansando.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Estou tendo dificuldade para descansar.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Preciso de alguém por perto para me ajudar.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Já não consigo fazer minhas atividades habituais.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Falar sobre isso está me cansando.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Estou tendo dificuldade para descansar.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Preciso de alguém por perto para me ajudar.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Já não consigo fazer minhas atividades habituais.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Falar sobre isso está me cansando.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Estou tendo dificuldade para descansar.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Só quero ficar parado e receber ajuda.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Até conversar exige um esforço.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. O mal-estar está me deixando esgotado.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Não estou conseguindo cuidar de mim como antes.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Só quero ficar parado e receber ajuda.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Até conversar exige um esforço.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. O mal-estar está me deixando esgotado.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Não estou conseguindo cuidar de mim como antes.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Só quero ficar parado e receber ajuda.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Até conversar exige um esforço.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. O mal-estar está me deixando esgotado.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Não estou conseguindo cuidar de mim como antes.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Só quero ficar parado e receber ajuda.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Até conversar exige um esforço.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. O mal-estar está me deixando esgotado.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Não estou conseguindo cuidar de mim como antes.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Só quero ficar parado e receber ajuda.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Até conversar exige um esforço.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. O mal-estar está me deixando esgotado.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Preciso que alguém me ajude com as coisas simples.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Não consigo descansar por causa do mal-estar.",
+          "A dor do lado esquerdo está constante e veio com febre. A dor é maior do lado esquerdo inferior. Qualquer atividade está me esgotando.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Preciso que alguém me ajude com as coisas simples.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Não consigo descansar por causa do mal-estar.",
+          "A dor do lado esquerdo está constante e veio com febre. Meu intestino mudou de ritmo. Qualquer atividade está me esgotando.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Preciso que alguém me ajude com as coisas simples.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Não consigo descansar por causa do mal-estar.",
+          "A dor do lado esquerdo está constante e veio com febre. Sinto a barriga sensível ao toque. Qualquer atividade está me esgotando.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Preciso que alguém me ajude com as coisas simples.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Não consigo descansar por causa do mal-estar.",
+          "A dor do lado esquerdo está constante e veio com febre. Tenho desconforto antes de evacuar. Qualquer atividade está me esgotando.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Estou com dificuldade até para me ajeitar no lugar.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Preciso que alguém me ajude com as coisas simples.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Não consigo descansar por causa do mal-estar.",
+          "A dor do lado esquerdo está constante e veio com febre. O apetite diminuiu desde que a dor começou. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Preciso de ajuda agora.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Estou sem forças para me ajeitar.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Só consigo falar um pouco de cada vez.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Não consigo fazer nada sozinho neste momento.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Preciso de ajuda agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Estou sem forças para me ajeitar.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Só consigo falar um pouco de cada vez.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Não consigo fazer nada sozinho neste momento.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Preciso de ajuda agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Estou sem forças para me ajeitar.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Só consigo falar um pouco de cada vez.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Não consigo fazer nada sozinho neste momento.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Preciso de ajuda agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Estou sem forças para me ajeitar.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Só consigo falar um pouco de cada vez.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Não consigo fazer nada sozinho neste momento.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Preciso de ajuda agora.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Estou sem forças para me ajeitar.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Só consigo falar um pouco de cada vez.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Não me deixe sozinho agora.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Estou no limite das minhas forças.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Preciso parar um pouco para continuar falando.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Está difícil até pedir ajuda.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Não me deixe sozinho agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Estou no limite das minhas forças.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Preciso parar um pouco para continuar falando.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Está difícil até pedir ajuda.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Não me deixe sozinho agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Estou no limite das minhas forças.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Preciso parar um pouco para continuar falando.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Está difícil até pedir ajuda.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Não me deixe sozinho agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Estou no limite das minhas forças.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Preciso parar um pouco para continuar falando.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Está difícil até pedir ajuda.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Não me deixe sozinho agora.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Estou no limite das minhas forças.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Preciso parar um pouco para continuar falando.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Está difícil até pedir ajuda."
+        ],
+        [
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Ajuda, por favor.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Não consigo continuar assim.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Fique perto de mim.",
+          "A barriga está muito dolorida e estou ficando fraco. A dor é maior do lado esquerdo inferior. Preciso de socorro agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Ajuda, por favor.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Não consigo continuar assim.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Fique perto de mim.",
+          "A barriga está muito dolorida e estou ficando fraco. Meu intestino mudou de ritmo. Preciso de socorro agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Ajuda, por favor.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Não consigo continuar assim.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Fique perto de mim.",
+          "A barriga está muito dolorida e estou ficando fraco. Sinto a barriga sensível ao toque. Preciso de socorro agora.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Ajuda, por favor.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Não consigo continuar assim.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Fique perto de mim.",
+          "A barriga está muito dolorida e estou ficando fraco. Tenho desconforto antes de evacuar. Preciso de socorro agora.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Ajuda, por favor.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Não consigo continuar assim.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Fique perto de mim.",
+          "A barriga está muito dolorida e estou ficando fraco. O apetite diminuiu desde que a dor começou. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. É o que consigo contar sobre o mal-estar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou. Essas coisas estão acontecendo juntas.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. É essa combinação que está me incomodando.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. Essas coisas estão acontecendo juntas.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou. É essa combinação que está me incomodando.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. Foi isso que consegui perceber até agora.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou."
+        ],
+        [
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Meu intestino mudou de ritmo. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "A dor é maior do lado esquerdo inferior. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "A dor é maior do lado esquerdo inferior. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar.",
+          "Meu intestino mudou de ritmo. Sinto a barriga sensível ao toque. O apetite diminuiu desde que a dor começou.",
+          "Meu intestino mudou de ritmo. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou.",
+          "Sinto a barriga sensível ao toque. Tenho desconforto antes de evacuar. O apetite diminuiu desde que a dor começou."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "mri-abdomen": {
+      "Default": "Espessamento do sigmoide com divertículos inflamados e inflamação pericólica.",
+      "ByStage": {
+        "4": "Diverticulite do sigmoide com abscesso pericólico.",
+        "5": "Diverticulite do sigmoide com abscesso pericólico.",
+        "6": "Diverticulite do sigmoide com abscesso pericólico.",
+        "7": "Coleção pericólica extensa e sinais de perfuração em diverticulite complicada.",
+        "8": "Coleção pericólica extensa e sinais de perfuração em diverticulite complicada.",
+        "9": "Coleção pericólica extensa e sinais de perfuração em diverticulite complicada.",
+        "10": null
+      }
+    }
+  }
+}

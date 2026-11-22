@@ -1,0 +1,755 @@
+{
+  "SchemaVersion": 1,
+  "Id": "severe-diabetic-hypoglycemia",
+  "Name": "Diabetes com hipoglicemia grave recorrente",
+  "SelectionWeight": 8,
+  "Tags": [
+    "endocrina",
+    "metabolica",
+    "hipoglicemia",
+    "consciencia",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Correção da glicemia e revisão do esquema antidiabético sob monitorização",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        96,
+        104
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        76,
+        82
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        100,
+        108
+      ],
+      "Systolic": [
+        121,
+        131
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        19,
+        22
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        104,
+        112
+      ],
+      "Systolic": [
+        120,
+        130
+      ],
+      "Diastolic": [
+        74,
+        80
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        108,
+        116
+      ],
+      "Systolic": [
+        118,
+        128
+      ],
+      "Diastolic": [
+        73,
+        79
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        112,
+        120
+      ],
+      "Systolic": [
+        117,
+        127
+      ],
+      "Diastolic": [
+        72,
+        78
+      ],
+      "RespiratoryRate": [
+        22,
+        25
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        114,
+        124
+      ],
+      "Diastolic": [
+        70,
+        76
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        123,
+        131
+      ],
+      "Systolic": [
+        111,
+        121
+      ],
+      "Diastolic": [
+        68,
+        74
+      ],
+      "RespiratoryRate": [
+        25,
+        28
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        129,
+        137
+      ],
+      "Systolic": [
+        107,
+        117
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        27,
+        30
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        134,
+        142
+      ],
+      "Systolic": [
+        104,
+        114
+      ],
+      "Diastolic": [
+        64,
+        70
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Sudorese e pele fria."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Isso está tirando minha vontade de comer.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. O desconforto está me distraindo de tudo.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Precisei pedir companhia para procurar atendimento.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Isso está tirando minha vontade de comer.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. O desconforto está me distraindo de tudo.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Precisei pedir companhia para procurar atendimento.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Isso está tirando minha vontade de comer.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. O desconforto está me distraindo de tudo.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Precisei pedir companhia para procurar atendimento.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Isso está tirando minha vontade de comer.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. O desconforto está me distraindo de tudo.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Precisei pedir companhia para procurar atendimento.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Já precisei diminuir o ritmo das minhas atividades.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Isso está tirando minha vontade de comer.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. O desconforto está me distraindo de tudo.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Está difícil achar uma posição confortável.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. O mal-estar não me deixa descansar direito.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Já não consigo seguir minha rotina como antes.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Está difícil achar uma posição confortável.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. O mal-estar não me deixa descansar direito.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Já não consigo seguir minha rotina como antes.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Está difícil achar uma posição confortável.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. O mal-estar não me deixa descansar direito.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Já não consigo seguir minha rotina como antes.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Está difícil achar uma posição confortável.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. O mal-estar não me deixa descansar direito.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Já não consigo seguir minha rotina como antes.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Preciso de pausas para fazer as coisas habituais.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Está difícil achar uma posição confortável.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. O mal-estar não me deixa descansar direito.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Está difícil cuidar das coisas sozinho.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tremendo, suando e com muita fome. O suor veio de repente. Preciso de ajuda para ficar mais confortável.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Está difícil cuidar das coisas sozinho.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tremendo, suando e com muita fome. Minhas mãos estão tremendo. Preciso de ajuda para ficar mais confortável.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Está difícil cuidar das coisas sozinho.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tremendo, suando e com muita fome. Senti uma fome muito forte. Preciso de ajuda para ficar mais confortável.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Está difícil cuidar das coisas sozinho.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tremendo, suando e com muita fome. Meu coração acelerou junto do mal-estar. Preciso de ajuda para ficar mais confortável.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Está difícil cuidar das coisas sozinho.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Estou evitando me movimentar por causa do mal-estar.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. O desconforto está ocupando minha atenção o tempo todo.",
+          "Estou tremendo, suando e com muita fome. Uso remédio para diabetes. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Já não consigo fazer minhas atividades habituais.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Falar sobre isso está me cansando.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Estou tendo dificuldade para descansar.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Preciso de alguém por perto para me ajudar.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Já não consigo fazer minhas atividades habituais.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Falar sobre isso está me cansando.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Estou tendo dificuldade para descansar.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Preciso de alguém por perto para me ajudar.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Já não consigo fazer minhas atividades habituais.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Falar sobre isso está me cansando.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Estou tendo dificuldade para descansar.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Preciso de alguém por perto para me ajudar.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Já não consigo fazer minhas atividades habituais.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Falar sobre isso está me cansando.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Estou tendo dificuldade para descansar.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Preciso de alguém por perto para me ajudar.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Já não consigo fazer minhas atividades habituais.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Falar sobre isso está me cansando.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Estou tendo dificuldade para descansar.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Só quero ficar parado e receber ajuda.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Até conversar exige um esforço.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. O mal-estar está me deixando esgotado.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Não estou conseguindo cuidar de mim como antes.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Só quero ficar parado e receber ajuda.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Até conversar exige um esforço.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. O mal-estar está me deixando esgotado.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Não estou conseguindo cuidar de mim como antes.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Só quero ficar parado e receber ajuda.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Até conversar exige um esforço.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. O mal-estar está me deixando esgotado.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Não estou conseguindo cuidar de mim como antes.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Só quero ficar parado e receber ajuda.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Até conversar exige um esforço.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. O mal-estar está me deixando esgotado.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Não estou conseguindo cuidar de mim como antes.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Só quero ficar parado e receber ajuda.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Até conversar exige um esforço.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. O mal-estar está me deixando esgotado.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Preciso que alguém me ajude com as coisas simples.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Não consigo descansar por causa do mal-estar.",
+          "Estou tonto e não consigo pensar direito. O suor veio de repente. Qualquer atividade está me esgotando.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Preciso que alguém me ajude com as coisas simples.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Não consigo descansar por causa do mal-estar.",
+          "Estou tonto e não consigo pensar direito. Minhas mãos estão tremendo. Qualquer atividade está me esgotando.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Preciso que alguém me ajude com as coisas simples.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Não consigo descansar por causa do mal-estar.",
+          "Estou tonto e não consigo pensar direito. Senti uma fome muito forte. Qualquer atividade está me esgotando.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Preciso que alguém me ajude com as coisas simples.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Não consigo descansar por causa do mal-estar.",
+          "Estou tonto e não consigo pensar direito. Meu coração acelerou junto do mal-estar. Qualquer atividade está me esgotando.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Preciso que alguém me ajude com as coisas simples.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Não consigo descansar por causa do mal-estar.",
+          "Estou tonto e não consigo pensar direito. Uso remédio para diabetes. Qualquer atividade está me esgotando."
+        ],
+        [
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Não consigo fazer nada sozinho neste momento.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Preciso de ajuda agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Estou sem forças para me ajeitar.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Só consigo falar um pouco de cada vez.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Está difícil até pedir ajuda.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Não me deixe sozinho agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Estou no limite das minhas forças.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Preciso parar um pouco para continuar falando.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Está difícil até pedir ajuda."
+        ],
+        [
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. O suor veio de repente. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Minhas mãos estão tremendo. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Senti uma fome muito forte. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Meu coração acelerou junto do mal-estar. Preciso de socorro agora.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Ajuda, por favor.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Não consigo continuar assim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Fique perto de mim.",
+          "Estou muito fraco e com dificuldade de entender o que está acontecendo. Uso remédio para diabetes. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. É o que consigo contar sobre o mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes. Essas coisas estão acontecendo juntas.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. É essa combinação que está me incomodando.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Essas coisas estão acontecendo juntas.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes. É essa combinação que está me incomodando.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. Foi isso que consegui perceber até agora.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo.",
+          "O suor veio de repente. Senti uma fome muito forte.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo.",
+          "O suor veio de repente. Senti uma fome muito forte.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes."
+        ],
+        [
+          "O suor veio de repente. Minhas mãos estão tremendo.",
+          "O suor veio de repente. Senti uma fome muito forte.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Senti uma fome muito forte.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Minhas mãos estão tremendo. Uso remédio para diabetes.",
+          "O suor veio de repente. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "O suor veio de repente. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "O suor veio de repente. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Meu coração acelerou junto do mal-estar.",
+          "Minhas mãos estão tremendo. Senti uma fome muito forte. Uso remédio para diabetes.",
+          "Minhas mãos estão tremendo. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes.",
+          "Senti uma fome muito forte. Meu coração acelerou junto do mal-estar. Uso remédio para diabetes."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "glucose": {
+      "Default": "Glicemia inferior a 54 mg/dL em episódio sintomático.",
+      "ByStage": {
+        "4": "Hipoglicemia persistente em medidas seriadas, com sinais neuroglicopênicos.",
+        "5": "Hipoglicemia persistente em medidas seriadas, com sinais neuroglicopênicos.",
+        "6": "Hipoglicemia persistente em medidas seriadas, com sinais neuroglicopênicos.",
+        "7": "Hipoglicemia profunda e recorrente com comprometimento neurológico.",
+        "8": "Hipoglicemia profunda e recorrente com comprometimento neurológico.",
+        "9": "Hipoglicemia profunda e recorrente com comprometimento neurológico.",
+        "10": null
+      }
+    }
+  }
+}

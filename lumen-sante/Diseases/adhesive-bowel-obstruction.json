@@ -1,0 +1,755 @@
+{
+  "SchemaVersion": 1,
+  "Id": "adhesive-bowel-obstruction",
+  "Name": "Obstrução intestinal por aderências",
+  "SelectionWeight": 8,
+  "Tags": [
+    "digestiva",
+    "intestinal",
+    "obstrutiva",
+    "vomito",
+    "internacao",
+    "frequente"
+  ],
+  "MinimumStageDurationMilliseconds": 7200000,
+  "MaximumStageDurationMilliseconds": 14400000,
+  "WorseningRisk": 0.3,
+  "TreatmentSuccessRate": 0.55,
+  "RequiresSpecificTreatment": true,
+  "TreatmentName": "Descompressão digestiva, reposição volêmica e avaliação cirúrgica",
+  "MedicationEffects": [],
+  "Stages": [
+    {
+      "Pulse": [
+        90,
+        98
+      ],
+      "Systolic": [
+        122,
+        132
+      ],
+      "Diastolic": [
+        78,
+        84
+      ],
+      "RespiratoryRate": [
+        18,
+        21
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto e necessidade de avaliação hospitalar.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        95,
+        103
+      ],
+      "Systolic": [
+        118,
+        128
+      ],
+      "Diastolic": [
+        75,
+        81
+      ],
+      "RespiratoryRate": [
+        20,
+        23
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, sintomático e com limitação das atividades.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        101,
+        109
+      ],
+      "Systolic": [
+        114,
+        124
+      ],
+      "Diastolic": [
+        72,
+        78
+      ],
+      "RespiratoryRate": [
+        21,
+        24
+      ],
+      "OxygenSaturation": [
+        97,
+        99
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Alerta, com desconforto persistente e limitação funcional.",
+        "Sem esforço respiratório importante.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        106,
+        114
+      ],
+      "Systolic": [
+        110,
+        120
+      ],
+      "Diastolic": [
+        69,
+        75
+      ],
+      "RespiratoryRate": [
+        23,
+        26
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com desconforto importante.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        111,
+        119
+      ],
+      "Systolic": [
+        106,
+        116
+      ],
+      "Diastolic": [
+        66,
+        72
+      ],
+      "RespiratoryRate": [
+        24,
+        27
+      ],
+      "OxygenSaturation": [
+        96,
+        98
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com sinais de descompensação.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        118,
+        126
+      ],
+      "Systolic": [
+        99,
+        109
+      ],
+      "Diastolic": [
+        61,
+        67
+      ],
+      "RespiratoryRate": [
+        26,
+        29
+      ],
+      "OxygenSaturation": [
+        95,
+        97
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo, com prostração e necessidade de ajuda.",
+        "Respiração acelerada.",
+        "Sem cianose visível."
+      ]
+    },
+    {
+      "Pulse": [
+        125,
+        133
+      ],
+      "Systolic": [
+        92,
+        102
+      ],
+      "Diastolic": [
+        55,
+        61
+      ],
+      "RespiratoryRate": [
+        28,
+        31
+      ],
+      "OxygenSaturation": [
+        94,
+        96
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, muito prostrado.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        131,
+        139
+      ],
+      "Systolic": [
+        85,
+        95
+      ],
+      "Diastolic": [
+        50,
+        56
+      ],
+      "RespiratoryRate": [
+        30,
+        33
+      ],
+      "OxygenSaturation": [
+        92,
+        94
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado geral grave.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        138,
+        146
+      ],
+      "Systolic": [
+        78,
+        88
+      ],
+      "Diastolic": [
+        44,
+        50
+      ],
+      "RespiratoryRate": [
+        32,
+        35
+      ],
+      "OxygenSaturation": [
+        91,
+        93
+      ],
+      "TemperatureTenths": [
+        360,
+        374
+      ],
+      "Inspection": [
+        "Responsivo à voz, em estado crítico.",
+        "Respiração acelerada, acompanhando a descompensação.",
+        "Extremidades frias e palidez."
+      ]
+    },
+    {
+      "Pulse": [
+        0,
+        0
+      ],
+      "Systolic": [
+        0,
+        0
+      ],
+      "Diastolic": [
+        0,
+        0
+      ],
+      "RespiratoryRate": [
+        0,
+        0
+      ],
+      "OxygenSaturation": [
+        0,
+        0
+      ],
+      "TemperatureTenths": [
+        0,
+        0
+      ],
+      "Inspection": [
+        "Sem resposta a estímulos.",
+        "Ausência de movimentos respiratórios.",
+        "Palidez acentuada."
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Prompt": "Como você está se sentindo?",
+      "AnswersByStage": [
+        [
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Já precisei diminuir o ritmo das minhas atividades.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Isso está tirando minha vontade de comer.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. O desconforto está me distraindo de tudo.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Precisei pedir companhia para procurar atendimento.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Já precisei diminuir o ritmo das minhas atividades.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Isso está tirando minha vontade de comer.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. O desconforto está me distraindo de tudo.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Precisei pedir companhia para procurar atendimento.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Já precisei diminuir o ritmo das minhas atividades.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Isso está tirando minha vontade de comer.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. O desconforto está me distraindo de tudo.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Precisei pedir companhia para procurar atendimento.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Já precisei diminuir o ritmo das minhas atividades.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Isso está tirando minha vontade de comer.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. O desconforto está me distraindo de tudo.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Precisei pedir companhia para procurar atendimento.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Já precisei diminuir o ritmo das minhas atividades.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Isso está tirando minha vontade de comer.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. O desconforto está me distraindo de tudo.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Precisei pedir companhia para procurar atendimento."
+        ],
+        [
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Preciso de pausas para fazer as coisas habituais.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Está difícil achar uma posição confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. O mal-estar não me deixa descansar direito.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Já não consigo seguir minha rotina como antes.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Preciso de pausas para fazer as coisas habituais.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Está difícil achar uma posição confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. O mal-estar não me deixa descansar direito.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Já não consigo seguir minha rotina como antes.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Preciso de pausas para fazer as coisas habituais.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Está difícil achar uma posição confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. O mal-estar não me deixa descansar direito.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Já não consigo seguir minha rotina como antes.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Preciso de pausas para fazer as coisas habituais.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Está difícil achar uma posição confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. O mal-estar não me deixa descansar direito.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Já não consigo seguir minha rotina como antes.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Preciso de pausas para fazer as coisas habituais.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Está difícil achar uma posição confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. O mal-estar não me deixa descansar direito.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Já não consigo seguir minha rotina como antes."
+        ],
+        [
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Está difícil cuidar das coisas sozinho.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Estou evitando me movimentar por causa do mal-estar.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. O desconforto está ocupando minha atenção o tempo todo.",
+          "Minha barriga estufou e a dor vem em cólicas. Parei de eliminar gases. Preciso de ajuda para ficar mais confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Está difícil cuidar das coisas sozinho.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Estou evitando me movimentar por causa do mal-estar.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. O desconforto está ocupando minha atenção o tempo todo.",
+          "Minha barriga estufou e a dor vem em cólicas. A barriga está distendida. Preciso de ajuda para ficar mais confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Está difícil cuidar das coisas sozinho.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Estou evitando me movimentar por causa do mal-estar.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. O desconforto está ocupando minha atenção o tempo todo.",
+          "Minha barriga estufou e a dor vem em cólicas. A dor vem em ondas. Preciso de ajuda para ficar mais confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Está difícil cuidar das coisas sozinho.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Estou evitando me movimentar por causa do mal-estar.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. O desconforto está ocupando minha atenção o tempo todo.",
+          "Minha barriga estufou e a dor vem em cólicas. Tenho náusea e episódios de vômito. Preciso de ajuda para ficar mais confortável.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Está difícil cuidar das coisas sozinho.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Estou evitando me movimentar por causa do mal-estar.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. O desconforto está ocupando minha atenção o tempo todo.",
+          "Minha barriga estufou e a dor vem em cólicas. Já fiz cirurgia na barriga. Preciso de ajuda para ficar mais confortável."
+        ],
+        [
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Já não consigo fazer minhas atividades habituais.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Falar sobre isso está me cansando.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Estou tendo dificuldade para descansar.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Preciso de alguém por perto para me ajudar.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Já não consigo fazer minhas atividades habituais.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Falar sobre isso está me cansando.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Estou tendo dificuldade para descansar.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Preciso de alguém por perto para me ajudar.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Já não consigo fazer minhas atividades habituais.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Falar sobre isso está me cansando.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Estou tendo dificuldade para descansar.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Preciso de alguém por perto para me ajudar.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Já não consigo fazer minhas atividades habituais.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Falar sobre isso está me cansando.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Estou tendo dificuldade para descansar.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Preciso de alguém por perto para me ajudar.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Já não consigo fazer minhas atividades habituais.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Falar sobre isso está me cansando.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Estou tendo dificuldade para descansar.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Preciso de alguém por perto para me ajudar."
+        ],
+        [
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Só quero ficar parado e receber ajuda.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Até conversar exige um esforço.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. O mal-estar está me deixando esgotado.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Não estou conseguindo cuidar de mim como antes.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Só quero ficar parado e receber ajuda.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Até conversar exige um esforço.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. O mal-estar está me deixando esgotado.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Não estou conseguindo cuidar de mim como antes.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Só quero ficar parado e receber ajuda.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Até conversar exige um esforço.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. O mal-estar está me deixando esgotado.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Não estou conseguindo cuidar de mim como antes.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Só quero ficar parado e receber ajuda.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Até conversar exige um esforço.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. O mal-estar está me deixando esgotado.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Não estou conseguindo cuidar de mim como antes.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Só quero ficar parado e receber ajuda.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Até conversar exige um esforço.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. O mal-estar está me deixando esgotado.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Não estou conseguindo cuidar de mim como antes."
+        ],
+        [
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Preciso que alguém me ajude com as coisas simples.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Não consigo descansar por causa do mal-estar.",
+          "Estou vomitando e não consigo eliminar gases. Parei de eliminar gases. Qualquer atividade está me esgotando.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Preciso que alguém me ajude com as coisas simples.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Não consigo descansar por causa do mal-estar.",
+          "Estou vomitando e não consigo eliminar gases. A barriga está distendida. Qualquer atividade está me esgotando.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Preciso que alguém me ajude com as coisas simples.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Não consigo descansar por causa do mal-estar.",
+          "Estou vomitando e não consigo eliminar gases. A dor vem em ondas. Qualquer atividade está me esgotando.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Preciso que alguém me ajude com as coisas simples.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Não consigo descansar por causa do mal-estar.",
+          "Estou vomitando e não consigo eliminar gases. Tenho náusea e episódios de vômito. Qualquer atividade está me esgotando.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Estou com dificuldade até para me ajeitar no lugar.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Preciso que alguém me ajude com as coisas simples.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Não consigo descansar por causa do mal-estar.",
+          "Estou vomitando e não consigo eliminar gases. Já fiz cirurgia na barriga. Qualquer atividade está me esgotando."
+        ],
+        [
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Preciso de ajuda agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Estou sem forças para me ajeitar.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Só consigo falar um pouco de cada vez.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Não consigo fazer nada sozinho neste momento.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Preciso de ajuda agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Estou sem forças para me ajeitar.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Só consigo falar um pouco de cada vez.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Não consigo fazer nada sozinho neste momento.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Preciso de ajuda agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Estou sem forças para me ajeitar.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Só consigo falar um pouco de cada vez.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Não consigo fazer nada sozinho neste momento.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Preciso de ajuda agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Estou sem forças para me ajeitar.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Só consigo falar um pouco de cada vez.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Não consigo fazer nada sozinho neste momento.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Preciso de ajuda agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Estou sem forças para me ajeitar.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Só consigo falar um pouco de cada vez.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Não consigo fazer nada sozinho neste momento."
+        ],
+        [
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Não me deixe sozinho agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Estou no limite das minhas forças.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Preciso parar um pouco para continuar falando.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Está difícil até pedir ajuda.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Não me deixe sozinho agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Estou no limite das minhas forças.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Preciso parar um pouco para continuar falando.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Está difícil até pedir ajuda.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Não me deixe sozinho agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Estou no limite das minhas forças.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Preciso parar um pouco para continuar falando.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Está difícil até pedir ajuda.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Não me deixe sozinho agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Estou no limite das minhas forças.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Preciso parar um pouco para continuar falando.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Está difícil até pedir ajuda.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Não me deixe sozinho agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Estou no limite das minhas forças.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Preciso parar um pouco para continuar falando.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Está difícil até pedir ajuda."
+        ],
+        [
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Ajuda, por favor.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Não consigo continuar assim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Fique perto de mim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Parei de eliminar gases. Preciso de socorro agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Ajuda, por favor.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Não consigo continuar assim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Fique perto de mim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A barriga está distendida. Preciso de socorro agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Ajuda, por favor.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Não consigo continuar assim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Fique perto de mim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. A dor vem em ondas. Preciso de socorro agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Ajuda, por favor.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Não consigo continuar assim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Fique perto de mim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Tenho náusea e episódios de vômito. Preciso de socorro agora.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Ajuda, por favor.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Não consigo continuar assim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Fique perto de mim.",
+          "A barriga dói muito e estou muito fraco depois de vomitar. Já fiz cirurgia na barriga. Preciso de socorro agora."
+        ]
+      ]
+    },
+    {
+      "Prompt": "Pode descrever melhor o que está acontecendo?",
+      "AnswersByStage": [
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito. É o que consigo contar sobre o mal-estar.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga. Essas coisas estão acontecendo juntas.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito. É essa combinação que está me incomodando.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito. Essas coisas estão acontecendo juntas.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga. É essa combinação que está me incomodando.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. Foi isso que consegui perceber até agora.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga. É o que consigo contar sobre o mal-estar."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida.",
+          "Parei de eliminar gases. A dor vem em ondas.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida.",
+          "Parei de eliminar gases. A dor vem em ondas.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga."
+        ],
+        [
+          "Parei de eliminar gases. A barriga está distendida.",
+          "Parei de eliminar gases. A dor vem em ondas.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A barriga está distendida. A dor vem em ondas.",
+          "Parei de eliminar gases. A barriga está distendida. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A barriga está distendida. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "Parei de eliminar gases. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "Parei de eliminar gases. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. A dor vem em ondas. Tenho náusea e episódios de vômito.",
+          "A barriga está distendida. A dor vem em ondas. Já fiz cirurgia na barriga.",
+          "A barriga está distendida. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga.",
+          "A dor vem em ondas. Tenho náusea e episódios de vômito. Já fiz cirurgia na barriga."
+        ]
+      ]
+    }
+  ],
+  "Exams": {
+    "mri-abdomen": {
+      "Default": "Alças de delgado dilatadas com ponto de transição e colapso distal.",
+      "ByStage": {
+        "4": "Distensão acentuada do delgado e sinais de obstrução mecânica.",
+        "5": "Distensão acentuada do delgado e sinais de obstrução mecânica.",
+        "6": "Distensão acentuada do delgado e sinais de obstrução mecânica.",
+        "7": "Obstrução do delgado com edema mesentérico e suspeita de sofrimento intestinal.",
+        "8": "Obstrução do delgado com edema mesentérico e suspeita de sofrimento intestinal.",
+        "9": "Obstrução do delgado com edema mesentérico e suspeita de sofrimento intestinal.",
+        "10": null
+      }
+    }
+  }
+}

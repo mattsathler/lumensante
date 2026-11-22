@@ -13,6 +13,8 @@ namespace lumen_sante.Gameplay
         private long deadline;
         private float reachDistanceSquared;
         private bool teleportOnTimeout;
+        private bool virtualWalking;
+        internal static bool BackgroundSimulation { get; set; }
 
         internal bool IsWalking => route != null;
         internal Point LastGraphPoint { get; private set; }
@@ -30,7 +32,18 @@ namespace lumen_sante.Gameplay
         internal bool Update(Ped ped)
         {
             Point target = route[nextPoint];
-            if ((ped.Position - target.Position).LengthSquared() > reachDistanceSquared)
+            if (virtualWalking != BackgroundSimulation)
+            {
+                ped.Tasks.Clear();
+                if (!BackgroundSimulation) NpcWalking.TeleportToWaypoint(ped, (LastGraphPoint ?? origin).Position);
+                WalkToNextPoint(ped);
+                return false;
+            }
+            if (virtualWalking)
+            {
+                if (GameClock.NowMilliseconds < deadline) return false;
+            }
+            else if ((ped.Position - target.Position).LengthSquared() > reachDistanceSquared)
             {
                 if (GameClock.NowMilliseconds < deadline)
                 {
@@ -58,6 +71,7 @@ namespace lumen_sante.Gameplay
 
             if (++nextPoint == route.Length)
             {
+                if (virtualWalking) NpcWalking.TeleportToWaypoint(ped, target.Position);
                 Clear();
                 return true;
             }
@@ -66,15 +80,23 @@ namespace lumen_sante.Gameplay
             return false;
         }
 
-        internal void Clear() => route = null;
+        internal void Clear()
+        {
+            route = null;
+            virtualWalking = false;
+        }
 
         private void WalkToNextPoint(Ped ped)
         {
             Point target = route[nextPoint];
             float reachDistance = ReachDistanceFor(target);
             reachDistanceSquared = reachDistance * reachDistance;
-            int timeout = NpcWalking.TimeoutFor(ped.Position, target.Position);
-            NpcWalking.GoStraight(ped, target.Position, target.Heading, timeout);
+            virtualWalking = BackgroundSimulation;
+            Vector3 from = nextPoint == 0 ? origin.Position : route[nextPoint - 1].Position;
+            int timeout = virtualWalking
+                ? Math.Max(250, (int)Math.Ceiling(Math.Sqrt((target.Position - from).LengthSquared()) * 1000 / NpcWalking.Speed))
+                : NpcWalking.TimeoutFor(ped.Position, target.Position);
+            if (!virtualWalking) NpcWalking.GoStraight(ped, target.Position, target.Heading, timeout);
             deadline = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(timeout);
         }
 
