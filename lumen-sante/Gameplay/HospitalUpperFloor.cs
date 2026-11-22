@@ -8,11 +8,11 @@ namespace lumen_sante.Gameplay
     internal static class HospitalUpperFloor
     {
         private static readonly Point FirstLanding = new Point("Primeiro vão da escada",
-            new Vector3(344.190f, -1417.175f, 34.609f), 217.9f, passingDistance: 0.45f);
+            new Vector3(344.190f, -1417.175f, 34.609f), 217.9f, passingDistance: 0.9f);
         private static readonly Point LandingCorner = new Point("Primeiro vão, segunda esquina",
-            new Vector3(346.422f, -1414.841f, 34.612f), 50.4f, passingDistance: 0.45f);
+            new Vector3(346.422f, -1414.841f, 34.612f), 50.4f, passingDistance: 0.9f);
         private static readonly Point StairTop = new Point("Pé da escada no segundo andar",
-            new Vector3(341.854f, -1410.731f, 36.517f), 47.9f, passingDistance: 0.45f);
+            new Vector3(341.854f, -1410.731f, 36.517f), 47.9f, passingDistance: 0.9f);
         private static readonly Point CanteenReception = new Point("Recepção da cantina",
             new Vector3(345.098f, -1405.945f, 36.516f), 318.1f);
         private static readonly Point CanteenReceptionTwo = new Point("Recepção da cantina II",

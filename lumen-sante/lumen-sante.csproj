@@ -56,6 +56,7 @@
     <Compile Include="PluginEntryPoint.cs" />
     <Compile Include="Clinical\DiseaseStage.cs" />
     <Compile Include="Clinical\DiseaseDefinition.cs" />
+    <Compile Include="Clinical\Medication.cs" />
     <Compile Include="Clinical\DiseaseCatalog.cs" />
     <Compile Include="Clinical\PatientDialogue.cs" />
     <Compile Include="Gameplay\PatientNames.cs" />
@@ -63,6 +64,18 @@
     <EmbeddedResource Include="Data\*.json" />
     <EmbeddedResource Include="Assets\*.png" />
     <Compile Include="Clinical\LungCancerCase.cs" />
+    <Compile Include="Clinical\FluLikeCase.cs" />
+    <Compile Include="Clinical\SymptomaticCaseFactory.cs" />
+    <Compile Include="Clinical\AllergicRhinitisCase.cs" />
+    <Compile Include="Clinical\ViralPharyngitisCase.cs" />
+    <Compile Include="Clinical\AcuteSinusitisCase.cs" />
+    <Compile Include="Clinical\CystitisCase.cs" />
+    <Compile Include="Clinical\TensionHeadacheCase.cs" />
+    <Compile Include="Clinical\AcidRefluxCase.cs" />
+    <Compile Include="Clinical\GastroenteritisCase.cs" />
+    <Compile Include="Clinical\ContactDermatitisCase.cs" />
+    <Compile Include="Clinical\MuscleStrainCase.cs" />
+    <Compile Include="Clinical\AcuteBronchospasmCase.cs" />
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />
     <Compile Include="Gameplay\HospitalPath.cs" />

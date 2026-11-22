@@ -87,14 +87,14 @@ namespace lumen_sante.Gameplay
 
             if (nextPoint == route.Length - 1)
             {
-                return 0.55f;
+                return 1.5f;
             }
 
             Point previous = nextPoint == 0 ? origin : route[nextPoint - 1];
             float segmentLength = (float)Math.Sqrt((target.Position - previous.Position).LengthSquared());
             return target.IsCurve
-                ? Math.Min(0.55f, Math.Max(0.32f, segmentLength * 0.7f))
-                : Math.Min(1.6f, Math.Max(0.55f, segmentLength * 0.55f));
+                ? Math.Min(0.85f, Math.Max(0.55f, segmentLength * 0.7f))
+                : Math.Min(2f, Math.Max(1f, segmentLength * 0.55f));
         }
     }
 }

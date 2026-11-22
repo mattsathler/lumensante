@@ -35,7 +35,7 @@ namespace lumen_sante.Gameplay
                     clipboard.IsPersistent = true;
                     int bone = NativeFunction.Natives.GET_PED_BONE_INDEX<int>(doctor, 18905);
                     NativeFunction.Natives.ATTACH_ENTITY_TO_ENTITY(clipboard, doctor, bone,
-                        0.10f, 0.02f, 0.05f, 10f, 0f, 0f, false, false, false, true, 2, true);
+                        0.10f, 0.02f, 0.05f, 190f, 0f, 0f, false, false, false, true, 2, true);
                 }
 
                 if (!NativeFunction.Natives.IS_ENTITY_PLAYING_ANIM<bool>(doctor, Dictionary, Clip, 3))

@@ -30,11 +30,16 @@ namespace lumen_sante.Interface
 
         internal HospitalComputer(MenuPool menuPool, string roomName, PatientMenu patientMenu,
             Func<bool> canInteractWithPatient, Func<bool> roomOccupied, Func<string> roomPatientName, Func<bool> canCallPatient,
-            Func<bool> callNextPatient)
+            Func<bool> callNextPatient, Func<ExamOrders, bool> canCallSelectedPatient, Func<ExamOrders, bool> callSelectedPatient)
         {
             this.patientMenu = patientMenu;
             this.canInteractWithPatient = canInteractWithPatient;
-            panel = new BedManagementPanel(roomOccupied, roomPatientName);
+            panel = new BedManagementPanel(roomOccupied, roomPatientName, canCallSelectedPatient);
+            panel.PatientCallRequested += orders =>
+            {
+                if (IsSeated(Game.LocalPlayer.Character) && canCallFromChair() && canCallSelectedPatient(orders))
+                    callSelectedPatient(orders);
+            };
             canCallFromChair = () => !roomOccupied() && canCallPatient();
             chairMenu = new UIMenu("Cadeira", roomName);
             var useComputer = new UIMenuItem("Usar computador");
@@ -74,6 +79,11 @@ namespace lumen_sante.Interface
         }
 
         internal bool IsOpen => seatedDoctor != null;
+        internal event Action<ExamOrders, MedicationClass> MedicationToggled
+        {
+            add { panel.MedicationToggled += value; }
+            remove { panel.MedicationToggled -= value; }
+        }
         internal event Action<ExamOrders, string> TreatmentSelected
         {
             add { panel.TreatmentSelected += value; }

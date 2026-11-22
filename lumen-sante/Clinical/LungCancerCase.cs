@@ -1,4 +1,4 @@
-﻿namespace lumen_sante.Clinical
+namespace lumen_sante.Clinical
 {
     internal static class LungCancerCase
     {
@@ -55,7 +55,9 @@
             "lung-cancer", 5, 2 * 60 * 60 * 1000, 4 * 60 * 60 * 1000, Stages,
             worseningRisk: 0.55, treatmentSuccessRate: 0.40,
             name: "Câncer de Pulmão", treatmentName: "Terapia oncológica",
-            ("Como está se sentindo?", stage => PatientDialogue.Vary(SymptomsByStage[stage])),
+            requiresSpecificTreatment: true,
+            medicationEffects: new[] { new MedicationEffect(MedicationClass.Analgesic, 0.25, 1.0) },
+            ("Como você está se sentindo?", stage => PatientDialogue.Vary(SymptomsByStage[stage])),
             ("Os sintomas começaram há quanto tempo?", stage => PatientDialogue.Vary(Onset)),
             ("Sente falta de ar?", stage => PatientDialogue.Vary(stage < 2
                 ? new[] { "Só quando faço esforço.", "Só quando subo escadas.", "Sim, se ando depressa.", "Sentado eu respiro bem, mas esforço me deixa ofegante." }

@@ -17,7 +17,7 @@ namespace lumen_sante.Gameplay
                 Name = name;
                 Position = position;
                 Heading = heading;
-                PassingDistance = passingDistance ?? (isDoor ? 0.65f : (float?)null);
+                PassingDistance = passingDistance ?? (isDoor ? 1.3f : (float?)null);
                 Animations = animationOptions ?? (animation.HasValue
                     ? new[] { animation.Value }
                     : Array.Empty<(string, string, int, bool)>());
@@ -52,6 +52,11 @@ namespace lumen_sante.Gameplay
         internal bool IsAnchorReserved(Point point) => occupiedAnchors.Contains(point);
 
         internal void ReleaseAnchor(Point point) => occupiedAnchors.Remove(point);
+
+        internal Point FindNearestWaypoint(Vector3 position, params Point[] excluded) => links.Keys
+            .Where(point => !point.IsAnchor && !point.SeatedAnchor.HasValue && !excluded.Contains(point))
+            .OrderBy(point => (point.Position - position).LengthSquared())
+            .FirstOrDefault();
 
         internal Point FindExit(Point point) =>
             links.TryGetValue(point, out List<Point> destinations)

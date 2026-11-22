@@ -57,7 +57,21 @@ namespace lumen_sante.Gameplay
         private readonly Dictionary<int, HospitalReceptionist> occupants = new Dictionary<int, HospitalReceptionist>();
         private readonly List<int> queue = new List<int>();
         internal IEnumerable<HospitalReceptionist> Occupants => occupants.Values;
+        internal IEnumerable<Ped> Patients => occupants.Values.Where(actor => actor.IsAlive).Select(actor => actor.Actor)
+            .Concat(arrivingPatient != null && arrivingPatient.Exists() && arrivingPatient.IsAlive
+                ? new[] { arrivingPatient } : Array.Empty<Ped>());
         internal int WaitingPatientCount => queue.Count(index => occupants[index].IsAlive);
+        internal bool CanReceiveReturningPatient => arrivingPatient == null && Enumerable.Range(0, Seats.Length)
+            .Any(index => !occupants.TryGetValue(index, out HospitalReceptionist actor) || !actor.IsAlive);
+
+        internal void ReceiveReturningPatient(Ped patient)
+        {
+            if (!CanReceiveReturningPatient) throw new InvalidOperationException("Recepção sem vaga para retorno.");
+            arrivingPatient = patient;
+            arrivingPatient.IsPersistent = true;
+            arrivingPatient.BlockPermanentEvents = true;
+            StartWalk(ArrivalPhase.ToDoor, HospitalStaffRoutes.PatientSpawn, HospitalStaffRoutes.HospitalDoor);
+        }
 
         internal WaitingRoom(HospitalStaffRoutes routes)
         {
@@ -73,9 +87,12 @@ namespace lumen_sante.Gameplay
             return freeSeats.Length == 0 ? -1 : freeSeats[selection.Next(freeSeats.Length)];
         }
 
-        internal bool TryCallPatient(out Ped patient, out Point approach)
+        internal bool IsWaiting(Ped patient) => queue.Any(index => occupants[index].IsAlive && occupants[index].Actor == patient);
+
+        internal bool TryCallPatient(out Ped patient, out Point approach, Ped requestedPatient = null)
         {
-            int queueIndex = queue.FindIndex(index => occupants[index].IsAlive);
+            int queueIndex = queue.FindIndex(index => occupants[index].IsAlive &&
+                (requestedPatient == null || occupants[index].Actor == requestedPatient));
             if (queueIndex < 0)
             {
                 patient = null;

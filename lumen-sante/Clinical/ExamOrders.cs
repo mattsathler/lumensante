@@ -2,6 +2,7 @@
 
 namespace lumen_sante.Clinical
 {
+    using System.Linq;
     internal enum ExamStatus
     {
         Available,
@@ -12,6 +13,7 @@ namespace lumen_sante.Clinical
     }
 
     internal enum ExamKind { Mri, XRay, Laboratory, Bedside }
+    internal enum InpatientUnit { Room, Ward }
 
     internal sealed class ExamOrders
     {
@@ -36,6 +38,57 @@ namespace lumen_sante.Clinical
         internal string DiseaseId { get; }
         internal PatientProfile Profile { get; }
         internal string Notes { get; set; } = string.Empty;
+        private readonly System.Collections.Generic.Dictionary<(int Stage, int Question), string> symptomAnswers =
+            new System.Collections.Generic.Dictionary<(int Stage, int Question), string>();
+        internal bool HasStartedConversation { get; private set; }
+
+        internal string GetSymptomAnswer(DiseaseDefinition disease, int question, int stage, Random random)
+        {
+            if (IsRecovered)
+            {
+                if (question == 0) HasStartedConversation = true;
+                return "Estou me sentindo bem agora.";
+            }
+            var key = (stage, question);
+            if (!symptomAnswers.TryGetValue(key, out string answer))
+            {
+                answer = disease.PickAnswer(question, stage, random);
+                symptomAnswers.Add(key, answer);
+            }
+            if (question == 0) HasStartedConversation = true;
+            return answer;
+        }
+        internal bool IsRecovered { get; private set; }
+        internal bool IsDischarged { get; private set; }
+        internal int VisitCount { get; private set; } = 1;
+        internal long LastDischargedAt { get; private set; }
+        internal void Discharge(long now)
+        {
+            IsDischarged = true;
+            IsInpatient = false;
+            LastDischargedAt = now;
+            Room = "Fora do hospital";
+        }
+        internal void Readmit(string room)
+        {
+            if (IsDischarged) VisitCount++;
+            IsDischarged = false;
+            IsInpatient = false;
+            Room = room;
+        }
+        private readonly System.Collections.Generic.Dictionary<MedicationClass, long> medications =
+            new System.Collections.Generic.Dictionary<MedicationClass, long>();
+
+        internal void PrescribeMedication(MedicationClass medication, long expiresAt)
+        {
+            medications[medication] = expiresAt;
+        }
+        internal void StopMedication(MedicationClass medication) => medications.Remove(medication);
+
+        internal MedicationClass[] ActiveMedications(long now) => medications
+            .Where(entry => entry.Value > now).Select(entry => entry.Key).ToArray();
+
+        internal void MarkRecovered() => IsRecovered = true;
         internal string TreatmentDiseaseId { get; private set; }
         internal bool SelectTreatment(string diseaseId)
         {

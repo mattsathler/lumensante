@@ -22,7 +22,7 @@ namespace lumen_sante.Gameplay
                 float distance = (float)Math.Sqrt(towardAccess.LengthSquared());
                 Vector3 approach = elevated && distance > 0f
                     ? atFloor + towardAccess * Math.Min(1f, 0.65f / distance) : position;
-                Approach = new Point("Posto de exame a partir de " + access.Name, approach, heading, passingDistance: 0.5f);
+                Approach = new Point("Posto de exame a partir de " + access.Name, approach, heading, passingDistance: 1f);
             }
 
             internal Point Approach { get; }
@@ -36,15 +36,15 @@ namespace lumen_sante.Gameplay
         private static readonly Point ExamDoor = new Point("Porta da sala de exames",
             new Vector3(378.919f, -1410.975f, 32.505f), 222.9f, isDoor: true);
         private static readonly Point ExamHall = new Point("Acesso às salas de exames",
-            new Vector3(383.387f, -1415.238f, 32.505f), 236.1f, passingDistance: 0.65f);
+            new Vector3(383.387f, -1415.238f, 32.505f), 236.1f, passingDistance: 1.3f);
         private static readonly Point MriCenter = new Point("Centro da sala de MRI",
             new Vector3(379.003f, -1419.033f, 32.505f), 321.3f);
         private static readonly Point MriStaffRoom = new Point("Sala do funcionário da MRI",
-            new Vector3(381.519f, -1420.748f, 32.505f), 236.1f, passingDistance: 0.65f);
+            new Vector3(381.519f, -1420.748f, 32.505f), 236.1f, passingDistance: 1.3f);
         private static readonly Point XRayCenter = new Point("Centro da sala de Raio X",
             new Vector3(386.976f, -1410.059f, 32.505f), 139.4f);
         private static readonly Point XRayStaffRoom = new Point("Sala do funcionário do Raio X",
-            new Vector3(388.768f, -1412.180f, 32.505f), 29.7f, passingDistance: 0.65f);
+            new Vector3(388.768f, -1412.180f, 32.505f), 29.7f, passingDistance: 1.3f);
         private static readonly Point LabHall = new Point("Ward B, corredor do laboratório",
             new Vector3(379.354f, -1397.002f, 32.505f), 313.8f);
         private static readonly Point LabDoor = new Point("Porta do laboratório",

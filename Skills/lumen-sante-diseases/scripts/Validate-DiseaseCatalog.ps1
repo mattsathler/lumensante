@@ -32,13 +32,15 @@ foreach ($case in $cases) {
     $stages = $definition.GetProperty('Stages', $members).GetValue($case)
     $prompts = $definition.GetProperty('Prompts', $members).GetValue($case)
     if ($weight -le 0 -or $stages.Count -ne 10 -or $prompts.Count -eq 0 -or
-        $definition.GetProperty('StageDurationMilliseconds', $members).GetValue($case) -le 0) {
+        $definition.GetProperty('MinimumStageDurationMilliseconds', $members).GetValue($case) -le 0 -or
+        $definition.GetProperty('MaximumStageDurationMilliseconds', $members).GetValue($case) -lt
+            $definition.GetProperty('MinimumStageDurationMilliseconds', $members).GetValue($case)) {
         throw "Definição incompleta: $id"
     }
 
     for ($index = 0; $index -lt $stages.Count; $index++) {
         $stage = $stages[$index]
-        foreach ($vital in 'Pulse', 'Systolic', 'Diastolic', 'RespiratoryRate', 'OxygenSaturation') {
+        foreach ($vital in 'Pulse', 'Systolic', 'Diastolic', 'RespiratoryRate', 'OxygenSaturation', 'TemperatureTenths') {
             $range = $stage.GetType().GetProperty($vital, $members).GetValue($stage)
             if ($range.Item1 -lt 0 -or $range.Item1 -gt $range.Item2 -or
                 ($index -eq 9 -and ($range.Item1 -ne 0 -or $range.Item2 -ne 0))) {

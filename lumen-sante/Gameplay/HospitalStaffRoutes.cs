@@ -32,21 +32,10 @@ namespace lumen_sante.Gameplay
         private static readonly Point StairwayOne = new Point("Escadaria I",
             new Vector3(339.118f, -1411.045f, 32.505f), 137.5f);
         private static readonly Point StairBottom = new Point("Pé da escada",
-            new Vector3(339.947f, -1413.553f, 32.505f), 223.3f, passingDistance: 0.45f);
+            new Vector3(339.947f, -1413.553f, 32.505f), 223.3f, passingDistance: 0.9f);
         private static readonly Point Junction = new Point("Bifurcação", new Vector3(355.882f, -1407.206f, 32.505f), 49.7f);
-        private static readonly Point TriageDoor = new Point("Porta da Triagem", new Vector3(360.367f, -1411.297f, 32.505f), 188.0f, isDoor: true);
         private static readonly Point DiagnosticOneHallTurn = new Point("Curva de saída do Diagnóstico II",
-            new Vector3(362.082f, -1412.659f, 32.505f), 137.4f, passingDistance: 0.55f);
-        private static readonly Point DiagnosticLowerHallTurn = new Point("Curva inferior do corredor de Diagnóstico",
-            new Vector3(358.548f, -1412.670f, 32.505f), 315.2f, passingDistance: 0.55f);
-        private static readonly Point TriageCenter = new Point("Centro da Triagem",
-            new Vector3(356.631f, -1416.374f, 32.505f), 235.6f);
-        private static readonly Point TriageDesk = new Point("Posto da Triagem",
-            new Vector3(354.709f, -1417.198f, 32.505f), 42.3f,
-            animation: (HospitalComputer.ComputerAnimation, HospitalComputer.ComputerClip, 6000, true),
-            seatedAnchor: new Vector3(355.079f, -1417.605f, 32.055f));
-        private static readonly Point TriageLean = new Point("Lean de funcionários da Triagem",
-            new Vector3(357.198f, -1418.946f, 32.505f), 227.3f, animationOptions: LeanAndStandingIdles);
+            new Vector3(362.082f, -1412.659f, 32.505f), 137.4f, passingDistance: 1.1f);
         private static readonly Point ReceptionFront = new Point("Frente da recepção", new Vector3(353.179f, -1396.523f, 32.505f), 287.6f);
         internal static readonly Point PatientArrivalIdle = new Point("Espera inicial de atendimento",
             new Vector3(355.009f, -1397.545f, 32.505f), 225.2f, animationOptions: StandingIdles);
@@ -75,7 +64,7 @@ namespace lumen_sante.Gameplay
         private static readonly Point WardDCorridorDoor = new Point("Porta Corredor Ward D",
             new Vector3(370.618f, -1417.772f, 32.505f), 118.9f, isDoor: true);
         private static readonly Point DiagnosticOne = new Point("Corredor Diagnóstico II",
-            HospitalShift.DiagnosticOneCorridor.Position, HospitalShift.DiagnosticOneCorridor.Heading, passingDistance: 0.55f);
+            HospitalShift.DiagnosticOneCorridor.Position, HospitalShift.DiagnosticOneCorridor.Heading, passingDistance: 1.1f);
         private static readonly Point DiagnosticTwo = new Point("Corredor Diagnóstico III",
             HospitalShift.DiagnosticTwoCorridor.Position, HospitalShift.DiagnosticTwoCorridor.Heading);
         private static readonly Point[] DiagnosticCorridors = { DiagnosticOne, DiagnosticTwo };
@@ -89,8 +78,6 @@ namespace lumen_sante.Gameplay
             new Vector3(347.250f, -1404.635f, 32.505f), 45.7f, animationOptions: StandingIdles);
         private static readonly Point StaffIdleTwo = new Point("Espera de funcionários II",
             new Vector3(352.590f, -1400.428f, 32.505f), 224.1f, animationOptions: StandingIdles);
-        private static readonly Point StaffIdleThree = new Point("Espera de funcionários III",
-            new Vector3(354.490f, -1414.101f, 32.505f), 101.7f, animationOptions: StandingIdles);
         private static readonly Point StaffIdleFour = new Point("Espera de funcionários IV",
             new Vector3(360.041f, -1390.688f, 32.505f), 107.3f, animationOptions: StandingIdles);
         private static readonly Point StaffIdleFive = new Point("Espera de funcionários V",
@@ -113,12 +100,6 @@ namespace lumen_sante.Gameplay
             new Vector3(356.473f, -1401.265f, 32.505f), 223.8f, animationOptions: StandingIdles);
         private static readonly Point StaffLean = new Point("Lean de funcionários",
             new Vector3(358.547f, -1399.434f, 32.505f), 227.7f, animationOptions: LeanAndStandingIdles);
-        private static readonly Point StaffLoungeCenter = new Point("Centro do Descanso Médico",
-            new Vector3(353.520f, -1412.827f, 32.505f), 117.5f);
-        private static readonly Point StaffLoungeSeat = new Point("Cadeira do Descanso Médico",
-            new Vector3(351.575f, -1414.910f, 32.505f), 286.1f,
-            animation: (HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip, 10000, true),
-            seatedAnchor: new Vector3(351.047f, -1415.062f, 31.955f));
         private static readonly Point GeneralIdleOne = new Point("Espera geral I",
             new Vector3(354.987f, -1389.733f, 32.505f), 1.5f, animationOptions: StandingIdles);
         private static readonly Point GeneralIdleTwo = new Point("Espera geral II",
@@ -131,12 +112,6 @@ namespace lumen_sante.Gameplay
             new Vector3(363.613f, -1401.591f, 31.955f), 46.6f);
         private static readonly Point PatientSeatThree = PatientSeat("Assento de pacientes III",
             new Vector3(370.567f, -1421.237f, 31.955f), 56.3f);
-        private static readonly Point PatientSeatFour = PatientSeat("Assento de pacientes IV",
-            new Vector3(360.779f, -1414.400f, 31.955f), 326.2f);
-        private static readonly Point PatientSeatFive = PatientSeat("Assento de pacientes V",
-            new Vector3(357.292f, -1411.317f, 31.987f), 321.8f);
-        private static readonly Point PatientSeatSix = PatientSeat("Assento de pacientes VI",
-            new Vector3(359.624f, -1408.367f, 31.955f), 141.1f);
         private static readonly Point PatientSeatSeven = PatientSeat("Assento de pacientes VII",
             new Vector3(361.650f, -1384.607f, 31.955f), 229.6f);
         private static readonly Point PatientSeatEight = PatientSeat("Assento de pacientes VIII",
@@ -159,13 +134,9 @@ namespace lumen_sante.Gameplay
             ConnectBothWays(HospitalDoor, HospitalDoorInside);
             ConnectBothWays(HospitalDoorInside, Reception);
             ConnectBothWays(ReceptionFront, PatientArrivalIdle);
-            ConnectBothWays(TriageDoor, TriageCenter);
-            ConnectBothWays(TriageCenter, TriageDesk);
-            ConnectBothWays(TriageCenter, TriageLean);
-            ConnectBothWays(TriageDoor, Junction);
             ConnectBothWays(DiagnosticOne, DiagnosticOneHallTurn);
-            ConnectBothWays(DiagnosticOneHallTurn, DiagnosticLowerHallTurn);
-            ConnectBothWays(DiagnosticLowerHallTurn, TriageCenter);
+            ConnectBothWays(DiagnosticOne, DiagnosticTwo);
+            ConnectBothWays(DiagnosticOneHallTurn, Junction);
             ConnectBothWays(Junction, Reception);
             ConnectBothWays(Reception, GroundFloorElevator);
             ConnectBothWays(GroundFloorElevator, StairwayOne);
@@ -193,9 +164,6 @@ namespace lumen_sante.Gameplay
             ConnectBothWays(Reception, SodaMachineTwo);
             ConnectBothWays(Reception, StaffIdleOne);
             ConnectBothWays(Reception, StaffIdleTwo);
-            ConnectBothWays(Junction, StaffLoungeCenter);
-            ConnectBothWays(StaffLoungeCenter, StaffIdleThree);
-            ConnectBothWays(StaffLoungeCenter, StaffLoungeSeat);
             ConnectBothWays(WardAFront, StaffIdleFour);
             ConnectBothWays(RecoveryCenter, StaffIdleFive);
             ConnectBothWays(RecoveryCenter, StaffIdleSix);
@@ -212,9 +180,6 @@ namespace lumen_sante.Gameplay
             ConnectBothWays(Junction, PatientSeatOne);
             ConnectBothWays(WardACorridor, PatientSeatTwo);
             ConnectBothWays(DiagnosticTwo, PatientSeatThree);
-            ConnectBothWays(TriageDoor, PatientSeatFour);
-            ConnectBothWays(TriageDoor, PatientSeatFive);
-            ConnectBothWays(TriageDoor, PatientSeatSix);
             ConnectBothWays(DoctorAFront, PatientSeatSeven);
             ConnectBothWays(DoctorACenter, PatientSeatEight);
             ConnectBothWays(DoctorAReception, PatientSeatNine);
@@ -222,17 +187,23 @@ namespace lumen_sante.Gameplay
             ExamRoutes = new HospitalExamRoutes(path, WardCCorridorDoor, WardBCorridorDoor);
         }
 
-        internal Point AddConsultationChairAccess(int index, Vector3 position, float heading,
+        internal (Point Access, Point Chair) AddConsultationAccess(int index, Vector3 position, float heading,
             (Vector3 Position, float Heading) inside)
         {
             var door = new Point("Acesso da cadeira " + index, inside.Position, inside.Heading);
             double radians = heading * Math.PI / 180;
             var approach = new Vector3(position.X - (float)Math.Sin(radians) * 0.65f,
                 position.Y + (float)Math.Cos(radians) * 0.65f, inside.Position.Z);
-            var chair = new Point("Cadeira da consulta " + index, approach, heading);
+            var chair = new Point("Cadeira da consulta " + index, approach, heading, passingDistance: 1.8f);
             ConnectBothWays(DiagnosticCorridors[index], door);
-            ConnectBothWays(door, chair);
-            return chair;
+            return (door, chair);
+        }
+
+        internal Point AddWardBedAccess(string name, Vector3 approach, float heading)
+        {
+            var bed = new Point("Aproximação da " + name, approach, heading);
+            ConnectBothWays(RecoveryCenter, bed);
+            return bed;
         }
 
         internal Point AddWaitingBench(int index, Vector3 position, float heading)
@@ -251,8 +222,8 @@ namespace lumen_sante.Gameplay
             (Vector3 Position, float Heading) inside)
         {
             var start = new Point("Maca da " + name, new Vector3(table.X, table.Y, tableExit.Z), heading);
-            var exit = new Point("Aproximação da maca da " + name, tableExit, heading, passingDistance: 0.5f);
-            var roomExit = new Point("Saída da " + name, inside.Position, inside.Heading, passingDistance: 0.55f);
+            var exit = new Point("Aproximação da maca da " + name, tableExit, heading, passingDistance: 1f);
+            var roomExit = new Point("Saída da " + name, inside.Position, inside.Heading, passingDistance: 1.1f);
             ConnectBothWays(start, exit);
             ConnectBothWays(exit, roomExit);
             ConnectBothWays(roomExit, DiagnosticCorridors[roomIndex]);
@@ -263,20 +234,20 @@ namespace lumen_sante.Gameplay
         {
             var publicAnchors = new[] { SodaMachineOne, SodaMachineTwo, GeneralIdleOne, GeneralIdleTwo }
                 .Concat(upstairsAnchors.General).ToArray();
-            var staffAnchors = new[] { TriageDesk, TriageLean, DoctorASeatApproach, RecoveryAnchor, StaffLoungeSeat,
-                StaffIdleOne, StaffIdleTwo, StaffIdleThree, StaffIdleFour, StaffIdleFive, StaffIdleSix, StaffIdleSeven,
+            var staffAnchors = new[] { DoctorASeatApproach, RecoveryAnchor,
+                StaffIdleOne, StaffIdleTwo, StaffIdleFour, StaffIdleFive, StaffIdleSix, StaffIdleSeven,
                 StaffIdleEight, StaffIdleNine, StaffIdleTen, StaffIdleEleven, StaffIdleTwelve, StaffIdleThirteen,
                 StaffLean, DoctorAIdle, HospitalUpperFloor.OfficeTwoStaffSeat };
             Point[] staffDestinations = staffAnchors.Concat(publicAnchors).ToArray();
             Point[] patientAnchors = new[] { PatientSeatOne, PatientSeatTwo, PatientSeatThree,
-                PatientSeatFour, PatientSeatFive, PatientSeatSix, PatientSeatSeven, PatientSeatEight, PatientSeatNine,
+                PatientSeatSeven, PatientSeatEight, PatientSeatNine,
                 PatientSeatTen, PatientIdle }.Concat(upstairsAnchors.Patient).ToArray();
             Point[] patientDestinations = patientAnchors.Concat(publicAnchors).ToArray();
 
             var staffStarts = new[] { DoctorASeatApproach, HospitalUpperFloor.OfficeTwoStaffSeat,
-                TriageDesk, TriageLean, StaffIdleOne, StaffIdleTwo, StaffIdleFour, DoctorAIdle };
+                StaffIdleOne, StaffIdleTwo, StaffIdleFour, DoctorAIdle };
             var patientStarts = new[] { SodaMachineOne, SodaMachineTwo, GeneralIdleOne, GeneralIdleTwo,
-                PatientSeatOne, PatientSeatFive }.Concat(upstairsAnchors.Patient.Where((point, index) => index % 4 == 0));
+                PatientSeatOne, PatientSeatTwo }.Concat(upstairsAnchors.Patient.Where((point, index) => index % 4 == 0));
             return new AmbientPopulation(path, settings, staffDestinations, patientDestinations,
                 staffStarts.Concat(staffAnchors).Distinct().ToArray(),
                 patientStarts.Concat(patientAnchors).Distinct().ToArray());

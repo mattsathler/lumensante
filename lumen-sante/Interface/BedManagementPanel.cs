@@ -27,20 +27,22 @@ namespace lumen_sante.Interface
 
         private const int VisibleTimelineRows = 4;
         private const int VisibleExamRows = 8;
+        private const int VisiblePatientRows = 6;
         private static readonly RectangleF ExamScrollUp = new RectangleF(1008, 105, 32, 26);
         private static readonly RectangleF ExamScrollDown = new RectangleF(1048, 105, 32, 26);
         private const int CursorScrollUp = 241;
         private const int CursorScrollDown = 242;
         private enum Page { Rooms, Patients, Exams, Records }
-        private enum RecordTab { Exams, Notes, History, Treatments }
+        private enum RecordTab { Exams, Notes, History, Treatments, Medications }
 
         private static readonly int ProcessId = Process.GetCurrentProcess().Id;
         private static readonly string[] PageNames = { "Rooms", "Pacientes", "Exames" };
-        private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico médico", "Tratamentos" };
-        private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams" };
+        private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico médico", "Tratamentos", "Medicamentos" };
+        private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams", "exams" };
         private static readonly string[] SidebarIcons = { "bed", "person", "exams" };
         private static readonly RectangleF CloseButton = new RectangleF(1056, 22, 40, 38);
         private static readonly RectangleF ReturnButton = new RectangleF(218, 24, 40, 38);
+        private static readonly RectangleF CallPatientButton = new RectangleF(555, 24, 230, 38);
         private static readonly RectangleF NotesField = new RectangleF(218, 275, 878, 276);
         private static readonly RectangleF TimelineArea = new RectangleF(218, 259, 878, 308);
         private static readonly RectangleF TimelineUp = new RectangleF(1008, 271, 32, 26);
@@ -59,6 +61,7 @@ namespace lumen_sante.Interface
 
         private readonly Func<bool> roomOccupied;
         private readonly Func<string> roomPatientName;
+        private readonly Func<ExamOrders, bool> canCallPatient;
         private string roomName;
         private readonly TerminalKeyboard keyboard = new TerminalKeyboard();
         private ExamOrders admission;
@@ -76,8 +79,12 @@ namespace lumen_sante.Interface
         private bool editingNotes;
         private int timelineOffset;
         private int examOffset;
+        private int patientOffset;
         private int treatmentOffset;
+        private int medicationOffset;
         internal event Action<ExamOrders, string> TreatmentSelected;
+        internal event Action<ExamOrders, MedicationClass> MedicationToggled;
+        internal event Action<ExamOrders> PatientCallRequested;
 
         private bool subscribed;
         private FocusWatch focusWatch;
@@ -87,6 +94,8 @@ namespace lumen_sante.Interface
         private readonly Texture[] recordTextures = new Texture[RecordIcons.Length];
         private Texture closeTexture;
         private Texture returnTexture;
+        private Texture leftTexture;
+        private Texture rightTexture;
         private bool cursorInitialized;
 
         private static RectangleF NavigationRow(int index) => new RectangleF(12, 187 + index * 48, 170, 42);
@@ -95,14 +104,23 @@ namespace lumen_sante.Interface
 
         private static RectangleF PatientRow(int index) => new RectangleF(218, 162 + index * 66, 878, 58);
 
-        private static RectangleF RecordTabBounds(int index) => new RectangleF(218 + index * 178, 208, 172, 36);
+        private static RectangleF RecordTabBounds(int index) => new RectangleF(218 + index * 176, 208, 170, 36);
 
         private static RectangleF TimelineRow(int index) => new RectangleF(235, 308 + index * 61, 844, 55);
 
-        internal BedManagementPanel(Func<bool> roomOccupied, Func<string> roomPatientName)
+        private bool IsTabAvailable(RecordTab tab) => admission != null &&
+            (admission.Room != "Recepção" || (tab != RecordTab.Treatments && tab != RecordTab.Medications));
+
+        private static bool ScrollPressed(int control) =>
+            NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, control) ||
+            NativeFunction.Natives.IS_DISABLED_CONTROL_JUST_PRESSED<bool>(FrontendGroup, control) ||
+            NativeFunction.Natives.IS_DISABLED_CONTROL_JUST_PRESSED<bool>(InputGroup, control);
+
+        internal BedManagementPanel(Func<bool> roomOccupied, Func<string> roomPatientName, Func<ExamOrders, bool> canCallPatient)
         {
             this.roomOccupied = roomOccupied;
             this.roomPatientName = roomPatientName;
+            this.canCallPatient = canCallPatient;
         }
 
         internal void Open(string diagnosticRoom)
@@ -132,6 +150,8 @@ namespace lumen_sante.Interface
 
                 closeTexture = LoadIcon("close", Ink);
                 returnTexture = LoadIcon("return", Ink);
+                leftTexture = LoadIcon("left", Ink);
+                rightTexture = LoadIcon("right", Ink);
             }
 
             page = Page.Rooms;
@@ -244,6 +264,7 @@ namespace lumen_sante.Interface
                 (NativeFunction.Natives.GET_CONTROL_NORMAL<float>(FrontendGroup, CursorX) * resolution.Width - left) / scale,
                 (NativeFunction.Natives.GET_CONTROL_NORMAL<float>(FrontendGroup, CursorY) * resolution.Height - top) / scale);
             bool click = NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, CursorAccept);
+            if (!IsTabAvailable(recordTab)) recordTab = RecordTab.Exams;
 
             if (Game.IsKeyDown(Keys.Escape) ||
                 (!editingNotes && NativeFunction.Natives.IS_DISABLED_CONTROL_JUST_PRESSED<bool>(InputGroup, FrontendCancel)) ||
@@ -269,21 +290,26 @@ namespace lumen_sante.Interface
                 }
             }
 
-            if (page == Page.Exams && selectedExam < 0)
+            if (page == Page.Patients || (page == Page.Exams && selectedExam < 0))
             {
-                int maxOffset = Math.Max(0, examLines.Length - VisibleExamRows);
-                bool overList = new RectangleF(218, 179, 878, 392).Contains(cursor);
+                bool showingPatients = page == Page.Patients;
+                int offset = showingPatients ? patientOffset : examOffset;
+                int maxOffset = Math.Max(0, showingPatients
+                    ? patients.Length - VisiblePatientRows : examLines.Length - VisibleExamRows);
+                bool overList = new RectangleF(218, 162, 878, 409).Contains(cursor);
                 if ((click && ExamScrollUp.Contains(cursor)) || Game.IsKeyDown(Keys.PageUp) ||
-                    (overList && NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, CursorScrollUp)))
+                    (overList && ScrollPressed(CursorScrollUp)))
                 {
-                    examOffset = Math.Max(0, examOffset - 1);
+                    offset = Math.Max(0, offset - 1);
                 }
                 else if ((click && ExamScrollDown.Contains(cursor)) || Game.IsKeyDown(Keys.PageDown) ||
-                    (overList && NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, CursorScrollDown)))
+                    (overList && ScrollPressed(CursorScrollDown)))
                 {
-                    examOffset = Math.Min(maxOffset, examOffset + 1);
+                    offset = Math.Min(maxOffset, offset + 1);
                 }
-                examOffset = Math.Min(examOffset, maxOffset);
+                offset = Math.Min(offset, maxOffset);
+                if (showingPatients) patientOffset = offset;
+                else examOffset = offset;
             }
             if (page == Page.Records && recordTab == RecordTab.Exams)
             {
@@ -295,6 +321,14 @@ namespace lumen_sante.Interface
                 timelineOffset = treatmentOffset;
                 UpdateTimelineScroll(cursor, click, DiseaseCatalog.Treatments.Count);
                 treatmentOffset = timelineOffset;
+                timelineOffset = saved;
+            }
+            if (page == Page.Records && recordTab == RecordTab.Medications)
+            {
+                int saved = timelineOffset;
+                timelineOffset = medicationOffset;
+                UpdateTimelineScroll(cursor, click, MedicationCatalog.Options.Count);
+                medicationOffset = timelineOffset;
                 timelineOffset = saved;
             }
 
@@ -321,7 +355,10 @@ namespace lumen_sante.Interface
                 admission?.IsInpatient == true, deceased, admission?.Notes,
                 editingNotes ? keyboard.Caret : -1,
                 examLines, timeline, timelineOffset, portraitVisible, returnToRecord,
-                treatmentOffset, admission?.TreatmentDiseaseId, examOffset);
+                treatmentOffset, admission?.TreatmentDiseaseId, examOffset, patientOffset, admission?.IsRecovered == true,
+                admission?.VisitCount ?? 1, medicationOffset,
+                admission?.ActiveMedications(lumen_sante.Gameplay.GameClock.NowMilliseconds) ?? Array.Empty<MedicationClass>(),
+                canCallPatient(admission));
             return true;
         }
 
@@ -374,12 +411,12 @@ namespace lumen_sante.Interface
 
             bool overTimeline = TimelineArea.Contains(cursor);
             if ((click && TimelineUp.Contains(cursor)) || Game.IsKeyDown(Keys.PageUp) ||
-                (overTimeline && NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, CursorScrollUp)))
+                (overTimeline && ScrollPressed(CursorScrollUp)))
             {
                 timelineOffset = Math.Max(0, timelineOffset - 1);
             }
             else if ((click && TimelineDown.Contains(cursor)) || Game.IsKeyDown(Keys.PageDown) ||
-                (overTimeline && NativeFunction.Natives.IS_CONTROL_JUST_PRESSED<bool>(FrontendGroup, CursorScrollDown)))
+                (overTimeline && ScrollPressed(CursorScrollDown)))
             {
                 timelineOffset = Math.Min(maxOffset, timelineOffset + 1);
             }
@@ -389,11 +426,11 @@ namespace lumen_sante.Interface
         {
             if (page == Page.Patients)
             {
-                for (int index = 0; index < patients.Length; index++)
+                for (int index = 0; index < Math.Min(VisiblePatientRows, patients.Length - patientOffset); index++)
                 {
                     if (PatientRow(index).Contains(cursor))
                     {
-                        SelectPatient(patients[index]);
+                        SelectPatient(patients[patientOffset + index]);
                         page = Page.Records;
                         recordTab = RecordTab.Exams;
                         timelineOffset = 0;
@@ -403,6 +440,12 @@ namespace lumen_sante.Interface
             }
             else if (page == Page.Records)
             {
+                if (CallPatientButton.Contains(cursor) && canCallPatient(admission))
+                {
+                    editingNotes = false;
+                    PatientCallRequested?.Invoke(admission);
+                    return;
+                }
                 if (ReturnButton.Contains(cursor))
                 {
                     page = Page.Patients;
@@ -413,7 +456,7 @@ namespace lumen_sante.Interface
 
                 for (int index = 0; index < RecordTabs.Length; index++)
                 {
-                    if (RecordTabBounds(index).Contains(cursor))
+                    if (IsTabAvailable((RecordTab)index) && RecordTabBounds(index).Contains(cursor))
                     {
                         recordTab = (RecordTab)index;
                         editingNotes = false;
@@ -421,7 +464,19 @@ namespace lumen_sante.Interface
                     }
                 }
 
-                if (recordTab == RecordTab.Treatments && admission != null && !deceased)
+                if (recordTab == RecordTab.Medications && IsTabAvailable(recordTab) && !deceased)
+                {
+                    int visible = Math.Min(VisibleTimelineRows, MedicationCatalog.Options.Count - medicationOffset);
+                    for (int index = 0; index < visible; index++)
+                    {
+                        if (TimelineRow(index).Contains(cursor))
+                        {
+                            MedicationToggled?.Invoke(admission, MedicationCatalog.Options[medicationOffset + index].Class);
+                            break;
+                        }
+                    }
+                }
+                else if (recordTab == RecordTab.Treatments && IsTabAvailable(recordTab) && !deceased)
                 {
                     int visible = Math.Min(VisibleTimelineRows, DiseaseCatalog.Treatments.Count - treatmentOffset);
                     for (int index = 0; index < visible; index++)
@@ -539,7 +594,7 @@ namespace lumen_sante.Interface
                     return;
                 }
 
-                Icon(texture, bounds.X + 8, bounds.Y + 7, 24);
+                Icon(texture, bounds.X + (bounds.Width - 24) / 2, bounds.Y + (bounds.Height - 24) / 2, 24);
             }
 
             void Paragraph(string value, float x, float y, int charactersPerLine, float lineHeight = 24)
@@ -591,6 +646,12 @@ namespace lumen_sante.Interface
             {
                 IconButton(ReturnButton, returnTexture, "<");
                 Label("Prontuário", 274, 22, 37, Ink, "Georgia");
+                Label("Atendimento " + current.VisitCount, 820, 32, 17, Muted);
+                if (current.CanCallPatient)
+                {
+                    Fill(CallPatientButton, CallPatientButton.Contains(current.Cursor) ? Highlight : Card);
+                    Label("Chamar paciente", CallPatientButton.X + 18, CallPatientButton.Y + 8, 19, Green);
+                }
             }
             else
             {
@@ -601,7 +662,7 @@ namespace lumen_sante.Interface
 
             bool occupied = current.PatientName != null;
             string patientStatus = current.Deceased ? "Óbito registrado" :
-                current.IsInpatient ? "Internado" : "Em atendimento";
+                current.IsRecovered ? "Recuperado" : current.IsInpatient ? "Internado" : "Em atendimento";
             switch (current.Page)
             {
                 case Page.Rooms:
@@ -625,20 +686,25 @@ namespace lumen_sante.Interface
                     Label(current.DiagnosticRoomOccupied ? "Ocupado" : "Disponível", 915, 276, 17, Green);
                     break;
                 case Page.Patients:
-                    Label("Pacientes internados", 218, 114, 19, Muted);
+                    Label("Pacientes em atendimento", 218, 114, 19, Muted);
                     if (current.Patients.Length == 0)
                     {
-                        Label("Nenhum paciente internado.", 218, 180, 20, Ink);
+                        Label("Nenhum paciente em atendimento.", 218, 180, 20, Ink);
                         break;
                     }
 
-                    for (int index = 0; index < current.Patients.Length; index++)
+                    if (current.PatientOffset > 0) IconButton(ExamScrollUp, leftTexture, "<");
+                    if (current.PatientOffset + VisiblePatientRows < current.Patients.Length)
+                        IconButton(ExamScrollDown, rightTexture, ">");
+                    for (int index = 0; index < Math.Min(VisiblePatientRows, current.Patients.Length - current.PatientOffset); index++)
                     {
-                        PatientEntry patient = current.Patients[index];
+                        PatientEntry patient = current.Patients[current.PatientOffset + index];
                         RectangleF row = PatientRow(index);
                         Box(row, row.Contains(current.Cursor) ? Highlight : Card);
                         Label(patient.Orders.PatientName, 233, row.Y + 18, 19, Ink);
-                        Label(patient.Orders.Room + (patient.Deceased ? " · Óbito registrado" : " · Internado"),
+                        Label(patient.Orders.Room + (patient.Deceased ? " · Óbito registrado" :
+                            patient.Orders.IsRecovered ? " · Recuperado" : patient.Orders.IsInpatient ? " · Internado" :
+                            patient.Orders.Room == "Recepção" ? " · Aguardando atendimento" : " · Em consulta"),
                             585, row.Y + 19, 17, Muted);
                         Label("Prontuário ›", 974, row.Y + 19, 16, Green);
                     }
@@ -692,9 +758,9 @@ namespace lumen_sante.Interface
                     Label("Exame", 232, 150, 15, Muted);
                     Label("Paciente", 585, 150, 15, Muted);
                     Label("Situação", 850, 150, 15, Muted);
-                    if (current.ExamOffset > 0) IconButton(ExamScrollUp, null, "↑");
+                    if (current.ExamOffset > 0) IconButton(ExamScrollUp, leftTexture, "<");
                     if (current.ExamOffset + VisibleExamRows < current.Exams.Length)
-                        IconButton(ExamScrollDown, null, "↓");
+                        IconButton(ExamScrollDown, rightTexture, ">");
                     for (int index = 0; index < Math.Min(VisibleExamRows, current.Exams.Length - current.ExamOffset); index++)
                     {
                         ExamLine exam = current.Exams[current.ExamOffset + index];
@@ -749,6 +815,8 @@ namespace lumen_sante.Interface
 
                     for (int index = 0; index < RecordTabs.Length; index++)
                     {
+                        if (current.Room == "Recepção" &&
+                            ((RecordTab)index == RecordTab.Treatments || (RecordTab)index == RecordTab.Medications)) continue;
                         RectangleF tab = RecordTabBounds(index);
                         bool active = (int)current.RecordTab == index;
                         Fill(tab, active || tab.Contains(current.Cursor) ? Highlight : Card);
@@ -760,13 +828,34 @@ namespace lumen_sante.Interface
                         }
                     }
 
+                    if (current.RecordTab == RecordTab.Medications)
+                    {
+                        Box(TimelineArea, Card);
+                        Label("Receitar ou remover medicação", 235, 272, 21, Ink, "Georgia");
+                        if (current.MedicationOffset > 0) IconButton(TimelineUp, leftTexture, "<");
+                        if (current.MedicationOffset + VisibleTimelineRows < MedicationCatalog.Options.Count)
+                            IconButton(TimelineDown, rightTexture, ">");
+                        int count = Math.Min(VisibleTimelineRows, MedicationCatalog.Options.Count - current.MedicationOffset);
+                        for (int index = 0; index < count; index++)
+                        {
+                            var option = MedicationCatalog.Options[current.MedicationOffset + index];
+                            bool active = current.ActiveMedications.Contains(option.Class);
+                            RectangleF row = TimelineRow(index);
+                            bool enabled = !current.Deceased && (!current.IsRecovered || active);
+                            Fill(row, active || (enabled && row.Contains(current.Cursor)) ? Highlight : Paper);
+                            Label(option.Name, row.X + 12, row.Y + 8, 18, enabled ? Ink : Muted);
+                            Label(active ? "Ativo" : "Inativo", row.X + 12, row.Y + 31, 14, active ? Green : Muted);
+                            if (enabled) Label(active ? "Remover Medicação" : "Receitar", row.Right - 200, row.Y + 18, 16, Green);
+                        }
+                        break;
+                    }
                     if (current.RecordTab == RecordTab.Treatments)
                     {
                         Box(TimelineArea, Card);
                         Label("Selecione um tratamento", 235, 272, 21, Ink, "Georgia");
-                        if (current.TreatmentOffset > 0) IconButton(TimelineUp, null, "↑");
+                        if (current.TreatmentOffset > 0) IconButton(TimelineUp, leftTexture, "<");
                         if (current.TreatmentOffset + VisibleTimelineRows < DiseaseCatalog.Treatments.Count)
-                            IconButton(TimelineDown, null, "↓");
+                            IconButton(TimelineDown, rightTexture, ">");
                         int treatmentCount = Math.Min(VisibleTimelineRows, DiseaseCatalog.Treatments.Count - current.TreatmentOffset);
                         for (int index = 0; index < treatmentCount; index++)
                         {
@@ -816,12 +905,12 @@ namespace lumen_sante.Interface
                     {
                         if (current.TimelineOffset > 0)
                         {
-                            IconButton(TimelineUp, null, "↑");
+                            IconButton(TimelineUp, leftTexture, "<");
                         }
 
                         if (current.TimelineOffset + VisibleTimelineRows < current.Timeline.Length)
                         {
-                            IconButton(TimelineDown, null, "↓");
+                            IconButton(TimelineDown, rightTexture, ">");
                         }
                     }
 
@@ -1011,6 +1100,12 @@ namespace lumen_sante.Interface
             internal readonly bool ReturnToRecord;
             internal readonly int TreatmentOffset;
             internal readonly int ExamOffset;
+            internal readonly int PatientOffset;
+            internal readonly bool IsRecovered;
+            internal readonly int VisitCount;
+            internal readonly int MedicationOffset;
+            internal readonly MedicationClass[] ActiveMedications;
+            internal readonly bool CanCallPatient;
             internal readonly string TreatmentDiseaseId;
 
             internal Frame(Size resolution, float scale, float left, float top, PointF cursor,
@@ -1019,7 +1114,8 @@ namespace lumen_sante.Interface
                 PatientEntry[] patients,
                 bool isInpatient, bool deceased, string notes, int notesCaret,
                 ExamLine[] exams, ExamLine[] timeline, int timelineOffset, bool portraitVisible, bool returnToRecord,
-                int treatmentOffset, string treatmentDiseaseId, int examOffset)
+                int treatmentOffset, string treatmentDiseaseId, int examOffset, int patientOffset, bool isRecovered,
+                int visitCount, int medicationOffset, MedicationClass[] activeMedications, bool canCallPatient)
             {
                 Resolution = resolution;
                 Scale = scale;
@@ -1047,6 +1143,12 @@ namespace lumen_sante.Interface
                 ReturnToRecord = returnToRecord;
                 TreatmentOffset = treatmentOffset;
                 ExamOffset = examOffset;
+                PatientOffset = patientOffset;
+                IsRecovered = isRecovered;
+                VisitCount = visitCount;
+                MedicationOffset = medicationOffset;
+                ActiveMedications = activeMedications;
+                CanCallPatient = canCallPatient;
                 TreatmentDiseaseId = treatmentDiseaseId;
             }
         }

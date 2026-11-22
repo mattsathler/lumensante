@@ -69,7 +69,7 @@ namespace lumen_sante.Gameplay
             if (!patientStarted && (nurseArrived || (nurse.Actor.Actor.Position - pickup.Position).LengthSquared() > 1f))
             {
                 patientStarted = true;
-                if (escortRoute.Length > 0) patientWalk.Start(patient, pickup, escortRoute, teleportOnTimeout: false);
+                if (escortRoute.Length > 0) patientWalk.Start(patient, pickup, escortRoute, teleportOnTimeout: true);
             }
             NativeFunction.Natives.SET_ENTITY_NO_COLLISION_ENTITY(patient, nurse.Actor.Actor, true);
             bool patientArrived = patientStarted && (!patientWalk.IsWalking || patientWalk.Update(patient));
@@ -80,17 +80,16 @@ namespace lumen_sante.Gameplay
             }
             if (!nurseArrived || !patientArrived) return false;
             patient.Tasks.Clear();
-            Release();
             return true;
         }
 
         private void Walk(Point origin, Point[] route)
         {
             if (route.Length == 0) return;
-            walker.Start(nurse.Actor.Actor, origin, route, teleportOnTimeout: false);
+            walker.Start(nurse.Actor.Actor, origin, route, teleportOnTimeout: true);
         }
 
-        internal void Release()
+        internal void Release(bool stopPatient = true)
         {
             if (released) return;
             released = true;
@@ -101,7 +100,7 @@ namespace lumen_sante.Gameplay
             }
             walker.Clear();
             patientWalk.Clear();
-            if (collected && patient.Exists() && patient.IsAlive) patient.Tasks.Clear();
+            if (stopPatient && collected && patient.Exists() && patient.IsAlive) patient.Tasks.Clear();
         }
     }
 }

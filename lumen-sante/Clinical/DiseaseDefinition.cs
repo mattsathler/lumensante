@@ -10,7 +10,7 @@ namespace lumen_sante.Clinical
         internal DiseaseDefinition(string id, int selectionWeight, int minimumStageDurationMilliseconds,
             int maximumStageDurationMilliseconds,
             DiseaseStage[] stages, double worseningRisk, double treatmentSuccessRate,
-            string name, string treatmentName,
+            string name, string treatmentName, bool requiresSpecificTreatment, MedicationEffect[] medicationEffects,
             params (string Prompt, Func<int, string[]> Answers)[] questionDefinitions)
         {
             if (selectionWeight <= 0 || minimumStageDurationMilliseconds <= 0 ||
@@ -22,6 +22,13 @@ namespace lumen_sante.Clinical
             Id = id;
             Name = name;
             TreatmentName = treatmentName;
+            RequiresSpecificTreatment = requiresSpecificTreatment;
+            if (requiresSpecificTreatment && string.IsNullOrWhiteSpace(treatmentName))
+                throw new ArgumentException("Tratamento específico obrigatório: " + id);
+            if (medicationEffects == null || medicationEffects.Any(effect => effect == null) ||
+                medicationEffects.Select(effect => effect.Medication).Distinct().Count() != medicationEffects.Length)
+                throw new ArgumentException("Efeitos de medicamentos inválidos: " + id);
+            MedicationEffects = Array.AsReadOnly((MedicationEffect[])medicationEffects.Clone());
             if (double.IsNaN(worseningRisk) || worseningRisk < 0 || worseningRisk > 1 ||
                 double.IsNaN(treatmentSuccessRate) || treatmentSuccessRate < 0 || treatmentSuccessRate > 1)
             {
@@ -58,6 +65,8 @@ namespace lumen_sante.Clinical
         internal string Id { get; }
         internal string Name { get; }
         internal string TreatmentName { get; }
+        internal bool RequiresSpecificTreatment { get; }
+        internal System.Collections.Generic.IReadOnlyList<MedicationEffect> MedicationEffects { get; }
         internal string TreatmentLabel => TreatmentName + " para " + Name;
 
         internal (double Improvement, double Worsening) Chances(int severityIndex, bool correctTreatment)
@@ -68,6 +77,26 @@ namespace lumen_sante.Clinical
             double worsening = WorseningRisk * (0.15d + 1.15d * severity);
             double total = Math.Max(1d, improvement + worsening);
             return (improvement / total, worsening / total);
+        }
+
+        internal int Evolve(int riskLevel, bool correctTreatment,
+            System.Collections.Generic.IEnumerable<MedicationClass> medications, Random random)
+        {
+            if (riskLevel < 0 || riskLevel > Stages.Count) throw new ArgumentOutOfRangeException(nameof(riskLevel));
+            if (riskLevel == 0 || riskLevel == Stages.Count) return riskLevel;
+            bool effectiveTreatment = RequiresSpecificTreatment && correctTreatment;
+            var effects = MedicationEffects.Where(effect => medications.Contains(effect.Medication)).ToArray();
+            var chances = Chances(riskLevel - 1, effectiveTreatment);
+            double severity = (double)(riskLevel - 1) / (TerminalIndex - 1);
+            double improvement = Math.Max(chances.Improvement,
+                effects.Select(effect => effect.ImprovementChance * (1d - 0.7d * severity)).DefaultIfEmpty(0d).Max());
+            double worsening = chances.Worsening * effects.Select(effect => effect.WorseningMultiplier).DefaultIfEmpty(1d).Min();
+            double total = Math.Max(1d, improvement + worsening);
+            double roll = random.NextDouble();
+            bool canRecover = RequiresSpecificTreatment ? effectiveTreatment : effects.Length > 0;
+            if (roll < improvement / total) return Math.Max(canRecover ? 0 : 1, riskLevel - 1);
+            if (roll < (improvement + worsening) / total) return Math.Min(Stages.Count, riskLevel + 1);
+            return riskLevel;
         }
         internal double WorseningRisk { get; }
         internal double TreatmentSuccessRate { get; }
