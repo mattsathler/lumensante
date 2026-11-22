@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,24 +58,13 @@
     <Compile Include="Clinical\DiseaseDefinition.cs" />
     <Compile Include="Clinical\Medication.cs" />
     <Compile Include="Clinical\DiseaseCatalog.cs" />
-    <Compile Include="Clinical\PatientDialogue.cs" />
+    <Compile Include="Clinical\DiseaseCatalogLoader.cs" />
+    <Compile Include="Clinical\DiseaseJsonReader.cs" />
     <Compile Include="Gameplay\PatientNames.cs" />
     <Compile Include="Gameplay\PatientAppearance.cs" />
     <EmbeddedResource Include="Data\*.json" />
+    <EmbeddedResource Include="Data\Doencas\*.json" />
     <EmbeddedResource Include="Assets\*.png" />
-    <Compile Include="Clinical\LungCancerCase.cs" />
-    <Compile Include="Clinical\FluLikeCase.cs" />
-    <Compile Include="Clinical\SymptomaticCaseFactory.cs" />
-    <Compile Include="Clinical\AllergicRhinitisCase.cs" />
-    <Compile Include="Clinical\ViralPharyngitisCase.cs" />
-    <Compile Include="Clinical\AcuteSinusitisCase.cs" />
-    <Compile Include="Clinical\CystitisCase.cs" />
-    <Compile Include="Clinical\TensionHeadacheCase.cs" />
-    <Compile Include="Clinical\AcidRefluxCase.cs" />
-    <Compile Include="Clinical\GastroenteritisCase.cs" />
-    <Compile Include="Clinical\ContactDermatitisCase.cs" />
-    <Compile Include="Clinical\MuscleStrainCase.cs" />
-    <Compile Include="Clinical\AcuteBronchospasmCase.cs" />
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />
     <Compile Include="Gameplay\HospitalPath.cs" />

@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace lumen_sante.Clinical
 {
     internal sealed class DiseaseDefinition
     {
         private readonly (string Prompt, string[][] AnswersByStage)[] questions;
+        private readonly Dictionary<string, string[]> examFindings;
 
         internal DiseaseDefinition(string id, int selectionWeight, int minimumStageDurationMilliseconds,
             int maximumStageDurationMilliseconds,
             DiseaseStage[] stages, double worseningRisk, double treatmentSuccessRate,
             string name, string treatmentName, bool requiresSpecificTreatment, MedicationEffect[] medicationEffects,
+            string[] tags, Dictionary<string, string[]> exams,
             params (string Prompt, Func<int, string[]> Answers)[] questionDefinitions)
         {
             if (selectionWeight <= 0 || minimumStageDurationMilliseconds <= 0 ||
@@ -20,6 +23,8 @@ namespace lumen_sante.Clinical
             }
 
             Id = id;
+            Tags = Array.AsReadOnly((string[])tags.Clone());
+            examFindings = exams.ToDictionary(pair => pair.Key, pair => (string[])pair.Value.Clone(), StringComparer.Ordinal);
             Name = name;
             TreatmentName = treatmentName;
             RequiresSpecificTreatment = requiresSpecificTreatment;
@@ -63,6 +68,13 @@ namespace lumen_sante.Clinical
         }
 
         internal string Id { get; }
+        internal IReadOnlyList<string> Tags { get; }
+        internal string FindExamResult(string examId, int stage)
+        {
+            string[] findings;
+            return stage >= 1 && stage <= Stages.Count && examFindings.TryGetValue(examId, out findings)
+                ? findings[stage - 1] : null;
+        }
         internal string Name { get; }
         internal string TreatmentName { get; }
         internal bool RequiresSpecificTreatment { get; }

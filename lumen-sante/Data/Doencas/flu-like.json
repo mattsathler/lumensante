@@ -1,0 +1,1493 @@
+{
+    "SchemaVersion":  1,
+    "Id":  "flu-like",
+    "Name":  "Síndrome gripal",
+    "SelectionWeight":  20,
+    "Tags":  [
+                 "respiratoria",
+                 "tosse",
+                 "infecciosa"
+             ],
+    "MinimumStageDurationMilliseconds":  3600000,
+    "MaximumStageDurationMilliseconds":  7200000,
+    "WorseningRisk":  0.18,
+    "TreatmentSuccessRate":  0,
+    "RequiresSpecificTreatment":  false,
+    "TreatmentName":  null,
+    "MedicationEffects":  [
+                              {
+                                  "Medication":  "Analgesic",
+                                  "ImprovementChance":  0.65,
+                                  "WorseningMultiplier":  0.85
+                              },
+                              {
+                                  "Medication":  "Antipyretic",
+                                  "ImprovementChance":  0.8,
+                                  "WorseningMultiplier":  0.75
+                              }
+                          ],
+    "Stages":  [
+                   {
+                       "Pulse":  [
+                                     76,
+                                     88
+                                 ],
+                       "Systolic":  [
+                                        112,
+                                        126
+                                    ],
+                       "Diastolic":  [
+                                         70,
+                                         82
+                                     ],
+                       "RespiratoryRate":  [
+                                               14,
+                                               18
+                                           ],
+                       "OxygenSaturation":  [
+                                                97,
+                                                99
+                                            ],
+                       "TemperatureTenths":  [
+                                                 370,
+                                                 383
+                                             ],
+                       "Inspection":  [
+                                          "Alerta, com indisposição leve",
+                                          "Tosse seca ocasional",
+                                          "Sem alteração visível"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     82,
+                                     94
+                                 ],
+                       "Systolic":  [
+                                        110,
+                                        124
+                                    ],
+                       "Diastolic":  [
+                                         68,
+                                         80
+                                     ],
+                       "RespiratoryRate":  [
+                                               16,
+                                               20
+                                           ],
+                       "OxygenSaturation":  [
+                                                96,
+                                                99
+                                            ],
+                       "TemperatureTenths":  [
+                                                 375,
+                                                 387
+                                             ],
+                       "Inspection":  [
+                                          "Cansaço e desconforto",
+                                          "Tosse intermitente",
+                                          "Pele ruborizada"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     88,
+                                     100
+                                 ],
+                       "Systolic":  [
+                                        108,
+                                        122
+                                    ],
+                       "Diastolic":  [
+                                         66,
+                                         80
+                                     ],
+                       "RespiratoryRate":  [
+                                               18,
+                                               22
+                                           ],
+                       "OxygenSaturation":  [
+                                                95,
+                                                98
+                                            ],
+                       "TemperatureTenths":  [
+                                                 378,
+                                                 390
+                                             ],
+                       "Inspection":  [
+                                          "Aspecto abatido",
+                                          "Tosse frequente",
+                                          "Sudorese discreta"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     94,
+                                     106
+                                 ],
+                       "Systolic":  [
+                                        104,
+                                        120
+                                    ],
+                       "Diastolic":  [
+                                         64,
+                                         78
+                                     ],
+                       "RespiratoryRate":  [
+                                               20,
+                                               24
+                                           ],
+                       "OxygenSaturation":  [
+                                                93,
+                                                96
+                                            ],
+                       "TemperatureTenths":  [
+                                                 380,
+                                                 393
+                                             ],
+                       "Inspection":  [
+                                          "Prostração evidente",
+                                          "Respiração acelerada",
+                                          "Sudorese visível"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     100,
+                                     114
+                                 ],
+                       "Systolic":  [
+                                        100,
+                                        116
+                                    ],
+                       "Diastolic":  [
+                                         62,
+                                         74
+                                     ],
+                       "RespiratoryRate":  [
+                                               22,
+                                               26
+                                           ],
+                       "OxygenSaturation":  [
+                                                90,
+                                                94
+                                            ],
+                       "TemperatureTenths":  [
+                                                 382,
+                                                 395
+                                             ],
+                       "Inspection":  [
+                                          "Dificuldade para manter as atividades",
+                                          "Esforço respiratório discreto",
+                                          "Palidez discreta"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     108,
+                                     120
+                                 ],
+                       "Systolic":  [
+                                        94,
+                                        110
+                                    ],
+                       "Diastolic":  [
+                                         58,
+                                         70
+                                     ],
+                       "RespiratoryRate":  [
+                                               24,
+                                               28
+                                           ],
+                       "OxygenSaturation":  [
+                                                87,
+                                                91
+                                            ],
+                       "TemperatureTenths":  [
+                                                 385,
+                                                 398
+                                             ],
+                       "Inspection":  [
+                                          "Prostração intensa",
+                                          "Esforço respiratório em repouso",
+                                          "Palidez evidente"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     114,
+                                     128
+                                 ],
+                       "Systolic":  [
+                                        86,
+                                        102
+                                    ],
+                       "Diastolic":  [
+                                         54,
+                                         66
+                                     ],
+                       "RespiratoryRate":  [
+                                               27,
+                                               31
+                                           ],
+                       "OxygenSaturation":  [
+                                                83,
+                                                88
+                                            ],
+                       "TemperatureTenths":  [
+                                                 387,
+                                                 400
+                                             ],
+                       "Inspection":  [
+                                          "Fala entrecortada e exaustão",
+                                          "Respiração trabalhosa",
+                                          "Extremidades frias"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     122,
+                                     136
+                                 ],
+                       "Systolic":  [
+                                        78,
+                                        94
+                                    ],
+                       "Diastolic":  [
+                                         48,
+                                         60
+                                     ],
+                       "RespiratoryRate":  [
+                                               30,
+                                               35
+                                           ],
+                       "OxygenSaturation":  [
+                                                78,
+                                                84
+                                            ],
+                       "TemperatureTenths":  [
+                                                 390,
+                                                 402
+                                             ],
+                       "Inspection":  [
+                                          "Sonolência e resposta lenta",
+                                          "Esforço respiratório intenso",
+                                          "Lábios azulados"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     128,
+                                     142
+                                 ],
+                       "Systolic":  [
+                                        68,
+                                        84
+                                    ],
+                       "Diastolic":  [
+                                         40,
+                                         54
+                                     ],
+                       "RespiratoryRate":  [
+                                               32,
+                                               38
+                                           ],
+                       "OxygenSaturation":  [
+                                                70,
+                                                79
+                                            ],
+                       "TemperatureTenths":  [
+                                                 392,
+                                                 405
+                                             ],
+                       "Inspection":  [
+                                          "Resposta muito reduzida",
+                                          "Respiração irregular",
+                                          "Cianose evidente"
+                                      ]
+                   },
+                   {
+                       "Pulse":  [
+                                     0,
+                                     0
+                                 ],
+                       "Systolic":  [
+                                        0,
+                                        0
+                                    ],
+                       "Diastolic":  [
+                                         0,
+                                         0
+                                     ],
+                       "RespiratoryRate":  [
+                                               0,
+                                               0
+                                           ],
+                       "OxygenSaturation":  [
+                                                0,
+                                                0
+                                            ],
+                       "TemperatureTenths":  [
+                                                 0,
+                                                 0
+                                             ],
+                       "Inspection":  [
+                                          "Sem resposta",
+                                          "Sem movimento respiratório",
+                                          "—"
+                                      ]
+                   }
+               ],
+    "Questions":  [
+                      {
+                          "Prompt":  "Como você está se sentindo?",
+                          "AnswersByStage":  [
+                                                 [
+                                                     "Estou tossindo e com o corpo dolorido. Tenho dormido mal por causa disso.",
+                                                     "Estou tossindo e com o corpo dolorido. Perdi o apetite junto com esses sintomas.",
+                                                     "Estou tossindo e com o corpo dolorido. Sinto o corpo quente em alguns momentos.",
+                                                     "Estou tossindo e com o corpo dolorido. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Estou tossindo e com o corpo dolorido. Minha garganta ficou mais sensível.",
+                                                     "Minha garganta arranha e estou cansado. Tenho dormido mal por causa disso.",
+                                                     "Minha garganta arranha e estou cansado. Perdi o apetite junto com esses sintomas.",
+                                                     "Minha garganta arranha e estou cansado. Sinto o corpo quente em alguns momentos.",
+                                                     "Minha garganta arranha e estou cansado. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Minha garganta arranha e estou cansado. Minha garganta ficou mais sensível.",
+                                                     "Comecei a sentir calafrios e dor de cabeça. Tenho dormido mal por causa disso.",
+                                                     "Comecei a sentir calafrios e dor de cabeça. Perdi o apetite junto com esses sintomas.",
+                                                     "Comecei a sentir calafrios e dor de cabeça. Sinto o corpo quente em alguns momentos.",
+                                                     "Comecei a sentir calafrios e dor de cabeça. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Comecei a sentir calafrios e dor de cabeça. Minha garganta ficou mais sensível.",
+                                                     "Meu nariz está entupido e me sinto indisposto. Tenho dormido mal por causa disso.",
+                                                     "Meu nariz está entupido e me sinto indisposto. Perdi o apetite junto com esses sintomas.",
+                                                     "Meu nariz está entupido e me sinto indisposto. Sinto o corpo quente em alguns momentos.",
+                                                     "Meu nariz está entupido e me sinto indisposto. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Meu nariz está entupido e me sinto indisposto. Minha garganta ficou mais sensível."
+                                                 ],
+                                                 [
+                                                     "A tosse está atrapalhando meu sono. Tenho dormido mal por causa disso.",
+                                                     "A tosse está atrapalhando meu sono. Perdi o apetite junto com esses sintomas.",
+                                                     "A tosse está atrapalhando meu sono. Sinto o corpo quente em alguns momentos.",
+                                                     "A tosse está atrapalhando meu sono. Minha cabeça pesa quando tento me concentrar.",
+                                                     "A tosse está atrapalhando meu sono. Minha garganta ficou mais sensível.",
+                                                     "As dores no corpo ficaram mais fortes. Tenho dormido mal por causa disso.",
+                                                     "As dores no corpo ficaram mais fortes. Perdi o apetite junto com esses sintomas.",
+                                                     "As dores no corpo ficaram mais fortes. Sinto o corpo quente em alguns momentos.",
+                                                     "As dores no corpo ficaram mais fortes. Minha cabeça pesa quando tento me concentrar.",
+                                                     "As dores no corpo ficaram mais fortes. Minha garganta ficou mais sensível.",
+                                                     "Estou alternando frio e suor. Tenho dormido mal por causa disso.",
+                                                     "Estou alternando frio e suor. Perdi o apetite junto com esses sintomas.",
+                                                     "Estou alternando frio e suor. Sinto o corpo quente em alguns momentos.",
+                                                     "Estou alternando frio e suor. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Estou alternando frio e suor. Minha garganta ficou mais sensível.",
+                                                     "Minha garganta dói quando engulo e estou sem energia. Tenho dormido mal por causa disso.",
+                                                     "Minha garganta dói quando engulo e estou sem energia. Perdi o apetite junto com esses sintomas.",
+                                                     "Minha garganta dói quando engulo e estou sem energia. Sinto o corpo quente em alguns momentos.",
+                                                     "Minha garganta dói quando engulo e estou sem energia. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Minha garganta dói quando engulo e estou sem energia. Minha garganta ficou mais sensível."
+                                                 ],
+                                                 [
+                                                     "Até levantar da cama me deixa cansado. Tenho dormido mal por causa disso.",
+                                                     "Até levantar da cama me deixa cansado. Perdi o apetite junto com esses sintomas.",
+                                                     "Até levantar da cama me deixa cansado. Sinto o corpo quente em alguns momentos.",
+                                                     "Até levantar da cama me deixa cansado. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Até levantar da cama me deixa cansado. Minha garganta ficou mais sensível.",
+                                                     "Estou com dor de cabeça e pouca vontade de comer. Tenho dormido mal por causa disso.",
+                                                     "Estou com dor de cabeça e pouca vontade de comer. Perdi o apetite junto com esses sintomas.",
+                                                     "Estou com dor de cabeça e pouca vontade de comer. Sinto o corpo quente em alguns momentos.",
+                                                     "Estou com dor de cabeça e pouca vontade de comer. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Estou com dor de cabeça e pouca vontade de comer. Minha garganta ficou mais sensível.",
+                                                     "A tosse está vindo em crises mais frequentes. Tenho dormido mal por causa disso.",
+                                                     "A tosse está vindo em crises mais frequentes. Perdi o apetite junto com esses sintomas.",
+                                                     "A tosse está vindo em crises mais frequentes. Sinto o corpo quente em alguns momentos.",
+                                                     "A tosse está vindo em crises mais frequentes. Minha cabeça pesa quando tento me concentrar.",
+                                                     "A tosse está vindo em crises mais frequentes. Minha garganta ficou mais sensível.",
+                                                     "Meu corpo parece pesado e não consigo trabalhar. Tenho dormido mal por causa disso.",
+                                                     "Meu corpo parece pesado e não consigo trabalhar. Perdi o apetite junto com esses sintomas.",
+                                                     "Meu corpo parece pesado e não consigo trabalhar. Sinto o corpo quente em alguns momentos.",
+                                                     "Meu corpo parece pesado e não consigo trabalhar. Minha cabeça pesa quando tento me concentrar.",
+                                                     "Meu corpo parece pesado e não consigo trabalhar. Minha garganta ficou mais sensível."
+                                                 ],
+                                                 [
+                                                     "Fico ofegante quando caminho pelo quarto. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Fico ofegante quando caminho pelo quarto. Minha respiração exige mais esforço que antes.",
+                                                     "Fico ofegante quando caminho pelo quarto. Estou comendo menos desde que piorei.",
+                                                     "Fico ofegante quando caminho pelo quarto. Preciso descansar depois de qualquer esforço.",
+                                                     "Fico ofegante quando caminho pelo quarto. O sono deixou de me dar sensação de descanso.",
+                                                     "A tosse está acompanhada de muito cansaço. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "A tosse está acompanhada de muito cansaço. Minha respiração exige mais esforço que antes.",
+                                                     "A tosse está acompanhada de muito cansaço. Estou comendo menos desde que piorei.",
+                                                     "A tosse está acompanhada de muito cansaço. Preciso descansar depois de qualquer esforço.",
+                                                     "A tosse está acompanhada de muito cansaço. O sono deixou de me dar sensação de descanso.",
+                                                     "Estou suando e sem forças para fazer minhas coisas. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Estou suando e sem forças para fazer minhas coisas. Minha respiração exige mais esforço que antes.",
+                                                     "Estou suando e sem forças para fazer minhas coisas. Estou comendo menos desde que piorei.",
+                                                     "Estou suando e sem forças para fazer minhas coisas. Preciso descansar depois de qualquer esforço.",
+                                                     "Estou suando e sem forças para fazer minhas coisas. O sono deixou de me dar sensação de descanso.",
+                                                     "Minha respiração parece mais rápida que antes. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Minha respiração parece mais rápida que antes. Minha respiração exige mais esforço que antes.",
+                                                     "Minha respiração parece mais rápida que antes. Estou comendo menos desde que piorei.",
+                                                     "Minha respiração parece mais rápida que antes. Preciso descansar depois de qualquer esforço.",
+                                                     "Minha respiração parece mais rápida que antes. O sono deixou de me dar sensação de descanso."
+                                                 ],
+                                                 [
+                                                     "Preciso parar para respirar depois de poucos passos. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Preciso parar para respirar depois de poucos passos. Minha respiração exige mais esforço que antes.",
+                                                     "Preciso parar para respirar depois de poucos passos. Estou comendo menos desde que piorei.",
+                                                     "Preciso parar para respirar depois de poucos passos. Preciso descansar depois de qualquer esforço.",
+                                                     "Preciso parar para respirar depois de poucos passos. O sono deixou de me dar sensação de descanso.",
+                                                     "Não tenho força para ficar muito tempo em pé. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Não tenho força para ficar muito tempo em pé. Minha respiração exige mais esforço que antes.",
+                                                     "Não tenho força para ficar muito tempo em pé. Estou comendo menos desde que piorei.",
+                                                     "Não tenho força para ficar muito tempo em pé. Preciso descansar depois de qualquer esforço.",
+                                                     "Não tenho força para ficar muito tempo em pé. O sono deixou de me dar sensação de descanso.",
+                                                     "A tosse continua e meu peito está incomodando. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "A tosse continua e meu peito está incomodando. Minha respiração exige mais esforço que antes.",
+                                                     "A tosse continua e meu peito está incomodando. Estou comendo menos desde que piorei.",
+                                                     "A tosse continua e meu peito está incomodando. Preciso descansar depois de qualquer esforço.",
+                                                     "A tosse continua e meu peito está incomodando. O sono deixou de me dar sensação de descanso.",
+                                                     "Meu apetite sumiu e até conversar me cansa. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Meu apetite sumiu e até conversar me cansa. Minha respiração exige mais esforço que antes.",
+                                                     "Meu apetite sumiu e até conversar me cansa. Estou comendo menos desde que piorei.",
+                                                     "Meu apetite sumiu e até conversar me cansa. Preciso descansar depois de qualquer esforço.",
+                                                     "Meu apetite sumiu e até conversar me cansa. O sono deixou de me dar sensação de descanso."
+                                                 ],
+                                                 [
+                                                     "Sinto falta de ar mesmo sentado. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Sinto falta de ar mesmo sentado. Minha respiração exige mais esforço que antes.",
+                                                     "Sinto falta de ar mesmo sentado. Estou comendo menos desde que piorei.",
+                                                     "Sinto falta de ar mesmo sentado. Preciso descansar depois de qualquer esforço.",
+                                                     "Sinto falta de ar mesmo sentado. O sono deixou de me dar sensação de descanso.",
+                                                     "Estou exausto e respirar ficou trabalhoso. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Estou exausto e respirar ficou trabalhoso. Minha respiração exige mais esforço que antes.",
+                                                     "Estou exausto e respirar ficou trabalhoso. Estou comendo menos desde que piorei.",
+                                                     "Estou exausto e respirar ficou trabalhoso. Preciso descansar depois de qualquer esforço.",
+                                                     "Estou exausto e respirar ficou trabalhoso. O sono deixou de me dar sensação de descanso.",
+                                                     "A tosse me deixa sem fôlego por bastante tempo. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "A tosse me deixa sem fôlego por bastante tempo. Minha respiração exige mais esforço que antes.",
+                                                     "A tosse me deixa sem fôlego por bastante tempo. Estou comendo menos desde que piorei.",
+                                                     "A tosse me deixa sem fôlego por bastante tempo. Preciso descansar depois de qualquer esforço.",
+                                                     "A tosse me deixa sem fôlego por bastante tempo. O sono deixou de me dar sensação de descanso.",
+                                                     "Minha fraqueza piorou e estou ficando tonto. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Minha fraqueza piorou e estou ficando tonto. Minha respiração exige mais esforço que antes.",
+                                                     "Minha fraqueza piorou e estou ficando tonto. Estou comendo menos desde que piorei.",
+                                                     "Minha fraqueza piorou e estou ficando tonto. Preciso descansar depois de qualquer esforço.",
+                                                     "Minha fraqueza piorou e estou ficando tonto. O sono deixou de me dar sensação de descanso."
+                                                 ],
+                                                 [
+                                                     "Preciso interromper as frases para respirar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Preciso interromper as frases para respirar. Minha respiração exige mais esforço que antes.",
+                                                     "Preciso interromper as frases para respirar. Estou comendo menos desde que piorei.",
+                                                     "Preciso interromper as frases para respirar. Preciso descansar depois de qualquer esforço.",
+                                                     "Preciso interromper as frases para respirar. O sono deixou de me dar sensação de descanso.",
+                                                     "Falar me deixa muito cansado. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Falar me deixa muito cansado. Minha respiração exige mais esforço que antes.",
+                                                     "Falar me deixa muito cansado. Estou comendo menos desde que piorei.",
+                                                     "Falar me deixa muito cansado. Preciso descansar depois de qualquer esforço.",
+                                                     "Falar me deixa muito cansado. O sono deixou de me dar sensação de descanso.",
+                                                     "Estou com as mãos frias e falta de ar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Estou com as mãos frias e falta de ar. Minha respiração exige mais esforço que antes.",
+                                                     "Estou com as mãos frias e falta de ar. Estou comendo menos desde que piorei.",
+                                                     "Estou com as mãos frias e falta de ar. Preciso descansar depois de qualquer esforço.",
+                                                     "Estou com as mãos frias e falta de ar. O sono deixou de me dar sensação de descanso.",
+                                                     "Parece que meu corpo ficou sem nenhuma força. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Parece que meu corpo ficou sem nenhuma força. Minha respiração exige mais esforço que antes.",
+                                                     "Parece que meu corpo ficou sem nenhuma força. Estou comendo menos desde que piorei.",
+                                                     "Parece que meu corpo ficou sem nenhuma força. Preciso descansar depois de qualquer esforço.",
+                                                     "Parece que meu corpo ficou sem nenhuma força. O sono deixou de me dar sensação de descanso."
+                                                 ],
+                                                 [
+                                                     "Estou muito sonolento e quase sem ar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Estou muito sonolento e quase sem ar. Minha respiração exige mais esforço que antes.",
+                                                     "Estou muito sonolento e quase sem ar. Estou comendo menos desde que piorei.",
+                                                     "Estou muito sonolento e quase sem ar. Preciso descansar depois de qualquer esforço.",
+                                                     "Estou muito sonolento e quase sem ar. O sono deixou de me dar sensação de descanso.",
+                                                     "Tenho dificuldade para acompanhar a conversa. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Tenho dificuldade para acompanhar a conversa. Minha respiração exige mais esforço que antes.",
+                                                     "Tenho dificuldade para acompanhar a conversa. Estou comendo menos desde que piorei.",
+                                                     "Tenho dificuldade para acompanhar a conversa. Preciso descansar depois de qualquer esforço.",
+                                                     "Tenho dificuldade para acompanhar a conversa. O sono deixou de me dar sensação de descanso.",
+                                                     "Até uma frase curta exige esforço. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Até uma frase curta exige esforço. Minha respiração exige mais esforço que antes.",
+                                                     "Até uma frase curta exige esforço. Estou comendo menos desde que piorei.",
+                                                     "Até uma frase curta exige esforço. Preciso descansar depois de qualquer esforço.",
+                                                     "Até uma frase curta exige esforço. O sono deixou de me dar sensação de descanso.",
+                                                     "Minha respiração ficou pesada e estou confuso. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Minha respiração ficou pesada e estou confuso. Minha respiração exige mais esforço que antes.",
+                                                     "Minha respiração ficou pesada e estou confuso. Estou comendo menos desde que piorei.",
+                                                     "Minha respiração ficou pesada e estou confuso. Preciso descansar depois de qualquer esforço.",
+                                                     "Minha respiração ficou pesada e estou confuso. O sono deixou de me dar sensação de descanso."
+                                                 ],
+                                                 [
+                                                     "Mal consigo... falar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Mal consigo... falar. Minha respiração exige mais esforço que antes.",
+                                                     "Mal consigo... falar. Estou comendo menos desde que piorei.",
+                                                     "Mal consigo... falar. Preciso descansar depois de qualquer esforço.",
+                                                     "Mal consigo... falar. O sono deixou de me dar sensação de descanso.",
+                                                     "Estou quase... sem ar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Estou quase... sem ar. Minha respiração exige mais esforço que antes.",
+                                                     "Estou quase... sem ar. Estou comendo menos desde que piorei.",
+                                                     "Estou quase... sem ar. Preciso descansar depois de qualquer esforço.",
+                                                     "Estou quase... sem ar. O sono deixou de me dar sensação de descanso.",
+                                                     "Não consigo... ficar acordado. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Não consigo... ficar acordado. Minha respiração exige mais esforço que antes.",
+                                                     "Não consigo... ficar acordado. Estou comendo menos desde que piorei.",
+                                                     "Não consigo... ficar acordado. Preciso descansar depois de qualquer esforço.",
+                                                     "Não consigo... ficar acordado. O sono deixou de me dar sensação de descanso.",
+                                                     "Preciso de ajuda... para respirar. A fraqueza está atrapalhando até os cuidados pessoais.",
+                                                     "Preciso de ajuda... para respirar. Minha respiração exige mais esforço que antes.",
+                                                     "Preciso de ajuda... para respirar. Estou comendo menos desde que piorei.",
+                                                     "Preciso de ajuda... para respirar. Preciso descansar depois de qualquer esforço.",
+                                                     "Preciso de ajuda... para respirar. O sono deixou de me dar sensação de descanso."
+                                                 ]
+                                             ]
+                      },
+                      {
+                          "Prompt":  "Os sintomas começaram há quanto tempo?",
+                          "AnswersByStage":  [
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ],
+                                                 [
+                                                     "Tudo começou de repente há dois dias. No começo, achei que fosse só cansaço.",
+                                                     "Tudo começou de repente há dois dias. A irritação na garganta apareceu junto.",
+                                                     "Tudo começou de repente há dois dias. Também comecei a espirrar nessa época.",
+                                                     "Tudo começou de repente há dois dias. As dores no corpo vieram nas primeiras horas.",
+                                                     "Tudo começou de repente há dois dias. Foi quando meu apetite diminuiu.",
+                                                     "Ontem acordei com essas dores e a tosse. No começo, achei que fosse só cansaço.",
+                                                     "Ontem acordei com essas dores e a tosse. A irritação na garganta apareceu junto.",
+                                                     "Ontem acordei com essas dores e a tosse. Também comecei a espirrar nessa época.",
+                                                     "Ontem acordei com essas dores e a tosse. As dores no corpo vieram nas primeiras horas.",
+                                                     "Ontem acordei com essas dores e a tosse. Foi quando meu apetite diminuiu.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. No começo, achei que fosse só cansaço.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. A irritação na garganta apareceu junto.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Também comecei a espirrar nessa época.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. As dores no corpo vieram nas primeiras horas.",
+                                                     "Fiquei indisposto de uma hora para outra nesta semana. Foi quando meu apetite diminuiu.",
+                                                     "Comecei a me sentir mal na noite de anteontem. No começo, achei que fosse só cansaço.",
+                                                     "Comecei a me sentir mal na noite de anteontem. A irritação na garganta apareceu junto.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Também comecei a espirrar nessa época.",
+                                                     "Comecei a me sentir mal na noite de anteontem. As dores no corpo vieram nas primeiras horas.",
+                                                     "Comecei a me sentir mal na noite de anteontem. Foi quando meu apetite diminuiu."
+                                                 ]
+                                             ]
+                      },
+                      {
+                          "Prompt":  "Sente falta de ar?",
+                          "AnswersByStage":  [
+                                                 [
+                                                     "Em repouso respiro normalmente. Melhora quando paro para descansar.",
+                                                     "Em repouso respiro normalmente. Consigo conversar sem precisar fazer pausas.",
+                                                     "Em repouso respiro normalmente. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Em repouso respiro normalmente. Minha respiração não está fazendo barulho.",
+                                                     "Em repouso respiro normalmente. É um cansaço diferente do meu habitual.",
+                                                     "Fico cansado quando caminho depressa. Melhora quando paro para descansar.",
+                                                     "Fico cansado quando caminho depressa. Consigo conversar sem precisar fazer pausas.",
+                                                     "Fico cansado quando caminho depressa. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Fico cansado quando caminho depressa. Minha respiração não está fazendo barulho.",
+                                                     "Fico cansado quando caminho depressa. É um cansaço diferente do meu habitual.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Melhora quando paro para descansar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Consigo conversar sem precisar fazer pausas.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Ainda consigo beber água sem interromper para respirar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Minha respiração não está fazendo barulho.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. É um cansaço diferente do meu habitual.",
+                                                     "Subir escadas está mais cansativo que de costume. Melhora quando paro para descansar.",
+                                                     "Subir escadas está mais cansativo que de costume. Consigo conversar sem precisar fazer pausas.",
+                                                     "Subir escadas está mais cansativo que de costume. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Subir escadas está mais cansativo que de costume. Minha respiração não está fazendo barulho.",
+                                                     "Subir escadas está mais cansativo que de costume. É um cansaço diferente do meu habitual."
+                                                 ],
+                                                 [
+                                                     "Em repouso respiro normalmente. Melhora quando paro para descansar.",
+                                                     "Em repouso respiro normalmente. Consigo conversar sem precisar fazer pausas.",
+                                                     "Em repouso respiro normalmente. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Em repouso respiro normalmente. Minha respiração não está fazendo barulho.",
+                                                     "Em repouso respiro normalmente. É um cansaço diferente do meu habitual.",
+                                                     "Fico cansado quando caminho depressa. Melhora quando paro para descansar.",
+                                                     "Fico cansado quando caminho depressa. Consigo conversar sem precisar fazer pausas.",
+                                                     "Fico cansado quando caminho depressa. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Fico cansado quando caminho depressa. Minha respiração não está fazendo barulho.",
+                                                     "Fico cansado quando caminho depressa. É um cansaço diferente do meu habitual.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Melhora quando paro para descansar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Consigo conversar sem precisar fazer pausas.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Ainda consigo beber água sem interromper para respirar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Minha respiração não está fazendo barulho.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. É um cansaço diferente do meu habitual.",
+                                                     "Subir escadas está mais cansativo que de costume. Melhora quando paro para descansar.",
+                                                     "Subir escadas está mais cansativo que de costume. Consigo conversar sem precisar fazer pausas.",
+                                                     "Subir escadas está mais cansativo que de costume. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Subir escadas está mais cansativo que de costume. Minha respiração não está fazendo barulho.",
+                                                     "Subir escadas está mais cansativo que de costume. É um cansaço diferente do meu habitual."
+                                                 ],
+                                                 [
+                                                     "Em repouso respiro normalmente. Melhora quando paro para descansar.",
+                                                     "Em repouso respiro normalmente. Consigo conversar sem precisar fazer pausas.",
+                                                     "Em repouso respiro normalmente. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Em repouso respiro normalmente. Minha respiração não está fazendo barulho.",
+                                                     "Em repouso respiro normalmente. É um cansaço diferente do meu habitual.",
+                                                     "Fico cansado quando caminho depressa. Melhora quando paro para descansar.",
+                                                     "Fico cansado quando caminho depressa. Consigo conversar sem precisar fazer pausas.",
+                                                     "Fico cansado quando caminho depressa. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Fico cansado quando caminho depressa. Minha respiração não está fazendo barulho.",
+                                                     "Fico cansado quando caminho depressa. É um cansaço diferente do meu habitual.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Melhora quando paro para descansar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Consigo conversar sem precisar fazer pausas.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Ainda consigo beber água sem interromper para respirar.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. Minha respiração não está fazendo barulho.",
+                                                     "A tosse me faz parar um pouco para recuperar o fôlego. É um cansaço diferente do meu habitual.",
+                                                     "Subir escadas está mais cansativo que de costume. Melhora quando paro para descansar.",
+                                                     "Subir escadas está mais cansativo que de costume. Consigo conversar sem precisar fazer pausas.",
+                                                     "Subir escadas está mais cansativo que de costume. Ainda consigo beber água sem interromper para respirar.",
+                                                     "Subir escadas está mais cansativo que de costume. Minha respiração não está fazendo barulho.",
+                                                     "Subir escadas está mais cansativo que de costume. É um cansaço diferente do meu habitual."
+                                                 ],
+                                                 [
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Também sinto o peito cansado.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Estou tentando respirar mais fundo.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. A posição sentada está mais confortável para mim.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Isso piorou junto com a fraqueza.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Também sinto o peito cansado.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Estou tentando respirar mais fundo.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. A posição sentada está mais confortável para mim.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Isso piorou junto com a fraqueza.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Preciso parar no meio das tarefas para respirar. Também sinto o peito cansado.",
+                                                     "Preciso parar no meio das tarefas para respirar. Estou tentando respirar mais fundo.",
+                                                     "Preciso parar no meio das tarefas para respirar. A posição sentada está mais confortável para mim.",
+                                                     "Preciso parar no meio das tarefas para respirar. Isso piorou junto com a fraqueza.",
+                                                     "Preciso parar no meio das tarefas para respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Também sinto o peito cansado.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Estou tentando respirar mais fundo.",
+                                                     "A tosse vem e demora para meu fôlego voltar. A posição sentada está mais confortável para mim.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Isso piorou junto com a fraqueza.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ],
+                                                 [
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Também sinto o peito cansado.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Estou tentando respirar mais fundo.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. A posição sentada está mais confortável para mim.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Isso piorou junto com a fraqueza.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Também sinto o peito cansado.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Estou tentando respirar mais fundo.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. A posição sentada está mais confortável para mim.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Isso piorou junto com a fraqueza.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Preciso parar no meio das tarefas para respirar. Também sinto o peito cansado.",
+                                                     "Preciso parar no meio das tarefas para respirar. Estou tentando respirar mais fundo.",
+                                                     "Preciso parar no meio das tarefas para respirar. A posição sentada está mais confortável para mim.",
+                                                     "Preciso parar no meio das tarefas para respirar. Isso piorou junto com a fraqueza.",
+                                                     "Preciso parar no meio das tarefas para respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Também sinto o peito cansado.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Estou tentando respirar mais fundo.",
+                                                     "A tosse vem e demora para meu fôlego voltar. A posição sentada está mais confortável para mim.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Isso piorou junto com a fraqueza.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ],
+                                                 [
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Também sinto o peito cansado.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Estou tentando respirar mais fundo.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. A posição sentada está mais confortável para mim.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Isso piorou junto com a fraqueza.",
+                                                     "Sim, até uma caminhada curta me deixa ofegante. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Também sinto o peito cansado.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Estou tentando respirar mais fundo.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. A posição sentada está mais confortável para mim.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Isso piorou junto com a fraqueza.",
+                                                     "Estou respirando mais rápido mesmo sem esforço. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Preciso parar no meio das tarefas para respirar. Também sinto o peito cansado.",
+                                                     "Preciso parar no meio das tarefas para respirar. Estou tentando respirar mais fundo.",
+                                                     "Preciso parar no meio das tarefas para respirar. A posição sentada está mais confortável para mim.",
+                                                     "Preciso parar no meio das tarefas para respirar. Isso piorou junto com a fraqueza.",
+                                                     "Preciso parar no meio das tarefas para respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Também sinto o peito cansado.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Estou tentando respirar mais fundo.",
+                                                     "A tosse vem e demora para meu fôlego voltar. A posição sentada está mais confortável para mim.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Isso piorou junto com a fraqueza.",
+                                                     "A tosse vem e demora para meu fôlego voltar. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ],
+                                                 [
+                                                     "Mesmo deitado está difícil respirar. Também sinto o peito cansado.",
+                                                     "Mesmo deitado está difícil respirar. Estou tentando respirar mais fundo.",
+                                                     "Mesmo deitado está difícil respirar. A posição sentada está mais confortável para mim.",
+                                                     "Mesmo deitado está difícil respirar. Isso piorou junto com a fraqueza.",
+                                                     "Mesmo deitado está difícil respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Tenho que interromper as frases para buscar ar. Também sinto o peito cansado.",
+                                                     "Tenho que interromper as frases para buscar ar. Estou tentando respirar mais fundo.",
+                                                     "Tenho que interromper as frases para buscar ar. A posição sentada está mais confortável para mim.",
+                                                     "Tenho que interromper as frases para buscar ar. Isso piorou junto com a fraqueza.",
+                                                     "Tenho que interromper as frases para buscar ar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou sem fôlego até quando fico parado. Também sinto o peito cansado.",
+                                                     "Estou sem fôlego até quando fico parado. Estou tentando respirar mais fundo.",
+                                                     "Estou sem fôlego até quando fico parado. A posição sentada está mais confortável para mim.",
+                                                     "Estou sem fôlego até quando fico parado. Isso piorou junto com a fraqueza.",
+                                                     "Estou sem fôlego até quando fico parado. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Minha respiração exige esforço o tempo todo. Também sinto o peito cansado.",
+                                                     "Minha respiração exige esforço o tempo todo. Estou tentando respirar mais fundo.",
+                                                     "Minha respiração exige esforço o tempo todo. A posição sentada está mais confortável para mim.",
+                                                     "Minha respiração exige esforço o tempo todo. Isso piorou junto com a fraqueza.",
+                                                     "Minha respiração exige esforço o tempo todo. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ],
+                                                 [
+                                                     "Mesmo deitado está difícil respirar. Também sinto o peito cansado.",
+                                                     "Mesmo deitado está difícil respirar. Estou tentando respirar mais fundo.",
+                                                     "Mesmo deitado está difícil respirar. A posição sentada está mais confortável para mim.",
+                                                     "Mesmo deitado está difícil respirar. Isso piorou junto com a fraqueza.",
+                                                     "Mesmo deitado está difícil respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Tenho que interromper as frases para buscar ar. Também sinto o peito cansado.",
+                                                     "Tenho que interromper as frases para buscar ar. Estou tentando respirar mais fundo.",
+                                                     "Tenho que interromper as frases para buscar ar. A posição sentada está mais confortável para mim.",
+                                                     "Tenho que interromper as frases para buscar ar. Isso piorou junto com a fraqueza.",
+                                                     "Tenho que interromper as frases para buscar ar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou sem fôlego até quando fico parado. Também sinto o peito cansado.",
+                                                     "Estou sem fôlego até quando fico parado. Estou tentando respirar mais fundo.",
+                                                     "Estou sem fôlego até quando fico parado. A posição sentada está mais confortável para mim.",
+                                                     "Estou sem fôlego até quando fico parado. Isso piorou junto com a fraqueza.",
+                                                     "Estou sem fôlego até quando fico parado. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Minha respiração exige esforço o tempo todo. Também sinto o peito cansado.",
+                                                     "Minha respiração exige esforço o tempo todo. Estou tentando respirar mais fundo.",
+                                                     "Minha respiração exige esforço o tempo todo. A posição sentada está mais confortável para mim.",
+                                                     "Minha respiração exige esforço o tempo todo. Isso piorou junto com a fraqueza.",
+                                                     "Minha respiração exige esforço o tempo todo. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ],
+                                                 [
+                                                     "Mesmo deitado está difícil respirar. Também sinto o peito cansado.",
+                                                     "Mesmo deitado está difícil respirar. Estou tentando respirar mais fundo.",
+                                                     "Mesmo deitado está difícil respirar. A posição sentada está mais confortável para mim.",
+                                                     "Mesmo deitado está difícil respirar. Isso piorou junto com a fraqueza.",
+                                                     "Mesmo deitado está difícil respirar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Tenho que interromper as frases para buscar ar. Também sinto o peito cansado.",
+                                                     "Tenho que interromper as frases para buscar ar. Estou tentando respirar mais fundo.",
+                                                     "Tenho que interromper as frases para buscar ar. A posição sentada está mais confortável para mim.",
+                                                     "Tenho que interromper as frases para buscar ar. Isso piorou junto com a fraqueza.",
+                                                     "Tenho que interromper as frases para buscar ar. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Estou sem fôlego até quando fico parado. Também sinto o peito cansado.",
+                                                     "Estou sem fôlego até quando fico parado. Estou tentando respirar mais fundo.",
+                                                     "Estou sem fôlego até quando fico parado. A posição sentada está mais confortável para mim.",
+                                                     "Estou sem fôlego até quando fico parado. Isso piorou junto com a fraqueza.",
+                                                     "Estou sem fôlego até quando fico parado. Eu não tinha esse esforço para respirar antes de adoecer.",
+                                                     "Minha respiração exige esforço o tempo todo. Também sinto o peito cansado.",
+                                                     "Minha respiração exige esforço o tempo todo. Estou tentando respirar mais fundo.",
+                                                     "Minha respiração exige esforço o tempo todo. A posição sentada está mais confortável para mim.",
+                                                     "Minha respiração exige esforço o tempo todo. Isso piorou junto com a fraqueza.",
+                                                     "Minha respiração exige esforço o tempo todo. Eu não tinha esse esforço para respirar antes de adoecer."
+                                                 ]
+                                             ]
+                      },
+                      {
+                          "Prompt":  "Como está a tosse?",
+                          "AnswersByStage":  [
+                                                 [
+                                                     "É uma tosse seca que irrita minha garganta. Não percebi sangue quando tossi.",
+                                                     "É uma tosse seca que irrita minha garganta. Minha voz ficou rouca desde que isso começou.",
+                                                     "É uma tosse seca que irrita minha garganta. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "É uma tosse seca que irrita minha garganta. Também tenho tido espirros.",
+                                                     "É uma tosse seca que irrita minha garganta. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Tosse sem catarro, principalmente quando falo. Não percebi sangue quando tossi.",
+                                                     "Tosse sem catarro, principalmente quando falo. Minha voz ficou rouca desde que isso começou.",
+                                                     "Tosse sem catarro, principalmente quando falo. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Tosse sem catarro, principalmente quando falo. Também tenho tido espirros.",
+                                                     "Tosse sem catarro, principalmente quando falo. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Não percebi sangue quando tossi.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Também tenho tido espirros.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Minha garganta arranha antes de começar a tossir. Não percebi sangue quando tossi.",
+                                                     "Minha garganta arranha antes de começar a tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Minha garganta arranha antes de começar a tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Minha garganta arranha antes de começar a tossir. Também tenho tido espirros.",
+                                                     "Minha garganta arranha antes de começar a tossir. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "É uma tosse seca que irrita minha garganta. Não percebi sangue quando tossi.",
+                                                     "É uma tosse seca que irrita minha garganta. Minha voz ficou rouca desde que isso começou.",
+                                                     "É uma tosse seca que irrita minha garganta. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "É uma tosse seca que irrita minha garganta. Também tenho tido espirros.",
+                                                     "É uma tosse seca que irrita minha garganta. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Tosse sem catarro, principalmente quando falo. Não percebi sangue quando tossi.",
+                                                     "Tosse sem catarro, principalmente quando falo. Minha voz ficou rouca desde que isso começou.",
+                                                     "Tosse sem catarro, principalmente quando falo. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Tosse sem catarro, principalmente quando falo. Também tenho tido espirros.",
+                                                     "Tosse sem catarro, principalmente quando falo. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Não percebi sangue quando tossi.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Também tenho tido espirros.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Minha garganta arranha antes de começar a tossir. Não percebi sangue quando tossi.",
+                                                     "Minha garganta arranha antes de começar a tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Minha garganta arranha antes de começar a tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Minha garganta arranha antes de começar a tossir. Também tenho tido espirros.",
+                                                     "Minha garganta arranha antes de começar a tossir. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "É uma tosse seca que irrita minha garganta. Não percebi sangue quando tossi.",
+                                                     "É uma tosse seca que irrita minha garganta. Minha voz ficou rouca desde que isso começou.",
+                                                     "É uma tosse seca que irrita minha garganta. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "É uma tosse seca que irrita minha garganta. Também tenho tido espirros.",
+                                                     "É uma tosse seca que irrita minha garganta. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Tosse sem catarro, principalmente quando falo. Não percebi sangue quando tossi.",
+                                                     "Tosse sem catarro, principalmente quando falo. Minha voz ficou rouca desde que isso começou.",
+                                                     "Tosse sem catarro, principalmente quando falo. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Tosse sem catarro, principalmente quando falo. Também tenho tido espirros.",
+                                                     "Tosse sem catarro, principalmente quando falo. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Não percebi sangue quando tossi.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Também tenho tido espirros.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Minha garganta arranha antes de começar a tossir. Não percebi sangue quando tossi.",
+                                                     "Minha garganta arranha antes de começar a tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Minha garganta arranha antes de começar a tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Minha garganta arranha antes de começar a tossir. Também tenho tido espirros.",
+                                                     "Minha garganta arranha antes de começar a tossir. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "É uma tosse seca que irrita minha garganta. Não percebi sangue quando tossi.",
+                                                     "É uma tosse seca que irrita minha garganta. Minha voz ficou rouca desde que isso começou.",
+                                                     "É uma tosse seca que irrita minha garganta. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "É uma tosse seca que irrita minha garganta. Também tenho tido espirros.",
+                                                     "É uma tosse seca que irrita minha garganta. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Tosse sem catarro, principalmente quando falo. Não percebi sangue quando tossi.",
+                                                     "Tosse sem catarro, principalmente quando falo. Minha voz ficou rouca desde que isso começou.",
+                                                     "Tosse sem catarro, principalmente quando falo. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Tosse sem catarro, principalmente quando falo. Também tenho tido espirros.",
+                                                     "Tosse sem catarro, principalmente quando falo. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Não percebi sangue quando tossi.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Também tenho tido espirros.",
+                                                     "A tosse vem em acessos e atrapalha o sono. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Minha garganta arranha antes de começar a tossir. Não percebi sangue quando tossi.",
+                                                     "Minha garganta arranha antes de começar a tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Minha garganta arranha antes de começar a tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Minha garganta arranha antes de começar a tossir. Também tenho tido espirros.",
+                                                     "Minha garganta arranha antes de começar a tossir. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "A tosse ficou mais forte e me deixa exausto. Não percebi sangue quando tossi.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Também tenho tido espirros.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Sinto o peito incomodar durante as crises. Não percebi sangue quando tossi.",
+                                                     "Sinto o peito incomodar durante as crises. Minha voz ficou rouca desde que isso começou.",
+                                                     "Sinto o peito incomodar durante as crises. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Sinto o peito incomodar durante as crises. Também tenho tido espirros.",
+                                                     "Sinto o peito incomodar durante as crises. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Não percebi sangue quando tossi.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Também tenho tido espirros.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse piorou junto com a falta de ar. Não percebi sangue quando tossi.",
+                                                     "A tosse piorou junto com a falta de ar. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse piorou junto com a falta de ar. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse piorou junto com a falta de ar. Também tenho tido espirros.",
+                                                     "A tosse piorou junto com a falta de ar. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "A tosse ficou mais forte e me deixa exausto. Não percebi sangue quando tossi.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Também tenho tido espirros.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Sinto o peito incomodar durante as crises. Não percebi sangue quando tossi.",
+                                                     "Sinto o peito incomodar durante as crises. Minha voz ficou rouca desde que isso começou.",
+                                                     "Sinto o peito incomodar durante as crises. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Sinto o peito incomodar durante as crises. Também tenho tido espirros.",
+                                                     "Sinto o peito incomodar durante as crises. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Não percebi sangue quando tossi.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Também tenho tido espirros.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse piorou junto com a falta de ar. Não percebi sangue quando tossi.",
+                                                     "A tosse piorou junto com a falta de ar. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse piorou junto com a falta de ar. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse piorou junto com a falta de ar. Também tenho tido espirros.",
+                                                     "A tosse piorou junto com a falta de ar. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "A tosse ficou mais forte e me deixa exausto. Não percebi sangue quando tossi.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Também tenho tido espirros.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Sinto o peito incomodar durante as crises. Não percebi sangue quando tossi.",
+                                                     "Sinto o peito incomodar durante as crises. Minha voz ficou rouca desde que isso começou.",
+                                                     "Sinto o peito incomodar durante as crises. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Sinto o peito incomodar durante as crises. Também tenho tido espirros.",
+                                                     "Sinto o peito incomodar durante as crises. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Não percebi sangue quando tossi.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Também tenho tido espirros.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse piorou junto com a falta de ar. Não percebi sangue quando tossi.",
+                                                     "A tosse piorou junto com a falta de ar. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse piorou junto com a falta de ar. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse piorou junto com a falta de ar. Também tenho tido espirros.",
+                                                     "A tosse piorou junto com a falta de ar. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "A tosse ficou mais forte e me deixa exausto. Não percebi sangue quando tossi.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Também tenho tido espirros.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Sinto o peito incomodar durante as crises. Não percebi sangue quando tossi.",
+                                                     "Sinto o peito incomodar durante as crises. Minha voz ficou rouca desde que isso começou.",
+                                                     "Sinto o peito incomodar durante as crises. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Sinto o peito incomodar durante as crises. Também tenho tido espirros.",
+                                                     "Sinto o peito incomodar durante as crises. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Não percebi sangue quando tossi.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Também tenho tido espirros.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse piorou junto com a falta de ar. Não percebi sangue quando tossi.",
+                                                     "A tosse piorou junto com a falta de ar. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse piorou junto com a falta de ar. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse piorou junto com a falta de ar. Também tenho tido espirros.",
+                                                     "A tosse piorou junto com a falta de ar. Meu nariz começou a escorrer junto com a tosse."
+                                                 ],
+                                                 [
+                                                     "A tosse ficou mais forte e me deixa exausto. Não percebi sangue quando tossi.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Também tenho tido espirros.",
+                                                     "A tosse ficou mais forte e me deixa exausto. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Sinto o peito incomodar durante as crises. Não percebi sangue quando tossi.",
+                                                     "Sinto o peito incomodar durante as crises. Minha voz ficou rouca desde que isso começou.",
+                                                     "Sinto o peito incomodar durante as crises. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Sinto o peito incomodar durante as crises. Também tenho tido espirros.",
+                                                     "Sinto o peito incomodar durante as crises. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Não percebi sangue quando tossi.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Minha voz ficou rouca desde que isso começou.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Também tenho tido espirros.",
+                                                     "Preciso recuperar o fôlego depois de tossir. Meu nariz começou a escorrer junto com a tosse.",
+                                                     "A tosse piorou junto com a falta de ar. Não percebi sangue quando tossi.",
+                                                     "A tosse piorou junto com a falta de ar. Minha voz ficou rouca desde que isso começou.",
+                                                     "A tosse piorou junto com a falta de ar. Um gole de água alivia a irritação por alguns instantes.",
+                                                     "A tosse piorou junto com a falta de ar. Também tenho tido espirros.",
+                                                     "A tosse piorou junto com a falta de ar. Meu nariz começou a escorrer junto com a tosse."
+                                                 ]
+                                             ]
+                      },
+                      {
+                          "Prompt":  "Está conseguindo comer e beber?",
+                          "AnswersByStage":  [
+                                                 [
+                                                     "Estou com menos apetite, mas consigo beber água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com menos apetite, mas consigo beber água. Comida seca irrita minha garganta.",
+                                                     "Estou com menos apetite, mas consigo beber água. Não tive vômitos até agora.",
+                                                     "Estou com menos apetite, mas consigo beber água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com menos apetite, mas consigo beber água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Alimentos macios são mais confortáveis para engolir.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Comida seca irrita minha garganta.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Não tive vômitos até agora.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Comida seca irrita minha garganta.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Não tive vômitos até agora.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Comida seca irrita minha garganta.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Não tive vômitos até agora.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou com menos apetite, mas consigo beber água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com menos apetite, mas consigo beber água. Comida seca irrita minha garganta.",
+                                                     "Estou com menos apetite, mas consigo beber água. Não tive vômitos até agora.",
+                                                     "Estou com menos apetite, mas consigo beber água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com menos apetite, mas consigo beber água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Alimentos macios são mais confortáveis para engolir.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Comida seca irrita minha garganta.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Não tive vômitos até agora.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Comida seca irrita minha garganta.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Não tive vômitos até agora.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Comida seca irrita minha garganta.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Não tive vômitos até agora.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou com menos apetite, mas consigo beber água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com menos apetite, mas consigo beber água. Comida seca irrita minha garganta.",
+                                                     "Estou com menos apetite, mas consigo beber água. Não tive vômitos até agora.",
+                                                     "Estou com menos apetite, mas consigo beber água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com menos apetite, mas consigo beber água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Alimentos macios são mais confortáveis para engolir.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Comida seca irrita minha garganta.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Não tive vômitos até agora.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Comida seca irrita minha garganta.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Não tive vômitos até agora.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Comida seca irrita minha garganta.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Não tive vômitos até agora.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou com menos apetite, mas consigo beber água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com menos apetite, mas consigo beber água. Comida seca irrita minha garganta.",
+                                                     "Estou com menos apetite, mas consigo beber água. Não tive vômitos até agora.",
+                                                     "Estou com menos apetite, mas consigo beber água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com menos apetite, mas consigo beber água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Alimentos macios são mais confortáveis para engolir.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Comida seca irrita minha garganta.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Não tive vômitos até agora.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "A garganta incomoda ao engolir, então estou comendo menos. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Comida seca irrita minha garganta.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Não tive vômitos até agora.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Não tive muita fome desde que comecei a ficar doente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Comida seca irrita minha garganta.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Não tive vômitos até agora.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Tenho bebido água aos poucos e comido refeições pequenas. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou fraco demais para comer normalmente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou fraco demais para comer normalmente. Comida seca irrita minha garganta.",
+                                                     "Estou fraco demais para comer normalmente. Não tive vômitos até agora.",
+                                                     "Estou fraco demais para comer normalmente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou fraco demais para comer normalmente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Comida seca irrita minha garganta.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Não tive vômitos até agora.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Preciso fazer pausas até para tomar água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Preciso fazer pausas até para tomar água. Comida seca irrita minha garganta.",
+                                                     "Preciso fazer pausas até para tomar água. Não tive vômitos até agora.",
+                                                     "Preciso fazer pausas até para tomar água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Preciso fazer pausas até para tomar água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Estou com a boca seca e sem vontade de comer. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com a boca seca e sem vontade de comer. Comida seca irrita minha garganta.",
+                                                     "Estou com a boca seca e sem vontade de comer. Não tive vômitos até agora.",
+                                                     "Estou com a boca seca e sem vontade de comer. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com a boca seca e sem vontade de comer. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou fraco demais para comer normalmente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou fraco demais para comer normalmente. Comida seca irrita minha garganta.",
+                                                     "Estou fraco demais para comer normalmente. Não tive vômitos até agora.",
+                                                     "Estou fraco demais para comer normalmente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou fraco demais para comer normalmente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Comida seca irrita minha garganta.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Não tive vômitos até agora.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Preciso fazer pausas até para tomar água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Preciso fazer pausas até para tomar água. Comida seca irrita minha garganta.",
+                                                     "Preciso fazer pausas até para tomar água. Não tive vômitos até agora.",
+                                                     "Preciso fazer pausas até para tomar água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Preciso fazer pausas até para tomar água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Estou com a boca seca e sem vontade de comer. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com a boca seca e sem vontade de comer. Comida seca irrita minha garganta.",
+                                                     "Estou com a boca seca e sem vontade de comer. Não tive vômitos até agora.",
+                                                     "Estou com a boca seca e sem vontade de comer. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com a boca seca e sem vontade de comer. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou fraco demais para comer normalmente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou fraco demais para comer normalmente. Comida seca irrita minha garganta.",
+                                                     "Estou fraco demais para comer normalmente. Não tive vômitos até agora.",
+                                                     "Estou fraco demais para comer normalmente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou fraco demais para comer normalmente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Comida seca irrita minha garganta.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Não tive vômitos até agora.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Preciso fazer pausas até para tomar água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Preciso fazer pausas até para tomar água. Comida seca irrita minha garganta.",
+                                                     "Preciso fazer pausas até para tomar água. Não tive vômitos até agora.",
+                                                     "Preciso fazer pausas até para tomar água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Preciso fazer pausas até para tomar água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Estou com a boca seca e sem vontade de comer. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com a boca seca e sem vontade de comer. Comida seca irrita minha garganta.",
+                                                     "Estou com a boca seca e sem vontade de comer. Não tive vômitos até agora.",
+                                                     "Estou com a boca seca e sem vontade de comer. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com a boca seca e sem vontade de comer. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou fraco demais para comer normalmente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou fraco demais para comer normalmente. Comida seca irrita minha garganta.",
+                                                     "Estou fraco demais para comer normalmente. Não tive vômitos até agora.",
+                                                     "Estou fraco demais para comer normalmente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou fraco demais para comer normalmente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Comida seca irrita minha garganta.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Não tive vômitos até agora.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Preciso fazer pausas até para tomar água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Preciso fazer pausas até para tomar água. Comida seca irrita minha garganta.",
+                                                     "Preciso fazer pausas até para tomar água. Não tive vômitos até agora.",
+                                                     "Preciso fazer pausas até para tomar água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Preciso fazer pausas até para tomar água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Estou com a boca seca e sem vontade de comer. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com a boca seca e sem vontade de comer. Comida seca irrita minha garganta.",
+                                                     "Estou com a boca seca e sem vontade de comer. Não tive vômitos até agora.",
+                                                     "Estou com a boca seca e sem vontade de comer. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com a boca seca e sem vontade de comer. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ],
+                                                 [
+                                                     "Estou fraco demais para comer normalmente. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou fraco demais para comer normalmente. Comida seca irrita minha garganta.",
+                                                     "Estou fraco demais para comer normalmente. Não tive vômitos até agora.",
+                                                     "Estou fraco demais para comer normalmente. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou fraco demais para comer normalmente. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Comida seca irrita minha garganta.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Não tive vômitos até agora.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Meu apetite caiu bastante e estou bebendo pouco. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Preciso fazer pausas até para tomar água. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Preciso fazer pausas até para tomar água. Comida seca irrita minha garganta.",
+                                                     "Preciso fazer pausas até para tomar água. Não tive vômitos até agora.",
+                                                     "Preciso fazer pausas até para tomar água. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Preciso fazer pausas até para tomar água. Tenho preferido líquidos mornos porque minha garganta está sensível.",
+                                                     "Estou com a boca seca e sem vontade de comer. Alimentos macios são mais confortáveis para engolir.",
+                                                     "Estou com a boca seca e sem vontade de comer. Comida seca irrita minha garganta.",
+                                                     "Estou com a boca seca e sem vontade de comer. Não tive vômitos até agora.",
+                                                     "Estou com a boca seca e sem vontade de comer. Estou sentindo menos o gosto dos alimentos com o nariz entupido.",
+                                                     "Estou com a boca seca e sem vontade de comer. Tenho preferido líquidos mornos porque minha garganta está sensível."
+                                                 ]
+                                             ]
+                      }
+                  ],
+    "Exams":  {
+                  "mri":  {
+                              "Default":  "Sem lesão torácica focal identificada nesta avaliação.",
+                              "ByStage":  {
+
+                                          }
+                          },
+                  "mri-brain":  {
+                                    "Default":  "Sem lesões focais intracranianas identificadas.",
+                                    "ByStage":  {
+
+                                                }
+                                },
+                  "mri-spine":  {
+                                    "Default":  "Sem alterações focais ou compressão medular identificadas.",
+                                    "ByStage":  {
+
+                                                }
+                                },
+                  "x-ray":  {
+                                "Default":  "Sem opacidades focais ou derrame pleural identificados.",
+                                "ByStage":  {
+                                                "6":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
+                                                "7":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
+                                                "8":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
+                                                "9":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
+                                                "10":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório."
+                                            }
+                            },
+                  "x-ray-ribs":  null,
+                  "x-ray-pelvis":  null,
+                  "x-ray-limbs":  null,
+                  "cardiac":  {
+                                  "Default":  "Ritmo sinusal sem alterações relevantes.",
+                                  "ByStage":  {
+                                                  "6":  "Ritmo sinusal acelerado.",
+                                                  "7":  "Ritmo sinusal acelerado.",
+                                                  "8":  "Ritmo sinusal acelerado.",
+                                                  "9":  "Ritmo sinusal acelerado.",
+                                                  "10":  "Ritmo sinusal acelerado."
+                                              }
+                              },
+                  "hematology":  {
+                                     "Default":  "Hemoglobina preservada; alterações leucocitárias inespecíficas.",
+                                     "ByStage":  {
+
+                                                 }
+                                 },
+                  "renal":  {
+                                "Default":  "Marcadores renais dentro dos intervalos de referência.",
+                                "ByStage":  {
+
+                                            }
+                            },
+                  "hepatic":  {
+                                  "Default":  "Marcadores hepáticos sem alterações relevantes.",
+                                  "ByStage":  {
+
+                                              }
+                              },
+                  "electrolytes":  {
+                                       "Default":  "Eletrólitos dentro dos intervalos de referência.",
+                                       "ByStage":  {
+
+                                                   }
+                                   },
+                  "blood-gas":  {
+                                    "Default":  "Sem alteração relevante da oxigenação arterial.",
+                                    "ByStage":  {
+                                                    "6":  "Oxigenação arterial reduzida.",
+                                                    "7":  "Oxigenação arterial reduzida.",
+                                                    "8":  "Oxigenação arterial reduzida.",
+                                                    "9":  "Oxigenação arterial reduzida.",
+                                                    "10":  "Oxigenação arterial reduzida."
+                                                }
+                                },
+                  "coagulation":  {
+                                      "Default":  "Tempos de coagulação dentro dos intervalos de referência.",
+                                      "ByStage":  {
+
+                                                  }
+                                  },
+                  "glucose":  {
+                                  "Default":  "Glicemia dentro do intervalo de referência.",
+                                  "ByStage":  {
+
+                                              }
+                              },
+                  "crp":  {
+                              "Default":  "Proteína C reativa discretamente elevada, achado inespecífico.",
+                              "ByStage":  {
+
+                                          }
+                          },
+                  "urinalysis":  {
+                                     "Default":  "Sem alterações relevantes na análise de urina.",
+                                     "ByStage":  {
+
+                                                 }
+                                 },
+                  "mri-abdomen":  null,
+                  "mri-pelvis":  null,
+                  "mri-liver":  null,
+                  "mri-kidneys":  null,
+                  "mri-shoulder":  null,
+                  "mri-knee":  null,
+                  "mri-hip":  null,
+                  "mri-cervical":  null,
+                  "mri-lumbar":  null,
+                  "x-ray-skull":  null,
+                  "x-ray-cervical":  null,
+                  "x-ray-thoracic":  null,
+                  "x-ray-lumbar":  null,
+                  "x-ray-shoulder":  null,
+                  "x-ray-knee":  null,
+                  "x-ray-ankle":  null,
+                  "calcium":  null,
+                  "magnesium":  null,
+                  "phosphate":  null,
+                  "urea":  null,
+                  "creatinine":  null,
+                  "albumin":  null,
+                  "bilirubin":  null,
+                  "tsh":  null,
+                  "free-t4":  null,
+                  "ferritin":  null,
+                  "iron":  null,
+                  "lipid-profile":  null,
+                  "hba1c":  null,
+                  "lactate":  null,
+                  "troponin":  null,
+                  "bnp":  null,
+                  "urine-culture":  null,
+                  "blood-culture":  null
+              }
+}
