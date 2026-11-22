@@ -45,13 +45,16 @@ namespace lumen_sante.Clinical
             }
             Method = exam.Method ?? Method;
             Sample = exam.Sample ?? Sample;
+            Physician = exam.RequestedBy ?? Physician;
+            PerformedBy = exam.PerformedBy ?? "Equipe de enfermagem";
         }
 
         internal string Findings { get; }
         internal string Protocol { get; }
         internal string Method { get; }
         internal string Unit { get; }
-        internal string Physician { get; }
+        internal string Physician { get; private set; }
+        internal string PerformedBy { get; }
         internal string Sample { get; }
     }
 }

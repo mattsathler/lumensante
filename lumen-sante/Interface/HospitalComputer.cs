@@ -21,6 +21,7 @@ namespace lumen_sante.Interface
         private readonly Func<bool> canInteractWithPatient;
         private readonly Func<bool> canCallFromChair;
         private bool usingComputer;
+        private bool tabletOpen;
         private bool usingPatientMenu;
         private Ped seatedDoctor;
         private Vector3 seatPosition;
@@ -79,10 +80,24 @@ namespace lumen_sante.Interface
         }
 
         internal bool IsOpen => seatedDoctor != null;
+        internal bool IsTabletOpen => tabletOpen;
+
+        internal void OpenTablet()
+        {
+            if (IsOpen || tabletOpen) return;
+            tabletOpen = true;
+            usingComputer = true;
+            panel.Open("Tablet", false);
+        }
         internal event Action<ExamOrders, MedicationClass> MedicationToggled
         {
             add { panel.MedicationToggled += value; }
             remove { panel.MedicationToggled -= value; }
+        }
+        internal event Action<ExamOrders, ExamOrder> ExamRequested
+        {
+            add { panel.ExamRequested += value; }
+            remove { panel.ExamRequested -= value; }
         }
         internal event Action<ExamOrders, string> TreatmentSelected
         {
@@ -139,6 +154,11 @@ namespace lumen_sante.Interface
 
         internal void Update(Ped doctor, bool playerAvailable)
         {
+            if (tabletOpen)
+            {
+                if (!playerAvailable || !panel.Update()) Close();
+                return;
+            }
             if (!IsOpen)
             {
                 return;
@@ -178,6 +198,7 @@ namespace lumen_sante.Interface
         {
             chairMenu.Visible = false;
             usingComputer = false;
+            tabletOpen = false;
             usingPatientMenu = false;
             patientMenu.Close();
             panel.Close();

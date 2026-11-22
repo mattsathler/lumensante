@@ -10,6 +10,8 @@ namespace lumen_sante.Gameplay
 {
     internal sealed class ExamProcedure
     {
+        internal string NurseName => nurse.Name;
+        internal string NurseId => nurse.StaffId;
         internal enum Result { Running, Completed, Cancelled }
         private enum Stage { ToBed, AtBed, ToEquipment, Exam, Returning, ReturningCancelled, Cancelled }
 

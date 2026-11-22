@@ -142,8 +142,16 @@ namespace lumen_sante.Interface
         internal void OpenInpatient(string room)
         {
             PatientInteraction?.Invoke(currentOrders);
+            RefreshExamStatuses();
             inpatient.SubtitleText = room;
             inpatient.Visible = true;
+        }
+
+        private void RefreshExamStatuses()
+        {
+            if (currentOrders == null || examItems == null) return;
+            for (int index = 0; index < currentOrders.Items.Length; index++)
+                UpdateExamStatus(index, currentOrders.Items[index]);
         }
 
         internal void SetConsultationRoom(string roomName)

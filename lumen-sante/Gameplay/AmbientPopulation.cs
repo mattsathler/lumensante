@@ -22,6 +22,7 @@ namespace lumen_sante.Gameplay
         private long nextArrival;
         private long nextDeparture;
         private long nextDoctorReplacement;
+        private int nextStaffId;
 
 
         internal AmbientPopulation(HospitalPath path, PopulationSettings settings, Point[] staffAnchors,
@@ -182,8 +183,10 @@ namespace lumen_sante.Gameplay
         {
             string model = role == AmbientRole.Doctor ? "s_m_m_doctor_01" : "s_f_y_scrubs_01";
 
+            string name = role == AmbientRole.Patient ? null : PatientNames.Pick(random, role == AmbientRole.Nurse);
+            string staffId = role == AmbientRole.Patient ? null : "staff-" + ++nextStaffId;
             var patrol = new AmbientPatrol(role, model, path, start,
-                role == AmbientRole.Patient ? patientAnchors : staffAnchors, random);
+                role == AmbientRole.Patient ? patientAnchors : staffAnchors, random, name, staffId);
             patrol.Start(entering);
             if (!patrol.Actor.IsAlive)
             {

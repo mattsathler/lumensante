@@ -41,10 +41,11 @@ namespace lumen_sante.Gameplay
             private readonly Func<int, Ped, bool, bool> call;
             private readonly Func<PatientCase, InpatientUnit, bool, bool> admit;
             private readonly Func<PatientCase, CareAuthor, long, bool> discharge;
-            private readonly Func<PatientCase, ExamOrder, bool> request;
+            private readonly Func<PatientCase, ExamOrder, CareAuthor, bool> request;
             private readonly Func<PatientCase, bool> returnToWaiting;
             private readonly Func<PatientCase, bool> blocked;
             private readonly Func<int, bool> playerAtComputer;
+            private readonly Func<bool> playerDiagnosing;
             private readonly Action refresh;
             private readonly Random random;
             private readonly WorkerDiagnosticRules rules = new WorkerDiagnosticRules(DiseaseCatalog.All);
@@ -54,14 +55,14 @@ namespace lumen_sante.Gameplay
             private readonly long[] playerActivity = new long[3];
             private readonly double[] playerCoverage = new double[3];
             private long nextSchedule;
-            private int nextDoctorId;
 
             internal WorkerCoordinator(HospitalPath path, AmbientPopulation population, WaitingRoom waitingRoom,
                 PatientCase[] consultations, Point[] computers, Point[] beds,
                 Func<PatientCase[]> patients, Func<int, Ped, bool, bool> call,
                 Func<PatientCase, InpatientUnit, bool, bool> admit, Func<PatientCase, CareAuthor, long, bool> discharge,
-                Func<PatientCase, ExamOrder, bool> request, Func<PatientCase, bool> returnToWaiting,
-                Func<PatientCase, bool> blocked, Func<int, bool> playerAtComputer, Action refresh, Random random)
+                Func<PatientCase, ExamOrder, CareAuthor, bool> request, Func<PatientCase, bool> returnToWaiting,
+                Func<PatientCase, bool> blocked, Func<int, bool> playerAtComputer,
+                Func<bool> playerDiagnosing, Action refresh, Random random)
             {
                 this.path = path;
                 this.population = population;
@@ -77,6 +78,7 @@ namespace lumen_sante.Gameplay
                 this.returnToWaiting = returnToWaiting;
                 this.blocked = blocked;
                 this.playerAtComputer = playerAtComputer;
+                this.playerDiagnosing = playerDiagnosing;
                 this.refresh = refresh;
                 this.random = random;
             }
@@ -152,6 +154,7 @@ namespace lumen_sante.Gameplay
                 if (patient.Deceased) return !patient.CoronersCalled;
                 if (patient.Orders.IsCareProtected && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsRecovered && patient.Orders.IsCareProtected) return false;
+                if (patient.Location == PatientLocation.Chair && playerDiagnosing()) return false;
                 if (patient.Location == PatientLocation.Chair && !patient.WorkerConsultation &&
                     consultations.Any(other => other != patient && other?.WorkerConsultation == true)) return false;
                 return patient.Location == PatientLocation.Chair || patient.Location == PatientLocation.InpatientBed ||
@@ -167,10 +170,11 @@ namespace lumen_sante.Gameplay
 
             private int FindConsultationRoom()
             {
+                if (playerDiagnosing()) return -1;
                 int committed = consultations.Count(patient => patient?.WorkerConsultation == true) +
                     assignments.Count(task => task.Stage == TaskStage.ToComputer || task.Stage == TaskStage.Calling);
                 if (committed >= 1) return -1;
-                for (int index = 0; index < consultations.Length; index++)
+                foreach (int index in Enumerable.Range(0, consultations.Length).OrderBy(i => i == 1 ? 0 : 1))
                     if (consultations[index] == null && !playerAtComputer(index) && !reservations.IsReserved(StationResource(index))) return index;
                 return -1;
             }
@@ -180,8 +184,7 @@ namespace lumen_sante.Gameplay
                 CareAuthor author;
                 if (!authors.TryGetValue(doctor, out author))
                 {
-                    int number = ++nextDoctorId;
-                    author = CareAuthor.Doctor("doctor-" + number, "Doctor " + number);
+                    author = CareAuthor.Doctor(doctor.StaffId, doctor.Name);
                     authors.Add(doctor, author);
                 }
                 int room = patient.Deceased ? -1 : patient.Location == PatientLocation.WaitingReception ? FindConsultationRoom() :
@@ -226,7 +229,7 @@ namespace lumen_sante.Gameplay
                 if (!task.Doctor.Actor.IsAlive || patient.Ped == null || !patient.Ped.Exists() || (!patient.Deceased && !patient.Ped.IsAlive) ||
                     (patient.Deceased && patient.CoronersCalled) ||
                     patient.Orders.IsDischarged || patient.Orders.CareRevision != task.Revision || blocked(patient) ||
-                    (task.Room >= 0 && playerAtComputer(task.Room)) || now >= task.Deadline)
+                    (task.Room >= 0 && (playerAtComputer(task.Room) || playerDiagnosing())) || now >= task.Deadline)
                 {
                     patient.WorkerDueAt = now + GameClock.Minutes(5);
                     string reason = "paciente, estação ou profissional indisponível";
@@ -355,11 +358,14 @@ namespace lumen_sante.Gameplay
             {
                 ExamOrders orders = task.Patient.Orders;
                 if (orders.WorkerDiagnosis.HasConfirmingExam) return;
-                int pending = orders.Items.Count(exam => exam.Status == ExamStatus.Pending || exam.Status == ExamStatus.InProgress || exam.Status == ExamStatus.Processing);
+                const int maxParallelExams = 4;
+                int pending = orders.Items.Count(exam => exam.Status == ExamStatus.Pending ||
+                    exam.Status == ExamStatus.InProgress || exam.Status == ExamStatus.Processing);
                 foreach (ExamOrder exam in orders.Items.Where(exam => exam.Status == ExamStatus.Available &&
                     rules.ExamPriority(hypothesis, exam.Id, task.Patient.SeverityIndex + 1) > 0)
                     .OrderByDescending(exam => rules.ExamPriority(hypothesis, exam.Id, task.Patient.SeverityIndex + 1))
-                    .ThenBy(exam => exam.DurationMilliseconds).Take(Math.Max(0, 2 - pending))) request(task.Patient, exam);
+                    .ThenBy(exam => exam.DurationMilliseconds).Take(Math.Max(0, maxParallelExams - pending)))
+                    request(task.Patient, exam, task.Author);
             }
 
             private void Sit(Assignment task)
@@ -377,6 +383,8 @@ namespace lumen_sante.Gameplay
             {
                 reservations.Release(task.Author.Id);
                 assignments.Remove(task);
+                if (task.Room >= 0 && task.Patient.Location == PatientLocation.Chair)
+                    task.Patient.WorkerConsultation = false;
                 task.Walk.Clear();
                 if (!task.Doctor.Actor.IsAlive) return;
                 Point origin = task.Walk.LastGraphPoint ?? task.Destination;

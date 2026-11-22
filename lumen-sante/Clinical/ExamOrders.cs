@@ -32,6 +32,12 @@ namespace lumen_sante.Clinical
             if (author == null) throw new ArgumentNullException(nameof(author));
             if (!IsDischarged) RecordCare(author, now, "Coroners", "Recolhimento solicitado", false);
         }
+        internal void RecordNurseProcedure(CareAuthor nurse, long now, string procedure)
+        {
+            if (nurse == null || nurse.IsPlayer || string.IsNullOrWhiteSpace(procedure))
+                throw new ArgumentException("Procedimento de enfermagem inválido.");
+            if (!IsDischarged) RecordCare(nurse, now, "Procedimento de enfermagem", procedure, false);
+        }
 
         internal bool CanApplyCare(CareAuthor author, long expectedRevision)
         {
@@ -74,7 +80,24 @@ namespace lumen_sante.Clinical
         internal string Notes { get; set; } = string.Empty;
         private readonly System.Collections.Generic.Dictionary<(int Stage, int Question), string> symptomAnswers =
             new System.Collections.Generic.Dictionary<(int Stage, int Question), string>();
+        private readonly System.Collections.Generic.Dictionary<int, string> latestSymptomAnswers =
+            new System.Collections.Generic.Dictionary<int, string>();
         internal bool HasStartedConversation { get; private set; }
+        internal long SymptomRevision { get; private set; }
+
+        internal void RecordInitialComplaint(DiseaseDefinition disease, int stage, Random random)
+        {
+            var key = (stage, 0);
+            if (symptomAnswers.ContainsKey(key)) return;
+            string answer = disease.PickAnswer(0, stage, random);
+            symptomAnswers.Add(key, answer);
+            latestSymptomAnswers[0] = answer;
+            SymptomRevision++;
+        }
+
+        internal System.Collections.Generic.IEnumerable<(string Prompt, string Answer)> SymptomHistory(DiseaseDefinition disease) =>
+            latestSymptomAnswers.OrderBy(entry => entry.Key)
+                .Select(entry => (disease.Prompts[entry.Key], entry.Value));
 
         internal string GetSymptomAnswer(DiseaseDefinition disease, int question, int stage, Random random)
         {
@@ -88,6 +111,11 @@ namespace lumen_sante.Clinical
             {
                 answer = disease.PickAnswer(question, stage, random);
                 symptomAnswers.Add(key, answer);
+            }
+            if (!latestSymptomAnswers.TryGetValue(question, out string latest) || latest != answer)
+            {
+                latestSymptomAnswers[question] = answer;
+                SymptomRevision++;
             }
             if (question == 0) HasStartedConversation = true;
             return answer;
@@ -274,6 +302,8 @@ namespace lumen_sante.Clinical
         internal int StageAtRequest { get; private set; }
         internal long CompletedAtMilliseconds { get; private set; }
         internal bool RequestedByPlayer { get; private set; }
+        internal string RequestedBy { get; private set; }
+        internal string PerformedBy { get; private set; }
 
         internal bool TryRequest(int stage)
         {
@@ -284,15 +314,25 @@ namespace lumen_sante.Clinical
 
             StageAtRequest = stage;
             RequestedByPlayer = true;
+            RequestedBy = "Jogador";
+            PerformedBy = null;
             Status = ExamStatus.Pending;
             return true;
         }
 
-        internal bool TryRequestByWorker(int stage)
+        internal bool TryRequestByNamedWorker(int stage, CareAuthor doctor)
         {
             if (!TryRequest(stage)) return false;
             RequestedByPlayer = false;
+            RequestedBy = doctor.Name;
             return true;
+        }
+
+        internal bool TryRequestByWorker(int stage) => TryRequestByNamedWorker(stage, CareAuthor.Doctor("unknown", "Doctor"));
+
+        internal void RecordPerformer(string name)
+        {
+            if (Status == ExamStatus.Completed) PerformedBy = name;
         }
 
         internal bool TryComplete(long elapsedMilliseconds)

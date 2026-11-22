@@ -17,12 +17,15 @@ namespace lumen_sante.Gameplay
         internal HospitalReceptionist(
             string animationDictionary = HospitalComputer.ComputerAnimation,
             string animationClip = HospitalComputer.ComputerClip,
-            string modelName = ReceptionistModel)
+            string modelName = ReceptionistModel, string employeeName = null)
         {
             this.animationDictionary = animationDictionary;
             this.animationClip = animationClip;
             this.modelName = modelName;
+            Name = employeeName;
         }
+
+        internal string Name { get; }
 
         internal void Create(Vector3 position, float heading)
         {

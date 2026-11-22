@@ -47,8 +47,11 @@ namespace lumen_sante
                 Game.DisplayNotification("Lumen Santé: adicione doenças válidas à pasta LumenSante/Diseases e recarregue o plugin.");
                 return;
             }
-            var receptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip);
-            var secondReceptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip);
+            var staffNames = new Random();
+            var receptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip,
+                employeeName: PatientNames.Pick(staffNames, true));
+            var secondReceptionist = new HospitalReceptionist(HospitalShift.PatientChairAnimation, HospitalShift.PatientChairClip,
+                employeeName: PatientNames.Pick(staffNames, true));
             var routes = new HospitalStaffRoutes();
             GameClock.Initialize();
             AmbientPopulation population = routes.CreatePopulation(PopulationSettings.Load());

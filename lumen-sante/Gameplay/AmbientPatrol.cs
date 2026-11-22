@@ -26,10 +26,12 @@ namespace lumen_sante.Gameplay
 
         private enum Travel { Inside, EnteringToDoor, EnteringToReception, LeavingToDoor, LeavingToOutside }
 
-        internal AmbientPatrol(AmbientRole role, string model, HospitalPath path, Point start, Point[] anchors, Random random)
+        internal AmbientPatrol(AmbientRole role, string model, HospitalPath path, Point start, Point[] anchors, Random random, string name = null, string staffId = null)
         {
             Role = role;
-            Actor = new HospitalReceptionist(modelName: model);
+            Name = name;
+            StaffId = staffId;
+            Actor = new HospitalReceptionist(modelName: model, employeeName: name);
             this.path = path;
             this.anchors = anchors;
             this.random = random;
@@ -38,6 +40,8 @@ namespace lumen_sante.Gameplay
 
         internal HospitalReceptionist Actor { get; }
         internal AmbientRole Role { get; }
+        internal string Name { get; }
+        internal string StaffId { get; }
         internal bool CountsInside => Actor.IsAlive && travel == Travel.Inside;
         internal bool IsEntering => travel == Travel.EnteringToDoor || travel == Travel.EnteringToReception;
         internal bool IsLeaving => travel == Travel.LeavingToDoor || travel == Travel.LeavingToOutside;

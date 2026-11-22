@@ -20,6 +20,13 @@ namespace lumen_sante.Clinical
             return new CareAuthor(id, name, false);
         }
 
+        internal static CareAuthor Nurse(string id, string name)
+        {
+            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("A Nurse precisa de ID e nome.");
+            return new CareAuthor(id, name, false);
+        }
+
         internal string Id { get; }
         internal string Name { get; }
         internal bool IsPlayer { get; }

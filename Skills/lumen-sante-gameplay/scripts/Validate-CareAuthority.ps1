@@ -87,3 +87,36 @@ Invoke-Care $orders 'Readmit' @('Consulta')
 Assert ((Property $orders 'AdmissionId') -eq $identity) 'Retorno criou outra identidade de prontuário.'
 Assert ((Property $orders 'VisitCount') -eq 2) 'Retorno duplicou a contagem de atendimentos.'
 Write-Output 'Histórico em memória preserva identidade, anotações, exames, tratamento e condutas após alta e retorno.'
+
+$orders = New-Orders
+$exam = (Property $orders 'Items')[0]
+$examType = $exam.GetType()
+Assert ($examType.GetMethod('TryRequestByNamedWorker', $instance).Invoke($exam, @([int]2, $doctor))) 'Pedido do Doctor identificado falhou.'
+Assert ((Property $exam 'RequestedBy') -eq 'Dra. Ana') 'Nome do Doctor ausente no pedido.'
+$statusType = $assembly.GetType('lumen_sante.Clinical.ExamStatus')
+[void]$examType.GetMethod('TrySetStatus', $instance).Invoke($exam, @([Enum]::Parse($statusType, 'InProgress')))
+Assert ($examType.GetMethod('TryComplete', $instance).Invoke($exam, @([long]100))) 'Exame identificado não terminou.'
+[void]$examType.GetMethod('RecordPerformer', $instance).Invoke($exam, @('Enf. Beatriz Silva'))
+Assert ((Property $exam 'PerformedBy') -eq 'Enf. Beatriz Silva') 'Nome da Nurse ausente no exame.'
+$nurse = $authorType.GetMethod('Nurse', $static).Invoke($null, @('nurse-1', 'Enf. Beatriz Silva'))
+Invoke-Care $orders 'RecordNurseProcedure' @($nurse, [long]101, 'Visita de tratamento')
+Assert ((Property $orders 'CareHistory').Count -eq 1) 'Visita de enfermagem não entrou no histórico.'
+$procedureHistory = Property $orders 'CareHistory'
+Assert ((Property (Property $procedureHistory[0] 'Author') 'Name') -eq 'Enf. Beatriz Silva') 'Visita sem autoria da Nurse.'
+Assert (!(Property $orders 'IsCareProtected')) 'Visita de enfermagem protegeu o plano do jogador.'
+Write-Output 'Nomes de Doctor e Nurse preservados no exame e na visita de tratamento.'
+
+$catalogType = $assembly.GetType('lumen_sante.Clinical.DiseaseCatalog')
+$disease = $catalogType.GetMethod('Find', $static).Invoke($null, @('flu-like'))
+$orders = New-Orders
+$random = [Random]::new(24)
+Invoke-Care $orders 'RecordInitialComplaint' @($disease, [int]3, $random)
+Assert (!(Property $orders 'HasStartedConversation')) 'Queixa inicial liberou a árvore de conversa.'
+Assert ((Property $orders 'SymptomRevision') -eq 1) 'Queixa inicial não entrou no prontuário.'
+$complaints = @(Invoke-Care $orders 'SymptomHistory' @($disease))
+Assert ($complaints.Count -eq 1) 'Histórico inicial não contém exatamente uma queixa.'
+$answer = Invoke-Care $orders 'GetSymptomAnswer' @($disease, [int]0, [int]3, $random)
+Assert ($answer -eq $complaints[0].Item2) 'Conversa não reutilizou a queixa inicial.'
+Assert (Property $orders 'HasStartedConversation') 'Pergunta inicial não liberou a conversa.'
+Assert ((Property $orders 'SymptomRevision') -eq 1) 'Repetição da queixa duplicou o histórico.'
+Write-Output 'Queixa inicial usa o estágio recebido, permanece estável e preserva a conversa em árvore.'
