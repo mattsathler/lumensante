@@ -62,6 +62,7 @@ namespace lumen_sante.Gameplay
             .Concat(arrivingPatient != null && arrivingPatient.Exists() && arrivingPatient.IsAlive
                 ? new[] { arrivingPatient } : Array.Empty<Ped>());
         internal int WaitingPatientCount => queue.Count(index => occupants[index].IsAlive);
+        internal event Action<Ped> PatientReady;
         internal bool CanReceiveReturningPatient => arrivingPatient == null && Enumerable.Range(0, Seats.Length)
             .Any(index => !occupants.TryGetValue(index, out HospitalReceptionist actor) || !actor.IsAlive);
 
@@ -113,6 +114,21 @@ namespace lumen_sante.Gameplay
         }
 
         internal bool IsWaiting(Ped patient) => queue.Any(index => occupants[index].IsAlive && occupants[index].Actor == patient);
+
+        internal void RemovePatient(Ped patient)
+        {
+            if (arrivingPatient == patient)
+            {
+                DiscardArrival();
+                return;
+            }
+            int index = queue.FindIndex(seat => occupants[seat].Actor == patient);
+            if (index < 0) return;
+            int seatIndex = queue[index];
+            occupants[seatIndex].Clear();
+            occupants.Remove(seatIndex);
+            queue.RemoveAt(index);
+        }
 
         internal bool TryCallPatient(out Ped patient, out Point approach, Ped requestedPatient = null)
         {
@@ -255,9 +271,11 @@ namespace lumen_sante.Gameplay
 
         private void SeatArrivingPatient()
         {
-            OccupySeat(arrivalSeatIndex, arrivingPatient);
+            Ped patient = arrivingPatient;
+            OccupySeat(arrivalSeatIndex, patient);
             arrivingPatient = null;
             ScheduleArrival();
+            if (IsWaiting(patient)) PatientReady?.Invoke(patient);
         }
 
         private void OccupySeat(int seatIndex, Ped pedestrian = null)

@@ -73,21 +73,18 @@ namespace lumen_sante.Interface
             {
                 UIMenu confirmation = pool.AddSubMenu(parent, parent == root ? "Alta Hospitalar" : "Alta hospitalar");
                 confirmation.SubtitleText = "Confirmar a alta deste paciente?";
-                var cancel = new UIMenuItem("Cancelar");
-                var confirm = new UIMenuItem("Confirmar alta");
-                confirmation.AddItem(cancel);
+                var followUp = new UIMenuCheckboxItem("Agendar retorno?", false);
+                var confirm = new UIMenuItem("Dar Alta");
+                confirmation.AddItem(followUp);
                 confirmation.AddItem(confirm);
-                cancel.Activated += (sender, item) =>
-                {
-                    confirmation.Visible = false;
-                    parent.Visible = true;
-                };
+                confirmation.OnMenuOpen += menu => followUp.Checked = false;
                 confirm.Activated += (sender, item) =>
                 {
                     if (!canTalk() || currentOrders == null) return;
                     ExamOrders discharged = currentOrders;
+                    bool schedule = followUp.Checked;
                     Close();
-                    DischargeRequested?.Invoke(discharged);
+                    DischargeRequested?.Invoke(discharged, schedule);
                 };
                 return confirmation;
             }).ToArray();
@@ -114,7 +111,7 @@ namespace lumen_sante.Interface
         }
 
         internal event Action<ExamOrder> ExamRequested;
-        internal event Action<ExamOrders> DischargeRequested;
+        internal event Action<ExamOrders, bool> DischargeRequested;
         internal event Action<ExamOrders> PatientInteraction;
 
 

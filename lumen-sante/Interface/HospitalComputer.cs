@@ -150,6 +150,9 @@ namespace lumen_sante.Interface
 
         internal void SetPatients(BedManagementPanel.PatientEntry[] patients) => panel.SetPatients(patients);
 
+        internal void ConfigureAgenda(lumen_sante.Gameplay.MedicalAgenda agenda, Func<DateTime> date, Func<Guid, bool> cancel) =>
+            panel.ConfigureAgenda(agenda, date, cancel);
+
         internal void RefreshExams(ExamOrders orders) => panel.RefreshExams(orders);
 
         internal void Update(Ped doctor, bool playerAvailable)

@@ -15,7 +15,7 @@ namespace lumen_sante.Clinical
     internal enum ExamKind { Mri, XRay, Laboratory, Bedside }
     internal enum InpatientUnit { Room, Ward }
 
-    internal sealed class ExamOrders
+    internal sealed partial class ExamOrders
     {
         private readonly System.Collections.Generic.List<CareDecision> careHistory = new System.Collections.Generic.List<CareDecision>();
         internal System.Collections.Generic.IReadOnlyList<CareDecision> CareHistory => careHistory.AsReadOnly();
@@ -66,7 +66,7 @@ namespace lumen_sante.Clinical
             Profile = profile;
         }
 
-        internal Guid AdmissionId { get; }
+        internal Guid AdmissionId { get; private set; }
         internal string PatientName { get; }
         internal string Room { get; private set; }
         internal bool IsInpatient { get; private set; }
@@ -97,7 +97,8 @@ namespace lumen_sante.Clinical
 
         internal System.Collections.Generic.IEnumerable<(string Prompt, string Answer)> SymptomHistory(DiseaseDefinition disease) =>
             latestSymptomAnswers.OrderBy(entry => entry.Key)
-                .Select(entry => (disease.Prompts[entry.Key], entry.Value));
+                .Select(entry => (disease != null && entry.Key < disease.Prompts.Count
+                    ? disease.Prompts[entry.Key] : "Sintoma", entry.Value));
 
         internal string GetSymptomAnswer(DiseaseDefinition disease, int question, int stage, Random random)
         {
@@ -141,6 +142,8 @@ namespace lumen_sante.Clinical
             IsInpatient = false;
             Room = room;
         }
+
+        internal void WaitForFollowUp() => Room = "Recepção";
         private readonly System.Collections.Generic.Dictionary<MedicationClass, long> medications =
             new System.Collections.Generic.Dictionary<MedicationClass, long>();
 
@@ -304,6 +307,18 @@ namespace lumen_sante.Clinical
         internal bool RequestedByPlayer { get; private set; }
         internal string RequestedBy { get; private set; }
         internal string PerformedBy { get; private set; }
+        internal string SavedFindings { get; private set; }
+
+        internal void Restore(ExamOrders.SavedExam data)
+        {
+            Status = ExamStatus.Completed;
+            StageAtRequest = data.Stage;
+            CompletedAtMilliseconds = data.At;
+            RequestedBy = data.Requester;
+            RequestedByPlayer = data.Requester == "Jogador";
+            PerformedBy = data.Performer;
+            SavedFindings = data.Findings;
+        }
 
         internal bool TryRequest(int stage)
         {

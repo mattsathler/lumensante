@@ -14,7 +14,7 @@ using Graphics = Rage.Graphics;
 
 namespace lumen_sante.Interface
 {
-    internal sealed class BedManagementPanel
+    internal sealed partial class BedManagementPanel
     {
         private const int Width = 1120;
         private const int Height = 640;
@@ -32,14 +32,14 @@ namespace lumen_sante.Interface
         private static readonly RectangleF ExamScrollDown = new RectangleF(1048, 105, 32, 26);
         private const int CursorScrollUp = 241;
         private const int CursorScrollDown = 242;
-        private enum Page { Rooms, Patients, Ward, Quarters, Archive, Records, Exams }
+        private enum Page { Rooms, Patients, Ward, Quarters, Archive, Agenda, Records, Exams }
         private enum RecordTab { Exams, Notes, History, Treatments, Medications, Requests }
 
         private static readonly int ProcessId = Process.GetCurrentProcess().Id;
-        private static readonly string[] PageNames = { "Rooms", "Aguardando", "Enfermaria", "Quartos", "Histórico" };
+        private static readonly string[] PageNames = { "Rooms", "Aguardando", "Enfermaria", "Quartos", "Histórico", "Agenda" };
         private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico", "Tratamentos", "Medicamentos", "Solicitar exames" };
         private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams", "medicines", "exams" };
-        private static readonly string[] SidebarIcons = { "bed", "person", "bed", "bed", "history" };
+        private static readonly string[] SidebarIcons = { "bed", "person", "bed", "bed", "history", "calendar" };
         private static readonly RectangleF CloseButton = new RectangleF(1056, 22, 40, 38);
         private static readonly RectangleF ReturnButton = new RectangleF(218, 24, 40, 38);
         private static readonly RectangleF CallPatientButton = new RectangleF(555, 24, 230, 38);
@@ -210,7 +210,7 @@ namespace lumen_sante.Interface
             int selectedIndex = Array.FindIndex(patients, patient => patient.Orders == admission);
             if (selectedIndex >= 0)
             {
-                if (page == Page.Records) recordOrigin = ListFor(patients[selectedIndex]);
+                if (page == Page.Records && recordOrigin != Page.Agenda) recordOrigin = ListFor(patients[selectedIndex]);
                 deceased = patients[selectedIndex].Deceased;
                 canRequestSelectedExams = patients[selectedIndex].CanRequestExams;
                 if (portraitPatient != patients[selectedIndex].Ped)
@@ -467,7 +467,7 @@ namespace lumen_sante.Interface
                 recordOrigin, MatchingTreatments(), treatmentSearch, editingTreatmentSearch ? treatmentKeyboard.Caret : -1,
                 MatchingExamOrders().Select(order => new ExamRequestLine(order.Name, order.Status)).ToArray(),
                 examRequestOffset, examRequestSearch, editingExamRequestSearch ? examRequestKeyboard.Caret : -1,
-                CanRequestExams());
+                CanRequestExams()) { Agenda = page == Page.Agenda ? BuildAgendaFrame() : null };
             return true;
         }
 
@@ -524,8 +524,7 @@ namespace lumen_sante.Interface
                 return;
             }
             DiseaseDefinition disease = DiseaseCatalog.Find(admission.DiseaseId);
-            var symptoms = disease == null ? Enumerable.Empty<(string Title, string Detail)>() :
-                admission.SymptomHistory(disease).Select(symptom =>
+            var symptoms = admission.SymptomHistory(disease).Select(symptom =>
                     (Title: symptom.Prompt, Detail: symptom.Answer));
             var completedExams = admission.Items.Where(order => order.Status == ExamStatus.Completed)
                 .OrderByDescending(order => order.CompletedAtMilliseconds)
@@ -557,7 +556,11 @@ namespace lumen_sante.Interface
 
         private void HandleContentClick(PointF cursor)
         {
-            if (IsPatientList(page))
+            if (page == Page.Agenda)
+            {
+                HandleAgendaClick(cursor);
+            }
+            else if (IsPatientList(page))
             {
                 PatientEntry[] visible = PatientsFor(page);
                 int offset = ListOffset(page);
@@ -830,6 +833,11 @@ namespace lumen_sante.Interface
                 current.Room.EndsWith("Aguardando leito", StringComparison.Ordinal) ? "Aguardando leito" : "Em atendimento";
             switch (current.Page)
             {
+                case Page.Agenda:
+                    DrawAgenda(current, Box, (value, x, y, size, color) => Label(value, x, y, size, color),
+                        bounds => IconButton(bounds, leftTexture, "<"),
+                        bounds => IconButton(bounds, rightTexture, ">"));
+                    break;
                 case Page.Rooms:
                     void Metric(float x, string title, string value)
                     {
@@ -872,7 +880,7 @@ namespace lumen_sante.Interface
                         PatientEntry patient = current.Patients[current.PatientOffset + index];
                         RectangleF row = PatientRow(index);
                         Box(row, row.Contains(current.Cursor) ? Highlight : Card);
-                        Label(patient.Orders.PatientName, 233, row.Y + 18, 19, Ink);
+                        Label(patient.Orders.PatientName + (patient.Scheduled ? " · Agendado" : ""), 233, row.Y + 18, 19, Ink);
                         Label(patient.Orders.Room + (patient.Deceased ? " · Óbito registrado" :
                             patient.Orders.IsDischarged ? " · Alta hospitalar" :
                             patient.Orders.IsRecovered ? " · Recuperado" : patient.Orders.IsInpatient ? " · Internado" :
@@ -1290,6 +1298,7 @@ namespace lumen_sante.Interface
 
         private sealed class Frame
         {
+            internal AgendaFrame Agenda { get; set; }
             internal readonly Size Resolution;
             internal readonly float Scale;
             internal readonly float Left;
@@ -1405,9 +1414,10 @@ namespace lumen_sante.Interface
             internal readonly bool Archived;
             internal readonly InpatientUnit? Unit;
             internal readonly bool CanRequestExams;
+            internal readonly bool Scheduled;
 
             internal PatientEntry(ExamOrders orders, Ped ped, bool deceased, bool archived,
-                InpatientUnit? unit, bool canRequestExams)
+                InpatientUnit? unit, bool canRequestExams, bool scheduled)
             {
                 Orders = orders;
                 Ped = ped;
@@ -1415,6 +1425,7 @@ namespace lumen_sante.Interface
                 Archived = archived;
                 Unit = unit;
                 CanRequestExams = canRequestExams;
+                Scheduled = scheduled;
             }
         }
 

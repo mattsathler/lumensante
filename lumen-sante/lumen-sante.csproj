@@ -75,6 +75,8 @@
     <EmbeddedResource Include="Assets\*.png" />
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />
+    <Compile Include="Gameplay\MedicalAgenda.cs" />
+    <Compile Include="Interface\BedManagementPanel.Agenda.cs" />
     <Compile Include="Gameplay\HospitalPath.cs" />
     <Compile Include="Gameplay\NpcWalking.cs" />
     <Compile Include="Gameplay\NpcRoute.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Gameplay\WaitingRoom.cs" />
     <Compile Include="Gameplay\BedAnimations.cs" />
     <Compile Include="Clinical\ExamOrders.cs" />
+    <Compile Include="Clinical\ExamOrders.Persistence.cs" />
     <Compile Include="Clinical\PatientProfile.cs" />
     <Compile Include="Clinical\ExamFindings.cs" />
     <Compile Include="Clinical\ExamReport.cs" />

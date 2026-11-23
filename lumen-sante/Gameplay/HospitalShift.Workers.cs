@@ -152,6 +152,7 @@ namespace lumen_sante.Gameplay
                 if (patient?.Orders == null || patient.Ped == null || !patient.Ped.Exists() || (!patient.Deceased && !patient.Ped.IsAlive) ||
                     patient.Orders.IsDischarged || patient.WorkerDueAt > GameClock.NowMilliseconds || blocked(patient) || IsPatientReserved(patient)) return false;
                 if (patient.Deceased) return !patient.CoronersCalled;
+                if (patient.Appointment != null && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsCareProtected && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsRecovered && patient.Orders.IsCareProtected) return false;
                 if (patient.Location == PatientLocation.Chair && playerDiagnosing()) return false;

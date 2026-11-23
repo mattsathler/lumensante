@@ -61,6 +61,17 @@ namespace lumen_sante.Gameplay
                 }
             }
 
+            internal Snapshot(int[] data)
+            {
+                Array.Copy(data, 0, drawables, 0, 12);
+                Array.Copy(data, 12, textures, 0, 12);
+                Array.Copy(data, 24, palettes, 0, 12);
+                Array.Copy(data, 36, props, 0, 8);
+                Array.Copy(data, 44, propTextures, 0, 8);
+            }
+
+            internal int[] Capture() => drawables.Concat(textures).Concat(palettes).Concat(props).Concat(propTextures).ToArray();
+
             internal void Apply(Ped patient)
             {
                 for (int slot = 0; slot < drawables.Length; slot++)
@@ -77,6 +88,9 @@ namespace lumen_sante.Gameplay
                 }
             }
         }
+
+        internal static Model ScheduledModel(bool female) =>
+            new Model(female ? "a_f_y_business_01" : "a_m_y_business_01");
 
         internal static Ped Create(Random random, Vector3 position, float heading)
         {

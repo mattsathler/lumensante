@@ -36,6 +36,13 @@ namespace lumen_sante.Clinical
         }
 
         internal int Age { get; }
+        internal PatientProfile(int age, string phone, string bloodType, PreviousExam[] history)
+        {
+            Age = age;
+            Phone = phone;
+            BloodType = bloodType;
+            MedicalHistory = Array.AsReadOnly(history);
+        }
         internal string Phone { get; }
         internal string BloodType { get; }
         internal IReadOnlyList<PreviousExam> MedicalHistory { get; }

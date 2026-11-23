@@ -108,6 +108,9 @@ namespace lumen_sante.Gameplay
             internal bool OutsideHospital;
             internal bool AwaitingReturn;
             internal long ReturnAt;
+            internal bool SpontaneousReturn;
+            internal bool AgendaRecord;
+            internal MedicalAgenda.Appointment Appointment;
             internal DiseaseDefinition Disease;
             internal ExamOrders Orders;
             internal int RiskLevel = 1;
@@ -169,6 +172,11 @@ namespace lumen_sante.Gameplay
             var receptionCases = new Dictionary<Ped, PatientCase>();
             var cases = consultations.Concat(inpatients).Concat(receptionCases.Values);
             var dischargedCases = new List<PatientCase>();
+            var agenda = new MedicalAgenda(System.IO.Path.Combine(PluginPaths.InstallationDirectory,
+                "LumenSante", "agenda.json"), message => Game.LogTrivial("[Lumen Santé] " + message));
+            DateTime agendaNow = default(DateTime);
+            bool agendaRestored = false;
+            long nextAgendaUpdate = 0;
             var pendingExams = new Queue<(PatientCase Patient, ExamOrder Order)>();
             (PatientCase Patient, ExamOrder Order) activeExam = default((PatientCase, ExamOrder));
             var activeOrders = new List<ExamOrder>();
@@ -198,6 +206,7 @@ namespace lumen_sante.Gameplay
                 CanCallPatient, () => CallPatientToRoom(doctorRoomIndex), CanCallSelectedPatient,
                 orders => CanCallSelectedPatient(orders) &&
                     CallPatientToRoom(doctorRoomIndex, cases.First(candidate => candidate?.Orders == orders).Ped));
+            hospitalComputer.ConfigureAgenda(agenda, () => agendaNow, CancelPendingReturn);
 
             bool CanCallSelectedPatient(ExamOrders orders) => orders != null && CanCallPatient() &&
                 consultations[doctorRoomIndex] == null && cases.Any(candidate => candidate?.Orders == orders &&
@@ -308,10 +317,11 @@ namespace lumen_sante.Gameplay
                     (admission.Location == PatientLocation.Chair ||
                      admission.Location == PatientLocation.WalkingToInpatientBed ||
                      admission.Location == PatientLocation.InpatientBed ||
-                     admission.Location == PatientLocation.UndergoingExam)))
+                     admission.Location == PatientLocation.UndergoingExam),
+                    admission.Appointment != null))
                 .ToArray());
 
-            PatientCase RegisterReceptionPatient(Ped patient)
+            PatientCase RegisterReceptionPatient(Ped patient, string scheduledName = null)
             {
                 PatientCase admission = dischargedCases.FirstOrDefault(candidate => candidate.AwaitingReturn && candidate.Ped == patient);
                 if (admission == null)
@@ -321,7 +331,7 @@ namespace lumen_sante.Gameplay
                         Ped = patient,
                         Model = patient.Model,
                         Appearance = new PatientAppearance.Snapshot(patient),
-                        Name = PatientNames.Pick(random, !patient.IsMale),
+                        Name = scheduledName ?? PatientNames.Pick(random, !patient.IsMale),
                         Disease = DiseaseCatalog.Pick(random),
                         RiskLevel = random.Next(1, 6)
                     };
@@ -332,7 +342,8 @@ namespace lumen_sante.Gameplay
                 }
                 admission.WorkerDueAt = GameClock.NowMilliseconds;
                 admission.Location = PatientLocation.WaitingReception;
-                admission.Orders.Readmit("Recepção");
+                if (scheduledName != null && admission.Orders.IsDischarged) admission.Orders.WaitForFollowUp();
+                else admission.Orders.Readmit("Recepção");
                 receptionCases[patient] = admission;
                 return admission;
             }
@@ -344,6 +355,15 @@ namespace lumen_sante.Gameplay
                 foreach (Ped patient in receptionCases.Keys.Where(patient => !waiting.Contains(patient)).ToArray())
                 {
                     if (receptionCases[patient].AwaitingBed) continue;
+                    PatientCase lost = receptionCases[patient];
+                    if (lost.Appointment != null && lost.Appointment.State == MedicalAgenda.Status.Arrived)
+                        lost.Appointment.State = MedicalAgenda.Status.Ready;
+                    if (lost.AgendaRecord)
+                    {
+                        lost.Ped = null;
+                        lost.Appointment = null;
+                        dischargedCases.Add(lost);
+                    }
                     receptionCases.Remove(patient);
                     changed = true;
                 }
@@ -354,6 +374,15 @@ namespace lumen_sante.Gameplay
                     changed = true;
                 }
                 if (changed) RefreshPatientList();
+            }
+
+            void NotifyScheduledArrival(Ped patient)
+            {
+                if (!receptionCases.TryGetValue(patient, out PatientCase admission) ||
+                    admission.Appointment == null || admission.AwaitingBed) return;
+
+                string purpose = admission.Appointment.FollowUp ? "o retorno" : "a consulta";
+                Game.DisplayNotification("Agenda: " + admission.Name + " chegou à recepção para " + purpose + ".");
             }
 
             void BeginConsultation()
@@ -407,6 +436,9 @@ namespace lumen_sante.Gameplay
 
             bool CallPatientToRoom(int roomIndex, Ped requestedPatient = null, bool autonomous = false)
             {
+                if (autonomous && (requestedPatient == null ||
+                    (receptionCases.TryGetValue(requestedPatient, out PatientCase selected) && selected.Appointment != null)))
+                    return false;
                 AmbientPatrol nurse = population.FindNurse(HospitalStaffRoutes.Reception);
                 if (nurse == null)
                 {
@@ -433,6 +465,11 @@ namespace lumen_sante.Gameplay
                 consultations[roomIndex] = admission;
                 admission.Pickup = approach;
                 admission.Location = PatientLocation.WalkingToConsultation;
+                if (admission.Appointment != null)
+                {
+                    admission.Appointment.State = MedicalAgenda.Status.InCare;
+                    SaveAgenda();
+                }
                 RefreshPatientList();
                 try
                 {
@@ -633,16 +670,31 @@ namespace lumen_sante.Gameplay
                 return true;
             }
 
-            patientMenu.DischargeRequested += orders =>
+            patientMenu.DischargeRequested += (orders, schedule) =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
                 if (admission == null || shownCase != admission || shiftPlayer == null) return;
+                if (schedule && (!agenda.Available || agendaNow == default(DateTime)))
+                {
+                    Game.DisplayNotification("Agenda indisponível. A alta com retorno não foi registrada.");
+                    return;
+                }
                 workers?.PlayerTakesPatient(admission);
-                DischargePatient(admission, CareAuthor.Player, orders.CareRevision);
+                if (!DischargePatient(admission, CareAuthor.Player, orders.CareRevision)) return;
+                if (schedule)
+                {
+                    admission.AgendaRecord = true;
+                    var appointment = agenda.ScheduleReturn(agendaNow, CaptureAgendaRecord(admission));
+                    if (appointment != null && SaveAgenda())
+                        Game.DisplayNotification("Retorno de " + admission.Name + " em " + appointment.Date.ToString("dd/MM 'às' HH:mm") + ".");
+                    else Game.DisplayNotification("Não foi possível gravar o retorno. Consulte a agenda.");
+                }
+                else if (admission.AgendaRecord) SaveAgenda();
             };
 
             bool DischargePatient(PatientCase admission, CareAuthor author, long expectedRevision)
             {
+                if (admission.Appointment != null && !author.IsPlayer) return false;
                 if (admission.Deceased || admission.Ped == null || !admission.Ped.Exists() || !admission.Ped.IsAlive ||
                     (admission.Location != PatientLocation.Chair && admission.Location != PatientLocation.InpatientBed) ||
                     !admission.Orders.CanApplyCare(author, expectedRevision)) return false;
@@ -698,7 +750,13 @@ namespace lumen_sante.Gameplay
                 if (admission.Blip != null && admission.Blip.Exists()) admission.Blip.Delete();
                 admission.Blip = null;
                 admission.ReturnAt = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(8 * 60, 24 * 60 + 1));
+                admission.SpontaneousReturn = !author.IsPlayer && !admission.AgendaRecord;
                 if (!admission.Orders.Discharge(GameClock.NowMilliseconds, author, expectedRevision)) return false;
+                if (admission.Appointment != null)
+                {
+                    admission.Appointment.State = MedicalAgenda.Status.Completed;
+                    admission.Appointment = null;
+                }
                 dischargedCases.Add(admission);
                 if (author.IsPlayer) Game.DisplayNotification("Alta registrada para " + admission.Name + ".");
                 Game.LogTrivial("[Lumen Santé] " + author.Name + " registrou alta de " + admission.Name + ".");
@@ -742,7 +800,7 @@ namespace lumen_sante.Gameplay
                         admission.AwaitingReturn = false;
                         admission.OutsideHospital = true;
                     }
-                    if (!admission.OutsideHospital || admission.Orders.IsRecovered || admission.Deceased) continue;
+                    if (!admission.OutsideHospital || !admission.SpontaneousReturn || admission.Orders.IsRecovered || admission.Deceased) continue;
                     while (admission.NextSeverityAt <= now && admission.RiskLevel > 0 &&
                         admission.RiskLevel < admission.Disease.Stages.Count)
                     {
@@ -791,6 +849,133 @@ namespace lumen_sante.Gameplay
                     }
                 }
                 if (patientListChanged) RefreshPatientList();
+            }
+
+            MedicalAgenda.Record CaptureAgendaRecord(PatientCase admission) => new MedicalAgenda.Record
+            {
+                Orders = admission.Orders.Capture(GameClock.NowMilliseconds, agendaNow),
+                Risk = admission.RiskLevel, Model = admission.Model.Hash, Outfit = admission.Appearance?.Capture(),
+                Deceased = admission.Deceased
+            };
+
+            bool SaveAgenda()
+            {
+                if (!agendaRestored || agendaNow == default(DateTime)) return false;
+                foreach (PatientCase patient in cases.Concat(dischargedCases).Where(patient => patient?.AgendaRecord == true).Distinct())
+                    agenda.UpdateRecord(CaptureAgendaRecord(patient));
+                return agenda.Save();
+            }
+
+            bool CancelPendingReturn(Guid id)
+            {
+                var item = agenda.Appointments.FirstOrDefault(candidate => candidate.Id == id &&
+                    candidate.State == MedicalAgenda.Status.Pending);
+                if (item == null) return false;
+                item.State = MedicalAgenda.Status.Cancelled;
+                if (SaveAgenda()) return true;
+                item.State = MedicalAgenda.Status.Pending;
+                return false;
+            }
+
+            void UpdateAgenda()
+            {
+                if (GameClock.NowMilliseconds < nextAgendaUpdate) return;
+                nextAgendaUpdate = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(1000);
+                DateTime gameDate = MedicalAgenda.ReadGameDate();
+                if (gameDate == default(DateTime)) return;
+                agendaNow = gameDate;
+                if (!agenda.Available) return;
+                if (!agendaRestored)
+                {
+                    foreach (MedicalAgenda.Record record in agenda.Records)
+                    {
+                        DiseaseDefinition disease = DiseaseCatalog.Find(record.Orders.Disease);
+                        dischargedCases.Add(new PatientCase
+                        {
+                            AgendaRecord = true, OutsideHospital = true, Deceased = record.Deceased,
+                            Name = record.Orders.Name, Disease = disease, Model = new Model(record.Model),
+                            Appearance = record.Outfit?.Length == 52 ? new PatientAppearance.Snapshot(record.Outfit) : null,
+                            RiskLevel = disease == null ? 1 : Math.Max(1, Math.Min(record.Risk, disease.Stages.Count - 1)),
+                            Orders = ExamOrders.Restore(record.Orders, GameClock.NowMilliseconds, agendaNow)
+                        });
+                    }
+                    agendaRestored = true;
+                    RefreshPatientList();
+                }
+
+                agenda.Generate(agendaNow, random);
+                bool onDuty = shiftPlayer != null;
+                var live = cases.Where(patient => patient?.Appointment != null).ToDictionary(patient => patient.Appointment.Id);
+                bool listChanged = false;
+                foreach (var item in agenda.Appointments.Where(item => item.Due <= agendaNow.Ticks &&
+                    (item.State == MedicalAgenda.Status.Scheduled || item.State == MedicalAgenda.Status.Ready ||
+                     item.State == MedicalAgenda.Status.Arrived || item.State == MedicalAgenda.Status.InCare))
+                    .OrderBy(item => item.Due))
+                {
+                    live.TryGetValue(item.Id, out PatientCase active);
+                    bool inCare = item.State == MedicalAgenda.Status.InCare ||
+                        (active != null && active.Location != PatientLocation.WaitingReception);
+                    if (!inCare && MedicalAgenda.ShouldExpire(item, agendaNow, onDuty))
+                    {
+                        if (active != null)
+                        {
+                            waitingRoom.RemovePatient(active.Ped);
+                            receptionCases.Remove(active.Ped);
+                            active.Ped = null;
+                            active.Appointment = null;
+                            if (active.AgendaRecord && !dischargedCases.Contains(active)) dischargedCases.Add(active);
+                            listChanged = true;
+                        }
+                        agenda.Expire(item);
+                        continue;
+                    }
+                    if (!onDuty || active != null) continue;
+                    if (item.State == MedicalAgenda.Status.Scheduled || item.State == MedicalAgenda.Status.Arrived)
+                        item.State = MedicalAgenda.Status.Ready;
+                    if (!waitingRoom.CanReceiveReturningPatient) continue;
+
+                    PatientCase archived = dischargedCases.FirstOrDefault(patient => patient.Orders.AdmissionId == item.PatientId);
+                    if (archived != null && (archived.Deceased || archived.Disease == null))
+                    {
+                        agenda.Expire(item);
+                        continue;
+                    }
+                    if (archived?.DischargeWalk != null) continue;
+                    Point spawn = HospitalStaffRoutes.PatientSpawn;
+                    Ped arriving = null;
+                    try
+                    {
+                        arriving = new Ped(archived?.Model ?? PatientAppearance.ScheduledModel(item.Female),
+                            spawn.Position, spawn.Heading);
+                        if (!arriving.Exists()) throw new InvalidOperationException("NPC indisponível.");
+                        archived?.Appearance?.Apply(arriving);
+                        waitingRoom.ReceiveReturningPatient(arriving);
+                    }
+                    catch (InvalidOperationException error)
+                    {
+                        if (arriving != null && arriving.Exists()) arriving.Delete();
+                        Game.LogTrivial("[Lumen Santé] Chegada agendada adiada: " + error.Message);
+                        break;
+                    }
+
+                    if (archived != null)
+                    {
+                        archived.Ped = arriving;
+                        archived.AwaitingReturn = true;
+                    }
+                    PatientCase patientCase = RegisterReceptionPatient(arriving, item.Name);
+                    patientCase.Vitals = patientCase.Disease.Stages[patientCase.SeverityIndex].SampleVitals(random);
+                    dischargedCases.Remove(patientCase);
+                    patientCase.AwaitingReturn = false;
+                    patientCase.OutsideHospital = false;
+                    patientCase.AgendaRecord = true;
+                    patientCase.Appointment = item;
+                    item.PatientId = patientCase.Orders.AdmissionId;
+                    if (!inCare) item.State = MedicalAgenda.Status.Arrived;
+                    listChanged = true;
+                }
+                if (listChanged) RefreshPatientList();
+                SaveAgenda();
             }
 
             hospitalComputer.MedicationToggled += (orders, medication) =>
@@ -1056,6 +1241,12 @@ namespace lumen_sante.Gameplay
                 current.ConsultationChairWalk = null;
                 current.SeverityClockRunning = false;
                 current.Deceased = true;
+                if (current.Appointment != null)
+                {
+                    current.Appointment.State = MedicalAgenda.Status.Completed;
+                    current.Appointment = null;
+                    SaveAgenda();
+                }
                 current.Ped.IsPositionFrozen = false;
                 NativeFunction.Natives.SET_ENTITY_COLLISION(current.Ped, true, true);
                 if (shownCase == current)
@@ -1117,6 +1308,11 @@ namespace lumen_sante.Gameplay
                 }
 
                 admission.Ped = null;
+                if (admission.AgendaRecord && admission.Deceased && !dischargedCases.Contains(admission))
+                {
+                    dischargedCases.Add(admission);
+                    RefreshPatientList();
+                }
             }
 
             void UpdateTreatmentVisits()
@@ -1316,6 +1512,7 @@ namespace lumen_sante.Gameplay
                 RefreshPatientList, random);
 
             var shiftBlip = new Blip(ShiftPoint);
+            waitingRoom.PatientReady += NotifyScheduledArrival;
             try
             {
                 shiftBlip.Name = "Lumen Santé - Plantão";
@@ -1512,6 +1709,7 @@ namespace lumen_sante.Gameplay
                     }
                     UpdateExamWork();
                     UpdateDischargedPatients(player, playerAvailable);
+                    UpdateAgenda();
                     waitingRoom.Update(playerAvailable);
                     try
                     {
@@ -1675,12 +1873,14 @@ namespace lumen_sante.Gameplay
             }
             finally
             {
+                waitingRoom.PatientReady -= NotifyScheduledArrival;
                 workers.Clear();
                 NpcRoute.BackgroundSimulation = false;
                 examClipboard.Clear();
                 UpdateDoctorAnimation(null, null, null);
                 menu.Visible = false;
                 hospitalComputer.Close();
+                SaveAgenda();
                 ClearAllAdmissions();
                 if (shiftBlip.Exists())
                 {
