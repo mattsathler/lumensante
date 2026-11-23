@@ -3,6 +3,7 @@
 param(
     [string]$HospitalPackage = (Join-Path $PSScriptRoot 'Dependencies\CLS-Medic-Final.oiv'),
     [string]$CoatPackage = (Join-Path $PSScriptRoot 'Lumen-Sante-Doctor-Coat-v2.oiv'),
+    [string]$WebsiteDirectory = (Join-Path $PSScriptRoot 'lumen-sante\obj\Eyefind\native\scaleform_web'),
     [string]$OutputPath = (Join-Path $PSScriptRoot 'Lumen Santé - Resources.oiv')
 )
 
@@ -12,12 +13,20 @@ $output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPat
 if ([IO.Path]::GetExtension($output) -ine '.oiv') {
     throw 'O arquivo de saída deve ter extensão .oiv.'
 }
+$websiteFiles = @('www_eyefind_info.gfx', 'www_lumensante_com.gfx')
+foreach ($name in $websiteFiles) {
+    if (!(Test-Path -LiteralPath (Join-Path $WebsiteDirectory $name) -PathType Leaf)) {
+        throw "Arquivo do site ausente: $name. Gere os filmes com Tools/Eyefind/Build-NativeEyefind.ps1 antes de montar o pacote."
+    }
+}
 
 $packages = @()
 $staged = Join-Path ([IO.Path]::GetDirectoryName($output)) ([Guid]::NewGuid().ToString('N') + '.tmp')
 try {
     foreach ($path in @($HospitalPackage, $CoatPackage)) {
-        $packages += [IO.Compression.ZipFile]::OpenRead((Resolve-Path -LiteralPath $path).Path)
+        $inputPath = (Resolve-Path -LiteralPath $path).Path
+        if ($inputPath -ieq $output) { throw 'O arquivo de saída não pode ser um dos pacotes de entrada.' }
+        $packages += [IO.Compression.ZipFile]::OpenRead($inputPath)
     }
     $manifests = foreach ($package in $packages) {
         $reader = [IO.StreamReader]::new($package.GetEntry('assembly.xml').Open())
@@ -35,10 +44,23 @@ try {
     $description = $manifest.SelectSingleNode('/package/metadata/description')
     $description.RemoveAll()
     $description.AppendChild($manifest.CreateCDataSection(
-        'Central Los Santos Medical Center e jalecos MP Male/MP Female. Os jalecos substituem o casaco Import/Export jbib_006 e a textura A. GTA V Legacy. Instale na pasta mods.')) | Out-Null
+        'Central Los Santos Medical Center, jalecos MP Male/MP Female e site do hospital no Eyefind. GTA V Legacy. Instale na pasta mods; o plugin é instalado separadamente.')) | Out-Null
     foreach ($node in $manifests[1].package.content.ChildNodes) {
         $manifest.package.content.AppendChild($manifest.ImportNode($node, $true)) | Out-Null
     }
+    $updateArchive = $manifest.SelectSingleNode('/package/content/archive[translate(@path, "/", "\")="update\update.rpf"]')
+    if (!$updateArchive) { throw 'O pacote do hospital não contém update\update.rpf.' }
+    $webArchive = $manifest.CreateElement('archive')
+    $webArchive.SetAttribute('path', 'x64\patch\data\cdimages\scaleform_web.rpf')
+    $webArchive.SetAttribute('createIfNotExist', 'False')
+    $webArchive.SetAttribute('type', 'RPF7')
+    foreach ($name in $websiteFiles) {
+        $add = $manifest.CreateElement('add')
+        $add.SetAttribute('source', 'website/' + $name)
+        $add.InnerText = $name
+        [void]$webArchive.AppendChild($add)
+    }
+    [void]$updateArchive.AppendChild($webArchive)
 
     $zip = [IO.Compression.ZipFile]::Open($staged, [IO.Compression.ZipArchiveMode]::Create)
     try {
@@ -53,6 +75,12 @@ try {
                 try { $input.CopyTo($destination) } finally { $input.Dispose(); $destination.Dispose() }
             }
         }
+        foreach ($name in $websiteFiles) {
+            $entryName = 'content/website/' + $name
+            if ($entryNames.ContainsKey($entryName)) { throw "Entrada duplicada: $entryName" }
+            $entryNames[$entryName] = $true
+            [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, (Join-Path $WebsiteDirectory $name), $entryName) | Out-Null
+        }
         foreach ($add in $manifest.SelectNodes('//add[@source]')) {
             if (!$entryNames.ContainsKey('content/' + $add.source.Replace('\', '/'))) {
                 throw "Arquivo ausente: $($add.source)"
@@ -61,7 +89,13 @@ try {
         $writer = [IO.StreamWriter]::new($zip.CreateEntry('assembly.xml').Open(), [Text.UTF8Encoding]::new($false))
         try { $writer.Write($manifest.OuterXml) } finally { $writer.Dispose() }
     } finally { $zip.Dispose() }
-    [IO.File]::Move($staged, $output)
+    if (Test-Path -LiteralPath $output) {
+        $backup = $staged + '.bak'
+        [IO.File]::Replace($staged, $output, $backup)
+        Remove-Item -LiteralPath $backup
+    } else {
+        [IO.File]::Move($staged, $output)
+    }
 } finally {
     foreach ($package in $packages) { $package.Dispose() }
     if (Test-Path -LiteralPath $staged) { Remove-Item -LiteralPath $staged }
