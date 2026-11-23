@@ -52,7 +52,7 @@ As faixas usam o catálogo carregado, incluindo alterações e doenças adiciona
 
 Considerar os setores Diagnóstico, Enfermaria e Quartos. Medir a participação recente do jogador por consultas, conversas, avaliações, pedidos de exames, prescrições, internações e altas. A posição física auxilia a navegação, enquanto as ações de atendimento definem a cobertura. A leitura isolada de um prontuário não toma o caso de um Doctor.
 
-A influência das ações diminui com o tempo. Se o jogador estiver atendendo mais no diagnóstico e na enfermaria, os Doctors priorizam os quartos. Ao assumir os quartos, ele permite que a equipe aumente a cobertura dos outros setores.
+A influência das ações diminui com o tempo. A equipe prioriza manter um Doctor no diagnóstico quando houver paciente elegível e uma sala disponível, mesmo com o jogador atendendo na outra sala. Os demais Doctors distribuem as visitas entre enfermaria e quartos conforme a cobertura recente do jogador.
 
 O agendador considera demanda, tempo sem atendimento, pendências, cobertura recente do jogador e tarefas já atribuídas. Distância ajuda a escolher o profissional. A espera acumulada aumenta a prioridade para evitar abandono de setores. A redistribuição ocorre em eventos relevantes e em verificações periódicas espaçadas. Uma mudança de área prefere o fim da etapa atual, com interrupção quando o jogador assume diretamente o atendimento.
 
@@ -168,4 +168,4 @@ As operações atualmente concentradas em `HospitalShift` precisam receber expli
 
 ## Ajustes de equipe e exames
 
-Cada Doctor e Nurse recebe um nome e uma identidade ao entrar no hospital, usando as listas de nomes e sobrenomes do plugin. O nome do Doctor aparece como solicitante dos exames; o da Nurse aparece como executante. As visitas de tratamento feitas pela enfermagem são registradas internamente; a aba de histórico do prontuário mostra somente queixas e exames concluídos. Doctors podem deixar até quatro exames pendentes ou em andamento para um paciente ao mesmo tempo; o fluxo de enfermagem continua processando e agrupando pedidos compatíveis. O Doctor só assume uma sala de diagnóstico quando o jogador não atua nessa área e prefere Diagnóstico III.
+Cada Doctor e Nurse recebe um nome e uma identidade ao entrar no hospital, usando as listas de nomes e sobrenomes do plugin. O nome do Doctor aparece como solicitante dos exames e o da Nurse como executante. As visitas de tratamento da enfermagem são registradas internamente. A aba de histórico mostra somente queixas e exames concluídos. Doctors podem deixar até quatro exames pendentes ou em andamento por paciente, e a enfermagem agrupa pedidos compatíveis. O Doctor prefere Diagnóstico III e atende em paralelo com o jogador. A disputa pela mesma sala ou pelo mesmo paciente continua dando prioridade ao jogador.

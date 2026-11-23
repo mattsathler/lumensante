@@ -42,7 +42,7 @@
 
 ## Salário e carteira
 
-Etapa planejada para depois do resumo de encerramento do plantão. A primeira entrega inclui o crédito por plantão elegível, a persistência por perfil e a validação da troca de aparência ou personagem pelo EUP. [Proposta e critérios de aceitação](salario-e-carteira.md)
+Etapa planejada para depois do resumo de encerramento do plantão. A primeira entrega inclui o crédito por plantão elegível e a persistência por médico. [Proposta e critérios de aceitação](salario-e-carteira.md)
 
 ## Próximas interações do paciente
 

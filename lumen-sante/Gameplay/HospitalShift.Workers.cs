@@ -45,7 +45,6 @@ namespace lumen_sante.Gameplay
             private readonly Func<PatientCase, bool> returnToWaiting;
             private readonly Func<PatientCase, bool> blocked;
             private readonly Func<int, bool> playerAtComputer;
-            private readonly Func<bool> playerDiagnosing;
             private readonly Action refresh;
             private readonly Random random;
             private readonly WorkerDiagnosticRules rules = new WorkerDiagnosticRules(DiseaseCatalog.All);
@@ -62,7 +61,7 @@ namespace lumen_sante.Gameplay
                 Func<PatientCase, InpatientUnit, bool, bool> admit, Func<PatientCase, CareAuthor, long, bool> discharge,
                 Func<PatientCase, ExamOrder, CareAuthor, bool> request, Func<PatientCase, bool> returnToWaiting,
                 Func<PatientCase, bool> blocked, Func<int, bool> playerAtComputer,
-                Func<bool> playerDiagnosing, Action refresh, Random random)
+                Action refresh, Random random)
             {
                 this.path = path;
                 this.population = population;
@@ -78,14 +77,15 @@ namespace lumen_sante.Gameplay
                 this.returnToWaiting = returnToWaiting;
                 this.blocked = blocked;
                 this.playerAtComputer = playerAtComputer;
-                this.playerDiagnosing = playerDiagnosing;
                 this.refresh = refresh;
                 this.random = random;
             }
 
             private static string PatientResource(PatientCase patient) => "patient:" + patient.Orders.AdmissionId.ToString("N");
             private static string StationResource(int room) => "station:" + room;
+            internal bool IsComputerReserved(int room) => reservations.IsReserved(StationResource(room));
             internal bool IsPatientReserved(PatientCase patient) => reservations.IsReserved(PatientResource(patient));
+            private bool HasDiagnosticAssignment => assignments.Any(task => task.Room >= 0);
 
             private static int Area(PatientCase patient) => patient.InpatientRoomIndex < 0 ? 0 :
                 InpatientRooms[patient.InpatientRoomIndex].Unit == InpatientUnit.Ward ? 1 : 2;
@@ -100,7 +100,6 @@ namespace lumen_sante.Gameplay
                 playerCoverage[area] = Math.Min(6, Coverage(area, now) + 1);
                 playerActivity[area] = now;
                 CancelPatient(patient);
-                patient.WorkerConsultation = false;
                 patient.WorkerDueAt = now + GameClock.Minutes(10);
             }
 
@@ -113,7 +112,6 @@ namespace lumen_sante.Gameplay
             {
                 foreach (Assignment task in assignments.Where(task => task.Room == room).ToArray())
                 {
-                    task.Patient.WorkerConsultation = false;
                     task.Patient.WorkerDueAt = GameClock.NowMilliseconds + GameClock.Minutes(10);
                     Release(task);
                 }
@@ -138,8 +136,10 @@ namespace lumen_sante.Gameplay
                 PatientCase[] available = patients().Where(CanAttend).ToArray();
                 foreach (AmbientPatrol doctor in population.AvailableDoctors.ToArray())
                 {
-                    PatientCase patient = available.Where(CanAttend).OrderByDescending(candidate => Priority(candidate, now) -
-                        Math.Sqrt((candidate.Ped.Position - doctor.Actor.Actor.Position).LengthSquared()) / 100d)
+                    PatientCase patient = available.Where(CanAttend)
+                        .OrderByDescending(candidate => !candidate.Deceased && candidate.InpatientRoomIndex < 0)
+                        .ThenByDescending(candidate => Priority(candidate, now) -
+                            Math.Sqrt((candidate.Ped.Position - doctor.Actor.Actor.Position).LengthSquared()) / 100d)
                         .FirstOrDefault(candidate => candidate.Deceased || candidate.Location != PatientLocation.WaitingReception || FindConsultationRoom() >= 0);
                     if (patient == null) break;
                     try { Assign(doctor, patient, now); }
@@ -155,10 +155,9 @@ namespace lumen_sante.Gameplay
                 if (patient.Appointment != null && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsCareProtected && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsRecovered && patient.Orders.IsCareProtected) return false;
-                if (patient.Location == PatientLocation.Chair && playerDiagnosing()) return false;
-                if (patient.Location == PatientLocation.Chair && !patient.WorkerConsultation &&
-                    consultations.Any(other => other != patient && other?.WorkerConsultation == true)) return false;
-                return patient.Location == PatientLocation.Chair || patient.Location == PatientLocation.InpatientBed ||
+                if (patient.Location == PatientLocation.Chair)
+                    return !HasDiagnosticAssignment && !playerAtComputer(patient.DiagnosticRoomIndex);
+                return patient.Location == PatientLocation.InpatientBed ||
                     (patient.Location == PatientLocation.WaitingReception && waitingRoom.IsWaiting(patient.Ped));
             }
 
@@ -171,12 +170,9 @@ namespace lumen_sante.Gameplay
 
             private int FindConsultationRoom()
             {
-                if (playerDiagnosing()) return -1;
-                int committed = consultations.Count(patient => patient?.WorkerConsultation == true) +
-                    assignments.Count(task => task.Stage == TaskStage.ToComputer || task.Stage == TaskStage.Calling);
-                if (committed >= 1) return -1;
+                if (HasDiagnosticAssignment) return -1;
                 foreach (int index in Enumerable.Range(0, consultations.Length).OrderBy(i => i == 1 ? 0 : 1))
-                    if (consultations[index] == null && !playerAtComputer(index) && !reservations.IsReserved(StationResource(index))) return index;
+                    if (consultations[index] == null && !playerAtComputer(index) && !IsComputerReserved(index)) return index;
                 return -1;
             }
 
@@ -206,7 +202,6 @@ namespace lumen_sante.Gameplay
                     Deadline = now + GameClock.FromRealMilliseconds(120000)
                 };
                 assignments.Add(task);
-                if (!patient.Deceased && patient.Location == PatientLocation.Chair) patient.WorkerConsultation = true;
                 try
                 {
                     Point origin = doctor.AssignToExam();
@@ -230,7 +225,7 @@ namespace lumen_sante.Gameplay
                 if (!task.Doctor.Actor.IsAlive || patient.Ped == null || !patient.Ped.Exists() || (!patient.Deceased && !patient.Ped.IsAlive) ||
                     (patient.Deceased && patient.CoronersCalled) ||
                     patient.Orders.IsDischarged || patient.Orders.CareRevision != task.Revision || blocked(patient) ||
-                    (task.Room >= 0 && (playerAtComputer(task.Room) || playerDiagnosing())) || now >= task.Deadline)
+                    (task.Room >= 0 && playerAtComputer(task.Room)) || now >= task.Deadline)
                 {
                     patient.WorkerDueAt = now + GameClock.Minutes(5);
                     string reason = "paciente, estação ou profissional indisponível";
@@ -384,8 +379,6 @@ namespace lumen_sante.Gameplay
             {
                 reservations.Release(task.Author.Id);
                 assignments.Remove(task);
-                if (task.Room >= 0 && task.Patient.Location == PatientLocation.Chair)
-                    task.Patient.WorkerConsultation = false;
                 task.Walk.Clear();
                 if (!task.Doctor.Actor.IsAlive) return;
                 Point origin = task.Walk.LastGraphPoint ?? task.Destination;

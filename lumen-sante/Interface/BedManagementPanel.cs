@@ -52,7 +52,7 @@ namespace lumen_sante.Interface
         private const int VisibleTreatmentRows = 4;
         private static readonly RectangleF PortraitBounds = new RectangleF(236, 123, 64, 64);
         private static readonly RectangleF BackButton = new RectangleF(218, 105, 116, 33);
-        private static readonly Color Ink = Color.FromArgb(12, 47, 40);
+        private static readonly Color Ink = MenuPalette.Ink;
         private static readonly Color Muted = Color.FromArgb(74, 94, 86);
         private static readonly Color Green = Color.FromArgb(17, 83, 66);
         private static readonly Color Dark = Color.FromArgb(10, 52, 42);
@@ -60,7 +60,7 @@ namespace lumen_sante.Interface
         private static readonly Color Paper = Color.FromArgb(244, 240, 233);
         private static readonly Color Card = Color.FromArgb(252, 250, 246);
         private static readonly Color Border = Color.FromArgb(225, 219, 207);
-        private static readonly Color Highlight = Color.FromArgb(224, 237, 227);
+        private static readonly Color Highlight = MenuPalette.Highlight;
 
         private readonly Func<bool> roomOccupied;
         private readonly Func<string> roomPatientName;
@@ -744,6 +744,12 @@ namespace lumen_sante.Interface
                 Fill(RectangleF.Inflate(bounds, -1, -1), color);
             }
 
+            void ActionButton(RectangleF bounds, string caption, ActionTone tone, bool highlighted, float size = 16)
+            {
+                Fill(bounds, MenuPalette.ActionBackground(tone, highlighted));
+                Label(caption, bounds.X + 12, bounds.Y + (bounds.Height - size - 4) / 2, size, MenuPalette.ActionText(tone));
+            }
+
             void Icon(Texture texture, float x, float y, float size)
             {
                 if (texture != null)
@@ -815,8 +821,8 @@ namespace lumen_sante.Interface
                 Label("Atendimento " + current.VisitCount, 820, 32, 17, Muted);
                 if (current.CanCallPatient)
                 {
-                    Fill(CallPatientButton, CallPatientButton.Contains(current.Cursor) ? Highlight : Card);
-                    Label("Chamar paciente", CallPatientButton.X + 18, CallPatientButton.Y + 8, 19, Green);
+                    ActionButton(CallPatientButton, "Chamar paciente", ActionTone.Accent,
+                        CallPatientButton.Contains(current.Cursor), 19);
                 }
             }
             else
@@ -1026,7 +1032,12 @@ namespace lumen_sante.Interface
                             Fill(row, active || (enabled && row.Contains(current.Cursor)) ? Highlight : Paper);
                             Label(option.Name, row.X + 12, row.Y + 8, 18, enabled ? Ink : Muted);
                             Label(active ? "Ativo" : "Inativo", row.X + 12, row.Y + 31, 14, active ? Green : Muted);
-                            if (enabled) Label(active ? "Remover Medicação" : "Receitar", row.Right - 200, row.Y + 18, 16, Green);
+                            if (enabled)
+                            {
+                                var action = new RectangleF(row.Right - 212, row.Y + 10, 204, row.Height - 20);
+                                ActionButton(action, active ? "Remover medicação" : "Receitar",
+                                    active ? ActionTone.Destructive : ActionTone.Accent, row.Contains(current.Cursor));
+                            }
                         }
                         break;
                     }
@@ -1048,7 +1059,9 @@ namespace lumen_sante.Interface
                             var choice = current.MatchingTreatments[current.TreatmentOffset + index];
                             RectangleF row = TreatmentRow(index);
                             bool selected = choice.Id == current.TreatmentDiseaseId;
-                            Fill(row, selected || (!current.IsDischarged && row.Contains(current.Cursor)) ? Highlight : Paper);
+                            bool canSelect = !current.Deceased && !current.IsDischarged && !current.IsRecovered;
+                            Fill(row, canSelect && row.Contains(current.Cursor)
+                                ? MenuPalette.ActionBackground(ActionTone.Accent, true) : selected ? Highlight : Paper);
                             Label(choice.Name.Length > 71 ? choice.Name.Substring(0, 68) + "..." : choice.Name,
                                 row.X + 12, row.Y + 5, 17, Ink, "Segoe UI Semibold");
                             Label(choice.TreatmentName, row.X + 12, row.Y + 26, 14, Muted);
@@ -1085,8 +1098,12 @@ namespace lumen_sante.Interface
                                 request.Status == ExamStatus.Pending ?
                                     (current.IsInpatient ? "Aguardando" : "Aguardando leito") :
                                 available ? "Solicitar" : "Indisponível";
-                            Label(status, row.X + 685, row.Y + 14, 15,
-                                request.Status == ExamStatus.Completed || available ? Green : Muted);
+                            if (available)
+                            {
+                                var action = new RectangleF(row.X + 673, row.Y + 6, row.Width - 681, row.Height - 12);
+                                ActionButton(action, status, ActionTone.Accent, row.Contains(current.Cursor), 15);
+                            }
+                            else Label(status, row.X + 685, row.Y + 14, 15, request.Status == ExamStatus.Completed ? Green : Muted);
                         }
                         break;
                     }

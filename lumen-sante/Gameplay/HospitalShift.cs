@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Rage;
 using Rage.Native;
@@ -109,7 +111,8 @@ namespace lumen_sante.Gameplay
             internal bool AwaitingReturn;
             internal long ReturnAt;
             internal bool SpontaneousReturn;
-            internal bool AgendaRecord;
+            internal Guid AgendaOwner;
+            internal bool AgendaRecord => AgendaOwner != Guid.Empty;
             internal MedicalAgenda.Appointment Appointment;
             internal DiseaseDefinition Disease;
             internal ExamOrders Orders;
@@ -126,7 +129,6 @@ namespace lumen_sante.Gameplay
             internal long CoronerPickupAt;
             internal bool SeverityClockRunning;
             internal bool HasConsulted;
-            internal bool WorkerConsultation;
             internal bool ConsultationRequestedByPlayer;
             internal bool TransferRequestedByPlayer;
             internal bool AwaitingBed;
@@ -150,21 +152,19 @@ namespace lumen_sante.Gameplay
             Point[] doctorAccess = DiagnosticRooms.Select((room, index) => routes.AddDoctorWorkAccess(
                 index, room.DoctorInteraction, room.DoctorHeading, consultationAccess[index].Access)).ToArray();
             var menuPool = new MenuPool();
-            var examClipboard = new ExamClipboard();
             var menu = new UIMenu("Lumen Santé", "Central Los Santos Medical Center");
-            var shiftAction = new UIMenuItem("Iniciar plantão");
-            var callPatient = new UIMenuItem("Chamar paciente") { Enabled = false };
+            var shiftAction = MenuPalette.Item("Iniciar plantão", ActionTone.Accent);
+            var callPatient = MenuPalette.Item("Chamar paciente", ActionTone.Accent, enabled: false);
             menu.AddItem(shiftAction);
             menu.AddItem(callPatient);
-            var roomStatusItems = DiagnosticRooms.Select(room => new UIMenuItem(room.Name) { Enabled = false }).ToArray();
+            var roomStatusItems = DiagnosticRooms.Select(room => MenuPalette.Item(room.Name, enabled: false)).ToArray();
             foreach (UIMenuItem status in roomStatusItems)
             {
                 menu.AddItem(status);
             }
             menuPool.Add(menu);
             bool interactionWasDown = false;
-            bool tabletWasDown = false;
-            bool autoStartPending = true;
+            bool doctorsWasDown = false;
 
             var random = new Random();
             var consultations = new PatientCase[DiagnosticRooms.Length];
@@ -172,10 +172,13 @@ namespace lumen_sante.Gameplay
             var receptionCases = new Dictionary<Ped, PatientCase>();
             var cases = consultations.Concat(inpatients).Concat(receptionCases.Values);
             var dischargedCases = new List<PatientCase>();
-            var agenda = new MedicalAgenda(System.IO.Path.Combine(PluginPaths.InstallationDirectory,
-                "LumenSante", "agenda.json"), message => Game.LogTrivial("[Lumen Santé] " + message));
+            var doctorProfiles = new DoctorProfiles(System.IO.Path.Combine(PluginPaths.InstallationDirectory, "LumenSante"),
+                message => Game.LogTrivial("[Lumen Santé] " + message));
+            bool autoStartPending = doctorProfiles.Default != null;
+            var agendas = new Dictionary<Guid, MedicalAgenda>();
+            MedicalAgenda agenda = null;
+            Guid agendaProfile = Guid.Empty;
             DateTime agendaNow = default(DateTime);
-            bool agendaRestored = false;
             long nextAgendaUpdate = 0;
             var pendingExams = new Queue<(PatientCase Patient, ExamOrder Order)>();
             (PatientCase Patient, ExamOrder Order) activeExam = default((PatientCase, ExamOrder));
@@ -193,27 +196,103 @@ namespace lumen_sante.Gameplay
             Ped examiningDoctor = null;
             string activeExamAnimation = null;
             string activeExamClip = null;
+            HospitalComputer hospitalComputer = null;
+            DoctorMenu doctors = null;
+            bool hospitalWebsiteObserved = false;
+            int hospitalBrowserHandle = 0;
+            long nextWebsiteUpdate = 0;
+            int previousWebsitePage = -1;
+            var websiteSlots = new WebsiteSlotCache();
+            var websiteClock = Stopwatch.StartNew();
+            uint internetScript = NativeFunction.CallByHash<uint>(0xD24D37CC275948CCUL, "appinternet");
+            Guid[] websitePatientIds = Array.Empty<Guid>();
+            long[] websiteCareRevisions = Array.Empty<long>();
+            int websitePatientGeneration = 0;
+            Guid websiteSelectedPatient = Guid.Empty;
+            Guid[] websiteAgendaIds = Array.Empty<Guid>();
+            Guid websiteAgendaOwner = Guid.Empty;
+            int websiteAgendaGeneration = 0;
+            int lastHospitalPage = 7;
+            Guid lastHospitalPatient = Guid.Empty;
+            int websiteOpenStage = 0;
+            bool websiteOpenFromPhone = false;
+            int websiteOpenSequence = 0;
+            int websiteOpenPage = 7;
+            Guid websiteOpenPatient = Guid.Empty;
+            bool websiteOpenPatientPending = false;
+            long websiteOpenStarted = 0;
+            string websiteAgendaFeedback = "";
+            bool websiteAgendaActive = false;
+            Guid websiteNotesPatient = Guid.Empty;
+            string websiteNotesOriginal = null;
+
+            void ReleaseHospitalBrowser()
+            {
+                if (hospitalBrowserHandle == 0) return;
+                IntPtr pointer = Marshal.AllocHGlobal(sizeof(int));
+                try
+                {
+                    Marshal.WriteInt32(pointer, hospitalBrowserHandle);
+                    NativeFunction.CallByHash<int>(0x1D132D614DD86811UL, pointer.ToInt64());
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(pointer);
+                    hospitalBrowserHandle = 0;
+                }
+            }
+
+            bool IsAccessible(PatientCase patient) => patient != null &&
+                (!patient.AgendaRecord || (doctorProfiles.Default != null && patient.AgendaOwner == doctors.ActiveId));
 
             bool CanInteractWithPatient() =>
-                shiftPlayer != null && current.Ped != null && current.Ped.Exists() && current.Ped.IsAlive && !current.Deceased;
+                shiftPlayer != null && IsAccessible(current) && current.Ped != null &&
+                current.Ped.Exists() && current.Ped.IsAlive && !current.Deceased;
 
             var patientMenu = new PatientMenu(menuPool, DiagnosticRooms[current.DiagnosticRoomIndex].Name,
                 CanInteractWithPatient);
-            HospitalComputer hospitalComputer = null;
             hospitalComputer = new HospitalComputer(menuPool, DiagnosticRooms[current.DiagnosticRoomIndex].Name, patientMenu,
                 () => current.Location == PatientLocation.Chair && current.DiagnosticRoomIndex == doctorRoomIndex && CanInteractWithPatient(),
-                () => consultations[doctorRoomIndex] != null, () => consultations[doctorRoomIndex]?.Name,
+                () => consultations[doctorRoomIndex] != null,
+                () => IsAccessible(consultations[doctorRoomIndex]) ? consultations[doctorRoomIndex].Name : null,
                 CanCallPatient, () => CallPatientToRoom(doctorRoomIndex), CanCallSelectedPatient,
                 orders => CanCallSelectedPatient(orders) &&
                     CallPatientToRoom(doctorRoomIndex, cases.First(candidate => candidate?.Orders == orders).Ped));
             hospitalComputer.ConfigureAgenda(agenda, () => agendaNow, CancelPendingReturn);
+            void RequestHospitalWebsite(bool fromPhone)
+            {
+                websiteOpenPatientPending = false;
+                var roomPatient = fromPhone ? null : consultations[doctorRoomIndex];
+                websiteOpenPatient = roomPatient != null && IsAccessible(roomPatient) &&
+                    (roomPatient.Location == PatientLocation.Chair || roomPatient.Location == PatientLocation.ExaminationTable) &&
+                    !roomPatient.Deceased
+                    ? roomPatient.Orders.AdmissionId : Guid.Empty;
+                websiteOpenPage = websiteOpenPatient != Guid.Empty ? 8 : lastHospitalPage;
+                if (websiteOpenPatient == Guid.Empty && websiteOpenPage == 8 && lastHospitalPatient != Guid.Empty &&
+                    GetAccessiblePatients().Any(entry => entry.Orders.AdmissionId == lastHospitalPatient))
+                    websiteOpenPatient = lastHospitalPatient;
+                websiteOpenSequence = websiteOpenSequence % 500000 + 1;
+                websiteOpenStarted = websiteClock.ElapsedMilliseconds;
+                websiteOpenFromPhone = fromPhone;
+                websiteOpenStage = fromPhone ? 2 : 1;
+                if (!fromPhone) NativeFunction.Natives.REQUEST_SCRIPT("appinternet");
+            }
+            hospitalComputer.WebsiteOpenRequested += () => RequestHospitalWebsite(false);
+            var phoneShortcut = new NativePhoneShortcut();
 
             bool CanCallSelectedPatient(ExamOrders orders) => orders != null && CanCallPatient() &&
                 consultations[doctorRoomIndex] == null && cases.Any(candidate => candidate?.Orders == orders &&
-                    !candidate.Deceased && candidate.Location == PatientLocation.WaitingReception && waitingRoom.IsWaiting(candidate.Ped));
+                    IsAccessible(candidate) && !candidate.Deceased && candidate.Location == PatientLocation.WaitingReception &&
+                    waitingRoom.IsWaiting(candidate.Ped));
 
             bool CanCallPatient() =>
-                shiftPlayer != null && waitingRoom.WaitingPatientCount > 0;
+                shiftPlayer != null && NextPatient() != null;
+
+            Ped NextPatient() => waitingRoom.FirstWaiting(patient =>
+                    !receptionCases.TryGetValue(patient, out PatientCase candidate) ||
+                    (IsAccessible(candidate) && !workers.IsPatientReserved(candidate))) ??
+                waitingRoom.FirstWaiting(patient =>
+                    !receptionCases.TryGetValue(patient, out PatientCase candidate) || IsAccessible(candidate));
 
             bool IsNear(Ped doctor, Vector3 point) =>
                 doctor.Exists() && doctor.IsAlive && doctor.IsOnFoot &&
@@ -287,6 +366,7 @@ namespace lumen_sante.Gameplay
 
             void BindPatient(PatientCase selected)
             {
+                if (!IsAccessible(selected)) selected = null;
                 if (shownCase == selected)
                 {
                     return;
@@ -302,8 +382,8 @@ namespace lumen_sante.Gameplay
                 }
             }
 
-            void RefreshPatientList() => hospitalComputer.SetPatients(cases.Concat(dischargedCases)
-                .Where(admission => admission?.Orders != null)
+            BedManagementPanel.PatientEntry[] GetAccessiblePatients() => cases.Concat(dischargedCases)
+                .Where(admission => admission?.Orders != null && IsAccessible(admission))
                 .GroupBy(admission => admission.Orders.AdmissionId)
                 .Select(group => group.First())
                 .Select(admission => new BedManagementPanel.PatientEntry(admission.Orders, admission.Ped,
@@ -319,7 +399,9 @@ namespace lumen_sante.Gameplay
                      admission.Location == PatientLocation.InpatientBed ||
                      admission.Location == PatientLocation.UndergoingExam),
                     admission.Appointment != null))
-                .ToArray());
+                .ToArray();
+
+            void RefreshPatientList() => hospitalComputer.SetPatients(GetAccessiblePatients());
 
             PatientCase RegisterReceptionPatient(Ped patient, string scheduledName = null)
             {
@@ -379,7 +461,7 @@ namespace lumen_sante.Gameplay
             void NotifyScheduledArrival(Ped patient)
             {
                 if (!receptionCases.TryGetValue(patient, out PatientCase admission) ||
-                    admission.Appointment == null || admission.AwaitingBed) return;
+                    !IsAccessible(admission) || admission.Appointment == null || admission.AwaitingBed) return;
 
                 string purpose = admission.Appointment.FollowUp ? "o retorno" : "a consulta";
                 Game.DisplayNotification("Agenda: " + admission.Name + " chegou à recepção para " + purpose + ".");
@@ -421,11 +503,12 @@ namespace lumen_sante.Gameplay
                     return;
                 }
 
-                int roomIndex = consultations[doctorRoomIndex] == null
-                    ? doctorRoomIndex : Array.FindIndex(consultations, consultation => consultation == null);
+                bool IsFree(int index) => consultations[index] == null && !workers.IsComputerReserved(index);
+                int roomIndex = IsFree(doctorRoomIndex) ? doctorRoomIndex :
+                    Enumerable.Range(0, consultations.Length).Where(IsFree).DefaultIfEmpty(-1).First();
                 if (roomIndex < 0)
                 {
-                    Game.DisplayNotification("Todas as salas de diagnóstico estão ocupadas.");
+                    Game.DisplayNotification("As salas de diagnóstico estão ocupadas ou reservadas.");
                     return;
                 }
                 if (CallPatientToRoom(roomIndex))
@@ -436,6 +519,12 @@ namespace lumen_sante.Gameplay
 
             bool CallPatientToRoom(int roomIndex, Ped requestedPatient = null, bool autonomous = false)
             {
+                if (!autonomous)
+                {
+                    requestedPatient = requestedPatient ?? NextPatient();
+                    if (requestedPatient == null || (receptionCases.TryGetValue(requestedPatient, out PatientCase assigned) &&
+                        !IsAccessible(assigned))) return false;
+                }
                 if (autonomous && (requestedPatient == null ||
                     (receptionCases.TryGetValue(requestedPatient, out PatientCase selected) && selected.Appointment != null)))
                     return false;
@@ -457,7 +546,6 @@ namespace lumen_sante.Gameplay
                 dischargedCases.Remove(admission);
                 admission.AwaitingReturn = false;
                 if (!autonomous) workers?.PlayerTakesPatient(admission);
-                admission.WorkerConsultation = autonomous;
                 admission.ConsultationRequestedByPlayer = !autonomous;
                 admission.AwaitingBed = false;
                 admission.DiagnosticRoomIndex = roomIndex;
@@ -662,7 +750,6 @@ namespace lumen_sante.Gameplay
                 if (admission.Location != PatientLocation.Chair || admission.Deceased || admission.Orders.IsCareProtected ||
                     !waitingRoom.ReceiveFromConsultation(admission.Ped, consultationAccess[admission.DiagnosticRoomIndex].Access)) return false;
                 consultations[admission.DiagnosticRoomIndex] = null;
-                admission.WorkerConsultation = false;
                 admission.Location = PatientLocation.WaitingReception;
                 admission.Orders.Readmit("Recepção — Aguardando leito");
                 receptionCases[admission.Ped] = admission;
@@ -673,8 +760,8 @@ namespace lumen_sante.Gameplay
             patientMenu.DischargeRequested += (orders, schedule) =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
-                if (admission == null || shownCase != admission || shiftPlayer == null) return;
-                if (schedule && (!agenda.Available || agendaNow == default(DateTime)))
+                if (!IsAccessible(admission) || shownCase != admission || shiftPlayer == null) return;
+                if (schedule && (agenda?.Available != true || agendaNow == default(DateTime)))
                 {
                     Game.DisplayNotification("Agenda indisponível. A alta com retorno não foi registrada.");
                     return;
@@ -683,13 +770,13 @@ namespace lumen_sante.Gameplay
                 if (!DischargePatient(admission, CareAuthor.Player, orders.CareRevision)) return;
                 if (schedule)
                 {
-                    admission.AgendaRecord = true;
+                    admission.AgendaOwner = doctors.ActiveId;
                     var appointment = agenda.ScheduleReturn(agendaNow, CaptureAgendaRecord(admission));
-                    if (appointment != null && SaveAgenda())
+                    if (appointment != null && SaveAgenda(admission.AgendaOwner))
                         Game.DisplayNotification("Retorno de " + admission.Name + " em " + appointment.Date.ToString("dd/MM 'às' HH:mm") + ".");
                     else Game.DisplayNotification("Não foi possível gravar o retorno. Consulte a agenda.");
                 }
-                else if (admission.AgendaRecord) SaveAgenda();
+                else if (admission.AgendaRecord) SaveAgenda(admission.AgendaOwner);
             };
 
             bool DischargePatient(PatientCase admission, CareAuthor author, long expectedRevision)
@@ -858,56 +945,132 @@ namespace lumen_sante.Gameplay
                 Deceased = admission.Deceased
             };
 
-            bool SaveAgenda()
+            bool SaveAgenda(Guid onlyOwner = default(Guid))
             {
-                if (!agendaRestored || agendaNow == default(DateTime)) return false;
+                if (agendaNow == default(DateTime)) return false;
                 foreach (PatientCase patient in cases.Concat(dischargedCases).Where(patient => patient?.AgendaRecord == true).Distinct())
-                    agenda.UpdateRecord(CaptureAgendaRecord(patient));
-                return agenda.Save();
+                    if ((onlyOwner == Guid.Empty || patient.AgendaOwner == onlyOwner) &&
+                        agendas.TryGetValue(patient.AgendaOwner, out MedicalAgenda ownerAgenda))
+                        ownerAgenda.UpdateRecord(CaptureAgendaRecord(patient));
+                bool saved = true;
+                foreach (var entry in agendas)
+                    if ((onlyOwner == Guid.Empty || entry.Key == onlyOwner) && entry.Value.Available)
+                        saved = entry.Value.Save() && saved;
+                return saved;
             }
 
             bool CancelPendingReturn(Guid id)
             {
-                var item = agenda.Appointments.FirstOrDefault(candidate => candidate.Id == id &&
+                var item = agenda?.Appointments.FirstOrDefault(candidate => candidate.Id == id &&
                     candidate.State == MedicalAgenda.Status.Pending);
                 if (item == null) return false;
                 item.State = MedicalAgenda.Status.Cancelled;
-                if (SaveAgenda()) return true;
+                if (SaveAgenda(agendaProfile)) return true;
                 item.State = MedicalAgenda.Status.Pending;
                 return false;
             }
 
+            MedicalAgenda LoadDoctorAgenda(Guid owner)
+            {
+                if (!agendas.TryGetValue(owner, out MedicalAgenda schedule))
+                {
+                    schedule = new MedicalAgenda(doctorProfiles.AgendaPath(owner),
+                        message => Game.LogTrivial("[Lumen Santé] " + message));
+                    agendas.Add(owner, schedule);
+                    RestoreAgendaRecords(owner, schedule);
+                }
+                return schedule;
+            }
+
+            void RestoreAgendaRecords(Guid owner, MedicalAgenda schedule)
+            {
+                if (agendaNow == default(DateTime)) return;
+                var known = new HashSet<Guid>(cases.Concat(dischargedCases)
+                    .Where(patient => patient?.AgendaOwner == owner).Select(patient => patient.Orders.AdmissionId));
+                foreach (MedicalAgenda.Record record in schedule.Records)
+                {
+                    if (!known.Add(record.Orders.Id)) continue;
+                    DiseaseDefinition disease = DiseaseCatalog.Find(record.Orders.Disease);
+                    dischargedCases.Add(new PatientCase
+                    {
+                        AgendaOwner = owner, OutsideHospital = true, Deceased = record.Deceased,
+                        Name = record.Orders.Name, Disease = disease, Model = new Model(record.Model),
+                        Appearance = record.Outfit?.Length == 52 ? new PatientAppearance.Snapshot(record.Outfit) : null,
+                        RiskLevel = disease == null ? 1 : Math.Max(1, Math.Min(record.Risk, disease.Stages.Count - 1)),
+                        Orders = ExamOrders.Restore(record.Orders, GameClock.NowMilliseconds, agendaNow)
+                    });
+                }
+            }
+
+            bool ArchiveDoctor(Guid owner)
+            {
+                if (shiftPlayer != null) return false;
+                if (agendas.TryGetValue(owner, out MedicalAgenda schedule) && schedule.Available && !SaveAgenda(owner))
+                    return false;
+                if (!doctorProfiles.Remove(owner)) return false;
+                foreach (PatientCase admission in cases.Where(patient => patient?.AgendaOwner == owner).ToArray())
+                {
+                    workers.CancelPatient(admission);
+                    if (activeExam.Patient == admission)
+                    {
+                        procedure?.ReleaseNurse();
+                        procedure = null;
+                        foreach (ExamOrder order in activeOrders) order.Cancel();
+                        activeOrders.Clear();
+                        activeExam = default((PatientCase, ExamOrder));
+                    }
+                    if (visitedPatient == admission)
+                    {
+                        nursingVisit?.ReleaseNurse();
+                        nursingVisit = null;
+                        visitedPatient = null;
+                    }
+                    if (admission.Location == PatientLocation.WaitingReception) waitingRoom.RemovePatient(admission.Ped);
+                    admission.InpatientTransfer?.Clear();
+                    ClearAdmission(admission);
+                }
+                foreach (PatientCase admission in dischargedCases.Where(patient => patient.AgendaOwner == owner).ToArray())
+                {
+                    admission.DischargeWalk?.Clear();
+                    if (admission.Ped != null && admission.Ped.Exists()) admission.Ped.Delete();
+                    dischargedCases.Remove(admission);
+                }
+                agendas.Remove(owner);
+                RefreshPatientList();
+                return true;
+            }
+
             void UpdateAgenda()
             {
-                if (GameClock.NowMilliseconds < nextAgendaUpdate) return;
+                Guid selected = doctorProfiles.Default != null ? doctors.ActiveId : Guid.Empty;
+                if (selected == agendaProfile && GameClock.NowMilliseconds < nextAgendaUpdate) return;
                 nextAgendaUpdate = GameClock.NowMilliseconds + GameClock.FromRealMilliseconds(1000);
                 DateTime gameDate = MedicalAgenda.ReadGameDate();
                 if (gameDate == default(DateTime)) return;
                 agendaNow = gameDate;
-                if (!agenda.Available) return;
-                if (!agendaRestored)
+                if (selected != agendaProfile)
                 {
-                    foreach (MedicalAgenda.Record record in agenda.Records)
-                    {
-                        DiseaseDefinition disease = DiseaseCatalog.Find(record.Orders.Disease);
-                        dischargedCases.Add(new PatientCase
-                        {
-                            AgendaRecord = true, OutsideHospital = true, Deceased = record.Deceased,
-                            Name = record.Orders.Name, Disease = disease, Model = new Model(record.Model),
-                            Appearance = record.Outfit?.Length == 52 ? new PatientAppearance.Snapshot(record.Outfit) : null,
-                            RiskLevel = disease == null ? 1 : Math.Max(1, Math.Min(record.Risk, disease.Stages.Count - 1)),
-                            Orders = ExamOrders.Restore(record.Orders, GameClock.NowMilliseconds, agendaNow)
-                        });
-                    }
-                    agendaRestored = true;
+                    SaveAgenda();
+                    agenda = selected == Guid.Empty ? null : LoadDoctorAgenda(selected);
+                    agendaProfile = selected;
+                    hospitalComputer.ConfigureAgenda(agenda, () => agendaNow, CancelPendingReturn);
                     RefreshPatientList();
                 }
+                agenda?.Generate(agendaNow, random);
+                var live = cases.Where(patient => patient?.Appointment != null).ToLookup(patient => patient.AgendaOwner);
+                foreach (var entry in agendas)
+                {
+                    if (entry.Value.Available)
+                        UpdateDoctorAgenda(entry.Key, entry.Value, shiftPlayer != null && entry.Key == agendaProfile,
+                            live[entry.Key].ToDictionary(patient => patient.Appointment.Id));
+                }
+                SaveAgenda();
+            }
 
-                agenda.Generate(agendaNow, random);
-                bool onDuty = shiftPlayer != null;
-                var live = cases.Where(patient => patient?.Appointment != null).ToDictionary(patient => patient.Appointment.Id);
+            void UpdateDoctorAgenda(Guid owner, MedicalAgenda schedule, bool onDuty, Dictionary<Guid, PatientCase> live)
+            {
                 bool listChanged = false;
-                foreach (var item in agenda.Appointments.Where(item => item.Due <= agendaNow.Ticks &&
+                foreach (var item in schedule.Appointments.Where(item => item.Due <= agendaNow.Ticks &&
                     (item.State == MedicalAgenda.Status.Scheduled || item.State == MedicalAgenda.Status.Ready ||
                      item.State == MedicalAgenda.Status.Arrived || item.State == MedicalAgenda.Status.InCare))
                     .OrderBy(item => item.Due))
@@ -926,7 +1089,7 @@ namespace lumen_sante.Gameplay
                             if (active.AgendaRecord && !dischargedCases.Contains(active)) dischargedCases.Add(active);
                             listChanged = true;
                         }
-                        agenda.Expire(item);
+                        schedule.Expire(item);
                         continue;
                     }
                     if (!onDuty || active != null) continue;
@@ -934,10 +1097,11 @@ namespace lumen_sante.Gameplay
                         item.State = MedicalAgenda.Status.Ready;
                     if (!waitingRoom.CanReceiveReturningPatient) continue;
 
-                    PatientCase archived = dischargedCases.FirstOrDefault(patient => patient.Orders.AdmissionId == item.PatientId);
+                    PatientCase archived = dischargedCases.FirstOrDefault(patient =>
+                        patient.AgendaOwner == owner && patient.Orders.AdmissionId == item.PatientId);
                     if (archived != null && (archived.Deceased || archived.Disease == null))
                     {
-                        agenda.Expire(item);
+                        schedule.Expire(item);
                         continue;
                     }
                     if (archived?.DischargeWalk != null) continue;
@@ -968,23 +1132,22 @@ namespace lumen_sante.Gameplay
                     dischargedCases.Remove(patientCase);
                     patientCase.AwaitingReturn = false;
                     patientCase.OutsideHospital = false;
-                    patientCase.AgendaRecord = true;
+                    patientCase.AgendaOwner = owner;
                     patientCase.Appointment = item;
                     item.PatientId = patientCase.Orders.AdmissionId;
                     if (!inCare) item.State = MedicalAgenda.Status.Arrived;
                     listChanged = true;
                 }
                 if (listChanged) RefreshPatientList();
-                SaveAgenda();
             }
 
             hospitalComputer.MedicationToggled += (orders, medication) =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
                 Ped doctor = Game.LocalPlayer.Character;
-                if (shiftPlayer != doctor || admission == null || admission.Deceased ||
+                if (shiftPlayer != doctor || !IsAccessible(admission) || admission.Deceased ||
                     admission.Location == PatientLocation.WaitingReception ||
-                    (!hospitalComputer.IsSeated(doctor) && !hospitalComputer.IsTabletOpen)) return;
+                    !hospitalComputer.IsSeated(doctor)) return;
                 var option = MedicationCatalog.Options.FirstOrDefault(choice => choice.Class == medication);
                 if (option.Name == null) return;
                 bool active = orders.ActiveMedications(GameClock.NowMilliseconds).Contains(medication);
@@ -1005,15 +1168,15 @@ namespace lumen_sante.Gameplay
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
                 Ped doctor = Game.LocalPlayer.Character;
-                if (shiftPlayer != doctor || admission == null ||
-                    (!hospitalComputer.IsSeated(doctor) && !hospitalComputer.IsTabletOpen)) return;
+                if (shiftPlayer != doctor || !IsAccessible(admission) ||
+                    !hospitalComputer.IsSeated(doctor)) return;
                 workers?.PlayerTakesPatient(admission);
                 RequestPatientExam(admission, order, true);
             };
             hospitalComputer.TreatmentSelected += (orders, diseaseId) =>
             {
                 PatientCase admission = cases.FirstOrDefault(candidate => candidate?.Orders == orders);
-                if (shiftPlayer == null || admission == null || admission.Deceased || admission.Orders.IsRecovered ||
+                if (shiftPlayer == null || !IsAccessible(admission) || admission.Deceased || admission.Orders.IsRecovered ||
                     admission.Location == PatientLocation.WaitingReception ||
                     !DiseaseCatalog.Treatments.Any(disease => disease.Id == diseaseId) ||
                     !orders.SelectTreatment(diseaseId, CareAuthor.Player, GameClock.NowMilliseconds, orders.CareRevision))
@@ -1034,20 +1197,6 @@ namespace lumen_sante.Gameplay
                     orders.RegisterPlayerInteraction(GameClock.NowMilliseconds);
                 }
             };
-            patientMenu.ExamRequested += order =>
-            {
-                Ped doctor = Game.LocalPlayer.Character;
-                if (shiftPlayer == null || shiftPlayer != doctor || !doctor.Exists() || !doctor.IsAlive ||
-                    current.Location != PatientLocation.InpatientBed || !IsNear(doctor, current.InpatientInteractionPoint) ||
-                    !CanInteractWithPatient() || current.Orders == null)
-                {
-                    return;
-                }
-
-                workers?.PlayerTakesPatient(current);
-                RequestPatientExam(current, order, true);
-            };
-
             bool RequestPatientExam(PatientCase admission, ExamOrder order, bool requestedByPlayer, CareAuthor doctor = null)
             {
                 bool readyForRequest = admission.Location == PatientLocation.Chair ||
@@ -1061,19 +1210,15 @@ namespace lumen_sante.Gameplay
                     order.TryRequestByNamedWorker(admission.SeverityIndex + 1, doctor)))
                 {
                     pendingExams.Enqueue((admission, order));
-                    RefreshExamStatus(admission, order);
+                    RefreshExamStatus(admission);
                     Game.LogTrivial("[Lumen Santé] Exame solicitado para " + admission.Name + ": " + order.Id + ".");
                     return true;
                 }
                 return false;
             }
 
-            void RefreshExamStatus(PatientCase admission, ExamOrder order)
+            void RefreshExamStatus(PatientCase admission)
             {
-                if (shownCase == admission)
-                {
-                    patientMenu.UpdateExamStatus(Array.IndexOf(admission.Orders.Items, order), order);
-                }
                 hospitalComputer.RefreshExams(admission.Orders);
             }
 
@@ -1094,7 +1239,7 @@ namespace lumen_sante.Gameplay
                     {
                         pendingExams.Dequeue();
                         request.Order.Cancel();
-                        RefreshExamStatus(admission, request.Order);
+                        RefreshExamStatus(admission);
                         continue;
                     }
                     if (admission.Location != PatientLocation.InpatientBed)
@@ -1123,7 +1268,7 @@ namespace lumen_sante.Gameplay
                     catch (InvalidOperationException error)
                     {
                         request.Order.Cancel();
-                        RefreshExamStatus(admission, request.Order);
+                        RefreshExamStatus(admission);
                         if (request.Order.RequestedByPlayer) Game.DisplayNotification("O exame não pôde ser iniciado.");
                         Game.LogTrivial("[Lumen Santé] Falha ao iniciar exame: " + error.Message);
                     }
@@ -1183,7 +1328,7 @@ namespace lumen_sante.Gameplay
                 {
                     if (order.TrySetStatus(procedure.OrderStatus))
                     {
-                        RefreshExamStatus(admission, order);
+                        RefreshExamStatus(admission);
                     }
                 }
                 if (result == ExamProcedure.Result.Running)
@@ -1203,7 +1348,7 @@ namespace lumen_sante.Gameplay
                     {
                         order.Cancel();
                     }
-                    RefreshExamStatus(admission, order);
+                    RefreshExamStatus(admission);
                 }
                 activeOrders.Clear();
                 procedure = null;
@@ -1211,7 +1356,7 @@ namespace lumen_sante.Gameplay
             }
 
             var deceasedMenu = new UIMenu("Paciente", "Central Los Santos Medical Center");
-            var coronersAction = new UIMenuItem("Chamar os Coroners");
+            var coronersAction = MenuPalette.Item("Chamar os Coroners", ActionTone.Accent);
             deceasedMenu.AddItem(coronersAction);
             menuPool.Add(deceasedMenu);
 
@@ -1222,7 +1367,7 @@ namespace lumen_sante.Gameplay
                     return;
                 }
 
-                coronersAction.Enabled = false;
+                MenuPalette.SetEnabled(coronersAction, false, ActionTone.Accent);
                 coronersAction.Text = "Coroners chamados";
                 workers?.PlayerTakesPatient(current);
                 current.CoronersCalled = true;
@@ -1263,6 +1408,12 @@ namespace lumen_sante.Gameplay
 
             void UpdatePatientBlip()
             {
+                if (!IsAccessible(current))
+                {
+                    if (current.Blip != null && current.Blip.Exists()) current.Blip.Delete();
+                    current.Blip = null;
+                    return;
+                }
                 if (current.InpatientRoomIndex < 0 || current.Orders?.IsInpatient != true) return;
                 var room = InpatientRooms[current.InpatientRoomIndex];
                 Vector3 position = current.Ped != null && current.Ped.Exists() ? current.Ped.Position : room.Bed;
@@ -1477,16 +1628,23 @@ namespace lumen_sante.Gameplay
             void ToggleShift(Ped player, bool notifyPlayer = true)
             {
                 bool starting = shiftPlayer == null;
-                if (starting && (!player.Exists() || !player.IsAlive))
+                if (starting && (player == null || !player.Exists() || !player.IsAlive))
                 {
+                    return;
+                }
+                if (starting && (doctors.IsOpen || !doctors.CanStartShift(player)))
+                {
+                    if (notifyPlayer) Game.DisplayNotification("Defina um médico padrão e ative um médico pelo menu Médicos (F9).");
                     return;
                 }
 
                 shiftPlayer = starting ? player : null;
                 if (!starting)
                 {
+                    doctors.Close();
                     ClosePlayerInteraction();
                 }
+                doctors.ApplyShiftOutfit(starting);
 
                 shiftAction.Text = starting ? "Encerrar plantão" : "Iniciar plantão";
                 string message = starting ? "Plantão iniciado." : "Plantão encerrado.";
@@ -1497,6 +1655,7 @@ namespace lumen_sante.Gameplay
 
             shiftAction.Activated += (sender, item) => ToggleShift(Game.LocalPlayer.Character);
 
+            doctors = new DoctorMenu(menuPool, doctorProfiles, () => shiftPlayer != null, ArchiveDoctor);
             workers = new WorkerCoordinator(routes.Path, population, waitingRoom, consultations, doctorAccess,
                 inpatientRoomDestinations,
                 () => cases.Where(patient => patient != null).ToArray(), CallPatientToRoom, AdmitPatient, DischargePatient,
@@ -1505,10 +1664,6 @@ namespace lumen_sante.Gameplay
                     (shownCase == admission && patientMenu.IsOpen) ||
                     (hospitalComputer.IsOpen && consultations[doctorRoomIndex] == admission),
                 index => hospitalComputer.IsOpen && doctorRoomIndex == index,
-                () => shiftPlayer != null && shiftPlayer.Exists() && shiftPlayer.IsAlive &&
-                    (hospitalComputer.IsOpen ||
-                     DiagnosticRooms.Any(room => Math.Abs(shiftPlayer.Position.Z - room.DoctorInteraction.Z) < 2.5f &&
-                         (shiftPlayer.Position - room.DoctorInteraction).LengthSquared() < 100f)),
                 RefreshPatientList, random);
 
             var shiftBlip = new Blip(ShiftPoint);
@@ -1521,6 +1676,405 @@ namespace lumen_sante.Gameplay
                 while (true)
                 {
                     GameFiber.Yield();
+                    if (phoneShortcut.Update()) RequestHospitalWebsite(true);
+                    if (websiteOpenStage != 0 && ((!websiteOpenFromPhone && !hospitalComputer.IsUsingNativeBrowser) ||
+                        websiteClock.ElapsedMilliseconds - websiteOpenStarted >= 10000))
+                    {
+                        if ((websiteOpenFromPhone || hospitalComputer.IsUsingNativeBrowser) && websiteOpenStage >= 2)
+                            Game.DisplayNotification("Não foi possível abrir o site do hospital no navegador.");
+                        if (!websiteOpenFromPhone) NativeFunction.Natives.SET_SCRIPT_AS_NO_LONGER_NEEDED("appinternet");
+                        websiteOpenStage = 0;
+                    }
+                    if (websiteOpenStage == 1 && NativeFunction.Natives.HAS_SCRIPT_LOADED<bool>("appinternet"))
+                    {
+                        if (NativeFunction.Natives.GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH<int>(internetScript) == 0)
+                            NativeFunction.Natives.START_NEW_SCRIPT<int>("appinternet", 4592);
+                        NativeFunction.Natives.SET_SCRIPT_AS_NO_LONGER_NEEDED("appinternet");
+                        websiteOpenStage = 2;
+                    }
+                    bool internetOpen = NativeFunction.Natives.GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH<int>(internetScript) > 0;
+                    if (!internetOpen && hospitalBrowserHandle != 0)
+                    {
+                        ReleaseHospitalBrowser();
+                        nextWebsiteUpdate = 0;
+                        websitePatientIds = Array.Empty<Guid>();
+                        websiteCareRevisions = Array.Empty<long>();
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(19);
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(18);
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(20);
+                        websiteSelectedPatient = Guid.Empty;
+                        websiteAgendaIds = Array.Empty<Guid>();
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(17);
+                    }
+                    int hospitalPage = NativeFunction.CallByHash<int>(0x01A358D9128B7A86UL);
+                    if (websiteOpenStage >= 2 && internetOpen)
+                    {
+                        if (hospitalBrowserHandle == 0)
+                            hospitalBrowserHandle = NativeFunction.Natives.REQUEST_SCALEFORM_MOVIE<int>("web_browser");
+                        if (hospitalBrowserHandle != 0 && NativeFunction.Natives.HAS_SCALEFORM_MOVIE_LOADED<bool>(hospitalBrowserHandle))
+                        {
+                            bool eyefindLoaded = NativeFunction.CallByHash<int>(0x97D47996FC48CBADUL) == 2;
+                            if (!eyefindLoaded && websiteOpenStage == 2 &&
+                                NativeFunction.Natives.BEGIN_SCALEFORM_MOVIE_METHOD<bool>(hospitalBrowserHandle, "GO_TO_WEBPAGE"))
+                            {
+                                NativeFunction.Natives.BEGIN_TEXT_COMMAND_SCALEFORM_STRING("STRING");
+                                NativeFunction.Natives.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME("WWW_EYEFIND_INFO");
+                                NativeFunction.Natives.END_TEXT_COMMAND_SCALEFORM_STRING();
+                                NativeFunction.Natives.END_SCALEFORM_MOVIE_METHOD();
+                                websiteOpenStage = 3;
+                            }
+                            else if (eyefindLoaded && NativeFunction.Natives.BEGIN_SCALEFORM_MOVIE_METHOD<bool>(hospitalBrowserHandle, "SET_DATA_SLOT"))
+                            {
+                                NativeFunction.Natives.SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(93);
+                                NativeFunction.Natives.SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(websiteOpenSequence);
+                                NativeFunction.Natives.BEGIN_TEXT_COMMAND_SCALEFORM_STRING("STRING");
+                                NativeFunction.Natives.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(
+                                    websiteOpenPatient == Guid.Empty ? "" : websiteOpenPatient.ToString("N"));
+                                NativeFunction.Natives.END_TEXT_COMMAND_SCALEFORM_STRING();
+                                NativeFunction.Natives.SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(websiteOpenPage);
+                                NativeFunction.Natives.END_SCALEFORM_MOVIE_METHOD();
+                                if (NativeFunction.Natives.BEGIN_SCALEFORM_MOVIE_METHOD<bool>(hospitalBrowserHandle, "GO_TO_WEBPAGE"))
+                                {
+                                    string address = websiteOpenPage == 8 ? "WWW_EYEFIND_INFO_S_PACIENTES" :
+                                        websiteOpenPage == 9 ? "WWW_EYEFIND_INFO_S_AGENDA" : "WWW_EYEFIND_INFO_S_LUMEN";
+                                    NativeFunction.Natives.BEGIN_TEXT_COMMAND_SCALEFORM_STRING("STRING");
+                                    NativeFunction.Natives.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME(address);
+                                    NativeFunction.Natives.END_TEXT_COMMAND_SCALEFORM_STRING();
+                                    NativeFunction.Natives.END_SCALEFORM_MOVIE_METHOD();
+                                    websiteOpenPatientPending = websiteOpenPage == 8;
+                                    websiteOpenStage = 0;
+                                }
+                            }
+                        }
+                    }
+                    bool hospitalWebsiteActive =
+                        internetOpen &&
+                        NativeFunction.CallByHash<int>(0x97D47996FC48CBADUL) == 2 &&
+                        (hospitalPage == 7 || hospitalPage == 8 || hospitalPage == 9);
+                    if (hospitalWebsiteActive && websiteOpenStage == 0) lastHospitalPage = hospitalPage;
+                    if (hospitalWebsiteActive && hospitalPage == 8 && NativeFunction.Natives.GET_GLOBAL_ACTIONSCRIPT_FLAG<int>(20) != 0)
+                    {
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(20);
+                        lastHospitalPatient = Guid.Empty;
+                    }
+                    int activeWebsitePage = hospitalWebsiteActive ? hospitalPage : -1;
+                    if (activeWebsitePage != previousWebsitePage)
+                    {
+                        websiteSlots.Clear();
+                        nextWebsiteUpdate = 0;
+                        previousWebsitePage = activeWebsitePage;
+                    }
+                    bool agendaPageOpen = hospitalWebsiteActive && hospitalPage == 9;
+                    if (agendaPageOpen && !websiteAgendaActive)
+                        NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(17);
+                    websiteAgendaActive = agendaPageOpen;
+                    if (agendaPageOpen)
+                    {
+                        int request = NativeFunction.Natives.GET_GLOBAL_ACTIONSCRIPT_FLAG<int>(17);
+                        if (request != 0)
+                        {
+                            NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(17);
+                            int generation = request / 4096;
+                            int index = request % 4096 - 1;
+                            bool valid = generation == websiteAgendaGeneration && index >= 0 &&
+                                index < websiteAgendaIds.Length && websiteAgendaOwner == agendaProfile &&
+                                agendaProfile == doctors.ActiveId && agenda?.Available == true;
+                            websiteAgendaFeedback = valid && CancelPendingReturn(websiteAgendaIds[index])
+                                ? "Acompanhamento encerrado." : "Não foi possível gravar a alteração.";
+                            nextWebsiteUpdate = 0;
+                        }
+                    }
+                    if (websiteNotesPatient != Guid.Empty)
+                    {
+                        int keyboardState = NativeFunction.Natives.UPDATE_ONSCREEN_KEYBOARD<int>();
+                        if (keyboardState != 0)
+                        {
+                            if (keyboardState == 1 && shiftPlayer != null &&
+                                shiftPlayer == Game.LocalPlayer.Character && hospitalWebsiteActive)
+                            {
+                                PatientCase notesPatient = cases.Concat(dischargedCases).FirstOrDefault(candidate =>
+                                    candidate?.Orders?.AdmissionId == websiteNotesPatient && IsAccessible(candidate));
+                                IntPtr result = NativeFunction.CallByHash<IntPtr>(0x8362B09B91893647UL);
+                                string notes = result == IntPtr.Zero ? null : Marshal.PtrToStringAnsi(result);
+                                if (notesPatient != null && notes != null && notesPatient.Orders.Notes == websiteNotesOriginal)
+                                    notesPatient.Orders.Notes = notes;
+                            }
+                            websiteNotesPatient = Guid.Empty;
+                            websiteNotesOriginal = null;
+                            nextWebsiteUpdate = 0;
+                        }
+                    }
+                    if (hospitalWebsiteActive && hospitalPage == 8)
+                    {
+                        int request = NativeFunction.Natives.GET_GLOBAL_ACTIONSCRIPT_FLAG<int>(19);
+                        if (request != 0)
+                        {
+                            int action = NativeFunction.Natives.GET_GLOBAL_ACTIONSCRIPT_FLAG<int>(18);
+                            NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(19);
+                            NativeFunction.Natives.RESET_GLOBAL_ACTIONSCRIPT_FLAG(18);
+                            int generation = request / 4096;
+                            int index = request % 4096 - 1;
+                            if (generation == websitePatientGeneration && index >= 0 && index < websitePatientIds.Length)
+                            {
+                                Guid patientId = websitePatientIds[index];
+                                PatientCase patient = cases.FirstOrDefault(candidate =>
+                                    candidate?.Orders?.AdmissionId == patientId && IsAccessible(candidate))
+                                    ?? dischargedCases.FirstOrDefault(candidate =>
+                                        candidate?.Orders?.AdmissionId == patientId && IsAccessible(candidate));
+                                if (patient != null)
+                                {
+                                    websiteSelectedPatient = patientId;
+                                    lastHospitalPatient = patientId;
+                                }
+                                if (action == 3 && patient != null && shiftPlayer != null &&
+                                    shiftPlayer == Game.LocalPlayer.Character &&
+                                    websiteNotesPatient == Guid.Empty)
+                                {
+                                    string originalNotes = patient.Orders.Notes ?? string.Empty;
+                                    if (originalNotes.Length > 1023)
+                                        Game.DisplayNotification("Anotação longa demais para editar no teclado do site.");
+                                    else
+                                    {
+                                        websiteNotesPatient = patientId;
+                                        websiteNotesOriginal = originalNotes;
+                                        NativeFunction.Natives.DISPLAY_ONSCREEN_KEYBOARD(1, "FMMC_KEY_TIP8", "",
+                                            websiteNotesOriginal, "", "", "", 1024);
+                                    }
+                                }
+                                if (action == 2 && patient != null && CanCallSelectedPatient(patient.Orders) &&
+                                    CallPatientToRoom(doctorRoomIndex, patient.Ped))
+                                    nextWebsiteUpdate = 0;
+                                if (action >= 100 && action < 300 && patient != null && shiftPlayer != null &&
+                                    shiftPlayer == Game.LocalPlayer.Character)
+                                {
+                                    int examIndex = action - 100;
+                                    var entry = GetAccessiblePatients().FirstOrDefault(item => item.Orders == patient.Orders);
+                                    if (entry.Orders != null && entry.CanRequestExams && !entry.Archived &&
+                                        !patient.Orders.IsRecovered && !patient.Orders.IsDischarged &&
+                                        examIndex < patient.Orders.Items.Length &&
+                                        patient.Orders.Items[examIndex].Status == ExamStatus.Available)
+                                    {
+                                        workers?.PlayerTakesPatient(patient);
+                                        RequestPatientExam(patient, patient.Orders.Items[examIndex], true);
+                                    }
+                                }
+                                if (action >= 300 && action < 400 && patient != null &&
+                                    shiftPlayer != null && shiftPlayer == Game.LocalPlayer.Character && !patient.Deceased &&
+                                    patient.Location != PatientLocation.WaitingReception && !patient.Orders.IsDischarged &&
+                                    patient.Orders.CareRevision == websiteCareRevisions[index])
+                                {
+                                    int medicationIndex = (action - 300) / 2;
+                                    bool desiredActive = (action - 300) % 2 == 1;
+                                    if (medicationIndex < MedicationCatalog.Options.Count)
+                                    {
+                                        var medication = MedicationCatalog.Options[medicationIndex].Class;
+                                        bool active = patient.Orders.ActiveMedications(GameClock.NowMilliseconds).Contains(medication);
+                                        bool changed = false;
+                                        if (active && !desiredActive)
+                                            changed = patient.Orders.StopMedication(medication, CareAuthor.Player,
+                                                GameClock.NowMilliseconds, websiteCareRevisions[index]);
+                                        else if (!active && desiredActive && !patient.Orders.IsRecovered)
+                                            changed = patient.Orders.PrescribeMedication(medication,
+                                                GameClock.NowMilliseconds + GameClock.Minutes(8 * 60),
+                                                CareAuthor.Player, GameClock.NowMilliseconds, websiteCareRevisions[index]);
+                                        if (changed) workers?.PlayerTakesPatient(patient);
+                                    }
+                                }
+                                if (action >= 400 && patient != null && shiftPlayer != null &&
+                                    shiftPlayer == Game.LocalPlayer.Character &&
+                                    !patient.Deceased && !patient.Orders.IsDischarged && !patient.Orders.IsRecovered &&
+                                    patient.Location != PatientLocation.WaitingReception &&
+                                    patient.Orders.CareRevision == websiteCareRevisions[index])
+                                {
+                                    int treatmentIndex = action - 400;
+                                    var treatments = DiseaseCatalog.Treatments.ToArray();
+                                    if (treatmentIndex < treatments.Length && patient.Orders.SelectTreatment(
+                                        treatments[treatmentIndex].Id, CareAuthor.Player,
+                                        GameClock.NowMilliseconds, websiteCareRevisions[index]))
+                                    {
+                                        patient.NextNurseVisitAt = GameClock.NowMilliseconds;
+                                        workers?.PlayerTakesPatient(patient);
+                                    }
+                                }
+                                nextWebsiteUpdate = 0;
+                            }
+                            else if (action > 1)
+                            {
+                                Game.DisplayNotification("A lista de pacientes foi atualizada. Tente novamente.");
+                                nextWebsiteUpdate = 0;
+                            }
+                        }
+                    }
+                    if (!hospitalWebsiteObserved &&
+                        hospitalWebsiteActive)
+                    {
+                        hospitalWebsiteObserved = true;
+                        Game.LogTrivial("[Lumen Santé] Navegador: página de teste do hospital detectada.");
+                    }
+                    if (hospitalWebsiteActive && websiteClock.ElapsedMilliseconds >= nextWebsiteUpdate)
+                    {
+                        nextWebsiteUpdate = websiteClock.ElapsedMilliseconds + 1000;
+                        if (hospitalBrowserHandle == 0)
+                            hospitalBrowserHandle = NativeFunction.Natives.REQUEST_SCALEFORM_MOVIE<int>("web_browser");
+                        if (hospitalBrowserHandle != 0 &&
+                            NativeFunction.Natives.HAS_SCALEFORM_MOVIE_LOADED<bool>(hospitalBrowserHandle))
+                        {
+                            bool sentAny = false;
+                            bool sendFailed = false;
+                            void SendWebsiteSlot(int slot, params object[] values)
+                            {
+                                if (sendFailed || websiteSlots.IsCurrent(slot, values)) return;
+                                if (!NativeFunction.Natives.BEGIN_SCALEFORM_MOVIE_METHOD<bool>(hospitalBrowserHandle, "SET_DATA_SLOT"))
+                                {
+                                    sendFailed = true;
+                                    return;
+                                }
+                                NativeFunction.Natives.SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(slot);
+                                foreach (object value in values)
+                                {
+                                    if (value is int number)
+                                        NativeFunction.Natives.SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(number);
+                                    else
+                                    {
+                                        NativeFunction.Natives.BEGIN_TEXT_COMMAND_SCALEFORM_STRING("STRING");
+                                        NativeFunction.Natives.ADD_TEXT_COMPONENT_SUBSTRING_PLAYER_NAME((string)value ?? string.Empty);
+                                        NativeFunction.Natives.END_TEXT_COMMAND_SCALEFORM_STRING();
+                                    }
+                                }
+                                NativeFunction.Natives.END_SCALEFORM_MOVIE_METHOD();
+                                websiteSlots.Commit(slot, values);
+                                sentAny = true;
+                            }
+
+                            var visiblePatients = shiftPlayer == null ? Array.Empty<BedManagementPanel.PatientEntry>()
+                                : GetAccessiblePatients().OrderBy(patient => patient.Orders.PatientName).ToArray();
+                            var patientIds = visiblePatients.Select(patient => patient.Orders.AdmissionId).ToArray();
+                            var careRevisions = visiblePatients.Select(patient => patient.Orders.CareRevision).ToArray();
+                            if (!websitePatientIds.SequenceEqual(patientIds) || !websiteCareRevisions.SequenceEqual(careRevisions))
+                            {
+                                websitePatientGeneration = websitePatientGeneration % 500000 + 1;
+                                websitePatientIds = patientIds;
+                                websiteCareRevisions = careRevisions;
+                            }
+                            var accessibleIds = new HashSet<Guid>(patientIds);
+                            if (hospitalPage == 8 && websiteOpenPatientPending)
+                                SendWebsiteSlot(93, websiteOpenSequence,
+                                    websiteOpenPatient == Guid.Empty ? "" : websiteOpenPatient.ToString("N"), 8);
+                            var roomPatient = consultations[doctorRoomIndex];
+                            SendWebsiteSlot(94, shiftPlayer != null ? 1 : 0, DiagnosticRooms[doctorRoomIndex].Name,
+                                roomPatient != null ? 1 : 0,
+                                roomPatient != null && IsAccessible(roomPatient) ? roomPatient.Name : "");
+                            for (int index = 0; index < visiblePatients.Length; index++)
+                            {
+                                var entry = visiblePatients[index];
+                                var orders = entry.Orders;
+                                SendWebsiteSlot(200 + index, entry.Archived ? 3 :
+                                        entry.Unit == InpatientUnit.Ward ? 1 : entry.Unit == InpatientUnit.Room ? 2 : 0,
+                                    orders.AdmissionId.ToString("N"), orders.PatientName ?? "", orders.Room ?? "",
+                                    entry.Deceased ? "Óbito registrado" : orders.IsDischarged ? "Alta hospitalar" :
+                                        orders.IsRecovered ? "Recuperado" : orders.IsInpatient ? "Internado" :
+                                        orders.Room.StartsWith("Recepção", StringComparison.Ordinal) ? "Aguardando atendimento" : "Em consulta",
+                                    orders.Profile?.Age ?? 0, orders.Profile?.BloodType ?? "", orders.Profile?.Phone ?? "",
+                                    entry.Scheduled ? 1 : 0, orders.VisitCount, index,
+                                    index < 4095 && CanCallSelectedPatient(orders) ? 1 : 0);
+                            }
+
+                            if (hospitalPage == 9)
+                            {
+                                bool agendaAvailable = agenda?.Available == true &&
+                                    agendaNow != default(DateTime) && agendaProfile == doctors.ActiveId;
+                                var appointments = agendaAvailable
+                                    ? agenda.Appointments.Where(item => item.State != MedicalAgenda.Status.Cancelled)
+                                        .OrderBy(item => item.Due).ToArray()
+                                    : Array.Empty<MedicalAgenda.Appointment>();
+                                var appointmentIds = appointments.Select(item => item.Id).ToArray();
+                                if (websiteAgendaOwner != agendaProfile || !websiteAgendaIds.SequenceEqual(appointmentIds))
+                                {
+                                    if (websiteAgendaOwner != agendaProfile) websiteAgendaFeedback = "";
+                                    websiteAgendaGeneration = websiteAgendaGeneration % 500000 + 1;
+                                    websiteAgendaIds = appointmentIds;
+                                    websiteAgendaOwner = agendaProfile;
+                                }
+                                for (int index = 0; index < appointments.Length; index++)
+                                {
+                                    var item = appointments[index];
+                                    SendWebsiteSlot(5000 + index, item.Id.ToString("N"), item.PatientId.ToString("N"), item.Name ?? "",
+                                        (item.Date.Date - agendaNow.Date).Days,
+                                        item.Date.ToString("ddd dd/MM · HH:mm", CultureInfo.GetCultureInfo("pt-BR")),
+                                        (int)item.State, item.FollowUp ? 1 : 0, index,
+                                        accessibleIds.Contains(item.PatientId) ? 1 : 0);
+                                }
+                                SendWebsiteSlot(95, agendaAvailable ? 1 : 0, agendaProfile.ToString("N"),
+                                    agendaAvailable ? agendaNow.ToString("dd/MM/yyyy", CultureInfo.GetCultureInfo("pt-BR")) : "",
+                                    agendaAvailable ? ((int)agendaNow.DayOfWeek + 6) % 7 : 0,
+                                    appointments.Length, websiteAgendaGeneration, websiteAgendaFeedback ?? "");
+                            }
+                            var selectedPatient = hospitalPage == 8 ? visiblePatients.FirstOrDefault(entry =>
+                                entry.Orders.AdmissionId == websiteSelectedPatient) : default(BedManagementPanel.PatientEntry);
+                            if (selectedPatient.Orders != null)
+                            {
+                                var orders = selectedPatient.Orders;
+                                string patientId = orders.AdmissionId.ToString("N");
+                                var reports = new Dictionary<ExamOrder, ExamReport>();
+                                for (int index = 0; index < orders.Items.Length; index++)
+                                {
+                                    var exam = orders.Items[index];
+                                    var report = exam.Status == ExamStatus.Completed ? new ExamReport(orders, exam) : null;
+                                    if (report != null) reports[exam] = report;
+                                    SendWebsiteSlot(1000 + index, patientId, exam.Name ?? "", (int)exam.Status,
+                                        report?.Findings ?? "", report?.Method ?? "", report?.Unit ?? "",
+                                        report?.Physician ?? "", report?.PerformedBy ?? "", report?.Protocol ?? "", (int)exam.Kind);
+                                }
+                                var history = orders.SymptomHistory(DiseaseCatalog.Find(orders.DiseaseId))
+                                    .Select(item => (Title: item.Prompt, Detail: item.Answer))
+                                    .Concat(orders.Items.Where(exam => exam.Status == ExamStatus.Completed)
+                                        .OrderByDescending(exam => exam.CompletedAtMilliseconds)
+                                        .Select(exam => (Title: exam.Name + " · Realizado por " +
+                                            (exam.PerformedBy ?? "Enfermagem"), Detail: reports[exam].Findings)))
+                                    .ToArray();
+                                for (int index = 0; index < history.Length; index++)
+                                    SendWebsiteSlot(2000 + index, patientId, history[index].Title ?? "", history[index].Detail ?? "");
+                                var treatments = DiseaseCatalog.Treatments.ToArray();
+                                for (int index = 0; index < treatments.Length; index++)
+                                    SendWebsiteSlot(3000 + index, patientId, treatments[index].TreatmentLabel ?? "",
+                                        treatments[index].Id == orders.TreatmentDiseaseId ? 1 : 0);
+                                var activeMedications = orders.ActiveMedications(GameClock.NowMilliseconds);
+                                for (int index = 0; index < MedicationCatalog.Options.Count; index++)
+                                    SendWebsiteSlot(4000 + index, patientId, MedicationCatalog.Options[index].Name ?? "",
+                                        activeMedications.Contains(MedicationCatalog.Options[index].Class) ? 1 : 0);
+                                SendWebsiteSlot(96, patientId, orders.Items.Length,
+                                    selectedPatient.CanRequestExams && !selectedPatient.Archived && !orders.IsRecovered && !orders.IsDischarged ? 1 : 0,
+                                    orders.Notes ?? "", history.Length, treatments.Length, MedicationCatalog.Options.Count,
+                                    !selectedPatient.Deceased && !selectedPatient.Archived && !orders.IsDischarged &&
+                                        !orders.Room.StartsWith("Recepção", StringComparison.Ordinal) ? 1 : 0);
+                            }
+                            SendWebsiteSlot(97, 2601, shiftPlayer != null ? 1 : 0,
+                                visiblePatients.Count(patient => !patient.Archived),
+                                shiftPlayer == null ? 0 : cases.Count(patient => patient?.Orders != null &&
+                                    IsAccessible(patient) && patient.Location == PatientLocation.WaitingReception),
+                                visiblePatients.Length, websitePatientGeneration);
+                            if (sendFailed)
+                            {
+                                websiteSlots.Clear();
+                                nextWebsiteUpdate = websiteClock.ElapsedMilliseconds + 250;
+                            }
+                            else if (sentAny)
+                            {
+                                if (NativeFunction.Natives.BEGIN_SCALEFORM_MOVIE_METHOD<bool>(hospitalBrowserHandle, "UPDATE_TEXT"))
+                                {
+                                    NativeFunction.Natives.END_SCALEFORM_MOVIE_METHOD();
+                                    if (hospitalPage == 8) websiteOpenPatientPending = false;
+                                }
+                                else
+                                {
+                                    websiteSlots.Clear();
+                                    nextWebsiteUpdate = websiteClock.ElapsedMilliseconds + 250;
+                                }
+                            }
+                        }
+                    }
+
+                    doctors.ProcessCloseShortcut();
                     GameClock.Update();
                     if (Game.IsPaused)
                     {
@@ -1528,7 +2082,7 @@ namespace lumen_sante.Gameplay
                     }
 
                     Ped player = Game.LocalPlayer.Character;
-                    bool playerAvailable = player.Exists() && player.IsAlive;
+                    bool playerAvailable = player != null && player.Exists() && player.IsAlive;
                     float simulationRadius = NpcRoute.BackgroundSimulation ? 120f : 160f;
                     NpcRoute.BackgroundSimulation = !playerAvailable ||
                         (player.Position - ShiftPoint).LengthSquared() > simulationRadius * simulationRadius;
@@ -1553,8 +2107,15 @@ namespace lumen_sante.Gameplay
                         Game.LogTrivial("[Lumen Santé] Plantão interrompido.");
                     }
 
+                    if (!playerAvailable && doctors.IsOpen) doctors.Close();
+                    if (playerAvailable && doctors.RestoreProfile(player))
+                    {
+                        player = Game.LocalPlayer.Character;
+                        nextAgendaUpdate = 0;
+                    }
+
                     bool manualToggle = consumeShiftToggle();
-                    if (autoStartPending && playerAvailable)
+                    if (autoStartPending && doctors.CanStartShift(player))
                     {
                         autoStartPending = false;
                         ToggleShift(player, false);
@@ -1564,18 +2125,14 @@ namespace lumen_sante.Gameplay
                         ToggleShift(player);
                     }
 
-                    bool tabletDown = Game.IsKeyDown(Keys.F7);
-                    bool tabletPressed = tabletDown && !tabletWasDown;
-                    tabletWasDown = tabletDown;
-                    if (tabletPressed && playerAvailable && !Game.Console.IsOpen)
+                    bool doctorsDown = Game.IsKeyDown(Keys.F9);
+                    bool doctorsPressed = doctorsDown && !doctorsWasDown;
+                    doctorsWasDown = doctorsDown;
+                    if (doctorsPressed && playerAvailable && !Game.Console.IsOpen)
                     {
-                        if (hospitalComputer.IsTabletOpen) hospitalComputer.Close();
-                        else if (!hospitalComputer.IsOpen)
-                        {
-                            menu.Visible = false;
-                            patientMenu.Close();
-                            hospitalComputer.OpenTablet();
-                        }
+                        ClosePlayerInteraction();
+                        menu.Visible = false;
+                        doctors.Toggle();
                     }
 
                     PatientCase interactionCase = current;
@@ -1602,7 +2159,7 @@ namespace lumen_sante.Gameplay
                                     foreach (ExamOrder order in activeOrders)
                                     {
                                         order.Cancel();
-                                        RefreshExamStatus(current, order);
+                                        RefreshExamStatus(current);
                                     }
                                     activeOrders.Clear();
                                     activeExam = default((PatientCase, ExamOrder));
@@ -1736,7 +2293,7 @@ namespace lumen_sante.Gameplay
                     {
                         foreach (PatientCase admission in cases)
                         {
-                            if (admission?.Ped == null || !admission.Ped.Exists())
+                            if (!IsAccessible(admission) || admission.Ped == null || !admission.Ped.Exists())
                             {
                                 continue;
                             }
@@ -1782,12 +2339,13 @@ namespace lumen_sante.Gameplay
                     {
                         menu.Visible = false;
                     }
-                    callPatient.Enabled = CanCallPatient();
+                    MenuPalette.SetEnabled(callPatient, CanCallPatient(), ActionTone.Accent);
                     if (menu.Visible || atReception)
                     {
                         for (int index = 0; index < roomStatusItems.Length; index++)
                         {
-                            roomStatusItems[index].RightLabel = consultations[index] == null ? "Livre" : "Ocupada";
+                            roomStatusItems[index].RightLabel = consultations[index] != null ? "Ocupada" :
+                                workers.IsComputerReserved(index) ? "Reservada" : "Livre";
                         }
                     }
 
@@ -1801,11 +2359,13 @@ namespace lumen_sante.Gameplay
                         patientMenu.Close();
                     }
 
-                    if (!menu.Visible && !patientMenu.IsOpen && !deceasedMenu.Visible && !hospitalComputer.IsOpen && !hospitalComputer.IsTabletOpen &&
+                    if (!doctors.IsOpen && !menu.Visible && !patientMenu.IsOpen && !deceasedMenu.Visible &&
+                        !hospitalComputer.IsOpen &&
                         (atReception || atDeceasedPatient || atComputer || atTable || atBed))
                     {
                         string hint = atDeceasedPatient || atTable || atBed ? $"Pressione E para interagir com {nearbyCase.Name}."
                             : atComputer ? "Pressione E para sentar na cadeira."
+                            : doctorProfiles.Default == null ? "Pressione F9 para configurar seu médico."
                             : "Pressione E para abrir o menu de plantão.";
                         Game.DisplayHelp(hint, 1);
                         if (interactionPressed)
@@ -1816,7 +2376,7 @@ namespace lumen_sante.Gameplay
                                 BindPatient(current);
                                 deceasedMenu.TitleText = current.Name;
                                 deceasedMenu.SubtitleText = current.Orders?.Room ?? "Recepção";
-                                coronersAction.Enabled = !current.CoronersCalled;
+                                MenuPalette.SetEnabled(coronersAction, !current.CoronersCalled, ActionTone.Accent);
                                 coronersAction.Text = current.CoronersCalled ? "Coroners chamados" : "Chamar os Coroners";
                                 deceasedMenu.Visible = true;
                             }
@@ -1847,7 +2407,7 @@ namespace lumen_sante.Gameplay
                                     }
                                 }
                             }
-                            else
+                            else if (doctorProfiles.Default != null)
                             {
                                 menu.Visible = true;
                             }
@@ -1868,17 +2428,19 @@ namespace lumen_sante.Gameplay
                     {
                         UpdateDoctorAnimation(null, null, null);
                     }
-                    examClipboard.Update(player, playerAvailable && shiftPlayer != null && patientMenu.IsChoosingExams);
                 }
             }
             finally
             {
+                try { phoneShortcut.Dispose(); }
+                catch (Exception error) { Game.LogTrivial("[Lumen Santé] Falha ao remover atalho do celular: " + error.Message); }
+                ReleaseHospitalBrowser();
                 waitingRoom.PatientReady -= NotifyScheduledArrival;
                 workers.Clear();
                 NpcRoute.BackgroundSimulation = false;
-                examClipboard.Clear();
                 UpdateDoctorAnimation(null, null, null);
                 menu.Visible = false;
+                doctors.Close();
                 hospitalComputer.Close();
                 SaveAgenda();
                 ClearAllAdmissions();

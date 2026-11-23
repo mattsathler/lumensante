@@ -61,6 +61,8 @@
     <Compile Include="Clinical\CareAuthor.cs" />
     <Compile Include="Clinical\WorkerDiagnosis.cs" />
     <Compile Include="Gameplay\WorkerReservations.cs" />
+    <Compile Include="Gameplay\WebsiteSlotCache.cs" />
+    <Compile Include="Gameplay\NativePhoneShortcut.cs" />
     <Compile Include="Gameplay\HospitalShift.Workers.cs" />
     <Compile Include="Clinical\DiseaseCatalog.cs" />
     <Compile Include="Clinical\DiseaseCatalogLoader.cs" />
@@ -76,6 +78,9 @@
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />
     <Compile Include="Gameplay\MedicalAgenda.cs" />
+    <Compile Include="Gameplay\DoctorProfiles.cs" />
+    <Compile Include="Gameplay\DoctorAppearance.cs" />
+    <Compile Include="Interface\DoctorMenu.cs" />
     <Compile Include="Interface\BedManagementPanel.Agenda.cs" />
     <Compile Include="Gameplay\HospitalPath.cs" />
     <Compile Include="Gameplay\NpcWalking.cs" />
@@ -87,7 +92,6 @@
     <Compile Include="Gameplay\HospitalUpperFloor.cs" />
     <Compile Include="Gameplay\HospitalExamRoutes.cs" />
     <Compile Include="Gameplay\ExamProcedure.cs" />
-    <Compile Include="Gameplay\ExamClipboard.cs" />
     <Compile Include="Gameplay\PatientEscort.cs" />
     <Compile Include="Gameplay\HospitalReceptionist.cs" />
     <Compile Include="Gameplay\SeatCalibration.cs" />
@@ -99,6 +103,7 @@
     <Compile Include="Clinical\ExamFindings.cs" />
     <Compile Include="Clinical\ExamReport.cs" />
     <Compile Include="Interface\PatientMenu.cs" />
+    <Compile Include="Interface\MenuPalette.cs" />
     <Compile Include="Interface\HospitalComputer.cs" />
     <Compile Include="Interface\BedManagementPanel.cs" />
     <Compile Include="Interface\TerminalKeyboard.cs" />

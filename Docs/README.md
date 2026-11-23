@@ -15,8 +15,9 @@ Esta pasta reúne a proposta inicial. As regras de jogo e escolhas técnicas mar
 | [Doenças de internação](doencas-internacao.md) | 50 casos novos, fontes clínicas, pesos, laudos e validação |
 | [Workers](workers.md) | Plano de atendimento autônomo dos Doctors, diagnóstico, cobertura de áreas e prioridade do jogador |
 | [Agenda Médica](agenda-medica.md) | Consultas próprias, retornos e persistência dos prontuários da agenda |
+| [Médicos e Especialidades](medicos-e-especialidades.md) | Ciclo I com criação de médicos, armário e agendas por perfil |
 | [Instalação do mapa](instalacao-mapa.md) | Preparação do interior customizado para os testes |
-| [Salário e carteira](salario-e-carteira.md) | Proposta de pagamento, persistência e compatibilidade com EUP |
+| [Salário e carteira](salario-e-carteira.md) | Proposta de pagamento e persistência por médico |
 
 ## Compilação local
 

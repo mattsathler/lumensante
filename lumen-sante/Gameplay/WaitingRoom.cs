@@ -115,8 +115,12 @@ namespace lumen_sante.Gameplay
 
         internal bool IsWaiting(Ped patient) => queue.Any(index => occupants[index].IsAlive && occupants[index].Actor == patient);
 
+        internal Ped FirstWaiting(Func<Ped, bool> accept) => queue
+            .Where(index => occupants[index].IsAlive).Select(index => occupants[index].Actor).FirstOrDefault(accept);
+
         internal void RemovePatient(Ped patient)
         {
+            if (patient == null) return;
             if (arrivingPatient == patient)
             {
                 DiscardArrival();

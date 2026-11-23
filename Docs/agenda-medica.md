@@ -4,7 +4,7 @@
 
 Dar ao jogador uma agenda própria de consultas, paralela ao fluxo espontâneo da clínica. O jogador continua livre para atender qualquer paciente, sem escolher um modo de trabalho. Os horários da agenda seguem correndo enquanto ele atua em outros setores ou está fora do plantão.
 
-O piloto está disponível na página **Agenda** do computador e do tablet. Na confirmação, marque **Agendar retorno?** antes de selecionar **Dar Alta** para manter o acompanhamento. A agenda mostra a data atribuída e oferece as visões **Dia**, **Semana** e **Retornos Pendentes**.
+O piloto está disponível na página **Agenda** do site do hospital, acessível pelo computador ou pelo celular nativo. Na confirmação, marque **Agendar retorno?** antes de selecionar **Dar Alta** para manter o acompanhamento. A agenda mostra a data atribuída e oferece as visões **Dia**, **Semana** e **Retornos Pendentes**.
 
 ## Configuração inicial
 
@@ -12,7 +12,7 @@ O piloto está disponível na página **Agenda** do computador e do tablet. Na c
 - Após uma hora de ausência, um paciente novo fica marcado como **Consulta perdida**. Um retorno fica em **Retornos Pendentes**, onde pode ser excluído sem apagar o prontuário.
 - Com o jogador de plantão, o paciente aguarda vaga na recepção e então entra no fluxo normal. O jogador chama os pacientes da agenda. Se um atendimento em curso for interrompido pelo descarregamento do plugin, ele recomeça pela recepção com o prontuário salvo.
 - A simulação clínica do acompanhamento é retomada quando o paciente volta. Durante a espera, as prescrições continuam a expirar pelo relógio do jogo.
-- O save fica em `Plugins/LumenSante/agenda.json`. Ele guarda a agenda e os prontuários vinculados a ela. A substituição do arquivo mantém uma cópia anterior em `agenda.json.bak`.
+- Cada médico tem seu save em `Plugins/LumenSante/Agendas/<id>/agenda.json`, com a agenda e os prontuários vinculados. A substituição mantém uma cópia anterior em `agenda.json.bak`. As agendas anteriores ficam fora desse armazenamento. Na primeira carga desta versão, cada médico começa com uma agenda nova.
 
 ## Regras definidas
 
@@ -20,7 +20,7 @@ O piloto está disponível na página **Agenda** do computador e do tablet. Na c
 - Na alta realizada pelo jogador, ele pode decidir se deseja acompanhar o paciente. Se escolher retorno, o jogo atribui automaticamente dia e horário. Altas de Doctors NPCs não geram retornos na agenda pessoal.
 - O retorno usa o mesmo prontuário e representa o acompanhamento do mesmo caso, com visitas sucessivas enquanto o jogador julgar necessário.
 - A agenda distingue **Consulta** e **Retorno**. Quando o paciente agendado chega à recepção e está pronto para ser chamado, o jogador recebe uma notificação. Depois, o atendimento segue o fluxo habitual.
-- O computador e o tablet exibem a agenda por dia e por semana. A listagem de pacientes pode identificar a origem agendada com uma tag; a apresentação exata da tag pode ser decidida durante o desenho da interface.
+- O site exibe a agenda por dia e por semana. A listagem de pacientes pode identificar a origem agendada com uma tag; a apresentação exata da tag pode ser decidida durante o desenho da interface.
 - O calendário, o dia da semana e os horários usam apenas a data e a hora do GTA V. O relógio do sistema operacional não participa dos cálculos.
 - Se o jogador não estiver de plantão, a consulta vence após uma hora do jogo de tolerância. Retornos perdidos entram em **Retornos Pendentes**. O jogador pode excluir um retorno pendente, encerrando o acompanhamento daquele caso.
 - Não há alternância formal entre clínica e agenda. O jogador define sua atuação pelas ações que toma, e os compromissos continuam válidos.

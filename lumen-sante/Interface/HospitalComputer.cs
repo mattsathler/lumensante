@@ -21,7 +21,8 @@ namespace lumen_sante.Interface
         private readonly Func<bool> canInteractWithPatient;
         private readonly Func<bool> canCallFromChair;
         private bool usingComputer;
-        private bool tabletOpen;
+        private bool browserObserved;
+        private Stopwatch browserOpening;
         private bool usingPatientMenu;
         private Ped seatedDoctor;
         private Vector3 seatPosition;
@@ -43,12 +44,12 @@ namespace lumen_sante.Interface
             };
             canCallFromChair = () => !roomOccupied() && canCallPatient();
             chairMenu = new UIMenu("Cadeira", roomName);
-            var useComputer = new UIMenuItem("Usar computador");
-            callPatient = new UIMenuItem("Chamar próximo paciente") { Enabled = false };
-            interactWithPatient = new UIMenuItem("Interagir com o paciente") { Enabled = false };
-            var standUp = new UIMenuItem("Levantar da cadeira");
-            chairMenu.AddItem(useComputer);
+            var useComputer = MenuPalette.Item("Usar computador");
+            callPatient = MenuPalette.Item("Chamar próximo paciente", ActionTone.Accent, enabled: false);
+            interactWithPatient = MenuPalette.Item("Interagir com o paciente", enabled: false);
+            var standUp = MenuPalette.Item("Levantar da cadeira");
             chairMenu.AddItem(callPatient);
+            chairMenu.AddItem(useComputer);
             chairMenu.AddItem(interactWithPatient);
             chairMenu.AddItem(standUp);
             menuPool.Add(chairMenu);
@@ -57,14 +58,16 @@ namespace lumen_sante.Interface
             {
                 chairMenu.Visible = false;
                 usingComputer = true;
-                panel.Open(chairMenu.SubtitleText);
+                browserObserved = false;
+                browserOpening = Stopwatch.StartNew();
+                WebsiteOpenRequested?.Invoke();
             };
             callPatient.Activated += (sender, item) =>
             {
                 if (IsSeated(Game.LocalPlayer.Character) && canCallFromChair())
                 {
                     callNextPatient();
-                    callPatient.Enabled = canCallFromChair();
+                    MenuPalette.SetEnabled(callPatient, canCallFromChair(), ActionTone.Accent);
                 }
             };
             interactWithPatient.Activated += (sender, item) =>
@@ -80,15 +83,9 @@ namespace lumen_sante.Interface
         }
 
         internal bool IsOpen => seatedDoctor != null;
-        internal bool IsTabletOpen => tabletOpen;
+        internal bool IsUsingNativeBrowser => IsOpen && usingComputer;
+        internal event Action WebsiteOpenRequested;
 
-        internal void OpenTablet()
-        {
-            if (IsOpen || tabletOpen) return;
-            tabletOpen = true;
-            usingComputer = true;
-            panel.Open("Tablet", false);
-        }
         internal event Action<ExamOrders, MedicationClass> MedicationToggled
         {
             add { panel.MedicationToggled += value; }
@@ -144,7 +141,7 @@ namespace lumen_sante.Interface
                 8f, 4f, -1, (int)AnimationFlags.Loop, 0f, 0, 0);
             chairMenu.RefreshIndex();
             interactWithPatient.Enabled = canInteractWithPatient();
-            callPatient.Enabled = canCallFromChair();
+            MenuPalette.SetEnabled(callPatient, canCallFromChair(), ActionTone.Accent);
             chairMenu.Visible = true;
         }
 
@@ -157,27 +154,25 @@ namespace lumen_sante.Interface
 
         internal void Update(Ped doctor, bool playerAvailable)
         {
-            if (tabletOpen)
-            {
-                if (!playerAvailable || !panel.Update()) Close();
-                return;
-            }
             if (!IsOpen)
             {
                 return;
             }
 
             interactWithPatient.Enabled = canInteractWithPatient();
-            callPatient.Enabled = canCallFromChair();
+            MenuPalette.SetEnabled(callPatient, canCallFromChair(), ActionTone.Accent);
             if (!playerAvailable || !IsSeated(doctor))
             {
                 Close();
             }
             else if (usingComputer)
             {
-                if (!panel.Update())
+                uint internet = NativeFunction.CallByHash<uint>(0xD24D37CC275948CCUL, "appinternet");
+                bool browserOpen = NativeFunction.Natives.GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH<int>(internet) > 0;
+                if (browserOpen) browserObserved = true;
+                if ((!browserOpen && browserObserved) || (!browserObserved && browserOpening.ElapsedMilliseconds >= 10000))
                 {
-                    panel.Close();
+                    if (!browserObserved) Game.DisplayNotification("Não foi possível abrir a internet do hospital.");
                     usingComputer = false;
                     chairMenu.Visible = true;
                 }
@@ -201,7 +196,7 @@ namespace lumen_sante.Interface
         {
             chairMenu.Visible = false;
             usingComputer = false;
-            tabletOpen = false;
+            browserOpening = null;
             usingPatientMenu = false;
             patientMenu.Close();
             panel.Close();

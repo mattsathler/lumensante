@@ -1,8 +1,8 @@
-﻿# Jaleco médico no EUP
+﻿# Jaleco médico opcional
 
 O pacote atual é Lumen-Sante-Doctor-Coat-v2.oiv. Ele substitui o casaco Import/Export jbib_006 e a textura A para MP Male e MP Female, seguindo a indicação do autor.
 
-Abra Tools → Package Installer no OpenIV, selecione o pacote e escolha Install to mods folder. No EUP, procure o casaco Import/Export em Top e selecione a primeira textura. O índice global depende da versão do jogo e dos DLCs.
+Abra Tools → Package Installer no OpenIV, selecione o pacote e escolha Install to mods folder. No GTA V, abra **Médicos** (F9), entre no **Armário** e selecione a peça que corresponde ao casaco Import/Export em **Parte de cima**, com a primeira textura. O índice global depende da versão do jogo e dos DLCs.
 
 A versão anterior, que adicionava o DLC lumen_doctor_coat, causou crash durante o carregamento. A entrada desse DLC foi desativada no jogo. A versão 2 usa os slots existentes do Import/Export.
 

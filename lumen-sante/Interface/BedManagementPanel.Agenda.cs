@@ -27,6 +27,13 @@ namespace lumen_sante.Interface
 
         internal void ConfigureAgenda(MedicalAgenda service, Func<DateTime> date, Func<Guid, bool> cancel)
         {
+            if (agenda != service)
+            {
+                agendaView = AgendaView.Day;
+                agendaDateOffset = agendaPageIndex = 0;
+                confirmCancellation = Guid.Empty;
+                agendaFeedback = null;
+            }
             agenda = service;
             agendaDate = date;
             cancelPending = cancel;
@@ -168,10 +175,12 @@ namespace lumen_sante.Interface
                 label("Agenda indisponível.", 218, 114, 19, Muted);
                 return;
             }
-            void Button(RectangleF bounds, string caption, bool selected = false)
+            void Button(RectangleF bounds, string caption, bool selected = false, ActionTone tone = ActionTone.Neutral)
             {
-                box(bounds, selected || bounds.Contains(frame.Cursor) ? Highlight : Card);
-                label(caption, bounds.X + 10, bounds.Y + 8, 16, Ink);
+                bool highlighted = selected || bounds.Contains(frame.Cursor);
+                box(bounds, tone == ActionTone.Neutral
+                    ? (highlighted ? Highlight : Card) : MenuPalette.ActionBackground(tone, highlighted));
+                label(caption, bounds.X + 10, bounds.Y + 8, 16, MenuPalette.ActionText(tone));
             }
             for (int index = 0; index < AgendaTabs.Length; index++)
                 Button(AgendaTab(index), AgendaTabs[index], (int)view.View == index);
@@ -190,7 +199,8 @@ namespace lumen_sante.Interface
                 label(line.Name, 233, row.Y + 6, 19, Ink);
                 label(line.Detail, 233, row.Y + 32, 15, Muted);
                 if (view.View == AgendaView.Pending)
-                    Button(AgendaDelete(index), view.Confirmation == line.Id ? "Confirmar exclusão" : "Excluir retorno");
+                    Button(AgendaDelete(index), view.Confirmation == line.Id ? "Confirmar exclusão" : "Excluir retorno",
+                        selected: view.Confirmation == line.Id, tone: ActionTone.Destructive);
                 else if (line.CanOpen)
                     label("Prontuário ›", 974, row.Y + 18, 16, Green);
             }
