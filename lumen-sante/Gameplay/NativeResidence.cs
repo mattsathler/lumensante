@@ -90,7 +90,7 @@ namespace lumen_sante.Gameplay
             if (pressed) Toggle(player, doctorId, residenceId);
         }
 
-        internal void Toggle(Ped player, Guid doctorId, string residenceId)
+        internal void Toggle(Ped player, Guid doctorId, string residenceId, bool keepScreenFaded = false)
         {
             StopRoutine();
             if (player == null || !player.Exists() || !player.IsAlive || !player.IsOnFoot || doctorId == Guid.Empty)
@@ -101,7 +101,7 @@ namespace lumen_sante.Gameplay
             if (Inside)
             {
                 if (doctorId != ownerId || player != occupant) return;
-                if (Move(player, occupiedHome.Outside, occupiedHome.OutsideHeading))
+                if (Move(player, occupiedHome.Outside, occupiedHome.OutsideHeading, keepScreenFaded))
                 {
                     occupiedHome = null;
                     occupant = null;
@@ -178,7 +178,7 @@ namespace lumen_sante.Gameplay
                 Game.DisplayNotification("A residência não ficou pronta. Sua posição foi preservada.");
                 return;
             }
-            if (!Move(player, home.Inside, 0f)) { ReleaseInterior(); return; }
+            if (!Move(player, home.Inside, 0f, keepScreenFaded)) { ReleaseInterior(); return; }
             occupiedHome = home;
             occupant = player;
             ownerId = doctorId;
@@ -190,22 +190,25 @@ namespace lumen_sante.Gameplay
             }
         }
 
-        internal void StartAtHome(Ped player, Guid doctorId, string residenceId)
+        internal bool StartAtHome(Ped player, Guid doctorId, string residenceId, bool keepScreenFaded = false)
         {
-            if (Inside) return;
-            Toggle(player, doctorId, residenceId);
-            if (!Inside || occupant != player || !player.Exists() || !player.IsAlive) return;
+            if (Inside) return occupant == player;
+            Toggle(player, doctorId, residenceId, keepScreenFaded);
+            if (!Inside || occupant != player || !player.Exists() || !player.IsAlive) return false;
             string scenario = routineRandom.Next(2) == 0 ? "WORLD_HUMAN_STAND_MOBILE" : "WORLD_HUMAN_DRINKING";
             NativeFunction.Natives.TASK_START_SCENARIO_IN_PLACE(player, scenario, 0, true);
             routinePed = player;
             routineClock.Restart();
+            return true;
         }
 
         private void StopRoutine()
         {
             if (routinePed != null && routinePed.Exists() && routinePed.IsAlive &&
                 Game.LocalPlayer.Character == routinePed)
-                NativeFunction.Natives.CLEAR_PED_TASKS(routinePed);
+                // Abort the scenario immediately so its game-owned prop is released too;
+                // a gradual task clear can leave the phone or drink attached while walking.
+                NativeFunction.Natives.CLEAR_PED_TASKS_IMMEDIATELY(routinePed);
             routinePed = null;
             routineClock.Reset();
         }
@@ -228,11 +231,11 @@ namespace lumen_sante.Gameplay
             blipInside = inside;
         }
 
-        private static bool Move(Ped player, Vector3 destination, float heading)
+        private static bool Move(Ped player, Vector3 destination, float heading, bool keepScreenFaded = false)
         {
             Vector3 original = player.Position;
             float originalHeading = player.Heading;
-            NativeFunction.Natives.DO_SCREEN_FADE_OUT(350);
+            if (!keepScreenFaded) NativeFunction.Natives.DO_SCREEN_FADE_OUT(350);
             try
             {
                 var timeout = Stopwatch.StartNew();
@@ -255,7 +258,7 @@ namespace lumen_sante.Gameplay
                 }
                 return true;
             }
-            finally { NativeFunction.Natives.DO_SCREEN_FADE_IN(350); }
+            finally { if (!keepScreenFaded) NativeFunction.Natives.DO_SCREEN_FADE_IN(350); }
         }
 
         private void ReleaseInterior()

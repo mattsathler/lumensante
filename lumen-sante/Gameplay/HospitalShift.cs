@@ -181,6 +181,15 @@ namespace lumen_sante.Gameplay
             // Manual loads keep the current location, but should also wait for a stable
             // player before applying a saved model.
             bool waitingForSave = true;
+            bool startupFadeOwned = false;
+            var startupFadeClock = new Stopwatch();
+            void ReleaseStartupFade()
+            {
+                if (!startupFadeOwned) return;
+                startupFadeOwned = false;
+                startupFadeClock.Reset();
+                NativeFunction.Natives.DO_SCREEN_FADE_IN(350);
+            }
             var agendas = new Dictionary<Guid, MedicalAgenda>();
             MedicalAgenda agenda = null;
             Guid agendaProfile = Guid.Empty;
@@ -2090,11 +2099,27 @@ namespace lumen_sante.Gameplay
                     if (Game.IsPaused)
                     {
                         if (waitingForSave) startupReadiness.Observe(false, 0, 0f, 0f, 0f, homeStartupClock.ElapsedMilliseconds);
+                        if (startupFadeOwned)
+                        {
+                            homeStartupPending = false;
+                            ReleaseStartupFade();
+                        }
                         continue;
                     }
 
                     Ped player = Game.LocalPlayer.Character;
                     bool playerAvailable = player != null && player.Exists() && player.IsAlive;
+                    if (startupFadeOwned)
+                    {
+                        if (startupFadeClock.ElapsedMilliseconds >= 45000)
+                        {
+                            ReleaseStartupFade();
+                            Game.LogTrivial("[Lumen Santé] Tela de transição liberada após o limite; aguardando o médico para iniciar em casa.");
+                        }
+                        else if (NativeFunction.Natives.IS_SCREEN_FADING_IN<bool>() ||
+                            NativeFunction.Natives.IS_SCREEN_FADED_IN<bool>())
+                            NativeFunction.Natives.DO_SCREEN_FADE_OUT(0);
+                    }
                     float simulationRadius = NpcRoute.BackgroundSimulation ? 120f : 160f;
                     NpcRoute.BackgroundSimulation = !playerAvailable ||
                         (player.Position - ShiftPoint).LengthSquared() > simulationRadius * simulationRadius;
@@ -2138,6 +2163,12 @@ namespace lumen_sante.Gameplay
                         {
                             waitingForSave = false;
                             homeStartupClock.Restart();
+                            if (homeStartupPending)
+                            {
+                                NativeFunction.Natives.DO_SCREEN_FADE_OUT(0);
+                                startupFadeOwned = true;
+                                startupFadeClock.Restart();
+                            }
                             Game.LogTrivial("[Lumen Santé] Save estável; restaurando o médico padrão.");
                         }
                     }
@@ -2150,6 +2181,7 @@ namespace lumen_sante.Gameplay
                     if (!waitingForSave && homeStartupPending && homeStartupClock.ElapsedMilliseconds >= 60000)
                     {
                         homeStartupPending = false;
+                        ReleaseStartupFade();
                         Game.LogTrivial("[Lumen Santé] Início em casa cancelado: o jogador não ficou disponível a tempo.");
                     }
                     if (!waitingForSave && homeStartupPending && playerAvailable && doctors.CanStartShift(player) &&
@@ -2159,7 +2191,12 @@ namespace lumen_sante.Gameplay
                         NativeFunction.Natives.IS_PLAYER_CONTROL_ON<bool>(NativeFunction.Natives.PLAYER_ID<int>()))
                     {
                         homeStartupPending = false;
-                        residence.StartAtHome(player, doctors.ActiveId, doctors.Active.ResidenceId);
+                        try
+                        {
+                            bool arrived = residence.StartAtHome(player, doctors.ActiveId, doctors.Active.ResidenceId, startupFadeOwned);
+                            if (arrived && startupFadeOwned) NativeStartupIntro.Play(player, ReleaseStartupFade);
+                        }
+                        finally { ReleaseStartupFade(); }
                     }
 
                     bool manualToggle = consumeShiftToggle();
@@ -2184,6 +2221,7 @@ namespace lumen_sante.Gameplay
                         {
                             waitingForSave = false;
                             homeStartupPending = false;
+                            ReleaseStartupFade();
                             Game.LogTrivial("[Lumen Santé] Início automático cancelado pela abertura do menu de médicos.");
                         }
                         if (residence.Inside) Game.DisplayNotification("Saia da residência para trocar de médico ou de imóvel.");
@@ -2494,6 +2532,7 @@ namespace lumen_sante.Gameplay
             }
             finally
             {
+                ReleaseStartupFade();
                 residence.Dispose();
                 try { phoneShortcut.Dispose(); }
                 catch (Exception error) { Game.LogTrivial("[Lumen Santé] Falha ao remover atalho do celular: " + error.Message); }
