@@ -18,6 +18,7 @@ namespace lumen_sante.Gameplay
             public Appearance Face { get; set; } = new Appearance();
             public List<Outfit> Outfits { get; set; } = new List<Outfit>();
             public Guid LastCasual { get; set; }
+            public string ResidenceId { get; set; } = "sandy-zancudo-140";
         }
 
         public sealed class Appearance

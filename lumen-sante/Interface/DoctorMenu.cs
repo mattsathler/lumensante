@@ -263,6 +263,25 @@ namespace lumen_sante.Interface
             Row("Médicos", ShowDoctors);
             bool wardrobeAvailable = profiles.Default != null && Active != null;
             Row("Armário", OpenWardrobe, wardrobeAvailable, right: wardrobeAvailable ? Badge.None : Badge.Lock);
+            Row("Residência", ShowResidences, wardrobeAvailable && !onDuty(), right: wardrobeAvailable && !onDuty() ? Badge.None : Badge.Lock);
+        }
+
+        private void ShowResidences()
+        {
+            Page("Residência", ShowHome);
+            Profile profile = Active;
+            if (profile == null || onDuty()) return;
+            foreach (var home in NativeResidence.Homes)
+            {
+                var choice = home;
+                Row(choice.Name, () =>
+                {
+                    var edited = profiles.Copy(profile);
+                    edited.ResidenceId = choice.Id;
+                    if (!profiles.Put(edited)) SaveFailed();
+                    ShowResidences();
+                }, rightLabel: profile.ResidenceId == choice.Id ? "Selecionada" : null);
+            }
         }
 
         private void ShowDoctors()

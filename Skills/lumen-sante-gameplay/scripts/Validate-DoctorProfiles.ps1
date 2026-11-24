@@ -28,10 +28,21 @@ function Read-Value($target, [string]$property) {
 }
 
 try {
+    $startupType = $assembly.GetType('lumen_sante.Gameplay.StartupReadiness', $true)
+    $startup = [Activator]::CreateInstance($startupType, $true)
+    Assert (!(Call $startup Observe @($false, 1, [single]0, [single]0, [single]0, [long]0))) 'Loading state must not be ready.'
+    Assert (!(Call $startup Observe @($true, 1, [single]0, [single]0, [single]0, [long]100))) 'First observation must not be ready.'
+    Assert (!(Call $startup Observe @($true, 2, [single]0, [single]0, [single]0, [long]3000))) 'Changing the player must restart the wait.'
+    Assert (!(Call $startup Observe @($true, 2, [single]10, [single]0, [single]0, [long]4000))) 'Changing position must restart the wait.'
+    Assert (!(Call $startup Observe @($false, 2, [single]10, [single]0, [single]0, [long]7000))) 'Returning to a loading state must reset the wait.'
+    Assert (!(Call $startup Observe @($true, 2, [single]10, [single]0, [single]0, [long]8000))) 'A new stable period must start after loading.'
+    Assert (Call $startup Observe @($true, 2, [single]10, [single]0, [single]0, [long]12000)) 'A stable player should become ready.'
     $profiles = Open-Profiles
     $create = $profilesType.GetMethod('Create', $static)
     $one = $create.Invoke($null, @('Alex', $false))
     $two = $create.Invoke($null, @('Morgan', $true))
+    $one.ResidenceId = 'grapeseed-1893'
+    $two.ResidenceId = 'paleto-procopio-4401'
     $one.Face.Features[3] = 35
     foreach ($profile in @($one, $two)) {
         Assert ($profile.Outfits.Count -eq 2) 'Every doctor needs two outfits.'
@@ -47,6 +58,8 @@ try {
     $profiles = Open-Profiles
     Assert ((Read-Value $profiles DefaultId) -eq $two.Id) 'Only the last elected doctor should be default.'
     $restored = (Read-Value $profiles Items) | Where-Object Id -eq $one.Id
+    $restoredTwo = (Read-Value $profiles Items) | Where-Object Id -eq $two.Id
+    Assert ($restored.ResidenceId -eq 'grapeseed-1893' -and $restoredTwo.ResidenceId -eq 'paleto-procopio-4401') 'Residence selections did not persist separately.'
     Assert ($restored.Face.Features[3] -eq 35) 'Face features were lost.'
     Assert ($restored.LastCasual -eq $one.Outfits[1].Id) 'Last casual outfit was lost.'
     for ($index = 3; $index -le 21; $index++) {

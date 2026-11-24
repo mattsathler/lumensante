@@ -14,7 +14,14 @@ namespace lumen_sante
         private static int shiftToggleRequests;
         private static int seatCalibrationRequested;
         private static int npcCleanupRequested;
+        private static int residenceRequested;
         private const float NpcCleanupRadius = 300f;
+
+        [ConsoleCommand(Name = "LumenSanteCasa", Description = "Testa a entrada e saída da residência do médico.")]
+        public static void Command_LumenSanteCasa()
+        {
+            Interlocked.Exchange(ref residenceRequested, 1);
+        }
 
         [ConsoleCommand(Name = "LumenSantePlantao", Description = "Inicia ou encerra o plantão do Lumen Santé.")]
         public static void Command_LumenSantePlantao()
@@ -36,8 +43,13 @@ namespace lumen_sante
 
         public static void Main()
         {
+            // Only a load observed during the game loading screen qualifies for home startup.
+            // A manual load/reload during play must not move the player.
+            bool startedDuringLoading = Game.IsLoading;
+            while (Game.IsLoading) GameFiber.Yield();
             Game.AddConsoleCommands();
             Game.LogTrivial("[Lumen Santé] Plugin carregado. Comando: LumenSantePlantao.");
+            Game.LogTrivial("[Lumen Santé] Carregamento inicial do jogo detectado: " + startedDuringLoading + ".");
             Game.LogTrivial("[Lumen Santé] Pasta da instalação: " + PluginPaths.InstallationDirectory);
             Game.LogTrivial("[Lumen Santé] Catálogo carregado: " + Clinical.DiseaseCatalog.Count + " doenças.");
             foreach (string message in Clinical.DiseaseCatalog.LoadDiagnostics)
@@ -68,7 +80,9 @@ namespace lumen_sante
                     routes,
                     waitingRoom,
                     population,
+                    startedDuringLoading,
                     () => (Interlocked.Exchange(ref shiftToggleRequests, 0) & 1) != 0,
+                    () => Interlocked.Exchange(ref residenceRequested, 0) != 0,
                     (player, available) =>
                     {
                         if (Interlocked.Exchange(ref npcCleanupRequested, 0) != 0 && ClearNearbyNpcs(player) > 0)

@@ -12,7 +12,9 @@ Início, Pacientes e Agenda compartilham um cabeçalho fixo durante a rolagem. O
 
 Na cadeira da sala de diagnóstico, `Usar computador` solicita a abertura do `appinternet` nativo e direciona para o site do hospital. Um paciente acessível na cadeira ou na mesa de exame da sala tem prioridade e abre o respectivo prontuário. Sem paciente na sala, o plugin restaura a última página do hospital observada durante a execução atual e, quando aplicável e ainda acessível, o último prontuário; na primeira abertura usa a home. O estado não é persistido entre reinicializações do plugin. A inicialização do aplicativo, o retorno ao menu e a navegação contextual devem ser verificados em jogo.
 
-O atalho **Hospital** no celular é limitado ao GTA V Legacy 1.0.3889.0, cuja tabela interna foi identificada. Ele só ocupa uma linha e uma posição livres da tela inicial, usa o ícone nativo da internet e não substitui outros aplicativos. Se não houver espaço, o site permanece acessível pela busca do Eyefind. O tablet no F7 foi removido. A disponibilidade do atalho, a restauração ao descarregar e a abertura do navegador precisam ser validadas no jogo.
+O atalho **Hospital** no celular é limitado ao GTA V Legacy 1.0.3889.0, cuja tabela interna foi identificada. Ele só ocupa uma linha e uma posição livres da tela inicial e não substitui outros aplicativos. O OIV atualizado inclui filmes iFruit, Badger e Facade modificados para desenhar a logo do hospital na posição do atalho; o identificador original do ícone de internet continua sendo usado como alternativa quando esses filmes não estão instalados. Se não houver espaço, o site permanece acessível pela busca do Eyefind. O tablet no F7 foi removido. A logo, a seleção, a restauração ao descarregar e a abertura do navegador precisam ser validadas no jogo.
+
+Após relato de falha ao abrir o atalho, o plugin passou a solicitar explicitamente o carregamento do aplicativo de internet ao tocar no Hospital, assim como no computador. A alteração requer teste no celular em jogo; eventuais tempos esgotados são registrados no log com a etapa de abertura.
 
 ## Sincronização e desempenho
 
@@ -44,6 +46,14 @@ O navegador usa filmes GFx e nomes de recursos do jogo. DNS, arquivos HTML, hosp
 ```
 
 O script escreve `www_eyefind_info.gfx` e `www_lumensante_com.gfx` em `lumen-sante/obj/Eyefind/native/scaleform_web/` e exporta o primeiro frame de cada saída para conferir que os scripts foram incorporados. A home gerada é derivada da instalação local. Os binários e arquivos extraídos ficam na pasta de build ignorada pelo Git.
+
+Para gerar os filmes do celular, extraia da instalação usada os arquivos `cellphone_ifruit.gfx`, `cellphone_badger.gfx` e `cellphone_facade.gfx` de `update.rpf/x64/data/cdimages/scaleform_generic.rpf` para a mesma pasta e execute:
+
+```powershell
+./Tools/Eyefind/Build-PhoneLogo.ps1 -OriginalDirectory 'caminho/dos/filmes' -FfdecJar 'caminho/ffdec-cli.jar'
+```
+
+O gerador converte `Assets/logo.png` para formas, acrescenta a alteração ao primeiro frame de cada filme original e confirma sua presença exportando o resultado. As saídas ficam em `lumen-sante/obj/Eyefind/native/phone/`. Os filmes completos são substituídos no `scaleform_generic.rpf`: alterações de outros mods nesses mesmos filmes precisam ser preservadas na origem ou conciliadas manualmente. O gerador rejeita frames iniciais que não correspondam ao formato esperado.
 
 ## Plano de integração
 

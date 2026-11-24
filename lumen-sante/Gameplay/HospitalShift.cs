@@ -137,7 +137,7 @@ namespace lumen_sante.Gameplay
             internal long NextSeverityAt;
         }
 
-        internal static void Run(HospitalStaffRoutes routes, WaitingRoom waitingRoom, AmbientPopulation population, Func<bool> consumeShiftToggle,
+        internal static void Run(HospitalStaffRoutes routes, WaitingRoom waitingRoom, AmbientPopulation population, bool startedDuringLoading, Func<bool> consumeShiftToggle, Func<bool> consumeResidenceRequest,
             Action<Ped, bool> updateAmbient)
         {
             Point[] tableOrigins = DiagnosticRooms.Select((room, index) => routes.AddDiagnosticTransferAccess(
@@ -174,7 +174,13 @@ namespace lumen_sante.Gameplay
             var dischargedCases = new List<PatientCase>();
             var doctorProfiles = new DoctorProfiles(System.IO.Path.Combine(PluginPaths.InstallationDirectory, "LumenSante"),
                 message => Game.LogTrivial("[Lumen Santé] " + message));
-            bool autoStartPending = doctorProfiles.Default != null;
+            var residence = new NativeResidence();
+            bool homeStartupPending = startedDuringLoading && doctorProfiles.Default != null;
+            var homeStartupClock = Stopwatch.StartNew();
+            var startupReadiness = new StartupReadiness();
+            // Manual loads keep the current location, but should also wait for a stable
+            // player before applying a saved model.
+            bool waitingForSave = true;
             var agendas = new Dictionary<Guid, MedicalAgenda>();
             MedicalAgenda agenda = null;
             Guid agendaProfile = Guid.Empty;
@@ -274,8 +280,11 @@ namespace lumen_sante.Gameplay
                 websiteOpenSequence = websiteOpenSequence % 500000 + 1;
                 websiteOpenStarted = websiteClock.ElapsedMilliseconds;
                 websiteOpenFromPhone = fromPhone;
-                websiteOpenStage = fromPhone ? 2 : 1;
-                if (!fromPhone) NativeFunction.Natives.REQUEST_SCRIPT("appinternet");
+                // The phone controller can rebuild its app table when an app is selected.
+                // Explicitly request the browser for both entry points instead of assuming
+                // the custom phone row will start it successfully.
+                websiteOpenStage = 1;
+                NativeFunction.Natives.REQUEST_SCRIPT("appinternet");
             }
             hospitalComputer.WebsiteOpenRequested += () => RequestHospitalWebsite(false);
             var phoneShortcut = new NativePhoneShortcut();
@@ -1680,9 +1689,11 @@ namespace lumen_sante.Gameplay
                     if (websiteOpenStage != 0 && ((!websiteOpenFromPhone && !hospitalComputer.IsUsingNativeBrowser) ||
                         websiteClock.ElapsedMilliseconds - websiteOpenStarted >= 10000))
                     {
-                        if ((websiteOpenFromPhone || hospitalComputer.IsUsingNativeBrowser) && websiteOpenStage >= 2)
+                        if (websiteOpenFromPhone || hospitalComputer.IsUsingNativeBrowser)
                             Game.DisplayNotification("Não foi possível abrir o site do hospital no navegador.");
-                        if (!websiteOpenFromPhone) NativeFunction.Natives.SET_SCRIPT_AS_NO_LONGER_NEEDED("appinternet");
+                        Game.LogTrivial("[Lumen Santé] Abertura do navegador expirou na etapa " + websiteOpenStage +
+                            " (celular: " + websiteOpenFromPhone + ").");
+                        NativeFunction.Natives.SET_SCRIPT_AS_NO_LONGER_NEEDED("appinternet");
                         websiteOpenStage = 0;
                     }
                     if (websiteOpenStage == 1 && NativeFunction.Natives.HAS_SCRIPT_LOADED<bool>("appinternet"))
@@ -2078,6 +2089,7 @@ namespace lumen_sante.Gameplay
                     GameClock.Update();
                     if (Game.IsPaused)
                     {
+                        if (waitingForSave) startupReadiness.Observe(false, 0, 0f, 0f, 0f, homeStartupClock.ElapsedMilliseconds);
                         continue;
                     }
 
@@ -2108,21 +2120,59 @@ namespace lumen_sante.Gameplay
                     }
 
                     if (!playerAvailable && doctors.IsOpen) doctors.Close();
-                    if (playerAvailable && doctors.RestoreProfile(player))
+                    if (waitingForSave)
+                    {
+                        bool ready = !Game.IsLoading && playerAvailable && player.IsOnFoot &&
+                            !Game.Console.IsOpen && !doctors.IsOpen &&
+                            NativeFunction.Natives.IS_PLAYER_PLAYING<bool>(NativeFunction.Natives.PLAYER_ID<int>()) &&
+                            NativeFunction.Natives.IS_PLAYER_CONTROL_ON<bool>(NativeFunction.Natives.PLAYER_ID<int>()) &&
+                            !NativeFunction.Natives.IS_PLAYER_SWITCH_IN_PROGRESS<bool>() &&
+                            !NativeFunction.Natives.IS_PAUSE_MENU_ACTIVE<bool>() &&
+                            !NativeFunction.Natives.IS_CUTSCENE_ACTIVE<bool>() &&
+                            !NativeFunction.Natives.GET_MISSION_FLAG<bool>() &&
+                            NativeFunction.Natives.IS_SCREEN_FADED_IN<bool>() &&
+                            NativeFunction.Natives.HAS_COLLISION_LOADED_AROUND_ENTITY<bool>(player);
+                        Vector3 position = playerAvailable ? player.Position : Vector3.Zero;
+                        if (startupReadiness.Observe(ready, playerAvailable ? player.Handle.GetHashCode() : 0,
+                            position.X, position.Y, position.Z, homeStartupClock.ElapsedMilliseconds))
+                        {
+                            waitingForSave = false;
+                            homeStartupClock.Restart();
+                            Game.LogTrivial("[Lumen Santé] Save estável; restaurando o médico padrão.");
+                        }
+                    }
+                    if (!waitingForSave && playerAvailable && doctors.RestoreProfile(player))
                     {
                         player = Game.LocalPlayer.Character;
                         nextAgendaUpdate = 0;
                     }
 
-                    bool manualToggle = consumeShiftToggle();
-                    if (autoStartPending && doctors.CanStartShift(player))
+                    if (!waitingForSave && homeStartupPending && homeStartupClock.ElapsedMilliseconds >= 60000)
                     {
-                        autoStartPending = false;
-                        ToggleShift(player, false);
+                        homeStartupPending = false;
+                        Game.LogTrivial("[Lumen Santé] Início em casa cancelado: o jogador não ficou disponível a tempo.");
                     }
-                    else if (manualToggle)
+                    if (!waitingForSave && homeStartupPending && playerAvailable && doctors.CanStartShift(player) &&
+                        !Game.IsLoading && !Game.Console.IsOpen && !doctors.IsOpen &&
+                        !NativeFunction.Natives.IS_CUTSCENE_ACTIVE<bool>() &&
+                        !NativeFunction.Natives.GET_MISSION_FLAG<bool>() &&
+                        NativeFunction.Natives.IS_PLAYER_CONTROL_ON<bool>(NativeFunction.Natives.PLAYER_ID<int>()))
+                    {
+                        homeStartupPending = false;
+                        residence.StartAtHome(player, doctors.ActiveId, doctors.Active.ResidenceId);
+                    }
+
+                    bool manualToggle = consumeShiftToggle();
+                    if (manualToggle)
                     {
                         ToggleShift(player);
+                    }
+                    if (consumeResidenceRequest())
+                    {
+                        if (shiftPlayer != null || !doctors.CanStartShift(player))
+                            Game.DisplayNotification("Encerre o plantão e selecione um médico para acessar a residência.");
+                        else
+                            residence.Toggle(player, doctors.ActiveId, doctors.Active.ResidenceId);
                     }
 
                     bool doctorsDown = Game.IsKeyDown(Keys.F9);
@@ -2130,9 +2180,19 @@ namespace lumen_sante.Gameplay
                     doctorsWasDown = doctorsDown;
                     if (doctorsPressed && playerAvailable && !Game.Console.IsOpen)
                     {
-                        ClosePlayerInteraction();
-                        menu.Visible = false;
-                        doctors.Toggle();
+                        if (waitingForSave)
+                        {
+                            waitingForSave = false;
+                            homeStartupPending = false;
+                            Game.LogTrivial("[Lumen Santé] Início automático cancelado pela abertura do menu de médicos.");
+                        }
+                        if (residence.Inside) Game.DisplayNotification("Saia da residência para trocar de médico ou de imóvel.");
+                        else
+                        {
+                            ClosePlayerInteraction();
+                            menu.Visible = false;
+                            doctors.Toggle();
+                        }
                     }
 
                     PatientCase interactionCase = current;
@@ -2334,6 +2394,8 @@ namespace lumen_sante.Gameplay
                     bool interactionDown = Game.IsKeyDown(InteractionKey);
                     bool interactionPressed = interactionDown && !interactionWasDown;
                     interactionWasDown = interactionDown;
+                    residence.Update(player, doctors.ActiveId, doctors.Active?.ResidenceId, interactionPressed,
+                        shiftPlayer == null && doctors.CanStartShift(player) && !doctors.IsOpen && !menu.Visible && !Game.Console.IsOpen);
 
                     if (!atReception)
                     {
@@ -2432,6 +2494,7 @@ namespace lumen_sante.Gameplay
             }
             finally
             {
+                residence.Dispose();
                 try { phoneShortcut.Dispose(); }
                 catch (Exception error) { Game.LogTrivial("[Lumen Santé] Falha ao remover atalho do celular: " + error.Message); }
                 ReleaseHospitalBrowser();

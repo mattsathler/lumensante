@@ -4,6 +4,7 @@ param(
     [string]$HospitalPackage = (Join-Path $PSScriptRoot 'Dependencies\CLS-Medic-Final.oiv'),
     [string]$CoatPackage = (Join-Path $PSScriptRoot 'Lumen-Sante-Doctor-Coat-v2.oiv'),
     [string]$WebsiteDirectory = (Join-Path $PSScriptRoot 'lumen-sante\obj\Eyefind\native\scaleform_web'),
+    [string]$PhoneDirectory = (Join-Path $PSScriptRoot 'lumen-sante\obj\Eyefind\native\phone'),
     [string]$OutputPath = (Join-Path $PSScriptRoot 'Lumen Santé - Resources.oiv')
 )
 
@@ -14,9 +15,15 @@ if ([IO.Path]::GetExtension($output) -ine '.oiv') {
     throw 'O arquivo de saída deve ter extensão .oiv.'
 }
 $websiteFiles = @('www_eyefind_info.gfx', 'www_lumensante_com.gfx')
+$phoneFiles = @('cellphone_ifruit.gfx', 'cellphone_badger.gfx', 'cellphone_facade.gfx')
 foreach ($name in $websiteFiles) {
     if (!(Test-Path -LiteralPath (Join-Path $WebsiteDirectory $name) -PathType Leaf)) {
         throw "Arquivo do site ausente: $name. Gere os filmes com Tools/Eyefind/Build-NativeEyefind.ps1 antes de montar o pacote."
+    }
+}
+foreach ($name in $phoneFiles) {
+    if (!(Test-Path -LiteralPath (Join-Path $PhoneDirectory $name) -PathType Leaf)) {
+        throw "Arquivo do celular ausente: $name. Gere os filmes com Tools/Eyefind/Build-PhoneLogo.ps1 antes de montar o pacote."
     }
 }
 
@@ -61,6 +68,17 @@ try {
         [void]$webArchive.AppendChild($add)
     }
     [void]$updateArchive.AppendChild($webArchive)
+    $phoneArchive = $manifest.CreateElement('archive')
+    $phoneArchive.SetAttribute('path', 'x64\data\cdimages\scaleform_generic.rpf')
+    $phoneArchive.SetAttribute('createIfNotExist', 'False')
+    $phoneArchive.SetAttribute('type', 'RPF7')
+    foreach ($name in $phoneFiles) {
+        $add = $manifest.CreateElement('add')
+        $add.SetAttribute('source', 'phone/' + $name)
+        $add.InnerText = $name
+        [void]$phoneArchive.AppendChild($add)
+    }
+    [void]$updateArchive.AppendChild($phoneArchive)
 
     $zip = [IO.Compression.ZipFile]::Open($staged, [IO.Compression.ZipArchiveMode]::Create)
     try {
@@ -80,6 +98,12 @@ try {
             if ($entryNames.ContainsKey($entryName)) { throw "Entrada duplicada: $entryName" }
             $entryNames[$entryName] = $true
             [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, (Join-Path $WebsiteDirectory $name), $entryName) | Out-Null
+        }
+        foreach ($name in $phoneFiles) {
+            $entryName = 'content/phone/' + $name
+            if ($entryNames.ContainsKey($entryName)) { throw "Entrada duplicada: $entryName" }
+            $entryNames[$entryName] = $true
+            [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, (Join-Path $PhoneDirectory $name), $entryName) | Out-Null
         }
         foreach ($add in $manifest.SelectNodes('//add[@source]')) {
             if (!$entryNames.ContainsKey('content/' + $add.source.Replace('\', '/'))) {

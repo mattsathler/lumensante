@@ -18,6 +18,9 @@ Esta pasta reúne a proposta inicial. As regras de jogo e escolhas técnicas mar
 | [Médicos e Especialidades](medicos-e-especialidades.md) | Ciclo I com criação de médicos, armário e agendas por perfil |
 | [Instalação do mapa](instalacao-mapa.md) | Preparação do interior customizado para os testes |
 | [Salário e carteira](salario-e-carteira.md) | Proposta de pagamento e persistência por médico |
+| [Vida fora do hospital](vida-fora-do-hospital.md) | Estudo da residência, rotina, integração financeira e veículo pessoal |
+| [Catálogo de residências nativas](catalogo-residencias-nativas.md) | Interiores e endereços candidatos no modo história e em atualizações |
+| [Lotes de vida fora do hospital](lotes-vida-fora-hospital.md) | Sequência de implementação e validação das residências e dos ciclos |
 
 ## Compilação local
 
