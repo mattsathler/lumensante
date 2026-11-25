@@ -3,13 +3,28 @@ if (!TIMELINE.isMP)
    TIMELINE.lumenSetPageButtons = function(page, pageButtons)
    {
       var content = this.CONTENT;
+      var site = this;
+      var clockFormat = new TextFormat("$Font2",14,0xFFFFFF,true);
       var header = content.lumenHeader;
       if (header == undefined || header.lumenPage != page)
       {
          header.removeMovieClip();
          header = content.createEmptyMovieClip("lumenHeader", content.getNextHighestDepth());
          header.lumenPage = page;
-         header.onEnterFrame = function() { this._y = -this._parent._y; };
+         header.onEnterFrame = function()
+         {
+            this._y = -this._parent._y;
+            var timeData = site.dataProviderUI[98];
+            if (timeData != undefined && timeData.length >= 2)
+            {
+               var clockText = timeData[0] + "   |   " + timeData[1];
+               if (this.clock.text != clockText)
+               {
+                  this.clock.text = clockText;
+                  this.clock.setTextFormat(clockFormat);
+               }
+            }
+         };
          header.beginFill(0x07372A);
          header.moveTo(0,0); header.lineTo(1280,0); header.lineTo(1280,64); header.lineTo(0,64); header.lineTo(0,0);
          header.endFill();
@@ -21,6 +36,11 @@ if (!TIMELINE.isMP)
          header.brand.multiline = true; header.brand.wordWrap = true; header.brand.selectable = false;
          header.brand.text = "Los Santos\nMedical Center";
          header.brand.setTextFormat(new TextFormat("$Font2",15,0xFFFFFF,true));
+         header.createTextField("clock",header.getNextHighestDepth(),898,17,300,32);
+         header.clock.selectable = false; header.clock.multiline = false; header.clock.wordWrap = false;
+         header.clock.defaultTextFormat = clockFormat;
+         header.clock.text = "Carregando horário do hospital...";
+         header.clock.setTextFormat(clockFormat);
          var names = ["Início", "Pacientes", "Agenda"];
          var icons = ["home", "person", "calendar"];
          var destinations = ["WWW_LUMENSANTE_COM", "WWW_LUMENSANTE_COM_S_PACIENTES", "WWW_LUMENSANTE_COM_S_AGENDA"];

@@ -30,9 +30,21 @@ namespace lumen_sante.Gameplay
         {
             public ExamOrders.Snapshot Orders { get; set; }
             public int Risk { get; set; }
+            public long NextEvolutionTicks { get; set; }
+            public SavedVitals Vitals { get; set; }
             public uint Model { get; set; }
             public int[] Outfit { get; set; }
             public bool Deceased { get; set; }
+        }
+
+        public sealed class SavedVitals
+        {
+            public int Pulse { get; set; }
+            public int Systolic { get; set; }
+            public int Diastolic { get; set; }
+            public int RespiratoryRate { get; set; }
+            public int OxygenSaturation { get; set; }
+            public double? Temperature { get; set; }
         }
 
         public sealed class Data
@@ -67,7 +79,8 @@ namespace lumen_sante.Gameplay
                         item.Due <= 0 || item.Due > DateTime.MaxValue.Ticks || !Enum.IsDefined(typeof(Status), item.State) ||
                         string.IsNullOrWhiteSpace(item.Name)) ||
                     loaded.Appointments.Select(item => item.Id).Distinct().Count() != loaded.Appointments.Count ||
-                    loaded.Records.Any(record => record?.Orders == null || !record.Orders.IsValid()) ||
+                    loaded.Records.Any(record => record?.Orders == null || !record.Orders.IsValid() ||
+                        record.NextEvolutionTicks < 0 || record.NextEvolutionTicks > DateTime.MaxValue.Ticks) ||
                     loaded.Records.Select(item => item.Orders.Id).Distinct().Count() != loaded.Records.Count ||
                     loaded.Appointments.Any(item => (item.FollowUp || item.PatientId != Guid.Empty) &&
                         !loaded.Records.Any(record => record.Orders.Id == item.PatientId)))
@@ -105,7 +118,7 @@ namespace lumen_sante.Gameplay
             DateTime first = new DateTime(Math.Max(now.Date.Ticks, data.GeneratedThrough));
             for (DateTime day = first; day < now.Date.AddDays(7); day = day.AddDays(1))
             {
-                for (int hour = 10; hour <= 15; hour += 5)
+                for (int hour = 9; hour <= 17; hour += 2)
                 {
                     DateTime slot = day.AddHours(hour);
                     if (slot <= now || SlotOccupied(slot)) continue;

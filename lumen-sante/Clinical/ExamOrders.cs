@@ -20,8 +20,10 @@ namespace lumen_sante.Clinical
         private readonly System.Collections.Generic.List<CareDecision> careHistory = new System.Collections.Generic.List<CareDecision>();
         internal System.Collections.Generic.IReadOnlyList<CareDecision> CareHistory => careHistory.AsReadOnly();
         internal long CareRevision { get; private set; }
+        private long lastExamSequence;
         internal bool IsCareProtected { get; private set; }
         internal WorkerDiagnosis WorkerDiagnosis { get; } = new WorkerDiagnosis();
+        internal PatientClinicalState ClinicalState { get; } = new PatientClinicalState();
         internal void RecordWorkerAssessment(CareAuthor author, long now, string hypothesis)
         {
             if (author == null || author.IsPlayer) throw new ArgumentException("Avaliação exige um Doctor.");
@@ -83,7 +85,9 @@ namespace lumen_sante.Clinical
         private readonly System.Collections.Generic.Dictionary<int, string> latestSymptomAnswers =
             new System.Collections.Generic.Dictionary<int, string>();
         internal bool HasStartedConversation { get; private set; }
-        internal long SymptomRevision { get; private set; }
+        private long symptomRevision;
+        internal long SymptomRevision => symptomRevision + ClinicalState.SymptomRevision;
+        internal bool HasSymptomAnswer(int question) => latestSymptomAnswers.ContainsKey(question);
 
         internal void RecordInitialComplaint(DiseaseDefinition disease, int stage, Random random)
         {
@@ -92,33 +96,54 @@ namespace lumen_sante.Clinical
             string answer = disease.PickAnswer(0, stage, random);
             symptomAnswers.Add(key, answer);
             latestSymptomAnswers[0] = answer;
-            SymptomRevision++;
+            symptomRevision++;
         }
 
         internal System.Collections.Generic.IEnumerable<(string Prompt, string Answer)> SymptomHistory(DiseaseDefinition disease) =>
             latestSymptomAnswers.OrderBy(entry => entry.Key)
-                .Select(entry => (disease != null && entry.Key < disease.Prompts.Count
-                    ? disease.Prompts[entry.Key] : "Sintoma", entry.Value));
+                .Select(entry => (entry.Key >= SymptomCatalog.InterviewIndexOffset
+                    ? SymptomCatalog.InterviewPrompt(disease, entry.Key) ?? "Sintoma"
+                    : entry.Key >= 100 ? SymptomCatalog.LegacyInterviewPrompt(entry.Key)
+                    : entry.Key == 0 ? "Queixa inicial"
+                    : disease != null && entry.Key < disease.Prompts.Count ? disease.Prompts[entry.Key] : "Sintoma",
+                    entry.Value))
+                .Concat(disease != null && disease.SymptomIds.Contains("breathlessness") && ClinicalState.HasVitals
+                    ? new[] { ("Respiração — estado atual", ClinicalState.BreathlessnessDescription) }
+                    : Array.Empty<(string, string)>())
+                .Concat(ClinicalState.PainIntensity.HasValue
+                    ? new[] { ("Dor — estado atual", PatientClinicalState.DescribeIntensity(ClinicalState.PainIntensity.Value)) }
+                    : Array.Empty<(string, string)>())
+                .Concat(ClinicalState.NauseaIntensity.HasValue
+                    ? new[] { ("Náusea — estado atual", PatientClinicalState.DescribeIntensity(ClinicalState.NauseaIntensity.Value)) }
+                    : Array.Empty<(string, string)>())
+                .Concat(ClinicalState.NasalCongestionIntensity.HasValue
+                    ? new[] { ("Congestão nasal — estado atual", PatientClinicalState.DescribeIntensity(ClinicalState.NasalCongestionIntensity.Value)) }
+                    : Array.Empty<(string, string)>());
 
         internal string GetSymptomAnswer(DiseaseDefinition disease, int question, int stage, Random random)
         {
             if (IsRecovered)
             {
+                if (question == SymptomCatalog.HelpQuestion) return "Estou me sentindo bem agora.";
                 if (question == 0) HasStartedConversation = true;
+                if (question >= SymptomCatalog.InterviewIndexOffset)
+                    return SymptomCatalog.InterviewAnswer(disease, ClinicalState, question, stage, random);
                 return "Estou me sentindo bem agora.";
             }
             var key = (stage, question);
             if (!symptomAnswers.TryGetValue(key, out string answer))
             {
-                answer = disease.PickAnswer(question, stage, random);
+                answer = question >= SymptomCatalog.InterviewIndexOffset
+                    ? SymptomCatalog.InterviewAnswer(disease, ClinicalState, question, stage, random)
+                    : disease.PickAnswer(question, stage, random);
                 symptomAnswers.Add(key, answer);
             }
             if (!latestSymptomAnswers.TryGetValue(question, out string latest) || latest != answer)
             {
                 latestSymptomAnswers[question] = answer;
-                SymptomRevision++;
+                symptomRevision++;
             }
-            if (question == 0) HasStartedConversation = true;
+            if (question == SymptomCatalog.HelpQuestion || question == 0) HasStartedConversation = true;
             return answer;
         }
         internal bool IsRecovered { get; private set; }
@@ -169,8 +194,17 @@ namespace lumen_sante.Clinical
         internal MedicationClass[] ActiveMedications(long now) => medications
             .Where(entry => entry.Value > now).Select(entry => entry.Key).ToArray();
 
+        internal void RecordExamCompletion(object completedExam)
+        {
+            var exam = completedExam as ExamOrder;
+            if (exam == null || !Items.Contains(exam) || exam.Status != ExamStatus.Completed)
+                throw new ArgumentException("Resultado de exame inválido.", nameof(completedExam));
+            exam.SetSequence(++lastExamSequence);
+        }
+
         internal void MarkRecovered() => IsRecovered = true;
         internal string TreatmentDiseaseId { get; private set; }
+        internal string DiagnosisDiseaseId { get; private set; }
         internal bool SelectTreatment(string diseaseId, CareAuthor author, long now, long expectedRevision)
         {
             if (string.IsNullOrWhiteSpace(diseaseId)) throw new ArgumentException("Tratamento sem ID.", nameof(diseaseId));
@@ -190,6 +224,19 @@ namespace lumen_sante.Clinical
             return true;
         }
 
+        internal bool SetDiagnosis(string diseaseId, System.Collections.Generic.IReadOnlyDictionary<string, double> measurements,
+            CareAuthor author, long now, long expectedRevision)
+        {
+            if (!CanApplyCare(author, expectedRevision)) return false;
+            DiseaseDefinition disease = diseaseId == null ? null : DiseaseCatalog.Find(diseaseId);
+            if (diseaseId != null && (disease == null || DiagnosticInvestigation.Excluded(disease, measurements))) return false;
+            if (DiagnosisDiseaseId == diseaseId) return false;
+            DiagnosisDiseaseId = diseaseId;
+            RecordCare(author, now, disease == null ? "Diagnóstico removido" : "Diagnóstico",
+                disease?.Name ?? "Hipótese diagnóstica retirada", true);
+            return true;
+        }
+
         internal ExamOrder[] Items { get; } =
         {
             new ExamOrder("mri", "MRI de tórax", 30 * 60000, ExamKind.Mri),
@@ -200,15 +247,17 @@ namespace lumen_sante.Clinical
             new ExamOrder("x-ray-pelvis", "RX de pelve", 10 * 60000, ExamKind.XRay),
             new ExamOrder("x-ray-limbs", "RX de membros", 15 * 60000, ExamKind.XRay),
             new ExamOrder("cardiac", "Exames cardíacos", 15 * 60000, ExamKind.Bedside),
+            new ExamOrder("vital-signs", "Sinais vitais", 2 * 60000, ExamKind.Bedside,
+                "Avaliação de sinais vitais", "Medição clínica"),
             new ExamOrder("hematology", "Painel hematológico", 20 * 60000, ExamKind.Laboratory),
             new ExamOrder("renal", "Função renal", 20 * 60000, ExamKind.Laboratory),
             new ExamOrder("hepatic", "Função hepática", 20 * 60000, ExamKind.Laboratory),
-            new ExamOrder("electrolytes", "Eletrólitos", 20 * 60000, ExamKind.Laboratory),
+            new ExamOrder("electrolytes", "Sódio sérico", 20 * 60000, ExamKind.Laboratory),
             new ExamOrder("blood-gas", "Gasometria arterial", 15 * 60000, ExamKind.Laboratory),
-            new ExamOrder("coagulation", "Coagulograma", 25 * 60000, ExamKind.Laboratory),
-            new ExamOrder("glucose", "Glicemia", 15 * 60000, ExamKind.Laboratory),
+            new ExamOrder("coagulation", "INR (coagulação)", 25 * 60000, ExamKind.Laboratory),
+            new ExamOrder("glucose", "Glicemia casual", 15 * 60000, ExamKind.Laboratory),
             new ExamOrder("crp", "Proteína C reativa (PCR)", 25 * 60000, ExamKind.Laboratory),
-            new ExamOrder("urinalysis", "Urina tipo I", 25 * 60000, ExamKind.Laboratory),
+            new ExamOrder("urinalysis", "Urina: células", 25 * 60000, ExamKind.Laboratory),
             new ExamOrder("mri-abdomen", "MRI de abdome", 35 * 60000, ExamKind.Mri,
                 normalFindings: "Órgãos abdominais sem lesões focais identificadas."),
             new ExamOrder("mri-pelvis", "MRI de pelve", 35 * 60000, ExamKind.Mri,
@@ -247,13 +296,13 @@ namespace lumen_sante.Clinical
                 "Bioquímica automatizada", "Soro", "Magnésio dentro do intervalo de referência."),
             new ExamOrder("phosphate", "Fósforo", 20 * 60000, ExamKind.Laboratory,
                 "Bioquímica automatizada", "Soro", "Fósforo dentro do intervalo de referência."),
-            new ExamOrder("urea", "Ureia", 20 * 60000, ExamKind.Laboratory,
+            new ExamOrder("urea", "Nitrogênio ureico", 20 * 60000, ExamKind.Laboratory,
                 "Bioquímica automatizada", "Soro", "Ureia dentro do intervalo de referência."),
             new ExamOrder("creatinine", "Creatinina", 20 * 60000, ExamKind.Laboratory,
                 "Bioquímica automatizada", "Soro", "Creatinina dentro do intervalo de referência."),
             new ExamOrder("albumin", "Albumina", 20 * 60000, ExamKind.Laboratory,
                 "Bioquímica automatizada", "Soro", "Albumina dentro do intervalo de referência."),
-            new ExamOrder("bilirubin", "Bilirrubinas", 20 * 60000, ExamKind.Laboratory,
+            new ExamOrder("bilirubin", "Bilirrubina total", 20 * 60000, ExamKind.Laboratory,
                 "Bioquímica automatizada", "Soro", "Bilirrubinas dentro dos intervalos de referência."),
             new ExamOrder("tsh", "TSH", 30 * 60000, ExamKind.Laboratory,
                 "Imunoensaio", "Soro", "TSH dentro do intervalo de referência."),
@@ -275,6 +324,8 @@ namespace lumen_sante.Clinical
                 "Imunoensaio", "Plasma", "BNP sem elevação relevante."),
             new ExamOrder("urine-culture", "Urocultura", 45 * 60000, ExamKind.Laboratory,
                 "Cultura microbiológica", "Urina", "Sem crescimento bacteriano na amostra de urina."),
+            new ExamOrder("urine-pbg", "Porfobilinogênio urinário", 45 * 60000, ExamKind.Laboratory,
+                "Análise quantitativa", "Urina"),
             new ExamOrder("blood-culture", "Hemocultura", 60 * 60000, ExamKind.Laboratory,
                 "Cultura microbiológica", "Sangue", "Sem crescimento microbiano na amostra de sangue.")
         };
@@ -282,6 +333,9 @@ namespace lumen_sante.Clinical
 
     internal sealed class ExamOrder
     {
+        private readonly System.Collections.Generic.List<ExamOrder> previousResults = new System.Collections.Generic.List<ExamOrder>();
+        internal System.Collections.Generic.IEnumerable<ExamOrder> Results => previousResults.Concat(
+            Status == ExamStatus.Completed ? new[] { this } : Array.Empty<ExamOrder>());
         internal ExamOrder(string id, string name, int durationMilliseconds, ExamKind kind,
             string method = null, string sample = null, string normalFindings = null)
         {
@@ -304,35 +358,59 @@ namespace lumen_sante.Clinical
         internal ExamStatus Status { get; private set; }
         internal int StageAtRequest { get; private set; }
         internal long CompletedAtMilliseconds { get; private set; }
+        internal long Sequence { get; private set; }
         internal bool RequestedByPlayer { get; private set; }
         internal string RequestedBy { get; private set; }
         internal string PerformedBy { get; private set; }
         internal string SavedFindings { get; private set; }
+        internal bool CanRepeat => ClinicalParameterCatalog.ForExam(Id).Count > 0;
+        internal ExamOrders.SavedMeasurement[] Measurements { get; private set; }
 
         internal void Restore(ExamOrders.SavedExam data)
         {
+            if (Status == ExamStatus.Completed) ArchiveCurrent();
             Status = ExamStatus.Completed;
             StageAtRequest = data.Stage;
             CompletedAtMilliseconds = data.At;
+            Sequence = data.Sequence;
             RequestedBy = data.Requester;
             RequestedByPlayer = data.Requester == "Jogador";
             PerformedBy = data.Performer;
             SavedFindings = data.Findings;
+            Measurements = data.Measurements;
         }
 
         internal bool TryRequest(int stage)
         {
-            if (Status != ExamStatus.Available)
+            if (Status != ExamStatus.Available && !(CanRepeat && Status == ExamStatus.Completed))
             {
                 return false;
             }
 
+            if (Status == ExamStatus.Completed) ArchiveCurrent();
+
             StageAtRequest = stage;
+            SavedFindings = null;
+            Measurements = null;
+            CompletedAtMilliseconds = 0;
+            Sequence = 0;
             RequestedByPlayer = true;
             RequestedBy = "Jogador";
             PerformedBy = null;
             Status = ExamStatus.Pending;
             return true;
+        }
+
+        private void ArchiveCurrent()
+        {
+            var copy = new ExamOrder(Id, Name, DurationMilliseconds, Kind, Method, Sample, NormalFindings);
+            copy.Restore(new ExamOrders.SavedExam
+            {
+                Id = Id, Stage = StageAtRequest, At = CompletedAtMilliseconds,
+                Requester = RequestedBy, Performer = PerformedBy, Findings = SavedFindings,
+                Measurements = Measurements, Sequence = Sequence
+            });
+            previousResults.Add(copy);
         }
 
         internal bool TryRequestByNamedWorker(int stage, CareAuthor doctor)
@@ -348,6 +426,21 @@ namespace lumen_sante.Clinical
         internal void RecordPerformer(string name)
         {
             if (Status == ExamStatus.Completed) PerformedBy = name;
+        }
+
+        internal void SetSequence(long sequence)
+        {
+            if (Status == ExamStatus.Completed && sequence > 0) Sequence = sequence;
+        }
+
+        internal void RecordFindings(string findings)
+        {
+            if (Status == ExamStatus.Completed) SavedFindings = findings;
+        }
+
+        internal void RecordMeasurements(ExamOrders.SavedMeasurement[] measurements)
+        {
+            if (Status == ExamStatus.Completed) Measurements = measurements;
         }
 
         internal bool TryComplete(long elapsedMilliseconds)

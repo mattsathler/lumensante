@@ -59,11 +59,10 @@ foreach ($disease in $cases) {
 $flu = @($cases | Where-Object { (Property $_ 'Id') -eq 'flu-like' })[0].PSObject.BaseObject
 $pharyngitis = @($cases | Where-Object { (Property $_ 'Id') -eq 'viral-pharyngitis' })[0].PSObject.BaseObject
 $sinusitis = @($cases | Where-Object { (Property $_ 'Id') -eq 'acute-sinusitis' })[0].PSObject.BaseObject
-$cancer = @($cases | Where-Object { (Property $_ 'Id') -eq 'lung-cancer' })[0].PSObject.BaseObject
 # Exercise all frequency bands in a controlled catalog, independent of installed case count.
 $reader = $assembly.GetType('lumen_sante.Clinical.DiseaseJsonReader').GetMethod('Read', $static)
 $frequencyCases = [Array]::CreateInstance($flu.GetType(), 3)
-$frequencyIds = @('flu-like', 'viral-pharyngitis', 'lung-cancer')
+$frequencyIds = @('flu-like', 'viral-pharyngitis', 'gpa-pulmonary-renal')
 $frequencyWeights = @(90, 8, 2)
 foreach ($index in 0..2) {
     $fixture = Get-Content (Join-Path $repositoryRoot ('lumen-sante/Diseases/' + $frequencyIds[$index] + '.json')) -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -95,13 +94,10 @@ Assert (Property $authoredExam 'RequestedByPlayer') 'Tentativa rejeitada do Doct
 Assert (Invoke-Method $authoredExam 'TryRequestByWorker' @([int]3)) 'Pedido do Doctor após cancelamento falhou.'
 Assert (!(Property $authoredExam 'RequestedByPlayer')) 'Novo pedido do Doctor herdou notificações do jogador.'
 
-$state = $null
-for ($seed = 0; $seed -lt 1000; $seed++) {
-    $candidate = [Activator]::CreateInstance($stateType, $true)
-    [void](Invoke-Method $candidate 'Assess' @($rules, $flu, $emptyExams, [Random]::new($seed)))
-    if ((Property $candidate 'Hypothesis') -ne $flu) { $state = $candidate; break }
-}
-Assert ($null -ne $state) 'Não foi possível criar uma hipótese inicial errada para o teste.'
+$allergicRhinitis = @($cases | Where-Object { (Property $_ 'Id') -eq 'allergic-rhinitis' })[0].PSObject.BaseObject
+$state = [Activator]::CreateInstance($stateType, $true)
+$stateType.GetProperty('HasAssessment', $instance).SetValue($state, $true)
+$stateType.GetProperty('Hypothesis', $instance).SetValue($state, $allergicRhinitis)
 $originalHypothesis = Property $state 'Hypothesis'
 $random = [Random]::new(123)
 Assert (!(Invoke-Method $state 'Assess' @($rules, $flu, $emptyExams, $random))) 'Visita repetida gerou novo diagnóstico.'
@@ -115,25 +111,76 @@ $single = [Array]::CreateInstance($examType, 1)
 $single.SetValue($inconclusive.PSObject.BaseObject, 0)
 Assert (!(Invoke-Method $state 'Assess' @($rules, $flu, $single, [Random]::new(456)))) 'Laudo inconclusivo gerou revisão.'
 
-$evidence = $null
-$orders = New-Orders
-foreach ($exam in (Property $orders 'Items')) {
-    [void](Invoke-Method $exam 'TryRequest' @([int]1))
-    if (Invoke-Method $rules 'Distinguishes' @($flu, $originalHypothesis, $exam)) { $evidence = $exam; break }
-}
-Assert ($null -ne $evidence) 'Exame diferenciador ausente no caso de teste.'
+$evidence = New-Exam 'crp'
+Assert (Invoke-Method $evidence 'TryRequest' @([int]1)) 'Não foi possível solicitar o exame diferenciador.'
 $single.SetValue($evidence, 0)
 Assert (!(Invoke-Method $state 'Assess' @($rules, $flu, $single, [Random]::new(789)))) 'Pedido pendente gerou revisão.'
 Complete-Exam $evidence
+$savedMeasurementType = $assembly.GetType('lumen_sante.Clinical.ExamOrders+SavedMeasurement')
+$evidenceMeasurement = [Activator]::CreateInstance($savedMeasurementType)
+$evidenceMeasurement.Id = 'crp'
+$evidenceMeasurement.Name = 'Proteína C reativa'
+$evidenceMeasurement.Unit = 'mg/L'
+$evidenceMeasurement.Minimum = 0
+$evidenceMeasurement.Maximum = 4.9
+$evidenceMeasurement.Decimals = 1
+$evidenceMeasurement.Value = 8
+$evidenceMeasurements = [Array]::CreateInstance($savedMeasurementType, 1)
+$evidenceMeasurements[0] = $evidenceMeasurement
+$evidence.GetType().GetMethod('RecordMeasurements', $instance).Invoke($evidence, [object[]](,$evidenceMeasurements))
+Invoke-Method $evidence 'RecordFindings' @('PCR: 8 mg/L')
 Assert (Invoke-Method $state 'Assess' @($rules, $flu, $single, [Random]::new(789))) 'Exame concluído não liberou revisão.'
 Assert (!(Invoke-Method $state 'Assess' @($rules, $flu, $single, [Random]::new(790)))) 'O mesmo resultado foi usado duas vezes.'
 $confirmed = [Activator]::CreateInstance($stateType, $true)
 [void](Invoke-Method $confirmed 'Assess' @($rules, $flu, $emptyExams, [Random]::new(1)))
 Assert ((Property $confirmed 'Hypothesis') -eq $flu) 'Semente de confirmação gerou hipótese inesperada.'
 Complete-Exam $crp
+$crp.GetType().GetMethod('RecordMeasurements', $instance).Invoke($crp, [object[]](,$evidenceMeasurements))
+$crp.GetType().GetMethod('RecordFindings', $instance).Invoke($crp, @('PCR: 8 mg/L'))
 $single.SetValue($crp.PSObject.BaseObject, 0)
 Assert (!(Invoke-Method $confirmed 'Assess' @($rules, $flu, $single, [Random]::new(791)))) 'Evidência alterou uma hipótese já correta.'
 Assert (Property $confirmed 'HasConfirmingExam') 'Hipótese correta com exame informativo não encerrou a investigação.'
+
+# A numeric result is assessed through the configured exclusion rules, not through legacy text.
+$gpa = @($cases | Where-Object { (Property $_ 'Id') -eq 'gpa-pulmonary-renal' })[0].PSObject.BaseObject
+$porphyria = @($cases | Where-Object { (Property $_ 'Id') -eq 'acute-intermittent-porphyria' })[0].PSObject.BaseObject
+Assert ((Invoke-Method $rules 'ExamPriority' @($flu, 'urine-culture', [int]1)) -gt 0) 'Numeric exclusion criteria did not prioritize urine culture.'
+Assert ((Invoke-Method $rules 'ExamPriority' @($gpa, 'electrolytes', [int]1)) -gt 0) 'Combined criteria did not prioritize sodium.'
+Assert ((Invoke-Method $rules 'ExamPriority' @($porphyria, 'urine-pbg', [int]1)) -gt 0) 'Configured porphobilinogen ranges did not prioritize the examination.'
+$numericState = [Activator]::CreateInstance($stateType, $true)
+$stateType.GetProperty('HasAssessment', $instance).SetValue($numericState, $true)
+$stateType.GetProperty('Hypothesis', $instance).SetValue($numericState, $flu)
+$numericExam = New-Exam 'urine-culture'
+[void](Invoke-Method $numericExam 'TryRequest' @([int]1))
+Complete-Exam $numericExam
+$measurement = [Activator]::CreateInstance($savedMeasurementType)
+$measurement.Id = 'urine-culture-count'
+$measurement.Value = 150000
+$measurements = [Array]::CreateInstance($savedMeasurementType, 1)
+$measurements[0] = $measurement
+$numericExam.GetType().GetMethod('RecordMeasurements', $instance).Invoke($numericExam, [object[]](,$measurements))
+$numericExam.GetType().GetMethod('RecordFindings', $instance).Invoke($numericExam, @('150000'))
+$numericArray = [Array]::CreateInstance($examType, 2)
+$numericArray.SetValue($numericExam.PSObject.BaseObject, 0)
+Assert (!(Invoke-Method $numericState 'Assess' @($rules, $gpa, ([Array]::CreateInstance($examType, 0)), [Random]::new(99)))) 'Empty evidence changed the hypothesis.'
+$singleNumeric = [Array]::CreateInstance($examType, 1)
+$singleNumeric.SetValue($numericExam.PSObject.BaseObject, 0)
+Assert (!(Invoke-Method $numericState 'Assess' @($rules, $gpa, $singleNumeric, [Random]::new(99)))) 'Partial numeric evidence changed the hypothesis.'
+$urineExam = New-Exam 'urinalysis'
+[void](Invoke-Method $urineExam 'TryRequest' @([int]1))
+Complete-Exam $urineExam
+$urineMeasurement = [Activator]::CreateInstance($savedMeasurementType)
+$urineMeasurement.Id = 'urine-leukocytes'
+$urineMeasurement.Value = 150
+$urineValues = [Array]::CreateInstance($savedMeasurementType, 1)
+$urineValues[0] = $urineMeasurement
+$urineExam.GetType().GetMethod('RecordMeasurements', $instance).Invoke($urineExam, [object[]](,$urineValues))
+$urineExam.GetType().GetMethod('RecordFindings', $instance).Invoke($urineExam, @('150'))
+$numericArray.SetValue($urineExam.PSObject.BaseObject, 1)
+Assert (Invoke-Method $numericState 'Assess' @($rules, $gpa, $numericArray, [Random]::new(100))) 'Numeric evidence did not revise an excluded hypothesis.'
+Assert ((Property $numericState 'Hypothesis') -ne $flu) 'Doctor retained a numerically excluded hypothesis.'
+Assert (!(Property $numericState 'HasConfirmingExam')) 'Compatible numeric findings must not automatically confirm a disease.'
+Assert (!(Invoke-Method $numericState 'Assess' @($rules, $gpa, $numericArray, [Random]::new(101)))) 'The same numeric sample was reviewed twice.'
 
 $data = Get-Content (Join-Path $repositoryRoot 'lumen-sante/Diseases/flu-like.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $data.Id = 'worker-isolated-test'

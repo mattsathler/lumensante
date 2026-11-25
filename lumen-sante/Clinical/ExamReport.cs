@@ -24,7 +24,7 @@ namespace lumen_sante.Clinical
                     break;
                 case ExamKind.Bedside:
                     Method = "Eletrocardiograma de 12 derivações";
-                    Unit = "Unidade de Cardiologia";
+                    Unit = exam.Id == "vital-signs" ? "Avaliação clínica" : "Unidade de Cardiologia";
                     Physician = "Dr. Adrian Brooks";
                     Sample = "Traçado digital";
                     break;

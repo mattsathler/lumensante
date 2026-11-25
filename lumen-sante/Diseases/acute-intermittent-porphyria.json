@@ -2,7 +2,12 @@
   "SchemaVersion": 1,
   "Id": "acute-intermittent-porphyria",
   "Name": "Porfiria aguda intermitente em crise",
-  "SelectionWeight": 1,
+  "SelectionWeight": 50,
+  "Complexity": "complex",
+  "Symptoms": ["pain", "nausea"],
+  "LeukocyteRanges": [[4000,11000],[4000,11000],[4000,11500],[4000,12000],[4000,12500],[4000,13000],[4000,13500],[4000,14000],[4000,14500]],
+  "ParameterRanges": {"sodium": [[135,145],[133,143],[131,141],[129,139],[127,137],[125,135],[122,133],[118,131],[115,130]], "urine-pbg": [[0.3,0.8],[0.4,1.2],[0.6,1.6],[0.8,2.2],[1.0,3.0],[1.5,4.0],[2.0,5.5],[3.0,7.0],[4.0,9.0]]},
+  "DiagnosticExclusions": [[{"Parameter":"creatinine","Min":3.2,"Max":1000000},{"Parameter":"sodium","Min":135,"Max":145}]],
   "Tags": [
     "metabolica",
     "neurologica",
@@ -737,19 +742,5 @@
         ]
       ]
     }
-  ],
-  "Exams": {
-    "electrolytes": {
-      "Default": "Hiponatremia em crise neurovisceral; confirmar hipótese com porfobilinogênio urinário.",
-      "ByStage": {
-        "4": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
-        "5": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
-        "6": "Hiponatremia importante em quadro neurovisceral; eletrólitos não confirmam porfiria.",
-        "7": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
-        "8": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
-        "9": "Hiponatremia grave com comprometimento neurológico; dosagem de porfobilinogênio necessária para diagnóstico.",
-        "10": null
-      }
-    }
-  }
+  ]
 }

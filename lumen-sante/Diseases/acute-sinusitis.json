@@ -1,8 +1,13 @@
 {
     "SchemaVersion":  1,
     "Id":  "acute-sinusitis",
+    "Complexity": "simple",
+    "Symptoms": ["pain","nasal-congestion"],
+    "NaturalRecoveryIntervals": 3,
     "Name":  "Rinossinusite aguda viral",
-    "SelectionWeight":  8,
+    "SelectionWeight":  160,
+    "LeukocyteRanges": [[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000]],
+    "ParameterRanges": {"crp": [[1,8],[2,10],[3,12],[4,15],[5,20],[6,25],[8,30],[10,40],[12,50]]},
     "Tags":  [
                  "respiratoria",
                  "nasal",
@@ -1359,68 +1364,5 @@
                                                  ]
                                              ]
                       }
-                  ],
-    "Exams":  {
-                  "mri":  null,
-                  "mri-brain":  null,
-                  "mri-spine":  null,
-                  "x-ray":  null,
-                  "x-ray-ribs":  null,
-                  "x-ray-pelvis":  null,
-                  "x-ray-limbs":  null,
-                  "cardiac":  null,
-                  "hematology":  {
-                                     "Default":  "Alterações leucocitárias inespecíficas, sem definição da causa neste exame.",
-                                     "ByStage":  {
-
-                                                 }
-                                 },
-                  "renal":  null,
-                  "hepatic":  null,
-                  "electrolytes":  null,
-                  "blood-gas":  null,
-                  "coagulation":  null,
-                  "glucose":  null,
-                  "crp":  {
-                              "Default":  "Elevação discreta de proteína C reativa, achado inespecífico.",
-                              "ByStage":  {
-
-                                          }
-                          },
-                  "urinalysis":  null,
-                  "mri-abdomen":  null,
-                  "mri-pelvis":  null,
-                  "mri-liver":  null,
-                  "mri-kidneys":  null,
-                  "mri-shoulder":  null,
-                  "mri-knee":  null,
-                  "mri-hip":  null,
-                  "mri-cervical":  null,
-                  "mri-lumbar":  null,
-                  "x-ray-skull":  null,
-                  "x-ray-cervical":  null,
-                  "x-ray-thoracic":  null,
-                  "x-ray-lumbar":  null,
-                  "x-ray-shoulder":  null,
-                  "x-ray-knee":  null,
-                  "x-ray-ankle":  null,
-                  "calcium":  null,
-                  "magnesium":  null,
-                  "phosphate":  null,
-                  "urea":  null,
-                  "creatinine":  null,
-                  "albumin":  null,
-                  "bilirubin":  null,
-                  "tsh":  null,
-                  "free-t4":  null,
-                  "ferritin":  null,
-                  "iron":  null,
-                  "lipid-profile":  null,
-                  "hba1c":  null,
-                  "lactate":  null,
-                  "troponin":  null,
-                  "bnp":  null,
-                  "urine-culture":  null,
-                  "blood-culture":  null
-              }
+                  ]
 }

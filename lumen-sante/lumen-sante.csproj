@@ -56,6 +56,12 @@
     <Compile Include="PluginEntryPoint.cs" />
     <Compile Include="PluginPaths.cs" />
     <Compile Include="Clinical\DiseaseStage.cs" />
+    <Compile Include="Clinical\PatientClinicalState.cs" />
+    <Compile Include="Clinical\ClinicalParameterCatalog.cs" />
+    <Compile Include="Clinical\SymptomCatalog.cs" />
+    <Compile Include="Clinical\DiagnosticExclusionRule.cs" />
+    <Compile Include="Clinical\DiagnosticInvestigation.cs" />
+    <Compile Include="Clinical\VitalMeasurements.cs" />
     <Compile Include="Clinical\DiseaseDefinition.cs" />
     <Compile Include="Clinical\Medication.cs" />
     <Compile Include="Clinical\CareAuthor.cs" />
@@ -80,6 +86,7 @@
     <Compile Include="Gameplay\HospitalShift.cs" />
     <Compile Include="Gameplay\GameClock.cs" />
     <Compile Include="Gameplay\MedicalAgenda.cs" />
+    <Compile Include="Gameplay\OutpatientEvolution.cs" />
     <Compile Include="Gameplay\DoctorProfiles.cs" />
     <Compile Include="Gameplay\DoctorAppearance.cs" />
     <Compile Include="Interface\DoctorMenu.cs" />

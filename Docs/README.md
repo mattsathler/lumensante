@@ -12,7 +12,8 @@ Esta pasta reúne a proposta inicial. As regras de jogo e escolhas técnicas mar
 | [Roteiro e aceitação](roteiro.md) | Ordem de implementação, testes e decisões pendentes |
 | [Doenças modulares](doencas-modulares.md) | Plano para migrar o catálogo para JSON e carregar doenças externas antes do Workers |
 | [Formato de doença JSON](formato-doenca.md) | Contrato da versão 1, instalação de doenças externas e exemplo completo |
-| [Doenças de internação](doencas-internacao.md) | 50 casos novos, fontes clínicas, pesos, laudos e validação |
+| [Catálogo clínico](catalogo-clinico.md) | Dez casos padrão, pesos e situação do modelo numérico |
+| [Doenças de internação](doencas-internacao.md) | Histórico do catálogo anterior de 50 casos |
 | [Workers](workers.md) | Plano de atendimento autônomo dos Doctors, diagnóstico, cobertura de áreas e prioridade do jogador |
 | [Agenda Médica](agenda-medica.md) | Consultas próprias, retornos e persistência dos prontuários da agenda |
 | [Médicos e Especialidades](medicos-e-especialidades.md) | Ciclo I com criação de médicos, armário e agendas por perfil |

@@ -1,8 +1,14 @@
 {
     "SchemaVersion":  1,
     "Id":  "flu-like",
+    "Complexity": "simple",
+    "Symptoms": ["pain"],
+    "NaturalRecoveryIntervals": 3,
     "Name":  "Síndrome gripal",
-    "SelectionWeight":  20,
+    "SelectionWeight":  400,
+    "LeukocyteRanges": [[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000],[4000,11000]],
+    "ParameterRanges": {"crp": [[1,8],[2,10],[3,12],[4,15],[5,20],[6,25],[8,30],[10,40],[12,50]]},
+    "DiagnosticExclusions": [[{"Parameter":"urine-pbg","Min":0.5,"Max":1000000},{"Parameter":"sodium","Min":0,"Max":130}],[{"Parameter":"urine-culture-count","Min":100000,"Max":1000000},{"Parameter":"urine-leukocytes","Min":100,"Max":1000000}]],
     "Tags":  [
                  "respiratoria",
                  "tosse",
@@ -1354,140 +1360,5 @@
                                                  ]
                                              ]
                       }
-                  ],
-    "Exams":  {
-                  "mri":  {
-                              "Default":  "Sem lesão torácica focal identificada nesta avaliação.",
-                              "ByStage":  {
-
-                                          }
-                          },
-                  "mri-brain":  {
-                                    "Default":  "Sem lesões focais intracranianas identificadas.",
-                                    "ByStage":  {
-
-                                                }
-                                },
-                  "mri-spine":  {
-                                    "Default":  "Sem alterações focais ou compressão medular identificadas.",
-                                    "ByStage":  {
-
-                                                }
-                                },
-                  "x-ray":  {
-                                "Default":  "Sem opacidades focais ou derrame pleural identificados.",
-                                "ByStage":  {
-                                                "6":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
-                                                "7":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
-                                                "8":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
-                                                "9":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório.",
-                                                "10":  "Opacidades pulmonares difusas, a correlacionar com o quadro respiratório."
-                                            }
-                            },
-                  "x-ray-ribs":  null,
-                  "x-ray-pelvis":  null,
-                  "x-ray-limbs":  null,
-                  "cardiac":  {
-                                  "Default":  "Ritmo sinusal sem alterações relevantes.",
-                                  "ByStage":  {
-                                                  "6":  "Ritmo sinusal acelerado.",
-                                                  "7":  "Ritmo sinusal acelerado.",
-                                                  "8":  "Ritmo sinusal acelerado.",
-                                                  "9":  "Ritmo sinusal acelerado.",
-                                                  "10":  "Ritmo sinusal acelerado."
-                                              }
-                              },
-                  "hematology":  {
-                                     "Default":  "Hemoglobina preservada; alterações leucocitárias inespecíficas.",
-                                     "ByStage":  {
-
-                                                 }
-                                 },
-                  "renal":  {
-                                "Default":  "Marcadores renais dentro dos intervalos de referência.",
-                                "ByStage":  {
-
-                                            }
-                            },
-                  "hepatic":  {
-                                  "Default":  "Marcadores hepáticos sem alterações relevantes.",
-                                  "ByStage":  {
-
-                                              }
-                              },
-                  "electrolytes":  {
-                                       "Default":  "Eletrólitos dentro dos intervalos de referência.",
-                                       "ByStage":  {
-
-                                                   }
-                                   },
-                  "blood-gas":  {
-                                    "Default":  "Sem alteração relevante da oxigenação arterial.",
-                                    "ByStage":  {
-                                                    "6":  "Oxigenação arterial reduzida.",
-                                                    "7":  "Oxigenação arterial reduzida.",
-                                                    "8":  "Oxigenação arterial reduzida.",
-                                                    "9":  "Oxigenação arterial reduzida.",
-                                                    "10":  "Oxigenação arterial reduzida."
-                                                }
-                                },
-                  "coagulation":  {
-                                      "Default":  "Tempos de coagulação dentro dos intervalos de referência.",
-                                      "ByStage":  {
-
-                                                  }
-                                  },
-                  "glucose":  {
-                                  "Default":  "Glicemia dentro do intervalo de referência.",
-                                  "ByStage":  {
-
-                                              }
-                              },
-                  "crp":  {
-                              "Default":  "Proteína C reativa discretamente elevada, achado inespecífico.",
-                              "ByStage":  {
-
-                                          }
-                          },
-                  "urinalysis":  {
-                                     "Default":  "Sem alterações relevantes na análise de urina.",
-                                     "ByStage":  {
-
-                                                 }
-                                 },
-                  "mri-abdomen":  null,
-                  "mri-pelvis":  null,
-                  "mri-liver":  null,
-                  "mri-kidneys":  null,
-                  "mri-shoulder":  null,
-                  "mri-knee":  null,
-                  "mri-hip":  null,
-                  "mri-cervical":  null,
-                  "mri-lumbar":  null,
-                  "x-ray-skull":  null,
-                  "x-ray-cervical":  null,
-                  "x-ray-thoracic":  null,
-                  "x-ray-lumbar":  null,
-                  "x-ray-shoulder":  null,
-                  "x-ray-knee":  null,
-                  "x-ray-ankle":  null,
-                  "calcium":  null,
-                  "magnesium":  null,
-                  "phosphate":  null,
-                  "urea":  null,
-                  "creatinine":  null,
-                  "albumin":  null,
-                  "bilirubin":  null,
-                  "tsh":  null,
-                  "free-t4":  null,
-                  "ferritin":  null,
-                  "iron":  null,
-                  "lipid-profile":  null,
-                  "hba1c":  null,
-                  "lactate":  null,
-                  "troponin":  null,
-                  "bnp":  null,
-                  "urine-culture":  null,
-                  "blood-culture":  null
-              }
+                  ]
 }

@@ -66,7 +66,7 @@ try {
     $logoPatch = $logoPatch.Replace('__LUMEN_LOGO_PIXELS__', $pixels.ToString())
 } finally { $smallLogo.Dispose(); $sourceLogo.Dispose() }
 $iconMasks = @()
-foreach ($iconName in @('left', 'right', 'home', 'person', 'bed', 'history', 'exams', 'notes', 'medicines', 'calendar')) {
+foreach ($iconName in @('left', 'right', 'home', 'person', 'bed', 'history', 'exams', 'notes', 'medicines', 'calendar', 'diagnose', 'vacines', 'clinical_notes', 'all', 'mri', 'xray', 'microscope', 'more')) {
     $iconPath = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "../../lumen-sante/Assets/$iconName.png")).Path
     $iconBitmap = [Drawing.Bitmap]::FromFile($iconPath)
     try {

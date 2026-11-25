@@ -13,7 +13,9 @@ namespace lumen_sante.Clinical
             int maximumStageDurationMilliseconds,
             DiseaseStage[] stages, double worseningRisk, double treatmentSuccessRate,
             string name, string treatmentName, bool requiresSpecificTreatment, MedicationEffect[] medicationEffects,
-            string[] tags, Dictionary<string, string[]> exams,
+            string[] tags, string[] symptomIds, Dictionary<string, string[]> exams, string complexity, int naturalRecoveryIntervals, DiagnosticExclusionRule[] exclusions,
+            (int Min, int Max)[] leukocyteRanges,
+            Dictionary<string, (double Min, double Max)[]> parameterRanges,
             params (string Prompt, Func<int, string[]> Answers)[] questionDefinitions)
         {
             if (selectionWeight <= 0 || minimumStageDurationMilliseconds <= 0 ||
@@ -23,7 +25,13 @@ namespace lumen_sante.Clinical
             }
 
             Id = id;
+            Complexity = complexity;
+            NaturalRecoveryIntervals = naturalRecoveryIntervals;
+            Exclusions = Array.AsReadOnly(exclusions);
+            LeukocyteRanges = Array.AsReadOnly(leukocyteRanges);
+            ParameterRanges = parameterRanges;
             Tags = Array.AsReadOnly((string[])tags.Clone());
+            SymptomIds = Array.AsReadOnly((string[])symptomIds.Clone());
             examFindings = exams.ToDictionary(pair => pair.Key, pair => (string[])pair.Value.Clone(), StringComparer.Ordinal);
             Name = name;
             TreatmentName = treatmentName;
@@ -68,7 +76,13 @@ namespace lumen_sante.Clinical
         }
 
         internal string Id { get; }
+        internal string Complexity { get; }
+        internal int NaturalRecoveryIntervals { get; }
+        internal IReadOnlyList<DiagnosticExclusionRule> Exclusions { get; }
+        internal IReadOnlyList<(int Min, int Max)> LeukocyteRanges { get; }
+        internal IReadOnlyDictionary<string, (double Min, double Max)[]> ParameterRanges { get; }
         internal IReadOnlyList<string> Tags { get; }
+        internal IReadOnlyList<string> SymptomIds { get; }
         internal string FindExamResult(string examId, int stage)
         {
             string[] findings;
@@ -97,7 +111,11 @@ namespace lumen_sante.Clinical
             if (riskLevel < 0 || riskLevel > Stages.Count) throw new ArgumentOutOfRangeException(nameof(riskLevel));
             if (riskLevel == 0 || riskLevel == Stages.Count) return riskLevel;
             bool effectiveTreatment = RequiresSpecificTreatment && correctTreatment;
-            var effects = MedicationEffects.Where(effect => medications.Contains(effect.Medication)).ToArray();
+            var effects = MedicationEffects.Where(effect => effect.Medication != MedicationClass.Antipyretic &&
+                effect.Medication != MedicationClass.OxygenTherapy &&
+                effect.Medication == MedicationClass.Antibiotic &&
+                medications.Contains(effect.Medication)).ToArray();
+            // Symptomatic and support treatments do not change disease activity.
             var chances = Chances(riskLevel - 1, effectiveTreatment);
             double severity = (double)(riskLevel - 1) / (TerminalIndex - 1);
             double improvement = Math.Max(chances.Improvement,

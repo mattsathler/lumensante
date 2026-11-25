@@ -165,7 +165,10 @@ namespace lumen_sante.Interface
             {
                 conversationMenu.Clear();
             }
-            AddConversationQuestions(disease, random, 0, orders.HasStartedConversation ? disease.Prompts.Count : 1);
+            var interviewQuestions = SymptomCatalog.InterviewQuestions(disease);
+            int firstQuestion = orders.HasSymptomAnswer(SymptomCatalog.HelpQuestion) ? 1 : 0;
+            AddConversationQuestions(disease, random, firstQuestion,
+                firstQuestion == 0 ? 1 : interviewQuestions.Length);
             foreach (UIMenu view in views)
             {
                 view.TitleText = name;
@@ -174,12 +177,13 @@ namespace lumen_sante.Interface
 
         private void AddConversationQuestions(DiseaseDefinition disease, Random random, int first, int end)
         {
+            var questions = SymptomCatalog.InterviewQuestions(disease);
             foreach (UIMenu conversationMenu in new[] { conversation, inpatientConversation })
             {
                 for (int i = first; i < end; i++)
                 {
-                    int questionIndex = i;
-                    string prompt = disease.Prompts[i];
+                    int questionIndex = questions[i].Index;
+                    string prompt = questions[i].Prompt;
                     var item = MenuPalette.Item(prompt);
                     conversationMenu.AddItem(item);
                     item.Activated += (sender, selectedItem) =>
@@ -187,12 +191,12 @@ namespace lumen_sante.Interface
                         if (canTalk())
                         {
                             PatientInteraction?.Invoke(currentOrders);
-                            bool wasStarted = currentOrders.HasStartedConversation;
+                            bool firstQuestion = !currentOrders.HasSymptomAnswer(SymptomCatalog.HelpQuestion);
                             string answer = currentOrders.GetSymptomAnswer(disease, questionIndex, severityIndex, random);
                             Game.DisplaySubtitle(patientName + ": " + answer, 7000);
                             Game.LogTrivial("[Lumen Santé] " + patientName + " respondeu: " + prompt);
-                            if (!wasStarted && currentOrders.HasStartedConversation)
-                                AddConversationQuestions(disease, random, 1, disease.Prompts.Count);
+                            if (questionIndex == SymptomCatalog.HelpQuestion && firstQuestion)
+                                AddConversationQuestions(disease, random, 1, SymptomCatalog.InterviewQuestions(disease).Length);
                         }
                     };
                 }

@@ -1,8 +1,14 @@
 {
     "SchemaVersion":  1,
     "Id":  "bacterial-cystitis",
+    "Complexity": "simple",
+    "Symptoms": ["pain"],
+    "NaturalRecoveryIntervals": 3,
     "Name":  "Cistite bacteriana",
-    "SelectionWeight":  8,
+    "SelectionWeight":  160,
+    "LeukocyteRanges": [[4000,11000],[4000,11500],[4000,12000],[4000,12500],[4000,13000],[4000,13500],[4000,14000],[4000,14500],[4000,15000]],
+    "ParameterRanges": {"urine-leukocytes": [[20,60],[30,80],[40,100],[50,130],[60,160],[70,200],[90,250],[120,300],[150,350]], "urine-culture-count": [[100000,200000],[100000,250000],[100000,300000],[100000,350000],[100000,400000],[100000,500000],[100000,600000],[100000,700000],[100000,900000]], "crp": [[1,8],[2,10],[3,12],[4,15],[5,20],[6,25],[8,30],[10,40],[12,50]]},
+    "DiagnosticExclusions": [[{"Parameter":"urine-erythrocytes","Min":50,"Max":1000000},{"Parameter":"creatinine","Min":3.2,"Max":1000000}]],
     "Tags":  [
                  "urinaria",
                  "infecciosa"
@@ -1348,86 +1354,5 @@
                                                  ]
                                              ]
                       }
-                  ],
-    "Exams":  {
-                  "mri":  null,
-                  "mri-brain":  null,
-                  "mri-spine":  null,
-                  "x-ray":  null,
-                  "x-ray-ribs":  null,
-                  "x-ray-pelvis":  null,
-                  "x-ray-limbs":  null,
-                  "cardiac":  null,
-                  "hematology":  {
-                                     "Default":  "Alterações leucocitárias discretas e inespecíficas.",
-                                     "ByStage":  {
-                                                     "6":  "Leucocitose com predomínio de neutrófilos.",
-                                                     "7":  "Leucocitose com predomínio de neutrófilos.",
-                                                     "8":  "Leucocitose com predomínio de neutrófilos.",
-                                                     "9":  "Leucocitose com predomínio de neutrófilos.",
-                                                     "10":  "Leucocitose com predomínio de neutrófilos."
-                                                 }
-                                 },
-                  "renal":  null,
-                  "hepatic":  null,
-                  "electrolytes":  null,
-                  "blood-gas":  null,
-                  "coagulation":  null,
-                  "glucose":  null,
-                  "crp":  {
-                              "Default":  "Proteína C reativa discretamente elevada.",
-                              "ByStage":  {
-                                              "6":  "Proteína C reativa elevada.",
-                                              "7":  "Proteína C reativa elevada.",
-                                              "8":  "Proteína C reativa elevada.",
-                                              "9":  "Proteína C reativa elevada.",
-                                              "10":  "Proteína C reativa elevada."
-                                          }
-                          },
-                  "urinalysis":  {
-                                     "Default":  "Leucócitos e bactérias presentes na amostra de urina.",
-                                     "ByStage":  {
-
-                                                 }
-                                 },
-                  "mri-abdomen":  null,
-                  "mri-pelvis":  null,
-                  "mri-liver":  null,
-                  "mri-kidneys":  null,
-                  "mri-shoulder":  null,
-                  "mri-knee":  null,
-                  "mri-hip":  null,
-                  "mri-cervical":  null,
-                  "mri-lumbar":  null,
-                  "x-ray-skull":  null,
-                  "x-ray-cervical":  null,
-                  "x-ray-thoracic":  null,
-                  "x-ray-lumbar":  null,
-                  "x-ray-shoulder":  null,
-                  "x-ray-knee":  null,
-                  "x-ray-ankle":  null,
-                  "calcium":  null,
-                  "magnesium":  null,
-                  "phosphate":  null,
-                  "urea":  null,
-                  "creatinine":  null,
-                  "albumin":  null,
-                  "bilirubin":  null,
-                  "tsh":  null,
-                  "free-t4":  null,
-                  "ferritin":  null,
-                  "iron":  null,
-                  "lipid-profile":  null,
-                  "hba1c":  null,
-                  "lactate":  null,
-                  "troponin":  null,
-                  "bnp":  null,
-                  "urine-culture":  {
-                                        "Default":  "Crescimento bacteriano na amostra; correlacionar com os sintomas e a coleta.",
-                                        "ByStage":  {
-
-                                                    }
-                                    },
-                  "blood-culture":  null
-              }
+                  ]
 }

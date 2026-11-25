@@ -72,6 +72,10 @@ try {
     $data = $template | ConvertFrom-Json
     $data.Id = 'external-test'
     $data.Name = 'Doença externa de validação'
+    if ($null -eq $data.Exams) {
+        $data | Add-Member -MemberType NoteProperty -Name 'Exams' -Value ([pscustomobject]@{})
+    }
+    $data.Exams | Add-Member -MemberType NoteProperty -Name 'x-ray' -Value ([pscustomobject]@{ Default = 'Laudo externo de teste'; ByStage = [pscustomobject]@{} })
     $data.Exams.'x-ray'.Default = 'Laudo externo de teste'
     $data.Exams.'x-ray'.ByStage | Add-Member -MemberType NoteProperty -Name '2' -Value $null
     Write-Disease 'external.json' $data
@@ -105,6 +109,10 @@ try {
     $customized = $template | ConvertFrom-Json
     $customized.Name = 'Síndrome gripal personalizada'
     $customized.SelectionWeight = 1
+    if ($null -eq $customized.Exams) {
+        $customized | Add-Member -MemberType NoteProperty -Name 'Exams' -Value ([pscustomobject]@{})
+    }
+    $customized.Exams | Add-Member -MemberType NoteProperty -Name 'x-ray' -Value ([pscustomobject]@{ Default = 'Laudo padrão personalizado'; ByStage = [pscustomobject]@{} })
     $customized.Exams.'x-ray'.Default = 'Laudo padrão personalizado'
     Write-Disease 'flu-like.json' $customized
     $changed = @((Load-Cases) | Where-Object { (Property $_ 'Id') -eq 'flu-like' })[0]
@@ -128,6 +136,9 @@ try {
     $data.MedicationEffects[0].Medication = 'Unknown'
     Assert-Invalid $data 'Medication'
     $data = $template | ConvertFrom-Json
+    if ($null -eq $data.Exams) {
+        $data | Add-Member -MemberType NoteProperty -Name 'Exams' -Value ([pscustomobject]@{})
+    }
     $data.Exams | Add-Member -NotePropertyName 'unknown-exam' -NotePropertyValue $null
     Assert-Invalid $data 'unknown-exam'
     $data = $template | ConvertFrom-Json

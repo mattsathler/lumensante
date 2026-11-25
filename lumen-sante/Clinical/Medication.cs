@@ -5,7 +5,7 @@ namespace lumen_sante.Clinical
     internal enum MedicationClass
     {
         Antibiotic, AntiInflammatory, Corticosteroid, Analgesic, Antipyretic,
-        Antihistamine, Antiemetic, Bronchodilator, Antacid
+        Antihistamine, Antiemetic, Bronchodilator, Antacid, OxygenTherapy
     }
 
     internal static class MedicationCatalog
@@ -21,7 +21,8 @@ namespace lumen_sante.Clinical
                 (MedicationClass.Antihistamine, "Antialérgicos"),
                 (MedicationClass.Antiemetic, "Antieméticos"),
                 (MedicationClass.Bronchodilator, "Broncodilatadores"),
-                (MedicationClass.Antacid, "Antiácidos")
+                (MedicationClass.Antacid, "Antiácidos"),
+                (MedicationClass.OxygenTherapy, "Oxigenoterapia")
             });
     }
 

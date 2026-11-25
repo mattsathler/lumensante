@@ -2,7 +2,12 @@
   "SchemaVersion": 1,
   "Id": "gpa-pulmonary-renal",
   "Name": "Granulomatose com poliangiite com síndrome pulmão-rim",
-  "SelectionWeight": 1,
+  "SelectionWeight": 50,
+  "Complexity": "complex",
+  "Symptoms": ["breathlessness"],
+  "LeukocyteRanges": [[9000,12500],[10000,14000],[10500,15000],[11000,16000],[11500,17000],[12000,18000],[13000,19000],[14000,21000],[15000,22000]],
+  "ParameterRanges": {"creatinine": [[1.0,1.4],[1.1,1.6],[1.3,1.8],[1.5,2.1],[1.7,2.5],[2.0,3.0],[2.4,3.5],[2.8,4.2],[3.2,5.0]], "urine-erythrocytes": [[10,30],[15,40],[20,50],[25,65],[30,80],[40,100],[50,120],[60,140],[80,160]], "bun": [[12,25],[15,30],[18,35],[20,40],[22,45],[25,50],[30,60],[35,70],[40,80]], "crp": [[2,10],[3,15],[5,20],[8,30],[10,40],[15,50],[20,60],[25,80],[30,100]], "lung-opacities": [[0,1],[0,1],[1,2],[1,2],[1,3],[2,3],[2,4],[3,5],[4,6]], "lung-nodules": [[0,1],[0,1],[0,2],[1,2],[1,3],[1,3],[2,4],[2,5],[3,6]]},
+  "DiagnosticExclusions": [[{"Parameter":"sodium","Min":0,"Max":120},{"Parameter":"creatinine","Min":0.6,"Max":1.3}],[{"Parameter":"urine-leukocytes","Min":100,"Max":1000000},{"Parameter":"urine-erythrocytes","Min":0,"Max":10}]],
   "Tags": [
     "autoimune",
     "vascular",
@@ -739,31 +744,5 @@
         ]
       ]
     }
-  ],
-  "Exams": {
-    "urinalysis": {
-      "Default": "Hematúria glomerular e proteinúria; investigar vasculite com ANCA e biópsia conforme indicação.",
-      "ByStage": {
-        "4": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
-        "5": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
-        "6": "Hematúria com cilindros hemáticos e proteinúria, sugestivas de glomerulonefrite.",
-        "7": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
-        "8": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
-        "9": "Sedimento urinário nefrítico intenso em síndrome pulmão-rim; confirmação etiológica especializada necessária.",
-        "10": null
-      }
-    },
-    "creatinine": {
-      "Default": "Elevação progressiva de creatinina, compatível com comprometimento renal.",
-      "ByStage": {
-        "10": null
-      }
-    },
-    "x-ray": {
-      "Default": "Opacidades pulmonares bilaterais e nódulos, alguns com cavitação; investigar vasculite e diagnósticos alternativos.",
-      "ByStage": {
-        "10": null
-      }
-    }
-  }
+  ]
 }

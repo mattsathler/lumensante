@@ -29,8 +29,9 @@ foreach ($disease in $cases) {
         for ($seed = 0; $seed -lt 100; $seed++) {
             $result = $evolve.Invoke($disease, @([int]1, $false, $active, [Random]::new($seed)))
             if ($result -eq 0) { $recovered = $true }
-            if ($evolve.Invoke($disease, @([int]1, $true, $empty, [Random]::new($seed))) -eq 0) {
-                throw "Tratamento específico substituiu medicação em $id"
+            if ($medication.ToString() -ne 'Antibiotic') {
+                $baseline = $evolve.Invoke($disease, @([int]1, $false, $empty, [Random]::new($seed)))
+                if ($result -ne $baseline) { throw "Tratamento sintomático $medication alterou atividade em $id" }
             }
             foreach ($risk in 0..10) {
                 $next = $evolve.Invoke($disease, @([int]$risk, $false, $active, [Random]::new($seed)))
@@ -40,7 +41,7 @@ foreach ($disease in $cases) {
                 }
             }
         }
-        if (!$recovered) { throw "Medicação $medication nunca recuperou o caso $id" }
+        if (!$recovered -and $medication.ToString() -eq 'Antibiotic') { throw "Antibiótico nunca recuperou o caso $id" }
     }
     $compatible = @($effects | ForEach-Object { $_.GetType().GetProperty('Medication', $instance).GetValue($_) })
     foreach ($medication in [Enum]::GetValues($medicationType)) {
@@ -48,11 +49,32 @@ foreach ($disease in $cases) {
         $wrong = [Array]::CreateInstance($medicationType, 1)
         $wrong.SetValue($medication, 0)
         for ($seed = 0; $seed -lt 100; $seed++) {
-            if ($evolve.Invoke($disease, @([int]1, $false, $wrong, [Random]::new($seed))) -eq 0) {
-                throw "Medicação incompatível $medication curou $id"
+            $untreated = $evolve.Invoke($disease, @([int]1, $false, $empty, [Random]::new($seed)))
+            if ($evolve.Invoke($disease, @([int]1, $false, $wrong, [Random]::new($seed))) -ne $untreated) {
+                throw "Medicação incompatível $medication alterou a evolução de $id"
             }
         }
     }
     $tested++
 }
-Write-Output "$tested casos de medicação validados: recuperação, incompatibilidade, limites e estados finais em 100 sementes."
+foreach ($support in @('Antipyretic', 'OxygenTherapy', 'Analgesic', 'AntiInflammatory', 'Corticosteroid', 'Antihistamine', 'Antiemetic', 'Bronchodilator', 'Antacid')) {
+  $antipyretic = [Array]::CreateInstance($medicationType, 1)
+  $antipyretic.SetValue([Enum]::Parse($medicationType, $support), 0)
+  foreach ($disease in $cases) {
+    foreach ($risk in 1..9) {
+        for ($seed = 0; $seed -lt 100; $seed++) {
+            $baseline = $evolve.Invoke($disease, @([int]$risk, $false, $empty, [Random]::new($seed)))
+            $treated = $evolve.Invoke($disease, @([int]$risk, $false, $antipyretic, [Random]::new($seed)))
+            if ($baseline -ne $treated) { throw "$support changed disease activity." }
+        }
+    }
+  }
+}
+$flu = @($cases | Where-Object { $diseaseType.GetProperty('Id', $instance).GetValue($_) -eq 'flu-like' })[0].PSObject.BaseObject
+$stateType = $assembly.GetType('lumen_sante.Clinical.PatientClinicalState', $true)
+$state = [Activator]::CreateInstance($stateType, $true)
+$advance = $stateType.GetMethod('AdvanceDisease', $instance)
+$risk = 1
+for ($i = 0; $i -lt 3; $i++) { $risk = $advance.Invoke($state, @($flu, $risk, $false, $empty, [Random]::new(1))) }
+if ($risk -ne 0) { throw 'The simple case did not recover naturally after its configured stable intervals.' }
+Write-Output "$tested casos validados: efeito etiológico, recuperação natural e separação de tratamentos sintomáticos."

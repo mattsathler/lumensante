@@ -19,8 +19,11 @@ Compile com `../lumen-sante-build/scripts/Build-Plugin.ps1`. Execute os validado
 
 - `scripts/Validate-DiseaseCatalog.ps1` para catálogo, estágios e doenças novas.
 - `scripts/Validate-MedicationCases.ps1` para medicamentos e evolução.
+- `scripts/Validate-SymptomTreatment.ps1` para alívio e retorno de sintomas.
 - `scripts/Validate-TemperatureCases.ps1` para temperaturas.
 - `scripts/Validate-ModularDiseases.ps1` para leitura JSON, doenças externas e erros de validação.
-- `scripts/Validate-InpatientCases.ps1` para os 50 casos de internação, pesos, falas, laudos e exigência de tratamento específico.
+- `scripts/Validate-InpatientCases.ps1` para os dois casos raros de internação e sua exigência de tratamento específico.
+- `scripts/Validate-CaseComplexity.ps1` para o catálogo padrão de dez casos e sua distribuição.
+- `scripts/Validate-NumericCatalog.ps1` para medições numéricas e consistência dos critérios nas apresentações geradas.
 
 Os scripts usam Windows PowerShell 5.1 e a DLL Debug por padrão. Ao adicionar uma doença, informe ID e peso relativo. Diferencie validação executada de comportamento ainda pendente no GTA V.

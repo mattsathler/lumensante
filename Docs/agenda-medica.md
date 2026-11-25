@@ -11,7 +11,7 @@ O piloto está disponível na página **Agenda** do site do hospital, acessível
 - O jogo abre consultas para novos pacientes às 10h e às 15h, mantendo uma janela de sete dias. O retorno ocupa o primeiro horário livre entre 9h e 17h a partir do dia seguinte.
 - Após uma hora de ausência, um paciente novo fica marcado como **Consulta perdida**. Um retorno fica em **Retornos Pendentes**, onde pode ser excluído sem apagar o prontuário.
 - Com o jogador de plantão, o paciente aguarda vaga na recepção e então entra no fluxo normal. O jogador chama os pacientes da agenda. Se um atendimento em curso for interrompido pelo descarregamento do plugin, ele recomeça pela recepção com o prontuário salvo.
-- A simulação clínica do acompanhamento é retomada quando o paciente volta. Durante a espera, as prescrições continuam a expirar pelo relógio do jogo.
+- Durante a espera, o caso com retorno agendado evolui pelo relógio do jogo. Ao recarregar a agenda, os intervalos decorridos são processados com as prescrições válidas em cada momento; o histórico anterior a esta versão não contém uma data de evolução e começa a ser acompanhado a partir da carga.
 - Cada médico tem seu save em `Plugins/LumenSante/Agendas/<id>/agenda.json`, com a agenda e os prontuários vinculados. A substituição mantém uma cópia anterior em `agenda.json.bak`. As agendas anteriores ficam fora desse armazenamento. Na primeira carga desta versão, cada médico começa com uma agenda nova.
 
 ## Regras definidas
@@ -78,7 +78,7 @@ O `GameClock` atual só mede tempo decorrido desde o início da sessão. A agend
 ## Ajustes futuros
 
 - Revisar os horários e a frequência de novos pacientes após jogar com a agenda.
-- Avaliar o reagendamento de retornos pendentes e a evolução clínica enquanto o paciente aguarda em casa.
+- Avaliar o reagendamento de retornos pendentes e o balanceamento da evolução clínica enquanto o paciente aguarda em casa.
 
 ## Validação
 

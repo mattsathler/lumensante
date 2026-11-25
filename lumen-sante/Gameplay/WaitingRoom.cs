@@ -8,8 +8,8 @@ namespace lumen_sante.Gameplay
 {
     internal sealed class WaitingRoom
     {
-        private const int MinimumOccupants = 8;
-        private const int MaximumOccupants = 12;
+        private const int MinimumOccupants = 10;
+        private const int MaximumOccupants = 14;
         private readonly Random random = new Random();
         private readonly HospitalPath path;
         private readonly NpcRoute walker = new NpcRoute();
@@ -63,8 +63,7 @@ namespace lumen_sante.Gameplay
                 ? new[] { arrivingPatient } : Array.Empty<Ped>());
         internal int WaitingPatientCount => queue.Count(index => occupants[index].IsAlive);
         internal event Action<Ped> PatientReady;
-        internal bool CanReceiveReturningPatient => arrivingPatient == null && Enumerable.Range(0, Seats.Length)
-            .Any(index => !occupants.TryGetValue(index, out HospitalReceptionist actor) || !actor.IsAlive);
+        internal bool CanReceiveReturningPatient => arrivingPatient == null;
 
         internal void ReceiveReturningPatient(Ped patient)
         {
@@ -85,8 +84,9 @@ namespace lumen_sante.Gameplay
             priorityArrival = true;
             patient.IsPositionFrozen = false;
             Rage.Native.NativeFunction.Natives.SET_ENTITY_COLLISION(patient, true, true);
+            NpcWalking.TeleportToWaypoint(patient, origin.Position);
             phase = ArrivalPhase.ToIdle;
-            walker.Start(patient, origin, new[] { origin }.Concat(route).ToArray());
+            walker.Start(patient, origin, route);
             return true;
         }
 
@@ -114,6 +114,21 @@ namespace lumen_sante.Gameplay
         }
 
         internal bool IsWaiting(Ped patient) => queue.Any(index => occupants[index].IsAlive && occupants[index].Actor == patient);
+
+        internal bool TryGetPatientStation(Ped patient, out Point approach, out Vector3 position, out float heading,
+            out string dictionary, out string clip)
+        {
+            int index = queue.FindIndex(seat => occupants[seat].IsAlive && occupants[seat].Actor == patient);
+            if (index < 0)
+            {
+                approach = null; position = default(Vector3); heading = 0; dictionary = null; clip = null;
+                return false;
+            }
+            int seatIndex = queue[index];
+            approach = seatApproaches[seatIndex]; position = Seats[seatIndex].Position; heading = Seats[seatIndex].Heading;
+            dictionary = occupants[seatIndex].AnimationDictionary; clip = occupants[seatIndex].AnimationClip;
+            return true;
+        }
 
         internal Ped FirstWaiting(Func<Ped, bool> accept) => queue
             .Where(index => occupants[index].IsAlive).Select(index => occupants[index].Actor).FirstOrDefault(accept);
@@ -167,7 +182,6 @@ namespace lumen_sante.Gameplay
 
         internal void Update(bool canStartArrival)
         {
-            if (!canStartArrival) return;
             try
             {
                 if (arrivingPatient == null)
@@ -330,7 +344,7 @@ namespace lumen_sante.Gameplay
 
         internal void ScheduleArrival()
         {
-            nextArrival = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(20, 41));
+            nextArrival = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(12, 26));
         }
 
         private void DiscardArrival()

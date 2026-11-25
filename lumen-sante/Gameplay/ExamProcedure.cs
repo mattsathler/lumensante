@@ -21,6 +21,9 @@ namespace lumen_sante.Gameplay
         private readonly Point roomCenter;
         private readonly Vector3 bed;
         private readonly float bedHeading;
+        private readonly bool consultationChair;
+        private readonly string chairDictionary;
+        private readonly string chairClip;
         private int duration;
 
         private readonly Station staffStation;
@@ -35,7 +38,8 @@ namespace lumen_sante.Gameplay
         private bool patientAtStation;
 
         internal ExamProcedure(HospitalStaffRoutes routes, AmbientPatrol nurse, Ped patient, Point roomCenter,
-            Vector3 bed, float bedHeading, ExamOrder order)
+            Vector3 bed, float bedHeading, ExamOrder order, bool consultationChair = false,
+            string chairDictionary = null, string chairClip = null)
         {
             path = routes.Path;
             this.nurse = nurse;
@@ -43,6 +47,9 @@ namespace lumen_sante.Gameplay
             this.roomCenter = roomCenter;
             this.bed = bed;
             this.bedHeading = bedHeading;
+            this.consultationChair = consultationChair;
+            this.chairDictionary = chairDictionary ?? HospitalShift.PatientChairAnimation;
+            this.chairClip = chairClip ?? HospitalShift.PatientChairClip;
             duration = order.DurationMilliseconds;
 
             var stations = routes.ExamRoutes.For(order.Kind);
@@ -218,7 +225,9 @@ namespace lumen_sante.Gameplay
         {
             if (PatientAway)
             {
-                var pose = BedAnimations.Lounger;
+                var pose = consultationChair
+                    ? (Name: "Cadeira", Dictionary: chairDictionary, Clip: chairClip)
+                    : BedAnimations.Lounger;
                 Pose(patient, bed, bedHeading, pose.Dictionary, pose.Clip, freeze: true);
                 PatientAway = false;
             }

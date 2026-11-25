@@ -32,6 +32,49 @@ namespace lumen_sante.Clinical
 
         internal int SamplePulse(Random random) => random.Next(Pulse.Min, Pulse.Max + 1);
 
+        private static int Advance(int value, (int Min, int Max) range)
+        {
+            int target = Math.Max(range.Min, Math.Min(range.Max, value));
+            int difference = target - value;
+            return value + Math.Sign(difference) * ((Math.Abs(difference) + 3) / 4);
+        }
+
+        internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature)
+            AdvanceRecoveredVitals((int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature) current)
+        {
+            int temperature = current.Temperature.HasValue
+                ? (int)Math.Round(current.Temperature.Value * 10, MidpointRounding.AwayFromZero) : 367;
+            return (Advance(current.Pulse, Pulse), Advance(current.Systolic, Systolic),
+                Advance(current.Diastolic, Diastolic), Advance(current.RespiratoryRate, RespiratoryRate),
+                Advance(current.OxygenSaturation, OxygenSaturation), Advance(temperature, (360, 374)) / 10d);
+        }
+
+        internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature)
+            AdvanceVitals((int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature) current)
+            => AdvanceTreatedVitals(current, false);
+
+        internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature)
+            AdvanceTreatedVitals((int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature) current,
+                bool antipyretic)
+            => AdvanceSupportedVitals(current, antipyretic, false);
+
+        internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature)
+            AdvanceSupportedVitals((int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature) current,
+                bool antipyretic, bool oxygenTherapy)
+        {
+            if (Pulse.Max == 0) return (0, 0, 0, 0, 0, null);
+            int temperature = current.Temperature.HasValue
+                ? (int)Math.Round(current.Temperature.Value * 10, MidpointRounding.AwayFromZero)
+                : TemperatureTenths.Min;
+            var temperatureTarget = antipyretic && TemperatureTenths.Min > 374
+                ? (Min: 360, Max: 374)
+                : antipyretic ? (Min: TemperatureTenths.Min, Max: Math.Min(374, TemperatureTenths.Max)) : TemperatureTenths;
+            var oxygenTarget = oxygenTherapy ? (Min: Math.Max(95, OxygenSaturation.Min), Max: Math.Max(95, OxygenSaturation.Max)) : OxygenSaturation;
+            return (Advance(current.Pulse, Pulse), Advance(current.Systolic, Systolic),
+                Advance(current.Diastolic, Diastolic), Advance(current.RespiratoryRate, RespiratoryRate),
+                Advance(current.OxygenSaturation, oxygenTarget), Advance(temperature, temperatureTarget) / 10d);
+        }
+
         internal (int Pulse, int Systolic, int Diastolic, int RespiratoryRate, int OxygenSaturation, double? Temperature)
             SampleVitals(Random random, bool recovered = false)
         {

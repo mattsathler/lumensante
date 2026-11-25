@@ -37,8 +37,8 @@ namespace lumen_sante.Interface
 
         private static readonly int ProcessId = Process.GetCurrentProcess().Id;
         private static readonly string[] PageNames = { "Rooms", "Aguardando", "Enfermaria", "Quartos", "Histórico", "Agenda" };
-        private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico", "Tratamentos", "Medicamentos", "Solicitar exames" };
-        private static readonly string[] RecordIcons = { "exams", "notes", "history", "exams", "medicines", "exams" };
+        private static readonly string[] RecordTabs = { "Exames", "Anotações", "Histórico", "Medicamentos", "Receitas", "Solicitar exames" };
+        private static readonly string[] RecordIcons = { "exams", "clinical_notes", "history", "vacines", "medicines", "exams" };
         private static readonly string[] SidebarIcons = { "bed", "person", "bed", "bed", "history", "calendar" };
         private static readonly RectangleF CloseButton = new RectangleF(1056, 22, 40, 38);
         private static readonly RectangleF ReturnButton = new RectangleF(218, 24, 40, 38);
@@ -287,7 +287,8 @@ namespace lumen_sante.Interface
             historyRevision = -1;
 
             examLines = admission?.Items
-                .Where(order => order.Status != ExamStatus.Available)
+                .SelectMany(order => order.Results.Concat(order.Status != ExamStatus.Available && order.Status != ExamStatus.Completed
+                    ? new[] { order } : Array.Empty<ExamOrder>()))
                 .Select(order => new ExamLine(order.Name, order.Status,
                     order.Status == ExamStatus.Completed ? new ExamReport(admission, order) : null,
                     order.CompletedAtMilliseconds))
@@ -465,7 +466,7 @@ namespace lumen_sante.Interface
                 admission?.ActiveMedications(lumen_sante.Gameplay.GameClock.NowMilliseconds) ?? Array.Empty<MedicationClass>(),
                 allowPatientCalls && canCallPatient(admission), historyLines, historyOffset, admission?.IsDischarged == true,
                 recordOrigin, MatchingTreatments(), treatmentSearch, editingTreatmentSearch ? treatmentKeyboard.Caret : -1,
-                MatchingExamOrders().Select(order => new ExamRequestLine(order.Name, order.Status)).ToArray(),
+                MatchingExamOrders().Select(order => new ExamRequestLine(order.Name, order.Status, order.CanRepeat)).ToArray(),
                 examRequestOffset, examRequestSearch, editingExamRequestSearch ? examRequestKeyboard.Caret : -1,
                 CanRequestExams()) { Agenda = page == Page.Agenda ? BuildAgendaFrame() : null };
             return true;
@@ -526,11 +527,12 @@ namespace lumen_sante.Interface
             DiseaseDefinition disease = DiseaseCatalog.Find(admission.DiseaseId);
             var symptoms = admission.SymptomHistory(disease).Select(symptom =>
                     (Title: symptom.Prompt, Detail: symptom.Answer));
-            var completedExams = admission.Items.Where(order => order.Status == ExamStatus.Completed)
+            var completedExams = admission.Items.SelectMany(order => order.Results)
                 .OrderByDescending(order => order.CompletedAtMilliseconds)
                 .Select(order => (Title: order.Name + " · Realizado por " + (order.PerformedBy ?? "Enfermagem"),
                     Detail: new ExamReport(admission, order).Findings));
-            historyLines = symptoms.Concat(completedExams).ToArray();
+            historyLines = completedExams.Concat(DiagnosticInvestigation.Summary(admission).Reverse())
+                .Concat(symptoms.Reverse()).ToArray();
         }
 
         private void UpdateTimelineScroll(PointF cursor, bool click, int? count = null)
@@ -637,7 +639,8 @@ namespace lumen_sante.Interface
                     for (int index = 0; index < visible; index++)
                     {
                         ExamOrder order = matching[examRequestOffset + index];
-                        if (TreatmentRow(index).Contains(cursor) && order.Status == ExamStatus.Available)
+                        if (TreatmentRow(index).Contains(cursor) && (order.Status == ExamStatus.Available ||
+                            (order.CanRepeat && order.Status == ExamStatus.Completed)))
                         {
                             ExamRequested?.Invoke(admission, order);
                             break;
@@ -771,21 +774,20 @@ namespace lumen_sante.Interface
 
             void Paragraph(string value, float x, float y, int charactersPerLine, float lineHeight = 24)
             {
-                string remaining = value.Trim();
-                while (remaining.Length > charactersPerLine)
+                foreach (string paragraph in value.Replace("\r", "").Split('\n'))
                 {
-                    int split = remaining.LastIndexOf(' ', charactersPerLine);
-                    if (split <= 0)
+                    string remaining = paragraph.Trim();
+                    while (remaining.Length > charactersPerLine)
                     {
-                        split = charactersPerLine;
+                        int split = remaining.LastIndexOf(' ', charactersPerLine);
+                        if (split <= 0) split = charactersPerLine;
+                        Label(remaining.Substring(0, split), x, y, 18, Ink);
+                        remaining = remaining.Substring(split).TrimStart();
+                        y += lineHeight;
                     }
-
-                    Label(remaining.Substring(0, split), x, y, 18, Ink);
-                    remaining = remaining.Substring(split).TrimStart();
+                    Label(remaining, x, y, 18, Ink);
                     y += lineHeight;
                 }
-
-                Label(remaining, x, y, 18, Ink);
             }
 
             Background(ToScreen(new RectangleF(0, 0, Width, Height)), Paper);
@@ -836,7 +838,8 @@ namespace lumen_sante.Interface
             string patientStatus = current.Deceased ? "Óbito registrado" :
                 current.IsDischarged ? "Alta hospitalar" :
                 current.IsRecovered ? "Recuperado" : current.IsInpatient ? "Internado" :
-                current.Room.EndsWith("Aguardando leito", StringComparison.Ordinal) ? "Aguardando leito" : "Em atendimento";
+                current.Room.EndsWith("Aguardando leito", StringComparison.Ordinal) ? "Aguardando leito" :
+                current.Room.EndsWith("Aguardando exames", StringComparison.Ordinal) ? "Aguardando exames" : "Em atendimento";
             switch (current.Page)
             {
                 case Page.Agenda:
@@ -1088,15 +1091,17 @@ namespace lumen_sante.Interface
                         {
                             ExamRequestLine request = current.ExamRequests[current.ExamRequestOffset + index];
                             RectangleF row = TreatmentRow(index);
-                            bool available = request.Status == ExamStatus.Available && current.CanRequestExams;
+                            bool available = (request.Status == ExamStatus.Available ||
+                                (request.CanRepeat && request.Status == ExamStatus.Completed)) && current.CanRequestExams;
                             Fill(row, available && row.Contains(current.Cursor) ? Highlight : Paper);
                             Label(request.Name.Length > 57 ? request.Name.Substring(0, 54) + "..." : request.Name,
                                 row.X + 12, row.Y + 13, 16, Ink);
-                            string status = request.Status == ExamStatus.Completed ? "Realizado" :
+                            string status = available && request.Status == ExamStatus.Completed ? "Repetir" :
+                                request.Status == ExamStatus.Completed ? "Realizado" :
                                 request.Status == ExamStatus.InProgress ? "Em andamento" :
                                 request.Status == ExamStatus.Processing ? "Processando" :
                                 request.Status == ExamStatus.Pending ?
-                                    (current.IsInpatient ? "Aguardando" : "Aguardando leito") :
+                                    "Aguardando" :
                                 available ? "Solicitar" : "Indisponível";
                             if (available)
                             {
@@ -1174,7 +1179,7 @@ namespace lumen_sante.Interface
                         Label(item.Name, 248, y + 3, 18, Ink);
                         Label(TimeSpan.FromMilliseconds(item.CompletedAtMilliseconds).ToString(@"hh\:mm\:ss"),
                             1004, y + 4, 15, Muted);
-                        Paragraph(item.Report.Findings, 248, y + 25, 92, 17);
+                        Paragraph(item.Report.Findings.Split('\n')[0], 248, y + 25, 92, 17);
                     }
                     break;
             }
@@ -1450,11 +1455,13 @@ namespace lumen_sante.Interface
         {
             internal readonly string Name;
             internal readonly ExamStatus Status;
+            internal readonly bool CanRepeat;
 
-            internal ExamRequestLine(string name, ExamStatus status)
+            internal ExamRequestLine(string name, ExamStatus status, bool canRepeat)
             {
                 Name = name;
                 Status = status;
+                CanRepeat = canRepeat;
             }
         }
 

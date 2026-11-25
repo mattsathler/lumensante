@@ -1,5 +1,7 @@
 # Doenças de internação
 
+> **Histórico:** este documento descreve um catálogo anterior de 50 doenças, retirado do projeto. Para o catálogo padrão atual de dez casos, consulte [Catálogo clínico](catalogo-clinico.md).
+
 Foram adicionadas 50 doenças e condições agudas, mantendo os 12 casos anteriores. Cada novo JSON exige tratamento específico, contém dez estágios, duas perguntas com vinte respostas por estágio vivo e laudos associados aos exames disponíveis. São 18.000 respostas nos cinquenta arquivos. Os arquivos estão em `lumen-sante/Diseases` e o build os copia para a pasta externa do plugin.
 
 ## Seleção e frequência

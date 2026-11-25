@@ -26,6 +26,8 @@ namespace lumen_sante.Gameplay
         }
 
         internal string Name { get; }
+        internal string AnimationDictionary => animationDictionary;
+        internal string AnimationClip => animationClip;
 
         internal void Create(Vector3 position, float heading)
         {

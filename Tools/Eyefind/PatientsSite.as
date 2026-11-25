@@ -96,6 +96,10 @@ if (!TIMELINE.isMP)
                signature += "|" + String(this.dataProviderUI[3000 + treatmentSignature]);
             for (var medicationSignature = 0; medicationSignature < detailSignature[6]; medicationSignature++)
                signature += "|" + String(this.dataProviderUI[4000 + medicationSignature]);
+            for (var diagnosisSignature = 0; diagnosisSignature < detailSignature[8]; diagnosisSignature++)
+               signature += "|" + String(this.dataProviderUI[6000 + diagnosisSignature]);
+            for (var guideSignature = 0; guideSignature < detailSignature[10]; guideSignature++)
+               signature += "|" + String(this.dataProviderUI[7000 + guideSignature]);
          }
          else if (this.lumenPatientId != "")
             this.lumenSendPatientAction(this.lumenPatientId, 1);
@@ -198,10 +202,18 @@ if (!TIMELINE.isMP)
                   site.lumenReport = this.lumenValue;
                else if (this.lumenAction == "request")
                   site.lumenSendPatientAction(site.lumenPatientId, 100 + this.lumenValue);
+               else if (this.lumenAction == "examSelect")
+                  site.lumenSendPatientAction(site.lumenPatientId, 100 + this.lumenValue);
+               else if (this.lumenAction == "requestExams")
+                  site.lumenSendPatientAction(site.lumenPatientId, 4);
                else if (this.lumenAction == "medication")
                   site.lumenSendPatientAction(site.lumenPatientId, 300 + this.lumenValue);
                else if (this.lumenAction == "treatment")
                   site.lumenSendPatientAction(site.lumenPatientId, 400 + this.lumenValue);
+               else if (this.lumenAction == "diagnosis")
+                  site.lumenSendPatientAction(site.lumenPatientId, 500 + this.lumenValue);
+               else if (this.lumenAction == "clearDiagnosis")
+                  site.lumenSendPatientAction(site.lumenPatientId, 5);
                if (this.lumenAction == "category" || this.lumenAction == "patient" ||
                    this.lumenAction == "list" || this.lumenAction == "tab" || this.lumenAction == "report")
                   site.CONTENT._y = 0;
@@ -260,13 +272,13 @@ if (!TIMELINE.isMP)
             "     •     Telefone: " + selected[7], 198, 355, 860, 26, 14, 0x526E61, false);
          if (selected[11] == 1)
             button("callPatient", "Chamar paciente  ›", 785, 240, "call", selected[10]);
-         var tabs = ["Exames", "Anotações", "Histórico", "Tratamentos", "Medicamentos", "Solicitar exames"];
-         var tabIcons = ["exams", "notes", "history", "exams", "medicines", "exams"];
+         var tabs = ["Exames", "Anotações", "Histórico", "Medicamentos", "Receitas", "Solicitar exames", "Diagnóstico", "Guia médico"];
+         var tabIcons = ["exams", "clinical_notes", "history", "vacines", "medicines", "exams", "diagnose", "notes"];
          for (index = 0; index < tabs.length; index++)
          {
-            var tabX = 176 + (index % 3) * 310;
-            var tabY = 397 + Math.floor(index / 3) * 43;
-            rectangle(tabX, tabY, 302, 38, index == this.lumenRecordTab ? 0xDCEAE2 : 0xFFFFFF);
+            var tabX = 176 + (index % 4) * 232;
+            var tabY = 397 + Math.floor(index / 4) * 43;
+            rectangle(tabX, tabY, 224, 38, index == this.lumenRecordTab ? 0xDCEAE2 : 0xFFFFFF);
             this.lumenDrawIcon(view,"recordIcon" + index,tabIcons[index],tabX + 10,tabY + 10,18,0x17624D);
             button("recordTab" + index, "     " + tabs[index], tabX + 10, tabY + 8, "tab", index);
          }
@@ -307,7 +319,7 @@ if (!TIMELINE.isMP)
             if (!isMedication)
             {
                rectangle(176, careY, 928, 42, 0xFFFFFF);
-               var search = button("treatmentSearch", this.lumenTreatmentSearch == "" ? "Pesquisar tratamento..." : this.lumenTreatmentSearch, 195, careY + 10, "search", 0);
+               var search = button("treatmentSearch", this.lumenTreatmentSearch == "" ? "Pesquisar receita..." : this.lumenTreatmentSearch, 195, careY + 10, "search", 0);
                search.buttonType = 8;
                search.lumenSearchType = "treatment";
                search.btnTxt.autoSize = false;
@@ -316,7 +328,7 @@ if (!TIMELINE.isMP)
                if (this.lumenTreatmentSearch != "") button("clearSearch", "Limpar", 895, careY + 10, "clearSearch", 0);
                careY += 52;
             }
-            if (careCount == 0) label("careEmpty", "Nenhum tratamento disponível.", 195, careY, 850, 30, 16, 0x526E61, false);
+            if (careCount == 0) label("careEmpty", isMedication ? "Nenhum medicamento disponível." : "Nenhuma receita disponível.", 195, careY, 850, 30, 16, 0x526E61, false);
             var careShown = 0;
             for (index = 0; index < careCount; index++)
             {
@@ -345,8 +357,76 @@ if (!TIMELINE.isMP)
                   careY += careHeight + 6;
                }
             }
-            if (careCount > 0 && careShown == 0) label("careNoMatch", "Nenhum tratamento encontrado.", 195, careY, 850, 30, 16, 0x526E61, false);
+            if (careCount > 0 && careShown == 0) label("careNoMatch", "Nenhum resultado encontrado.", 195, careY, 850, 30, 16, 0x526E61, false);
             bottom = Math.max(bottom, careY + 40);
+         }
+         else if (this.lumenRecordTab == 6)
+         {
+            var diagnosisY = 492;
+            label("diagnosisIntro", "Escolha uma hipótese compatível com os exames. O diagnóstico é opcional e só pode haver um selecionado.", 195, diagnosisY, 890, 42, 15, 0x526E61, false);
+            diagnosisY += 48;
+            if (detail[9] != "")
+            {
+               label("diagnosisCurrent", "Selecionado: " + detail[9], 195, diagnosisY, 680, 30, 16, 0x103A30, true);
+               button("diagnosisClear", "Limpar diagnóstico", 895, diagnosisY, "clearDiagnosis", 0);
+               diagnosisY += 38;
+            }
+            label("diagnosisPossibleTitle", "Hipóteses possíveis", 195, diagnosisY, 850, 28, 17, 0x103A30, true);
+            diagnosisY += 32;
+            var possibleCount = 0;
+            for (index = 0; index < detail[8]; index++)
+            {
+               var diagnosis = this.dataProviderUI[6000 + index];
+               if (diagnosis != undefined && diagnosis[0] == selected[1] && diagnosis[3] == 0)
+               {
+                  possibleCount++;
+                  var diagnosisCard = rectangle(176, diagnosisY, 928, 38, diagnosis[4] == 1 ? 0xDCEFE2 : 0xFFFFFF);
+                  label("diagnosisName" + index, diagnosis[2], 195, diagnosisY + 7, 670, 27, 15, 0x103A30, false);
+                  if (detail[7] == 1)
+                     button("diagnosisAction" + index, diagnosis[4] == 1 ? "Selecionado" : "Selecionar",
+                        895, diagnosisY + 7, "diagnosis", index);
+                  else label("diagnosisStatus" + index, diagnosis[4] == 1 ? "Selecionado" : "Disponível",
+                     895, diagnosisY + 7, 180, 27, 14, 0x526E61, false);
+                  diagnosisY += Math.max(38, diagnosisCard._height) + 6;
+               }
+            }
+            if (possibleCount == 0) label("diagnosisNone", "Os dados atuais não descartam nenhuma hipótese; um diagnóstico continua opcional.", 195, diagnosisY, 880, 34, 14, 0x526E61, false);
+            diagnosisY += 38;
+            label("diagnosisExcludedTitle", "Descartadas pelos resultados", 195, diagnosisY, 850, 28, 17, 0x8F2929, true);
+            diagnosisY += 32;
+            var excludedCount = 0;
+            for (index = 0; index < detail[8]; index++)
+            {
+               var excludedDiagnosis = this.dataProviderUI[6000 + index];
+               if (excludedDiagnosis != undefined && excludedDiagnosis[0] == selected[1] && excludedDiagnosis[3] == 1)
+               {
+                  excludedCount++;
+                  rectangle(176, diagnosisY, 928, 38, 0xF5DADA);
+                  label("excludedDiagnosis" + index, excludedDiagnosis[2] + " · Não selecionável", 195, diagnosisY + 7, 880, 28, 14, 0x8F2929, false);
+                  diagnosisY += 44;
+               }
+            }
+            if (excludedCount == 0) label("diagnosisNoExclusions", "Nenhuma hipótese foi descartada pelos exames disponíveis.", 195, diagnosisY, 880, 30, 14, 0x526E61, false);
+            bottom = Math.max(bottom, diagnosisY + 40);
+         }
+         else if (this.lumenRecordTab == 7)
+         {
+            var guideY = 492;
+            label("guideIntro", "Descrição breve e possíveis sintomas.", 195, guideY, 880, 30, 15, 0x526E61, false);
+            guideY += 36;
+            for (index = 0; index < detail[10]; index++)
+            {
+               var guide = this.dataProviderUI[7000 + index];
+               if (guide != undefined)
+               {
+                  var guideCard = rectangle(176, guideY, 928, 68, 0xFFFFFF);
+                  label("guideName" + index, guide[0], 195, guideY + 8, 880, 24, 16, 0x103A30, true);
+                  var guideDescription = label("guideDescription" + index, guide[1], 195, guideY + 35, 880, 38, 14, 0x526E61, false);
+                  guideCard._height = Math.max(68, guideDescription._y + guideDescription._height - guideY + 14);
+                  guideY += guideCard._height + 8;
+               }
+            }
+            bottom = Math.max(bottom, guideY + 40);
          }
          else
          {
@@ -389,7 +469,8 @@ if (!TIMELINE.isMP)
                   {
                      var kindX = 176 + kindIndex * 186;
                      rectangle(kindX, examY, 180, 34, this.lumenExamKind == kindIndex - 1 ? 0xDCEAE2 : 0xFFFFFF);
-                     this.lumenDrawIcon(view,"kindIcon" + kindIndex,"exams",kindX + 8,examY + 9,16,0x17624D);
+                     var kindIcons = ["all", "mri", "xray", "microscope", "more"];
+                     this.lumenDrawIcon(view,"kindIcon" + kindIndex,kindIcons[kindIndex],kindX + 8,examY + 9,16,0x17624D);
                      button("examKind" + kindIndex, "    " + kinds[kindIndex], kindX + 8, examY + 6, "examKind", kindIndex - 1);
                   }
                   examY += 44;
@@ -406,14 +487,22 @@ if (!TIMELINE.isMP)
                   var examName = label("examName" + index, examItem.row[1], 195, examY + 7, 600, 27, 15, 0x103A30, false);
                   if (this.lumenRecordTab == 0)
                      button("examReport" + index, "Ver laudo", 895, examY + 7, "report", examItem.index);
-                  else if (detail[2] == 1 && examItem.row[2] == 0)
-                     button("examRequest" + index, "Solicitar", 895, examY + 7, "request", examItem.index);
+                  else if (this.lumenRecordTab == 5 && detail[2] == 1 && (examItem.row[2] == 0 || (examItem.row[10] == 1 && examItem.row[2] == 4)))
+                     button("examRequest" + index, examItem.row[11] == 1 ? "Selecionado" : "Selecionar", 895, examY + 7, "examSelect", examItem.index);
                   else
                      label("examStatus" + index, examItem.row[2] == 4 ? "Realizado" : examItem.row[2] == 0 ? "Indisponível" : "Aguardando",
                         895, examY + 7, 190, 26, 14, 0x526E61, false);
                   var examHeight = Math.max(38, examName._height + 14);
                   examCard._height = examHeight;
                   examY += examHeight + 6;
+               }
+               if (this.lumenRecordTab == 5 && detail[2] == 1)
+               {
+                  var selectedCount = detail[11];
+                  button("submitExams", selectedCount > 0 ? "Solicitar exames (" + selectedCount + ")" : "Solicitar",
+                     830, examY + 8, "requestExams", 0);
+                  if (selectedCount == 0) label("selectExamHint", "Selecione um ou mais exames antes de solicitar.", 195, examY + 11, 620, 28, 14, 0x526E61, false);
+                  examY += 46;
                }
                if (exams.length > 0 && examsShown == 0) label("examNoMatch", "Nenhum exame nesta categoria.", 195, examY, 850, 30, 16, 0x526E61, false);
                bottom = Math.max(bottom, examY + 40);
@@ -441,7 +530,8 @@ if (!TIMELINE.isMP)
             rectangle(176, y, 928, 43, 0xFFFFFF);
             button("patient" + index, patient[2] + (patient[8] == 1 ? " · Agendado" : ""),
                194, y + 10, "patient", patient[1]);
-            label("status" + index, patient[3] + " · " + patient[4], 560, y + 11, 510, 24, 14, 0x526E61, false);
+            var patientLocation = patient[3].indexOf("Recepção — ") == 0 ? "Recepção" : patient[3];
+            label("status" + index, patientLocation + " · " + patient[4], 560, y + 11, 510, 24, 14, 0x526E61, false);
          }
          bottom = Math.max(bottom, 287 + patients.length * 48 + 40);
       }

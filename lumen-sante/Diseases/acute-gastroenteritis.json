@@ -1,8 +1,13 @@
 {
     "SchemaVersion":  1,
     "Id":  "acute-gastroenteritis",
+    "Complexity": "simple",
+    "Symptoms": ["pain","nausea"],
+    "NaturalRecoveryIntervals": 3,
     "Name":  "Gastroenterite aguda",
-    "SelectionWeight":  8,
+    "SelectionWeight":  160,
+    "LeukocyteRanges": [[4000,11000],[4000,11500],[4000,12000],[4000,12500],[4000,13000],[4000,13500],[4000,14000],[4000,14500],[4000,15000]],
+    "ParameterRanges": {"bun": [[6,24],[8,26],[10,28],[12,30],[14,32],[16,34],[18,36],[20,38],[22,40]]},
     "Tags":  [
                  "digestiva",
                  "infecciosa"
@@ -1348,85 +1353,5 @@
                                                  ]
                                              ]
                       }
-                  ],
-    "Exams":  {
-                  "mri":  null,
-                  "mri-brain":  null,
-                  "mri-spine":  null,
-                  "x-ray":  null,
-                  "x-ray-ribs":  null,
-                  "x-ray-pelvis":  null,
-                  "x-ray-limbs":  null,
-                  "cardiac":  null,
-                  "hematology":  null,
-                  "renal":  {
-                                "Default":  "Sem alterações relevantes identificadas nesta avaliação.",
-                                "ByStage":  {
-                                                "6":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                                "7":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                                "8":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                                "9":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                                "10":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação."
-                                            }
-                            },
-                  "hepatic":  null,
-                  "electrolytes":  {
-                                       "Default":  "Eletrólitos sem alteração relevante nesta coleta.",
-                                       "ByStage":  {
-                                                       "6":  "Desequilíbrio hidroeletrolítico na amostra.",
-                                                       "7":  "Desequilíbrio hidroeletrolítico na amostra.",
-                                                       "8":  "Desequilíbrio hidroeletrolítico na amostra.",
-                                                       "9":  "Desequilíbrio hidroeletrolítico na amostra.",
-                                                       "10":  "Desequilíbrio hidroeletrolítico na amostra."
-                                                   }
-                                   },
-                  "blood-gas":  null,
-                  "coagulation":  null,
-                  "glucose":  null,
-                  "crp":  null,
-                  "urinalysis":  null,
-                  "mri-abdomen":  null,
-                  "mri-pelvis":  null,
-                  "mri-liver":  null,
-                  "mri-kidneys":  null,
-                  "mri-shoulder":  null,
-                  "mri-knee":  null,
-                  "mri-hip":  null,
-                  "mri-cervical":  null,
-                  "mri-lumbar":  null,
-                  "x-ray-skull":  null,
-                  "x-ray-cervical":  null,
-                  "x-ray-thoracic":  null,
-                  "x-ray-lumbar":  null,
-                  "x-ray-shoulder":  null,
-                  "x-ray-knee":  null,
-                  "x-ray-ankle":  null,
-                  "calcium":  null,
-                  "magnesium":  null,
-                  "phosphate":  null,
-                  "urea":  {
-                               "Default":  "Ureia dentro do intervalo de referência.",
-                               "ByStage":  {
-                                               "6":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                               "7":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                               "8":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                               "9":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação.",
-                                               "10":  "Elevação dos marcadores nitrogenados, a correlacionar com hidratação."
-                                           }
-                           },
-                  "creatinine":  null,
-                  "albumin":  null,
-                  "bilirubin":  null,
-                  "tsh":  null,
-                  "free-t4":  null,
-                  "ferritin":  null,
-                  "iron":  null,
-                  "lipid-profile":  null,
-                  "hba1c":  null,
-                  "lactate":  null,
-                  "troponin":  null,
-                  "bnp":  null,
-                  "urine-culture":  null,
-                  "blood-culture":  null
-              }
+                  ]
 }
