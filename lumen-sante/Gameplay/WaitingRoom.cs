@@ -167,6 +167,7 @@ namespace lumen_sante.Gameplay
 
         internal void Update(bool canStartArrival)
         {
+            if (!canStartArrival) return;
             try
             {
                 if (arrivingPatient == null)

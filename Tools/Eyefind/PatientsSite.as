@@ -69,7 +69,7 @@ if (!TIMELINE.isMP)
       var summaryData = this.dataProviderUI[97];
       if (summaryData == undefined || summaryData[0] != 2601)
       {
-         this.lumenShowLoading("Los Santos Medical Center · Pacientes");
+         if (content.lumenPatients == undefined) this.lumenShowLoading("Los Santos Medical Center · Pacientes");
          return;
       }
       content.lumenLoading.removeMovieClip();

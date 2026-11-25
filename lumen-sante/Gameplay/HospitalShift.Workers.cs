@@ -85,7 +85,6 @@ namespace lumen_sante.Gameplay
             private static string StationResource(int room) => "station:" + room;
             internal bool IsComputerReserved(int room) => reservations.IsReserved(StationResource(room));
             internal bool IsPatientReserved(PatientCase patient) => reservations.IsReserved(PatientResource(patient));
-            private bool HasDiagnosticAssignment => assignments.Any(task => task.Room >= 0);
 
             private static int Area(PatientCase patient) => patient.InpatientRoomIndex < 0 ? 0 :
                 InpatientRooms[patient.InpatientRoomIndex].Unit == InpatientUnit.Ward ? 1 : 2;
@@ -156,7 +155,7 @@ namespace lumen_sante.Gameplay
                 if (patient.Orders.IsCareProtected && patient.InpatientRoomIndex < 0) return false;
                 if (patient.Orders.IsRecovered && patient.Orders.IsCareProtected) return false;
                 if (patient.Location == PatientLocation.Chair)
-                    return !HasDiagnosticAssignment && !playerAtComputer(patient.DiagnosticRoomIndex);
+                    return !playerAtComputer(patient.DiagnosticRoomIndex) && !IsComputerReserved(patient.DiagnosticRoomIndex);
                 return patient.Location == PatientLocation.InpatientBed ||
                     (patient.Location == PatientLocation.WaitingReception && waitingRoom.IsWaiting(patient.Ped));
             }
@@ -170,7 +169,6 @@ namespace lumen_sante.Gameplay
 
             private int FindConsultationRoom()
             {
-                if (HasDiagnosticAssignment) return -1;
                 foreach (int index in Enumerable.Range(0, consultations.Length).OrderBy(i => i == 1 ? 0 : 1))
                     if (consultations[index] == null && !playerAtComputer(index) && !IsComputerReserved(index)) return index;
                 return -1;

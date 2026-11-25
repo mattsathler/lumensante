@@ -6,7 +6,7 @@ if (!TIMELINE.isMP)
       var data = this.dataProviderUI[97];
       if (data == undefined || data[0] != 2601)
       {
-         this.lumenShowLoading("Los Santos Medical Center");
+         if (content.lumenHospital == undefined) this.lumenShowLoading("Los Santos Medical Center");
          return;
       }
       content.lumenLoading.removeMovieClip();
@@ -127,6 +127,23 @@ if (!TIMELINE.isMP)
       browser.RESIZE_WEBSITE();
       content._y = Math.max(-217, Math.min(0, content._y));
       this.lumenSetPageButtons("LUMEN", buttons);
+      view.lumenButtons = buttons;
+      view.lumenCheckFrames = 180;
+      view.onEnterFrame = function()
+      {
+         this.lumenCheckFrames--;
+         if (this.lumenCheckFrames % 10 == 0)
+         {
+            var header = site.CONTENT.lumenHeader;
+            var registered = browser.buttonManager.buttonMCList;
+            var headerCount = header == undefined ? 0 : header.lumenButtons.length;
+            if (header == undefined || registered == undefined || registered.length != headerCount + this.lumenButtons.length ||
+                (headerCount > 0 && registered[0] != header.lumenButtons[0]._parent) ||
+                (this.lumenButtons.length > 0 && registered[headerCount] != this.lumenButtons[0]._parent))
+               site.lumenSetPageButtons("LUMEN", this.lumenButtons);
+         }
+         if (this.lumenCheckFrames <= 0) delete this.onEnterFrame;
+      };
       browser.SET_TITLEBAR_TEXT("Los Santos Medical Center");
    };
 }

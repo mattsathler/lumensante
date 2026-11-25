@@ -19,7 +19,7 @@ if (!TIMELINE.isMP)
       var data = this.dataProviderUI[95];
       if (data == undefined || data.length < 7 || String(data[1]).length != 32)
       {
-         this.lumenShowLoading("Los Santos Medical Center · Agenda");
+         if (content.lumenAgenda == undefined) this.lumenShowLoading("Los Santos Medical Center · Agenda");
          return;
       }
       content.lumenLoading.removeMovieClip();
@@ -239,6 +239,23 @@ if (!TIMELINE.isMP)
       browser.RESIZE_WEBSITE();
       content._y = Math.max(627 - bottom + 36, Math.min(0, content._y));
       this.lumenSetPageButtons("AGENDA", buttons);
+      view.lumenButtons = buttons;
+      view.lumenCheckFrames = 180;
+      view.onEnterFrame = function()
+      {
+         this.lumenCheckFrames--;
+         if (this.lumenCheckFrames % 10 == 0)
+         {
+            var header = site.CONTENT.lumenHeader;
+            var registered = browser.buttonManager.buttonMCList;
+            var headerCount = header == undefined ? 0 : header.lumenButtons.length;
+            if (header == undefined || registered == undefined || registered.length != headerCount + this.lumenButtons.length ||
+                (headerCount > 0 && registered[0] != header.lumenButtons[0]._parent) ||
+                (this.lumenButtons.length > 0 && registered[headerCount] != this.lumenButtons[0]._parent))
+               site.lumenSetPageButtons("AGENDA", this.lumenButtons);
+         }
+         if (this.lumenCheckFrames <= 0) delete this.onEnterFrame;
+      };
       browser.SET_TITLEBAR_TEXT("Los Santos Medical Center · Agenda");
    };
 }

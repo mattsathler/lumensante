@@ -12,6 +12,8 @@ namespace lumen_sante.Interface
         private readonly UIMenu root;
         private readonly UIMenu examination;
         private readonly UIMenu inpatient;
+        private readonly UIMenu inpatientExams;
+        private readonly UIMenu inpatientTransfer;
         private readonly UIMenu inspectionMenu;
         private readonly UIMenu vitalsMenu;
         private readonly UIMenu conversation;
@@ -38,10 +40,12 @@ namespace lumen_sante.Interface
             pool.Add(inpatient);
             inspectionMenu = MenuPalette.SubMenu(pool, examination, "Avaliação geral");
             vitalsMenu = MenuPalette.SubMenu(pool, examination, "Sinais vitais");
-            inpatientInspection = MenuPalette.SubMenu(pool, inpatient, "Avaliação geral");
-            inpatientVitals = MenuPalette.SubMenu(pool, inpatient, "Sinais vitais");
             conversation = MenuPalette.SubMenu(pool, root, "Conversa com Paciente");
             inpatientConversation = MenuPalette.SubMenu(pool, inpatient, "Conversa com Paciente");
+            inpatientExams = MenuPalette.SubMenu(pool, inpatient, "Exames");
+            inpatientVitals = MenuPalette.SubMenu(pool, inpatientExams, "Sinais vitais");
+            inpatientInspection = MenuPalette.SubMenu(pool, inpatientExams, "Avaliação geral");
+            inpatientTransfer = MenuPalette.SubMenu(pool, inpatient, "Transferir Paciente");
 
 
             var lieDown = MenuPalette.Item("Pedir para se deitar");
@@ -63,8 +67,7 @@ namespace lumen_sante.Interface
             returnToChair.Activated += (sender, item) => ChairRequested?.Invoke();
             var dischargeMenus = new[] { root, inpatient }.Select(parent =>
             {
-                UIMenu confirmation = MenuPalette.SubMenu(pool, parent,
-                    parent == root ? "Alta Hospitalar" : "Alta hospitalar", ActionTone.Accent);
+                UIMenu confirmation = MenuPalette.SubMenu(pool, parent, "Alta Hospitalar", ActionTone.Accent);
                 confirmation.SubtitleText = "Confirmar a alta deste paciente?";
                 var followUp = MenuPalette.Apply(new UIMenuCheckboxItem("Agendar retorno?", false));
                 var confirm = MenuPalette.Item("Dar Alta", ActionTone.Accent);
@@ -81,8 +84,8 @@ namespace lumen_sante.Interface
                 };
                 return confirmation;
             }).ToArray();
-            views = new[] { root, examination, inpatient, inspectionMenu, vitalsMenu, inpatientInspection,
-                inpatientVitals, conversation, inpatientConversation, admissionMenu }
+            views = new[] { root, examination, inpatient, inspectionMenu, vitalsMenu, inpatientExams, inpatientInspection,
+                inpatientVitals, inpatientTransfer, conversation, inpatientConversation, admissionMenu }
                 .Concat(dischargeMenus).ToArray();
 
             var inspectionLabels = new[] { "Estado geral", "Respiração", "Pele e lábios", "Temperatura corporal" };
@@ -110,6 +113,7 @@ namespace lumen_sante.Interface
         internal event Action LieDownRequested;
         internal event Action ChairRequested;
         internal event Action<InpatientUnit> AdmissionRequested;
+        internal event Action<InpatientUnit> TransferRequested;
 
         internal bool IsOpen => Array.Exists(views, view => view.Visible);
         internal bool IsInspecting => inspectionMenu.Visible || inpatientInspection.Visible;
@@ -127,10 +131,15 @@ namespace lumen_sante.Interface
             examination.Visible = true;
         }
 
-        internal void OpenInpatient(string room)
+        internal void OpenInpatient(string room, InpatientUnit unit)
         {
             PatientInteraction?.Invoke(currentOrders);
             inpatient.SubtitleText = room;
+            inpatientTransfer.Clear();
+            InpatientUnit destination = unit == InpatientUnit.Ward ? InpatientUnit.Room : InpatientUnit.Ward;
+            var transfer = MenuPalette.Item(destination == InpatientUnit.Room ? "Quarto" : "Enfermaria");
+            inpatientTransfer.AddItem(transfer);
+            transfer.Activated += (sender, item) => TransferRequested?.Invoke(destination);
             inpatient.Visible = true;
         }
 

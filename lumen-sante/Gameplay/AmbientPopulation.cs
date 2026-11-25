@@ -81,7 +81,7 @@ namespace lumen_sante.Gameplay
             nextDeparture = GameClock.NowMilliseconds + GameClock.Minutes(random.Next(45, 91));
         }
 
-        internal void Update(bool allowTurnover)
+        internal void Update(bool allowTurnover, bool allowPatrolMovement)
         {
             for (int index = patrols.Count - 1; index >= 0; index--)
             {
@@ -92,12 +92,14 @@ namespace lumen_sante.Gameplay
                 }
             }
 
-            EnsureMinimumDoctors();
             if (allowTurnover)
             {
+                EnsureMinimumDoctors();
                 StartDeparture();
                 StartArrival();
             }
+
+            if (!allowPatrolMovement) return;
 
             foreach (AmbientPatrol patrol in patrols)
             {

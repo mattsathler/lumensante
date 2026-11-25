@@ -2,6 +2,7 @@
 using System.Linq;
 using System;
 using Rage;
+using Rage.Native;
 using Rage.Attributes;
 using lumen_sante.Gameplay;
 
@@ -70,12 +71,157 @@ namespace lumen_sante
             var waitingRoom = new WaitingRoom(routes);
             var calibration = new SeatCalibration(new[] { receptionist, secondReceptionist }
                 .Concat(population.Actors).Concat(waitingRoom.Occupants));
-            try
+            int hospitalInterior = 0;
+            long sceneReadySince = -1;
+            var sceneClock = System.Diagnostics.Stopwatch.StartNew();
+            bool hospitalInteriorPinned = false;
+            bool hospitalInteriorWasDisabled = false;
+            bool hospitalInteriorWasCapped = false;
+            bool hospitalPopulationCreated = false;
+            bool IsHospitalAlreadyLoaded()
             {
+                try
+                {
+                    Ped player = Game.LocalPlayer.Character;
+                    if (player == null || !player.Exists() || !player.IsAlive) return false;
+                    var reception = HospitalStaffRoutes.Reception.Position;
+                    hospitalInterior = NativeFunction.Natives.GET_INTERIOR_AT_COORDS<int>(reception.X, reception.Y, reception.Z);
+                    return hospitalInterior != 0 &&
+                        NativeFunction.Natives.GET_INTERIOR_FROM_ENTITY<int>(player) == hospitalInterior &&
+                        NativeFunction.Natives.IS_INTERIOR_READY<bool>(hospitalInterior) &&
+                        NativeFunction.Natives.HAS_COLLISION_LOADED_AROUND_ENTITY<bool>(player);
+                }
+                catch (Exception error)
+                {
+                    Game.LogTrivial("[Lumen Santé] Não foi possível verificar o interior no startup: " + error.Message);
+                    return false;
+                }
+            }
+            bool LoadHospitalInterior()
+            {
+                var reception = HospitalStaffRoutes.Reception.Position;
+                var spawn = HospitalStaffRoutes.PatientSpawn.Position;
+                var timeout = System.Diagnostics.Stopwatch.StartNew();
+                bool ready = false;
+                bool sceneStarted = false;
+                bool originalInteriorStateCaptured = false;
+                try
+                {
+                    NativeFunction.Natives.SET_FOCUS_POS_AND_VEL(reception.X, reception.Y, reception.Z, 0f, 0f, 0f);
+                    sceneStarted = NativeFunction.Natives.NEW_LOAD_SCENE_START_SPHERE<bool>(
+                        reception.X, reception.Y, reception.Z, 100f, 0);
+                    NativeFunction.Natives.REQUEST_COLLISION_AT_COORD(reception.X, reception.Y, reception.Z);
+                    NativeFunction.Natives.REQUEST_COLLISION_AT_COORD(spawn.X, spawn.Y, spawn.Z);
+                    while (timeout.ElapsedMilliseconds < 5000)
+                    {
+                        if (hospitalInterior == 0)
+                            hospitalInterior = NativeFunction.Natives.GET_INTERIOR_AT_COORDS<int>(reception.X, reception.Y, reception.Z);
+                        if (hospitalInterior != 0)
+                        {
+                            if (!hospitalInteriorPinned)
+                            {
+                                hospitalInteriorWasDisabled = NativeFunction.Natives.IS_INTERIOR_DISABLED<bool>(hospitalInterior);
+                                hospitalInteriorWasCapped = NativeFunction.Natives.IS_INTERIOR_CAPPED<bool>(hospitalInterior);
+                                originalInteriorStateCaptured = true;
+                                NativeFunction.Natives.PIN_INTERIOR_IN_MEMORY(hospitalInterior);
+                                hospitalInteriorPinned = true;
+                            }
+                            bool disabled = NativeFunction.Natives.IS_INTERIOR_DISABLED<bool>(hospitalInterior);
+                            bool capped = NativeFunction.Natives.IS_INTERIOR_CAPPED<bool>(hospitalInterior);
+                            if (disabled || capped)
+                            {
+                                NativeFunction.Natives.SET_INTERIOR_ACTIVE(hospitalInterior, true);
+                                if (disabled) NativeFunction.Natives.DISABLE_INTERIOR(hospitalInterior, false);
+                                if (capped) NativeFunction.Natives.CAP_INTERIOR(hospitalInterior, false);
+                            }
+                            NativeFunction.Natives.REFRESH_INTERIOR(hospitalInterior);
+                            bool sceneLoaded = !sceneStarted || NativeFunction.CallByHash<bool>(0x01B8247A7A8B9AD1UL);
+                            if (sceneLoaded && NativeFunction.Natives.IS_INTERIOR_READY<bool>(hospitalInterior))
+                            {
+                                ready = true;
+                                break;
+                            }
+                        }
+                        GameFiber.Yield();
+                    }
+                    Game.LogTrivial("[Lumen Santé] Pré-carregamento do interior do hospital: " +
+                        (ready ? "pronto; interior=" + hospitalInterior : "limite de 5 s atingida" ) + ".");
+                    return ready;
+                }
+                catch (Exception error)
+                {
+                    Game.LogTrivial("[Lumen Santé] Pré-carregamento do hospital falhou; a população será criada quando o interior estiver pronto: " + error.Message);
+                    return false;
+                }
+                finally
+                {
+                    try
+                    {
+                        if (sceneStarted) NativeFunction.Natives.NEW_LOAD_SCENE_STOP();
+                        NativeFunction.Natives.CLEAR_FOCUS();
+                    }
+                    catch (Exception cleanupError)
+                    {
+                        Game.LogTrivial("[Lumen Santé] Falha ao encerrar o foco de streaming do hospital: " + cleanupError.Message);
+                    }
+                    if (!ready && hospitalInteriorPinned)
+                    {
+                        try
+                        {
+                            if (originalInteriorStateCaptured && hospitalInteriorWasDisabled)
+                                NativeFunction.Natives.DISABLE_INTERIOR(hospitalInterior, true);
+                            if (originalInteriorStateCaptured && hospitalInteriorWasCapped)
+                                NativeFunction.Natives.CAP_INTERIOR(hospitalInterior, true);
+                            NativeFunction.Natives.UNPIN_INTERIOR(hospitalInterior);
+                        }
+                        catch (Exception cleanupError)
+                        {
+                            Game.LogTrivial("[Lumen Santé] Falha ao liberar o interior do hospital: " + cleanupError.Message);
+                        }
+                        hospitalInteriorPinned = false;
+                        hospitalInterior = 0;
+                    }
+                }
+            }
+            void CreateHospitalPopulation()
+            {
+                if (hospitalPopulationCreated) return;
                 receptionist.Create(new Vector3(356.373f, -1398.750f, 32.005f), 54.6f);
                 secondReceptionist.Create(new Vector3(355.015f, -1400.685f, 32.055f), 27.3f);
                 population.Populate();
                 waitingRoom.Populate();
+                hospitalPopulationCreated = true;
+                Game.LogTrivial("[Lumen Santé] População do hospital criada com interior e colisão carregados.");
+            }
+            bool IsHospitalSceneReady(Ped player)
+            {
+                if (player == null || !player.Exists() || !player.IsAlive) return false;
+                if (hospitalInterior == 0)
+                {
+                    var reception = HospitalStaffRoutes.Reception.Position;
+                    hospitalInterior = NativeFunction.Natives.GET_INTERIOR_AT_COORDS<int>(reception.X, reception.Y, reception.Z);
+                    if (hospitalInterior == 0) return false;
+                }
+
+                bool ready = NativeFunction.Natives.GET_INTERIOR_FROM_ENTITY<int>(player) == hospitalInterior &&
+                    NativeFunction.Natives.IS_INTERIOR_READY<bool>(hospitalInterior) &&
+                    NativeFunction.Natives.HAS_COLLISION_LOADED_AROUND_ENTITY<bool>(player);
+                if (!ready)
+                {
+                    sceneReadySince = -1;
+                    return false;
+                }
+                if (sceneReadySince < 0) sceneReadySince = sceneClock.ElapsedMilliseconds;
+                return sceneClock.ElapsedMilliseconds - sceneReadySince >= 1000;
+            }
+            bool hospitalInteriorReadyAtStartup = IsHospitalAlreadyLoaded() || LoadHospitalInterior();
+            if (!hospitalInteriorReadyAtStartup)
+            {
+                Game.LogTrivial("[Lumen Santé] Pré-carregamento não confirmou o interior; criando a população inicial e mantendo as rotas pausadas até o cenário ficar pronto.");
+            }
+            CreateHospitalPopulation();
+            try
+            {
                 HospitalShift.Run(
                     routes,
                     waitingRoom,
@@ -83,15 +229,22 @@ namespace lumen_sante
                     startedDuringLoading,
                     () => (Interlocked.Exchange(ref shiftToggleRequests, 0) & 1) != 0,
                     () => Interlocked.Exchange(ref residenceRequested, 0) != 0,
-                    (player, available) =>
+                    IsHospitalSceneReady,
+                    (player, available, sceneReady) =>
                     {
+                        if (sceneReady) CreateHospitalPopulation();
                         if (Interlocked.Exchange(ref npcCleanupRequested, 0) != 0 && ClearNearbyNpcs(player) > 0)
                         {
                             population.ScheduleArrival();
                             waitingRoom.ScheduleArrival();
                         }
-                        calibration.Update(player, available, Interlocked.Exchange(ref seatCalibrationRequested, 0) != 0);
-                        population.Update(available && !calibration.IsActive);
+                        calibration.Update(player, available && sceneReady,
+                            Interlocked.Exchange(ref seatCalibrationRequested, 0) != 0);
+                        bool nearHospital = available && player != null && player.Exists() &&
+                            (player.Position - new Vector3(354.0f, -1397.0f, 32.0f)).LengthSquared() <= 250f * 250f &&
+                            NativeFunction.Natives.HAS_COLLISION_LOADED_AROUND_ENTITY<bool>(player);
+                        population.Update(sceneReady && !calibration.IsActive,
+                            nearHospital && !calibration.IsActive);
                     });
             }
             finally
@@ -106,6 +259,18 @@ namespace lumen_sante
                     secondReceptionist.Clear();
                     waitingRoom.Clear();
                     population.Clear();
+                    if (hospitalInteriorPinned)
+                    {
+                        Ped player = Game.LocalPlayer.Character;
+                        bool playerInside = player != null && player.Exists() &&
+                            NativeFunction.Natives.GET_INTERIOR_FROM_ENTITY<int>(player) == hospitalInterior;
+                        if (!playerInside && hospitalInteriorWasDisabled)
+                            NativeFunction.Natives.DISABLE_INTERIOR(hospitalInterior, true);
+                        if (!playerInside && hospitalInteriorWasCapped)
+                            NativeFunction.Natives.CAP_INTERIOR(hospitalInterior, true);
+                        NativeFunction.Natives.UNPIN_INTERIOR(hospitalInterior);
+                        hospitalInteriorPinned = false;
+                    }
                 }
             }
         }

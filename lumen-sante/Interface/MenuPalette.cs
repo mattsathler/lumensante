@@ -9,7 +9,7 @@ namespace lumen_sante.Interface
     internal static class MenuPalette
     {
         internal static readonly Color Ink = Color.FromArgb(12, 47, 40);
-        internal static readonly Color Highlight = Color.FromArgb(224, 237, 227);
+        internal static readonly Color Highlight = Color.FromArgb(226, 228, 226);
         internal static readonly Color Accent = Color.FromArgb(85, 170, 155);
         private static readonly Color AccentBackground = Color.FromArgb(207, 233, 222);
         private static readonly Color AccentHighlighted = Color.FromArgb(155, 208, 190);

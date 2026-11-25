@@ -32,10 +32,13 @@ if (!TIMELINE.isMP)
       if (content.lumenLoading == undefined)
       {
          var view = content.createEmptyMovieClip("lumenLoading", content.getNextHighestDepth());
-         view.beginFill(0xFFFFFF);
+         view.beginFill(0xEDF0ED);
          view.moveTo(0,0); view.lineTo(1280,0); view.lineTo(1280,740); view.lineTo(0,740); view.lineTo(0,0);
          view.endFill();
-         view.createTextField("message", view.getNextHighestDepth(), 210, 260, 860, 40);
+         view.beginFill(0xFFFFFF);
+         view.moveTo(245,180); view.lineTo(1035,180); view.lineTo(1035,300); view.lineTo(245,300); view.lineTo(245,180);
+         view.endFill();
+         view.createTextField("message", view.getNextHighestDepth(), 270, 220, 740, 40);
          view.message.selectable = false;
          view.message.text = "Carregando informações do hospital...";
          view.message.setTextFormat(new TextFormat("$Font2", 22, 0x526E61, false));

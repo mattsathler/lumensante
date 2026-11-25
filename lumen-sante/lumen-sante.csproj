@@ -61,7 +61,6 @@
     <Compile Include="Clinical\CareAuthor.cs" />
     <Compile Include="Clinical\WorkerDiagnosis.cs" />
     <Compile Include="Gameplay\WorkerReservations.cs" />
-    <Compile Include="Gameplay\WebsiteSlotCache.cs" />
     <Compile Include="Gameplay\NativePhoneShortcut.cs" />
     <Compile Include="Gameplay\NativeResidence.cs" />
     <Compile Include="Gameplay\NativeStartupIntro.cs" />
