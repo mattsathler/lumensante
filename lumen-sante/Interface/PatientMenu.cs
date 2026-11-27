@@ -14,17 +14,12 @@ namespace lumen_sante.Interface
         private readonly UIMenu inpatient;
         private readonly UIMenu inpatientExams;
         private readonly UIMenu inpatientTransfer;
-        private readonly UIMenu inspectionMenu;
-        private readonly UIMenu vitalsMenu;
         private readonly UIMenu conversation;
         private readonly UIMenu inpatientConversation;
-        private readonly UIMenu inpatientInspection;
-        private readonly UIMenu inpatientVitals;
         private readonly Func<bool> canTalk;
         private ExamOrders currentOrders;
         private readonly UIMenu[] views;
-        private readonly UIMenuItem[][] inspectionRows;
-        private readonly UIMenuItem[][] vitalsRows;
+        private string inspectionResult, vitalsResult;
         private string patientName;
         private int severityIndex;
 
@@ -38,16 +33,21 @@ namespace lumen_sante.Interface
             pool.Add(root);
             pool.Add(examination);
             pool.Add(inpatient);
-            inspectionMenu = MenuPalette.SubMenu(pool, examination, "Avaliação geral");
-            vitalsMenu = MenuPalette.SubMenu(pool, examination, "Sinais vitais");
             conversation = MenuPalette.SubMenu(pool, root, "Conversa com Paciente");
             inpatientConversation = MenuPalette.SubMenu(pool, inpatient, "Conversa com Paciente");
             inpatientExams = MenuPalette.SubMenu(pool, inpatient, "Exames");
-            inpatientVitals = MenuPalette.SubMenu(pool, inpatientExams, "Sinais vitais");
-            inpatientInspection = MenuPalette.SubMenu(pool, inpatientExams, "Avaliação geral");
             inpatientTransfer = MenuPalette.SubMenu(pool, inpatient, "Transferir Paciente");
 
 
+            foreach (UIMenu examMenu in new[] { examination, inpatientExams })
+            {
+                var inspection = MenuPalette.Item("Avalia\u00e7\u00e3o geral");
+                var vitals = MenuPalette.Item("Sinais vitais");
+                examMenu.AddItem(inspection);
+                examMenu.AddItem(vitals);
+                inspection.Activated += (sender, item) => RequestBedsideExam(false);
+                vitals.Activated += (sender, item) => RequestBedsideExam(true);
+            }
             var lieDown = MenuPalette.Item("Pedir para se deitar");
             root.AddItem(lieDown);
             var admissionMenu = MenuPalette.SubMenu(pool, root, "Internar Paciente");
@@ -84,27 +84,20 @@ namespace lumen_sante.Interface
                 };
                 return confirmation;
             }).ToArray();
-            views = new[] { root, examination, inpatient, inspectionMenu, vitalsMenu, inpatientExams, inpatientInspection,
-                inpatientVitals, inpatientTransfer, conversation, inpatientConversation, admissionMenu }
+            views = new[] { root, examination, inpatient, inpatientExams, inpatientTransfer, conversation, inpatientConversation, admissionMenu }
                 .Concat(dischargeMenus).ToArray();
 
-            var inspectionLabels = new[] { "Estado geral", "Respiração", "Pele e lábios", "Temperatura corporal" };
-            var vitalsLabels = new[] { "Frequência cardíaca", "Pressão arterial", "Frequência respiratória",
-                "Saturação de oxigênio", "Temperatura corporal" };
-            inspectionMenu.SubtitleText = inpatientInspection.SubtitleText = "Avaliação geral · Achados e temperatura";
-            inspectionRows = new[] { AddReadOnlyRows(inspectionMenu, inspectionLabels), AddReadOnlyRows(inpatientInspection, inspectionLabels) };
-            vitalsRows = new[] { AddReadOnlyRows(vitalsMenu, vitalsLabels), AddReadOnlyRows(inpatientVitals, vitalsLabels) };
         }
 
-        private static UIMenuItem[] AddReadOnlyRows(UIMenu menu, string[] labels)
+        private void RequestBedsideExam(bool vitals)
         {
-            return Array.ConvertAll(labels, label =>
-            {
-                var row = MenuPalette.Item(label, enabled: false);
-                menu.AddItem(row);
-                return row;
-            });
+            if (!canTalk() || currentOrders == null) return;
+            PatientInteraction?.Invoke(currentOrders);
+            Close();
+            BedsideExamRequested?.Invoke(currentOrders, vitals);
         }
+        internal string BedsideResult(bool vitals) => vitals ? vitalsResult : inspectionResult;
+        internal event Action<ExamOrders, bool> BedsideExamRequested;
 
         internal event Action<ExamOrders, bool> DischargeRequested;
         internal event Action<ExamOrders> PatientInteraction;
@@ -116,8 +109,6 @@ namespace lumen_sante.Interface
         internal event Action<InpatientUnit> TransferRequested;
 
         internal bool IsOpen => Array.Exists(views, view => view.Visible);
-        internal bool IsInspecting => inspectionMenu.Visible || inpatientInspection.Visible;
-        internal bool IsCheckingVitals => vitalsMenu.Visible || inpatientVitals.Visible;
 
         internal void Open()
         {
@@ -210,26 +201,11 @@ namespace lumen_sante.Interface
             string temperature = vitals.Temperature.HasValue
                 ? vitals.Temperature.Value.ToString("F1", System.Globalization.CultureInfo.GetCultureInfo("pt-BR")) + " °C"
                 : "Indisponível";
-            foreach (UIMenuItem[] rows in inspectionRows)
-            {
-                rows[0].RightLabel = stage.Inspection.General;
-                rows[1].RightLabel = stage.Inspection.Breathing;
-                rows[2].RightLabel = stage.Inspection.Skin;
-                rows[3].RightLabel = temperature;
-            }
-
-            string pulse = vitals.Pulse + " bpm";
-            string pressure = vitals.Systolic + "/" + vitals.Diastolic + " mmHg";
-            string breathing = vitals.RespiratoryRate + " irpm";
-            string saturation = vitals.OxygenSaturation + "%";
-            foreach (UIMenuItem[] rows in vitalsRows)
-            {
-                rows[0].RightLabel = pulse;
-                rows[1].RightLabel = pressure;
-                rows[2].RightLabel = breathing;
-                rows[3].RightLabel = saturation;
-                rows[4].RightLabel = temperature;
-            }
+            inspectionResult = "Estado geral: " + stage.Inspection.General + "~n~Respira\u00e7\u00e3o: " + stage.Inspection.Breathing +
+                "~n~Pele e l\u00e1bios: " + stage.Inspection.Skin + "~n~Temperatura: " + temperature;
+            vitalsResult = "Frequ\u00eancia card\u00edaca: " + vitals.Pulse + " bpm~n~Press\u00e3o arterial: " + vitals.Systolic + "/" + vitals.Diastolic +
+                " mmHg~n~Frequ\u00eancia respirat\u00f3ria: " + vitals.RespiratoryRate + " irpm~n~Satura\u00e7\u00e3o: " + vitals.OxygenSaturation +
+                "%~n~Temperatura: " + temperature;
         }
     }
 }

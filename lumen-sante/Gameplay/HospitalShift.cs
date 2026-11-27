@@ -275,6 +275,15 @@ namespace lumen_sante.Gameplay
 
             var patientMenu = new PatientMenu(menuPool, DiagnosticRooms[current.DiagnosticRoomIndex].Name,
                 CanInteractWithPatient);
+            ExamOrders bedsideExamPatient = null;
+            bool bedsideExamVitals = false;
+            DateTime bedsideExamEnds = DateTime.MinValue;
+            patientMenu.BedsideExamRequested += (orders, vitals) =>
+            {
+                bedsideExamPatient = orders;
+                bedsideExamVitals = vitals;
+                bedsideExamEnds = DateTime.UtcNow.AddSeconds(5);
+            };
             hospitalComputer = new HospitalComputer(menuPool, DiagnosticRooms[current.DiagnosticRoomIndex].Name, patientMenu,
                 () => current.Location == PatientLocation.Chair && current.DiagnosticRoomIndex == doctorRoomIndex && CanInteractWithPatient(),
                 () => consultations[doctorRoomIndex] != null,
@@ -2782,16 +2791,23 @@ namespace lumen_sante.Gameplay
 
                     menuPool.ProcessMenus();
                     hospitalComputer.Update(player, playerAvailable);
-                    if ((atTable || atBed) && current == nearbyCase && patientMenu.IsInspecting)
+                    if (bedsideExamPatient != null && (atTable || atBed) && current == nearbyCase &&
+                        current.Orders == bedsideExamPatient && CanInteractWithPatient() && playerAvailable && player.IsOnFoot)
                     {
-                        UpdateDoctorAnimation(player, InspectionAnimation, InspectionClip);
-                    }
-                    else if ((atTable || atBed) && current == nearbyCase && patientMenu.IsCheckingVitals)
-                    {
-                        UpdateDoctorAnimation(player, VitalsAnimation, VitalsClip);
+                        UpdateDoctorAnimation(player, bedsideExamVitals ? VitalsAnimation : InspectionAnimation,
+                            bedsideExamVitals ? VitalsClip : InspectionClip);
+                        if (DateTime.UtcNow >= bedsideExamEnds)
+                        {
+                            patientMenu.UpdateVitals(current.Disease.Stages[current.SeverityIndex], current.SeverityIndex, current.Vitals);
+                            Game.DisplayNotification(current.Name + " \u2014 " + (bedsideExamVitals ? "Sinais vitais" : "Avalia\u00e7\u00e3o geral") +
+                                "~n~" + patientMenu.BedsideResult(bedsideExamVitals));
+                            bedsideExamPatient = null;
+                            UpdateDoctorAnimation(null, null, null);
+                        }
                     }
                     else
                     {
+                        bedsideExamPatient = null;
                         UpdateDoctorAnimation(null, null, null);
                     }
                 }
