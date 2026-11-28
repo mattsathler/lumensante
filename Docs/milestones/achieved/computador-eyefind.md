@@ -26,7 +26,7 @@ Essas alterações reduzem chamadas nativas e redesenhos redundantes, mas não r
 
 A branch local `feature/computador-eyefind` contém a integração com o navegador nativo do jogo.
 
-O gerador produz dois filmes. O primeiro acrescenta o hospital ao Eyefind e contém as páginas integradas; o segundo fornece o destino solicitado pelo navegador. Os scripts ficam em [Tools/Eyefind](../Tools/Eyefind). O carregamento e as versões anteriores das páginas já foram testados no jogo; alterações posteriores ainda precisam de validação visual e funcional.
+O gerador produz dois filmes. O primeiro acrescenta o hospital ao Eyefind e contém as páginas integradas; o segundo fornece o destino solicitado pelo navegador. Os scripts ficam em [Tools/Eyefind](../../../Tools/Eyefind). O carregamento e as versões anteriores das páginas já foram testados no jogo; alterações posteriores ainda precisam de validação visual e funcional.
 
 ## Como o navegador carrega uma página
 
@@ -67,8 +67,8 @@ O gerador converte `Assets/logo.png` para formas, acrescenta a alteração ao pr
 
 ## O que dá para reaproveitar
 
-- **Integração direta.** As listas filtradas em [HospitalShift.cs](../lumen-sante/Gameplay/HospitalShift.cs), os IDs e estados de [ExamOrders.cs](../lumen-sante/Clinical/ExamOrders.cs) e as agendas de [MedicalAgenda.cs](../lumen-sante/Gameplay/MedicalAgenda.cs) já existem. Prontuários, laudos e agenda somente leitura são os primeiros candidatos.
-- **Integração que exige adaptação.** [BedManagementPanel.cs](../lumen-sante/Interface/BedManagementPanel.cs) desenha sua própria interface e edita notas diretamente. A página precisa de componentes GFx próprios e de operações do plantão que possam ser chamadas por ID na `GameFiber`. Medicamentos, exames e tratamentos devem voltar com o resultado da validação clínica. Pacientes fora do perfil ativo não devem entrar na projeção.
+- **Integração direta.** As listas filtradas em [HospitalShift.cs](../../../lumen-sante/Gameplay/HospitalShift.cs), os IDs e estados de [ExamOrders.cs](../../../lumen-sante/Clinical/ExamOrders.cs) e as agendas de [MedicalAgenda.cs](../../../lumen-sante/Gameplay/MedicalAgenda.cs) já existem. Prontuários, laudos e agenda somente leitura são os primeiros candidatos.
+- **Integração que exige adaptação.** [BedManagementPanel.cs](../../../lumen-sante/Interface/BedManagementPanel.cs) desenha sua própria interface e edita notas diretamente. A página precisa de componentes GFx próprios e de operações do plantão que possam ser chamadas por ID na `GameFiber`. Medicamentos, exames e tratamentos devem voltar com o resultado da validação clínica. Pacientes fora do perfil ativo não devem entrar na projeção.
 - **Pontos em aberto.** Retratos `PEDHEADSHOT`, comportamento visual da logo convertida e paridade detalhada das telas precisam de validação no jogo.
 
-Para alterações no C#, compilar com [a skill de build](../Skills/lumen-sante-build/SKILL.md) e rodar os validadores de agenda, perfis médicos e autoridade clínica de acordo com o fluxo alterado.
+Para alterações no C#, compilar com [a skill de build](../../../Skills/lumen-sante-build/SKILL.md) e rodar os validadores de agenda, perfis médicos e autoridade clínica de acordo com o fluxo alterado.

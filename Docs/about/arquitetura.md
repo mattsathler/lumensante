@@ -1,4 +1,6 @@
-﻿# Arquitetura e integração
+# Arquitetura e integração
+
+> Documento histórico do protótipo: várias premissas abaixo foram superadas. Para a implementação atual, consulte o código, [Jogabilidade](jogabilidade.md) e [Formato de doença JSON](formato-doenca.md).
 
 ## Ambiente-alvo
 

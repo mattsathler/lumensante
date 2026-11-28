@@ -1,4 +1,6 @@
-﻿# Instalação do Central Los Santos Medical Center
+# Instalação do Central Los Santos Medical Center
+
+Este procedimento separado complementa a [instalação dos recursos](instalacao-recursos.md), que reúne mapa, jalecos e site.
 
 1. Coloque o `dlc.rpf` preenchido em `Dependencies\gn_dual_mediccenter`.
 2. Execute `.\Build-HospitalMapPackage.ps1` na raiz do projeto para gerar `Central-Los-Santos-Medical-Center-SP.oiv`.

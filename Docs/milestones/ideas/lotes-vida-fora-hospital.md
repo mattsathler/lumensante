@@ -1,6 +1,6 @@
 # Vida fora do hospital — lotes de desenvolvimento
 
-O [catálogo de residências](catalogo-residencias-nativas.md) contém a pesquisa de imóveis e referências. Os lotes abaixo organizam implementação e validação, não representam promessa de compatibilidade antes do teste no GTA V Legacy.
+O [catálogo de residências](../../catalogo-residencias-nativas.md) contém a pesquisa de imóveis e referências. Os lotes abaixo organizam implementação e validação, não representam promessa de compatibilidade antes do teste no GTA V Legacy.
 
 ## Ciclo I
 

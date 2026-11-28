@@ -26,4 +26,4 @@ Compile com `../lumen-sante-build/scripts/Build-Plugin.ps1`. Registre quais resu
 
 Para mudanças na autoridade das condutas, execute `scripts/Validate-CareAuthority.ps1` em Windows PowerShell 5.1. O prontuário registra autor, horário e revisão. Decisões do jogador protegem o plano durante o episódio, e ações autônomas devem conferir a revisão esperada antes de alterar o estado.
 
-Para agendamento e decisões dos Doctors, leia `Docs/workers.md` e execute também `scripts/Validate-Workers.ps1`. A navegação usa `NpcRoute.BackgroundSimulation` quando o jogador está distante. Confira liberação de reservas em falhas, intervenção do jogador, morte e limpeza. Os Coroners usam uma fila simulada com intervalo de 30 minutos do jogo antes da liberação do espaço.
+Para agendamento e decisões dos Doctors, leia `Docs/milestones/achieved/workers.md` e execute também `scripts/Validate-Workers.ps1`. A navegação usa `NpcRoute.BackgroundSimulation` quando o jogador está distante. Confira liberação de reservas em falhas, intervenção do jogador, morte e limpeza. Os Coroners usam uma fila simulada com intervalo de 30 minutos do jogo antes da liberação do espaço.

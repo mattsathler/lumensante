@@ -1,4 +1,6 @@
-﻿# Visão e escopo
+# Visão e escopo
+
+> Visão histórica da primeira versão; o escopo implementado evoluiu. Consulte [Jogabilidade](jogabilidade.md) para o fluxo documentado mais recente.
 
 Lumen Santé aproveita a ideia de ocorrências episódicas de EMS Callouts e a aplica ao cotidiano hospitalar. Cada caso começa quando um paciente chega ao Central Los Santos Medical Center. O jogador recebe o paciente, consulta a ficha, solicita avaliações simuladas e decide como encaminhá-lo. O hospital é a base fixa do plantão.
 

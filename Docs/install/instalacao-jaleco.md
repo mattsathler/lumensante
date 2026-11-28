@@ -1,4 +1,6 @@
-﻿# Jaleco médico opcional
+# Jaleco médico opcional
+
+Este procedimento separado complementa a [instalação dos recursos](instalacao-recursos.md), que reúne mapa, jalecos e site.
 
 O pacote atual é Lumen-Sante-Doctor-Coat-v2.oiv. Ele substitui o casaco Import/Export jbib_006 e a textura A para MP Male e MP Female, seguindo a indicação do autor.
 

@@ -6,7 +6,7 @@ A migração vem antes do Workers. Os 12 casos atuais usarão o mesmo formato di
 
 ## Estado da implementação
 
-A versão 1 do leitor, os 12 casos JSON editáveis em `Diseases`, a descoberta de arquivos e os laudos por estágio estão implementados. O contrato está em [Formato de doença JSON](formato-doenca.md), com um exemplo completo instalável. As verificações automatizadas incluem personalização e remoção de casos padrão, descoberta de um 13º caso pela pasta relativa à DLL, laudos no consumidor real, validação de arquivos e colisões de IDs. A conferência do atendimento completo no GTA V continua pendente. O Workers seguirá o plano próprio depois dessa validação.
+A versão 1 do leitor, os 12 casos JSON editáveis em `Diseases`, a descoberta de arquivos e os laudos por estágio estão implementados. O contrato está em [Formato de doença JSON](../../formato-doenca.md), com um exemplo completo instalável. As verificações automatizadas incluem personalização e remoção de casos padrão, descoberta de um 13º caso pela pasta relativa à DLL, laudos no consumidor real, validação de arquivos e colisões de IDs. A conferência do atendimento completo no GTA V continua pendente. O Workers seguirá o plano próprio depois dessa validação.
 
 ## Contrato do arquivo
 

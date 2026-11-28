@@ -54,4 +54,4 @@ Casas de Paleto e Zancudo foram confirmadas durante a investigação; alguns out
 
 Ao propor funcionalidades, priorize imersão, coerência com a rotina de um médico e integração com o GTA V nativo. Explique como a ideia apareceria para o jogador, quais sistemas existentes poderia aproveitar, suas dependências e o que precisaria de prova no jogo. Distinga claramente o que já está implementado do que é proposta; evite tratar imagens de referência como uma lista de funcionalidades existentes.
 
-Arquivos úteis no repositório incluem `Docs/computador-eyefind.md`, `Docs/vida-fora-do-hospital.md`, `Docs/catalogo-residencias-nativas.md`, `Docs/workers.md`, `Docs/agenda-medica.md` e `Docs/doencas-modulares.md`.
+Arquivos úteis no repositório incluem `Docs/milestones/ideas/computador-eyefind.md`, `Docs/milestones/ideas/vida-fora-do-hospital.md`, `Docs/catalogo-residencias-nativas.md`, `Docs/milestones/achieved/workers.md`, `Docs/milestones/achieved/agenda-medica.md` e `Docs/milestones/achieved/doencas-modulares.md`.

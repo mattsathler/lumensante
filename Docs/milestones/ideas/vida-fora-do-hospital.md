@@ -25,7 +25,7 @@ O médico inicia sua rotina em uma residência, fora de plantão, e pode sair pa
 
 ## Residência nativa
 
-O [catálogo de residências nativas](catalogo-residencias-nativas.md) reúne os endereços e as famílias de interiores pesquisadas, incluindo Sandy Shores, Grapeseed e Paleto Bay.
+O [catálogo de residências nativas](../../catalogo-residencias-nativas.md) reúne os endereços e as famílias de interiores pesquisadas, incluindo Sandy Shores, Grapeseed e Paleto Bay.
 
 Investigar primeiro um apartamento do conteúdo original, com mobília e saídas verificáveis no Legacy. Como candidato de pesquisa, o projeto [bob74_ipl documenta um apartamento executivo e seus IPLs](https://github.com/Bob74/bob74_ipl/blob/master/dlc_executive/apartment3.lua); é uma referência para localizar recursos, não garantia de disponibilidade, colisão ou aparência no modo história. Verificar também um interior residencial do modo história como alternativa caso o apartamento de conteúdo online dependa de carregamento incompatível. Selecionar o imóvel após conferir disponibilidade no jogo, entrada externa, distância do hospital, iluminação, pontos de câmera, colisão e atividades.
 
