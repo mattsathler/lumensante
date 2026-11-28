@@ -4,6 +4,8 @@ Plugin C# para GTA V Legacy e RAGE Plugin Hook, com alvo .NET Framework 4.8.
 
 Consulte a skill local correspondente ao trabalho, lendo apenas as referências necessárias.
 
+- Planejamento e implementação de milestones — `Skills/lumen-sante-milestone/SKILL.md`.
+- Fechamento de milestones e build Release — `Skills/lumen-sante-fechar-milestone/SKILL.md`.
 - Interface, computador e ícones — `Skills/lumen-sante-interface/SKILL.md`.
 - Compilação e validação da DLL — `Skills/lumen-sante-build/SKILL.md`.
 - Plantão, NPCs, rotas e leitos — `Skills/lumen-sante-gameplay/SKILL.md`.
